@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research · Kaili Cao</title>
-<meta name="description" content="Kaili Cao&#x27;s research, by track: AI in science, image analysis and reconstruction, asteroseismology, stellar modeling, cosmological simulations and inference.">
+<meta name="description" content="Kaili Cao&#x27;s research, by track: AI in science, image reconstruction and analysis, cosmological inference and simulations, stellar modeling and asteroseismology.">
 <meta name="author" content="Kaili Cao">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -14,111 +14,26 @@
 <body>
 <header class="site">
   <a class="name" href="index.html">Kaili Cao <span lang="zh">曹开力</span></a>
-  <nav aria-label="Site"><a href="index.html">Home</a><a href="research.html" aria-current="page">Research</a><a href="publications.html">Publications</a><a href="about.html">About</a></nav>
+  <nav aria-label="Site"><a href="index.html">Home</a><div class="menu"><a href="research.html" aria-current="page">Research<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="research/ai-in-science.html">0 · AI in Science</a></li><li><a href="research/image-reconstruction.html">1 · Image Reconstruction</a></li><li><a href="research/image-analysis.html">2 · Image Analysis</a></li><li><a href="research/cosmological-inference.html">3 · Cosmological Inference</a></li><li><a href="research/cosmological-simulations.html">4 · Cosmological Simulations</a></li><li><a href="research/stellar-modeling.html">5 · Stellar Modeling</a></li><li><a href="research/asteroseismology.html">6 · Asteroseismology</a></li></ul></div><a href="publications.html">Publications</a><a href="about.html">About</a></nav>
 </header>
 <main>
-
 <h1>Research</h1>
-<p>Each track lists my papers, starting with those I led, and my role on each; plans for what comes next are coming soon. For full references, see <a href="publications.html">Publications</a>.</p>
-<section id="track-0">
-  <h2>0 · AI in Science <span class="domain">methodology</span></h2>
-  <p>Using AI to help with the research in the other tracks, while making sure that everything it produces can be checked.</p>
-  <p><a href="https://kailicao.github.io/maphub-public/">MapHub</a>, the MIDAS arXiv Preprint Hub, is a first step: it ranks each day's new arXiv preprints in astrophysics and AI by their relevance to participating researchers. A language model assigns the scores, and everything else is open: the rubric, the code and the daily tables, with every score labeled as AI-generated.</p>
-  
-  <h3>Next</h3>
-  <p class="soon">Coming soon.</p>
-</section>
-<section id="track-1">
-  <h2>1 · Image Reconstruction <span class="domain">images</span></h2>
-  <p>Reconstructing well-sampled images with a controlled point spread function from a telescope&#x27;s undersampled exposures, for the Nancy Grace Roman Space Telescope and beyond.</p>
-  <p>I refactored IMCOM, which reconstructs images by combining many dithered exposures, and applied it to the OpenUniverse2024 simulations of Roman. I then developed <strong>Effortless</strong> (EFFicient Optimal image ReconsTruction using LESS memory), a new algorithm for linear image reconstruction. By avoiding IMCOM's most laborious calculations, it is tens of times faster and uses less memory, and it can also reconstruct a single exposure. The code is <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">released on GitHub</a>.</p>
-  <h3>Papers</h3><ul class="pubs brief">
-  <li><span class="title">Efficient Optimal Image Reconstruction for the Nancy Grace Roman Space Telescope and Beyond: II. Implementation of Effortless</span> <span class="meta">(sole author; arXiv preprint)</span> <a href="https://arxiv.org/abs/2607.09862">arXiv:2607.09862</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.09862/abstract">ADS</a></li>
-  <li><span class="title">Efficient Optimal Image Reconstruction for the Nancy Grace Roman Space Telescope and Beyond: I. First Results with Effortless</span> <span class="meta">(sole author; arXiv preprint)</span> <a href="https://arxiv.org/abs/2607.06674">arXiv:2607.06674</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.06674/abstract">ADS</a></li>
-  <li><span class="title">Linear Image Regridding and Coaddition with Oversampled Point Spread Functions: Lessons from 1D</span> <span class="meta">(first author; The Astronomical Journal 171, 140 (2026))</span> <a href="https://doi.org/10.3847/1538-3881/ae356a">DOI</a> · <a href="https://arxiv.org/abs/2510.16110">arXiv:2510.16110</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2510.16110/abstract">ADS</a></li>
-  <li><span class="title">Simulating Image Coaddition with the Nancy Grace Roman Space Telescope. IV. Hyperparameter Optimization and Experimental Features</span> <span class="meta">(first author; The Astrophysical Journal 998, 304 (2026))</span> <a href="https://doi.org/10.3847/1538-4357/ae3a97">DOI</a> · <a href="https://arxiv.org/abs/2509.18286">arXiv:2509.18286</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2509.18286/abstract">ADS</a></li>
-  <li><span class="title">Simulating image coaddition with the Nancy Grace Roman Space Telescope: III. Software improvements and new linear algebra strategies</span> <span class="meta">(first author; The Astrophysical Journal Supplement Series 277, 55 (2025))</span> <a href="https://doi.org/10.3847/1538-4365/adb580">DOI</a> · <a href="https://arxiv.org/abs/2410.05442">arXiv:2410.05442</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2410.05442/abstract">ADS</a></li>
-  <li><span class="title">Simulating image coaddition with the Nancy Grace Roman Space Telescope: II. Analysis of the simulated images and implications for weak lensing</span> <span class="meta">(coauthor (7 of 19); Monthly Notices of the Royal Astronomical Society 528, 6680-6705 (2024))</span> <a href="https://doi.org/10.1093/mnras/stae177">DOI</a> · <a href="https://arxiv.org/abs/2303.08750">arXiv:2303.08750</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2303.08750/abstract">ADS</a></li>
-  <li><span class="title">Simulating image coaddition with the Nancy Grace Roman Space Telescope: I. Simulation methodology and general results</span> <span class="meta">(coauthor (7 of 19); Monthly Notices of the Royal Astronomical Society 528, 2533-2561 (2024))</span> <a href="https://doi.org/10.1093/mnras/stae182">DOI</a> · <a href="https://arxiv.org/abs/2303.08749">arXiv:2303.08749</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2303.08749/abstract">ADS</a></li>
-  </ul>
-  <h3>Next</h3>
-  <p class="soon">Coming soon.</p>
-</section>
-<section id="track-2">
-  <h2>2 · Image Analysis <span class="domain">images</span></h2>
-  <p>The physical meaning of astronomical images: noise, systematics, and images as discrete samples of continuous fields.</p>
-  
-  <h3>Papers</h3><ul class="pubs brief">
-  <li><span class="title">Robust Photometry for Roman High-Latitude Imaging Survey Cosmology Using Roman and Rubin Imaging</span> <span class="meta">(coauthor (10 of 21); arXiv preprint)</span> <a href="https://arxiv.org/abs/2607.09849">arXiv:2607.09849</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.09849/abstract">ADS</a></li>
-  <li><span class="title">Removing correlated noise stripes from the Nancy Grace Roman Space Telescope survey images</span> <span class="meta">(coauthor (4 of 4); Publications of the Astronomical Society of Japan 78, 810 (2026))</span> <a href="https://doi.org/10.1093/pasj/psag020">DOI</a> · <a href="https://arxiv.org/abs/2512.05949">arXiv:2512.05949</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2512.05949/abstract">ADS</a></li>
-  <li><span class="title">OpenUniverse2024: A shared, simulated view of the sky for the next generation of cosmological surveys</span> <span class="meta">(coauthor (14 of 61); Monthly Notices of the Royal Astronomical Society 544, 3799-3823 (2025))</span> <a href="https://doi.org/10.1093/mnras/staf1833">DOI</a> · <a href="https://arxiv.org/abs/2501.05632">arXiv:2501.05632</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2501.05632/abstract">ADS</a></li>
-  <li><span class="title">Analysis of biasing from noise from the Nancy Grace Roman Space Telescope: implications for weak lensing</span> <span class="meta">(coauthor (4 of 6); Publications of the Astronomical Society of the Pacific 136, 124506 (2024))</span> <a href="https://doi.org/10.1088/1538-3873/ad9bec">DOI</a> · <a href="https://arxiv.org/abs/2410.11088">arXiv:2410.11088</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2410.11088/abstract">ADS</a></li>
-  </ul>
-  <h3>Next</h3>
-  <p class="soon">Coming soon.</p>
-</section>
-<section id="track-3">
-  <h2>3 · Cosmological Inference <span class="domain">cosmology</span></h2>
-  <p>What surveys like Roman&#x27;s can tell us about the Universe, and how to extract it.</p>
-  
-  <h3>Papers</h3><ul class="pubs brief">
-  <li><span class="title">Fisher Forecasts for Cosmological Yields from 3×2pt Analysis of the Roman Space Telescope High Latitude Imaging Survey</span> <span class="meta">(first author; arXiv preprint, accepted for publication)</span> <a href="https://arxiv.org/abs/2601.00438">arXiv:2601.00438</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2601.00438/abstract">ADS</a></li>
-  <li><span class="title">Accurate modeling for 3×2pt analyses in Roman and Rubin: a study of model approximations</span> <span class="meta">(coauthor (7 of 9); arXiv preprint)</span> <a href="https://arxiv.org/abs/2606.23781">arXiv:2606.23781</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2606.23781/abstract">ADS</a></li>
-  </ul>
-  <h3>Next</h3>
-  <p class="soon">Coming soon.</p>
-</section>
-<section id="track-4">
-  <h2>4 · Cosmological Simulations <span class="domain">cosmology</span></h2>
-  <p>Simulations of cosmic structure, and the numerical methods that run them.</p>
-  
-  <h3>Papers</h3><ul class="pubs brief">
-  <li><span class="title">ContEvol formalism: numerical methods based on Hermite spline optimization</span> <span class="meta">(sole author; Mathematics 13, 3981 (2025))</span> <a href="https://doi.org/10.3390/math13243981">DOI</a> · <a href="https://arxiv.org/abs/2405.05188">arXiv:2405.05188</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2405.05188/abstract">ADS</a></li>
-  <li><span class="title">Studying galaxy cluster morphological metrics with Mock-X</span> <span class="meta">(first author; Monthly Notices of the Royal Astronomical Society 503, 3394-3413 (2021))</span> <a href="https://doi.org/10.1093/mnras/stab605">DOI</a> · <a href="https://arxiv.org/abs/2006.10752">arXiv:2006.10752</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2006.10752/abstract">ADS</a></li>
-  <li><span class="title">Characterizing hydrostatic mass bias with Mock-X</span> <span class="meta">(coauthor (6 of 8); Monthly Notices of the Royal Astronomical Society 506, 2533-2550 (2021))</span> <a href="https://doi.org/10.1093/mnras/stab1276">DOI</a> · <a href="https://arxiv.org/abs/2001.11508">arXiv:2001.11508</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2001.11508/abstract">ADS</a></li>
-  </ul>
-  <h3>Next</h3>
-  <p class="soon">Coming soon.</p>
-</section>
-<section id="track-5">
-  <h2>5 · Stellar Modeling <span class="domain">stars</span></h2>
-  <p>Testing stellar evolution models against thousands of observed red giant stars.</p>
-  
-  <h3>Papers</h3><ul class="pubs brief">
-  <li><span class="title">Modeling APOKASC-3 red giants: I. The first dredge-up and red giant branch bump</span> <span class="meta">(first author; The Astrophysical Journal 997, 120 (2026))</span> <a href="https://doi.org/10.3847/1538-4357/ae22d1">DOI</a> · <a href="https://arxiv.org/abs/2501.14867">arXiv:2501.14867</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2501.14867/abstract">ADS</a></li>
-  <li><span class="title">The YREC Stellar Evolution Code: Public Data Release</span> <span class="meta">(coauthor (13 of 14); The Astrophysical Journal 1006, 220 (2026))</span> <a href="https://doi.org/10.3847/1538-4357/ae71cf">DOI</a> · <a href="https://arxiv.org/abs/2603.25792">arXiv:2603.25792</a> · <a href="https://ui.adsabs.harvard.edu/abs/2026ApJ..1006..220P/abstract">ADS</a></li>
-  </ul>
-  <h3>Next</h3>
-  <p class="soon">Coming soon.</p>
-</section>
-<section id="track-6">
-  <h2>6 · Asteroseismology <span class="domain">stars</span></h2>
-  <p>Stellar oscillations as precise measures of stellar masses and ages, from Kepler to Roman.</p>
-  
-  <h3>Papers</h3><ul class="pubs brief">
-  <li><span class="title">Towards Accurate Asteroseismic Masses for Luminous Giants</span> <span class="meta">(first author; The Astrophysical Journal Letters 990, L26 (2025))</span> <a href="https://doi.org/10.3847/2041-8213/adfa12">DOI</a> · <a href="https://arxiv.org/abs/2508.06609">arXiv:2508.06609</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2508.06609/abstract">ADS</a></li>
-  <li><span class="title">Beyond the Nyquist frequency: Asteroseismic catalog of undersampled Kepler late subgiants and early red giants</span> <span class="meta">(coauthor (7 of 12); Astronomy &amp; Astrophysics 702, A144 (2025))</span> <a href="https://doi.org/10.1051/0004-6361/202555167">DOI</a> · <a href="https://arxiv.org/abs/2508.15654">arXiv:2508.15654</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2508.15654/abstract">ADS</a></li>
-  <li><span class="title">Modeling Asteroseismic Yields for the Roman Galactic Bulge Time-Domain Survey</span> <span class="meta">(coauthor (7 of 13); The Astrophysical Journal 987, 181 (2025))</span> <a href="https://doi.org/10.3847/1538-4357/adde5b">DOI</a> · <a href="https://arxiv.org/abs/2503.04999">arXiv:2503.04999</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2503.04999/abstract">ADS</a></li>
-  <li><span class="title">Red giants evolutionary status determination: the complete Kepler catalog</span> <span class="meta">(coauthor (11 of 15); Astronomy &amp; Astrophysics 697, A165 (2025))</span> <a href="https://doi.org/10.1051/0004-6361/202452635">DOI</a> · <a href="https://arxiv.org/abs/2411.03101">arXiv:2411.03101</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2411.03101/abstract">ADS</a></li>
-  <li><span class="title">APOKASC-3: The Third Joint Spectroscopic and Asteroseismic catalog for Evolved Stars in the Kepler Fields</span> <span class="meta">(coauthor (19 of 41); The Astrophysical Journal Supplement Series 276, 69 (2025))</span> <a href="https://doi.org/10.3847/1538-4365/ad9fef">DOI</a> · <a href="https://arxiv.org/abs/2410.00102">arXiv:2410.00102</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2410.00102/abstract">ADS</a></li>
-  <li><span class="title">Nature vs. Nurture: Distinguishing Effects from Stellar Processing and Chemical Evolution on Carbon and Nitrogen in Red Giant Stars</span> <span class="meta">(coauthor (11 of 19); Monthly Notices of the Royal Astronomical Society 530, 149-166 (2024))</span> <a href="https://doi.org/10.1093/mnras/stae820">DOI</a> · <a href="https://arxiv.org/abs/2403.03249">arXiv:2403.03249</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2403.03249/abstract">ADS</a></li>
-  </ul>
-  <h3>Next</h3>
-  <p class="soon">Coming soon.</p>
-</section>
-<section id="track-misc">
-  <h2>✱ · Miscellany</h2>
-  <p>Other work.</p>
-  
-  
-  <h3>Next</h3>
-  <p class="soon">Coming soon.</p>
-</section>
-
+<p>I help build the analysis infrastructure that next-generation sky surveys need, and use it to learn physics. My work spans the chain from detector pixels to cosmological and stellar parameters. It falls into seven tracks: Track 0, AI in science, is the focus of my fellowship; Tracks 1–6 cover images, cosmology and stars. Each track has its own page: a short introduction for newcomers, what I have done, my papers with my contribution to each, and what comes next.</p>
+<ul class="tracks">
+  <li><a href="research/ai-in-science.html"><strong>0 · AI in Science</strong></a>: Using physics to improve the data that AI learns from, and making sure that everything AI helps produce can be checked.</li>
+  <li><a href="research/image-reconstruction.html"><strong>1 · Image Reconstruction</strong></a>: Reconstructing well-sampled images with a controlled point spread function from a telescope&#x27;s undersampled exposures, for the Nancy Grace Roman Space Telescope and beyond. (7 papers)</li>
+  <li><a href="research/image-analysis.html"><strong>2 · Image Analysis</strong></a>: The physical meaning of astronomical images: noise, detector effects and systematics, and images as discrete samples of continuous fields. (4 papers)</li>
+  <li><a href="research/cosmological-inference.html"><strong>3 · Cosmological Inference</strong></a>: What surveys like Roman&#x27;s can tell us about the Universe, and how to extract it. (2 papers)</li>
+  <li><a href="research/cosmological-simulations.html"><strong>4 · Cosmological Simulations</strong></a>: Simulations of cosmic structure, and the numerical methods that run them. (3 papers)</li>
+  <li><a href="research/stellar-modeling.html"><strong>5 · Stellar Modeling</strong></a>: Testing stellar evolution models against thousands of observed red giant stars. (2 papers)</li>
+  <li><a href="research/asteroseismology.html"><strong>6 · Asteroseismology</strong></a>: Stellar oscillations as precise measures of stellar masses and ages, from Kepler to Roman. (6 papers)</li>
+  <li><strong>✱ · Miscellany</strong>: other work. None yet.</li>
+</ul>
+<p>The complete list of papers is on <a href="publications.html">Publications</a>.</p>
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao. Version 0.2, October 2026; more is coming.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao. Version 0.3, October 2026; more is coming.</p>
 </footer>
 </body>
 </html>

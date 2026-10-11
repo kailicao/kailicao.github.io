@@ -14,105 +14,109 @@
 <body>
 <header class="site">
   <a class="name" href="index.html">Kaili Cao <span lang="zh">曹开力</span></a>
-  <nav aria-label="Site"><a href="index.html">Home</a><a href="research.html">Research</a><a href="publications.html" aria-current="page">Publications</a><a href="about.html">About</a></nav>
+  <nav aria-label="Site"><a href="index.html">Home</a><div class="menu"><a href="research.html">Research<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="research/ai-in-science.html">0 · AI in Science</a></li><li><a href="research/image-reconstruction.html">1 · Image Reconstruction</a></li><li><a href="research/image-analysis.html">2 · Image Analysis</a></li><li><a href="research/cosmological-inference.html">3 · Cosmological Inference</a></li><li><a href="research/cosmological-simulations.html">4 · Cosmological Simulations</a></li><li><a href="research/stellar-modeling.html">5 · Stellar Modeling</a></li><li><a href="research/asteroseismology.html">6 · Asteroseismology</a></li></ul></div><a href="publications.html" aria-current="page">Publications</a><a href="about.html">About</a></nav>
 </header>
 <main>
 
 <h1>Publications</h1>
-<p>A complete list, newest first, with my position among the authors, links to the code where it is public, and, for each coauthored paper, what I contributed. The same list is on <a href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0002-1699-6944&sort=date%20desc">NASA ADS (by ORCID)</a>.</p>
-<ol class="pubs" reversed>
-  <li><span class="title">Efficient Optimal Image Reconstruction for the Nancy Grace Roman Space Telescope and Beyond: II. Implementation of Effortless</span><br>
+<p>A complete list: first-author papers (including those I wrote alone), then coauthored papers, each newest first. Entries give my position among the authors, links to the code where it is public, and, for each coauthored paper, what I contributed. The same list is on <a href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0002-1699-6944&sort=date%20desc">NASA ADS (by ORCID)</a>.</p>
+<h2>First-author papers</h2>
+<ul class="pubs">
+  <li id="arXiv-2607.09862"><span class="title">Efficient Optimal Image Reconstruction for the Nancy Grace Roman Space Telescope and Beyond: II. Implementation of Effortless</span><br>
     <span class="authors"><strong>Kaili Cao</strong></span><br>
     <span class="meta">arXiv preprint · sole author</span> · <a href="https://arxiv.org/abs/2607.09862">arXiv:2607.09862</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.09862/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">Code</a></li>
-  <li><span class="title">Robust Photometry for Roman High-Latitude Imaging Survey Cosmology Using Roman and Rubin Imaging</span><br>
-    <span class="authors">Chun-Hao To, Tae-Hyeon Shin, Chihway Chang, Christopher Hirata, Brett H. Andrews, Ami Choi, et al. (21 authors, including <strong>Kaili Cao</strong>)</span><br>
-    <span class="meta">arXiv preprint · coauthor (10 of 21)</span> · <a href="https://arxiv.org/abs/2607.09849">arXiv:2607.09849</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.09849/abstract">ADS</a><br>
-    <span class="contrib">Statement of my contribution coming soon.</span></li>
-  <li><span class="title">Efficient Optimal Image Reconstruction for the Nancy Grace Roman Space Telescope and Beyond: I. First Results with Effortless</span><br>
+  <li id="arXiv-2607.06674"><span class="title">Efficient Optimal Image Reconstruction for the Nancy Grace Roman Space Telescope and Beyond: I. First Results with Effortless</span><br>
     <span class="authors"><strong>Kaili Cao</strong></span><br>
     <span class="meta">arXiv preprint · sole author</span> · <a href="https://arxiv.org/abs/2607.06674">arXiv:2607.06674</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.06674/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">Code</a></li>
-  <li><span class="title">Accurate modeling for 3×2pt analyses in Roman and Rubin: a study of model approximations</span><br>
+  <li id="arXiv-2601.00438"><span class="title">Fisher Forecasts for Cosmological Yields from 3×2pt Analysis of the Roman Space Telescope High Latitude Imaging Survey</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, David H. Weinberg, Vivian Miranda, Nihar Dalal, Tim Eifler, Jiachuan Xu, Haley Bowden, Katarina Markovič</span><br>
+    <span class="meta">The Astrophysical Journal 1010, 21 (2026) · first author</span> · <a href="https://doi.org/10.3847/1538-4357/ae9bc0">DOI</a> · <a href="https://arxiv.org/abs/2601.00438">arXiv:2601.00438</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2601.00438/abstract">ADS</a></li>
+  <li id="arXiv-2510.16110"><span class="title">Linear Image Regridding and Coaddition with Oversampled Point Spread Functions: Lessons from 1D</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, Roman HLIS Cosmology PIT</span><br>
+    <span class="meta">The Astronomical Journal 171, 140 (2026) · first author</span> · <a href="https://doi.org/10.3847/1538-3881/ae356a">DOI</a> · <a href="https://arxiv.org/abs/2510.16110">arXiv:2510.16110</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2510.16110/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">Code</a></li>
+  <li id="arXiv-2509.18286"><span class="title">Simulating Image Coaddition with the Nancy Grace Roman Space Telescope. IV. Hyperparameter Optimization and Experimental Features</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, Christopher M. Hirata, Katherine Laliotis, Masaya Yamamoto, Emily Macbeth, M. A. Troxel, Roman HLIS Cosmology PIT</span><br>
+    <span class="meta">The Astrophysical Journal 998, 304 (2026) · first author</span> · <a href="https://doi.org/10.3847/1538-4357/ae3a97">DOI</a> · <a href="https://arxiv.org/abs/2509.18286">arXiv:2509.18286</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2509.18286/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">Code</a></li>
+  <li id="arXiv-2501.14867"><span class="title">Modeling APOKASC-3 red giants: I. The first dredge-up and red giant branch bump</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, Marc H. Pinsonneault</span><br>
+    <span class="meta">The Astrophysical Journal 997, 120 (2026) · first author</span> · <a href="https://doi.org/10.3847/1538-4357/ae22d1">DOI</a> · <a href="https://arxiv.org/abs/2501.14867">arXiv:2501.14867</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2501.14867/abstract">ADS</a> · <a href="https://github.com/kailicao/mesa_apokasc">Code</a> · <a href="https://zenodo.org/records/15863879">Zenodo</a></li>
+  <li id="arXiv-2508.06609"><span class="title">Towards Accurate Asteroseismic Masses for Luminous Giants</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, Marc H. Pinsonneault</span><br>
+    <span class="meta">The Astrophysical Journal Letters 990, L26 (2025) · first author</span> · <a href="https://doi.org/10.3847/2041-8213/adfa12">DOI</a> · <a href="https://arxiv.org/abs/2508.06609">arXiv:2508.06609</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2508.06609/abstract">ADS</a></li>
+  <li id="arXiv-2410.05442"><span class="title">Simulating image coaddition with the Nancy Grace Roman Space Telescope: III. Software improvements and new linear algebra strategies</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, Christopher M. Hirata, Katherine Laliotis, Masaya Yamamoto, Emily Macbeth, M. A. Troxel</span><br>
+    <span class="meta">The Astrophysical Journal Supplement Series 277, 55 (2025) · first author</span> · <a href="https://doi.org/10.3847/1538-4365/adb580">DOI</a> · <a href="https://arxiv.org/abs/2410.05442">arXiv:2410.05442</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2410.05442/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">Code</a></li>
+  <li id="arXiv-2405.05188"><span class="title">ContEvol formalism: numerical methods based on Hermite spline optimization</span><br>
+    <span class="authors"><strong>Kaili Cao</strong></span><br>
+    <span class="meta">Mathematics 13, 3981 (2025) · sole author</span> · <a href="https://doi.org/10.3390/math13243981">DOI</a> · <a href="https://arxiv.org/abs/2405.05188">arXiv:2405.05188</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2405.05188/abstract">ADS</a> · <a href="https://github.com/kailicao/ContEvol_formalism">Code</a></li>
+  <li id="arXiv-2006.10752"><span class="title">Studying galaxy cluster morphological metrics with Mock-X</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, David J. Barnes, Mark Vogelsberger</span><br>
+    <span class="meta">Monthly Notices of the Royal Astronomical Society 503, 3394-3413 (2021) · first author</span> · <a href="https://doi.org/10.1093/mnras/stab605">DOI</a> · <a href="https://arxiv.org/abs/2006.10752">arXiv:2006.10752</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2006.10752/abstract">ADS</a></li>
+</ul>
+<h2>Coauthored papers</h2>
+<ul class="pubs">
+  <li id="arXiv-2607.09849"><span class="title">Robust Photometry for Roman High-Latitude Imaging Survey Cosmology Using Roman and Rubin Imaging</span><br>
+    <span class="authors">Chun-Hao To, Tae-Hyeon Shin, Chihway Chang, Christopher Hirata, Brett H. Andrews, Ami Choi, et al. (21 authors, including <strong>Kaili Cao</strong>)</span><br>
+    <span class="meta">arXiv preprint · coauthor (10 of 21)</span> · <a href="https://arxiv.org/abs/2607.09849">arXiv:2607.09849</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.09849/abstract">ADS</a><br>
+    <span class="contrib">I contributed my expertise in IMCOM.</span></li>
+  <li id="arXiv-2606.23781"><span class="title">Accurate modeling for 3×2pt analyses in Roman and Rubin: a study of model approximations</span><br>
     <span class="authors">Junzhou Zhang, Chihway Chang, Jiachuan Xu, Vivian Miranda, Chun-Hao To, Haley Bowden, et al. (9 authors, including <strong>Kaili Cao</strong>)</span><br>
     <span class="meta">arXiv preprint · coauthor (7 of 9)</span> · <a href="https://arxiv.org/abs/2606.23781">arXiv:2606.23781</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2606.23781/abstract">ADS</a><br>
-    <span class="contrib">Statement of my contribution coming soon.</span></li>
-  <li><span class="title">The YREC Stellar Evolution Code: Public Data Release</span><br>
+    <span class="contrib">I contributed my experience with Fisher forecasts.</span></li>
+  <li id="arXiv-2603.25792"><span class="title">The YREC Stellar Evolution Code: Public Data Release</span><br>
     <span class="authors">Marc H. Pinsonneault, Jennifer L. van Saders, Lyra Cao, Jamie Tayar, Franck Delahaye, Leslie M. Morales, et al. (14 authors, including <strong>Kaili Cao</strong>)</span><br>
     <span class="meta">The Astrophysical Journal 1006, 220 (2026) · coauthor (13 of 14)</span> · <a href="https://doi.org/10.3847/1538-4357/ae71cf">DOI</a> · <a href="https://arxiv.org/abs/2603.25792">arXiv:2603.25792</a> · <a href="https://ui.adsabs.harvard.edu/abs/2026ApJ..1006..220P/abstract">ADS</a> · <a href="https://github.com/yreclab/yrec">Code</a><br>
     <span class="contrib">I took part in maintaining and modernizing the YREC code and in related discussions, and commented on the manuscript.</span></li>
-  <li><span class="title">Fisher Forecasts for Cosmological Yields from 3×2pt Analysis of the Roman Space Telescope High Latitude Imaging Survey</span><br>
-    <span class="authors"><strong>Kaili Cao</strong>, David H. Weinberg, Vivian Miranda, Nihar Dalal, Tim Eifler, Jiachuan Xu, Haley Bowden, Katarina Markovič</span><br>
-    <span class="meta">arXiv preprint, accepted for publication · first author</span> · <a href="https://arxiv.org/abs/2601.00438">arXiv:2601.00438</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2601.00438/abstract">ADS</a></li>
-  <li><span class="title">Removing correlated noise stripes from the Nancy Grace Roman Space Telescope survey images</span><br>
+  <li id="arXiv-2512.05949"><span class="title">Removing correlated noise stripes from the Nancy Grace Roman Space Telescope survey images</span><br>
     <span class="authors">Katherine Laliotis, Christopher M. Hirata, Emily Macbeth, <strong>Kaili Cao</strong></span><br>
     <span class="meta">Publications of the Astronomical Society of Japan 78, 810 (2026) · coauthor (4 of 4)</span> · <a href="https://doi.org/10.1093/pasj/psag020">DOI</a> · <a href="https://arxiv.org/abs/2512.05949">arXiv:2512.05949</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2512.05949/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">Code</a><br>
     <span class="contrib">I led the development of the PyIMCOM software, the platform for this work, and commented on the manuscript.</span></li>
-  <li><span class="title">Linear Image Regridding and Coaddition with Oversampled Point Spread Functions: Lessons from 1D</span><br>
-    <span class="authors"><strong>Kaili Cao</strong>, Roman HLIS Cosmology PIT</span><br>
-    <span class="meta">The Astronomical Journal 171, 140 (2026) · first author</span> · <a href="https://doi.org/10.3847/1538-3881/ae356a">DOI</a> · <a href="https://arxiv.org/abs/2510.16110">arXiv:2510.16110</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2510.16110/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">Code</a></li>
-  <li><span class="title">Simulating Image Coaddition with the Nancy Grace Roman Space Telescope. IV. Hyperparameter Optimization and Experimental Features</span><br>
-    <span class="authors"><strong>Kaili Cao</strong>, Christopher M. Hirata, Katherine Laliotis, Masaya Yamamoto, Emily Macbeth, M. A. Troxel, Roman HLIS Cosmology PIT</span><br>
-    <span class="meta">The Astrophysical Journal 998, 304 (2026) · first author</span> · <a href="https://doi.org/10.3847/1538-4357/ae3a97">DOI</a> · <a href="https://arxiv.org/abs/2509.18286">arXiv:2509.18286</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2509.18286/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">Code</a></li>
-  <li><span class="title">Modeling APOKASC-3 red giants: I. The first dredge-up and red giant branch bump</span><br>
-    <span class="authors"><strong>Kaili Cao</strong>, Marc H. Pinsonneault</span><br>
-    <span class="meta">The Astrophysical Journal 997, 120 (2026) · first author</span> · <a href="https://doi.org/10.3847/1538-4357/ae22d1">DOI</a> · <a href="https://arxiv.org/abs/2501.14867">arXiv:2501.14867</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2501.14867/abstract">ADS</a> · <a href="https://github.com/kailicao/mesa_apokasc">Code</a> · <a href="https://zenodo.org/records/15863879">Zenodo</a></li>
-  <li><span class="title">Beyond the Nyquist frequency: Asteroseismic catalog of undersampled Kepler late subgiants and early red giants</span><br>
+  <li id="arXiv-2508.15654"><span class="title">Beyond the Nyquist frequency: Asteroseismic catalog of undersampled Kepler late subgiants and early red giants</span><br>
     <span class="authors">B. Liagre, R. A. García, S. Mathur, M. H. Pinsonneault, A. Serenelli, J. C. Zinn, et al. (12 authors, including <strong>Kaili Cao</strong>)</span><br>
     <span class="meta">Astronomy &amp; Astrophysics 702, A144 (2025) · coauthor (7 of 12)</span> · <a href="https://doi.org/10.1051/0004-6361/202555167">DOI</a> · <a href="https://arxiv.org/abs/2508.15654">arXiv:2508.15654</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2508.15654/abstract">ADS</a><br>
     <span class="contrib">I provided theoretical predictions of first dredge-up signals and took part in related discussions.</span></li>
-  <li><span class="title">Towards Accurate Asteroseismic Masses for Luminous Giants</span><br>
-    <span class="authors"><strong>Kaili Cao</strong>, Marc H. Pinsonneault</span><br>
-    <span class="meta">The Astrophysical Journal Letters 990, L26 (2025) · first author</span> · <a href="https://doi.org/10.3847/2041-8213/adfa12">DOI</a> · <a href="https://arxiv.org/abs/2508.06609">arXiv:2508.06609</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2508.06609/abstract">ADS</a></li>
-  <li><span class="title">Modeling Asteroseismic Yields for the Roman Galactic Bulge Time-Domain Survey</span><br>
+  <li id="arXiv-2503.04999"><span class="title">Modeling Asteroseismic Yields for the Roman Galactic Bulge Time-Domain Survey</span><br>
     <span class="authors">Trevor J. Weiss, Noah J. Downing, Marc H. Pinsonneault, Joel C. Zinn, Dennis Stello, Timothy R. Bedding, et al. (13 authors, including <strong>Kaili Cao</strong>)</span><br>
     <span class="meta">The Astrophysical Journal 987, 181 (2025) · coauthor (7 of 13)</span> · <a href="https://doi.org/10.3847/1538-4357/adde5b">DOI</a> · <a href="https://arxiv.org/abs/2503.04999">arXiv:2503.04999</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2503.04999/abstract">ADS</a><br>
     <span class="contrib">I took part in discussions of Roman asteroseismology and commented on the manuscript.</span></li>
-  <li><span class="title">OpenUniverse2024: A shared, simulated view of the sky for the next generation of cosmological surveys</span><br>
+  <li id="arXiv-2501.05632"><span class="title">OpenUniverse2024: A shared, simulated view of the sky for the next generation of cosmological surveys</span><br>
     <span class="authors">OpenUniverse, The LSST Dark Energy Science Collaboration, The Roman HLIS Project Infrastructure Team, The Roman RAPID Project Infrastructure Team, The Roman Supernova Cosmology Project Infrastructure Team, A. Alarcon, et al. (61 authors, including <strong>Kaili Cao</strong>)</span><br>
     <span class="meta">Monthly Notices of the Royal Astronomical Society 544, 3799-3823 (2025) · coauthor (14 of 61)</span> · <a href="https://doi.org/10.1093/mnras/staf1833">DOI</a> · <a href="https://arxiv.org/abs/2501.05632">arXiv:2501.05632</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2501.05632/abstract">ADS</a><br>
     <span class="contrib">I led the development of the PyIMCOM software used to produce the IMCOM coadds, and contributed to writing the paper.</span></li>
-  <li><span class="title">Red giants evolutionary status determination: the complete Kepler catalog</span><br>
+  <li id="arXiv-2411.03101"><span class="title">Red giants evolutionary status determination: the complete Kepler catalog</span><br>
     <span class="authors">M. Vrard, M. H. Pinsonneault, Y. Elsworth, M. Hon, T. Kallinger, J. Kuszlewicz, et al. (15 authors, including <strong>Kaili Cao</strong>)</span><br>
     <span class="meta">Astronomy &amp; Astrophysics 697, A165 (2025) · coauthor (11 of 15)</span> · <a href="https://doi.org/10.1051/0004-6361/202452635">DOI</a> · <a href="https://arxiv.org/abs/2411.03101">arXiv:2411.03101</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2411.03101/abstract">ADS</a><br>
     <span class="contrib">I took part in discussions of how to tell first-ascent red giant branch stars from asymptotic giant branch stars.</span></li>
-  <li><span class="title">Simulating image coaddition with the Nancy Grace Roman Space Telescope: III. Software improvements and new linear algebra strategies</span><br>
-    <span class="authors"><strong>Kaili Cao</strong>, Christopher M. Hirata, Katherine Laliotis, Masaya Yamamoto, Emily Macbeth, M. A. Troxel</span><br>
-    <span class="meta">The Astrophysical Journal Supplement Series 277, 55 (2025) · first author</span> · <a href="https://doi.org/10.3847/1538-4365/adb580">DOI</a> · <a href="https://arxiv.org/abs/2410.05442">arXiv:2410.05442</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2410.05442/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">Code</a></li>
-  <li><span class="title">APOKASC-3: The Third Joint Spectroscopic and Asteroseismic catalog for Evolved Stars in the Kepler Fields</span><br>
+  <li id="arXiv-2410.00102"><span class="title">APOKASC-3: The Third Joint Spectroscopic and Asteroseismic catalog for Evolved Stars in the Kepler Fields</span><br>
     <span class="authors">Marc H. Pinsonneault, Joel C. Zinn, Jamie Tayar, Aldo Serenelli, Rafael A. Garcia, Savita Mathur, et al. (41 authors, including <strong>Kaili Cao</strong>)</span><br>
     <span class="meta">The Astrophysical Journal Supplement Series 276, 69 (2025) · coauthor (19 of 41)</span> · <a href="https://doi.org/10.3847/1538-4365/ad9fef">DOI</a> · <a href="https://arxiv.org/abs/2410.00102">arXiv:2410.00102</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2410.00102/abstract">ADS</a><br>
     <span class="contrib">I took part in discussions of the catalog, contributed substantially to the uncertainties of its spectroscopic observables, and contributed to writing the paper.</span></li>
-  <li><span class="title">ContEvol formalism: numerical methods based on Hermite spline optimization</span><br>
-    <span class="authors"><strong>Kaili Cao</strong></span><br>
-    <span class="meta">Mathematics 13, 3981 (2025) · sole author</span> · <a href="https://doi.org/10.3390/math13243981">DOI</a> · <a href="https://arxiv.org/abs/2405.05188">arXiv:2405.05188</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2405.05188/abstract">ADS</a> · <a href="https://github.com/kailicao/ContEvol_formalism">Code</a></li>
-  <li><span class="title">Analysis of biasing from noise from the Nancy Grace Roman Space Telescope: implications for weak lensing</span><br>
+  <li id="arXiv-2410.11088"><span class="title">Analysis of biasing from noise from the Nancy Grace Roman Space Telescope: implications for weak lensing</span><br>
     <span class="authors">Katherine Laliotis, Emily Macbeth, Christopher M. Hirata, <strong>Kaili Cao</strong>, Masaya Yamamoto, Michael Troxel</span><br>
     <span class="meta">Publications of the Astronomical Society of the Pacific 136, 124506 (2024) · coauthor (4 of 6)</span> · <a href="https://doi.org/10.1088/1538-3873/ad9bec">DOI</a> · <a href="https://arxiv.org/abs/2410.11088">arXiv:2410.11088</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2410.11088/abstract">ADS</a><br>
     <span class="contrib">I led the development of the PyIMCOM software used to combine the images, took part in discussions of the data analysis methods, and commented on the manuscript.</span></li>
-  <li><span class="title">Nature vs. Nurture: Distinguishing Effects from Stellar Processing and Chemical Evolution on Carbon and Nitrogen in Red Giant Stars</span><br>
+  <li id="arXiv-2403.03249"><span class="title">Nature vs. Nurture: Distinguishing Effects from Stellar Processing and Chemical Evolution on Carbon and Nitrogen in Red Giant Stars</span><br>
     <span class="authors">John D. Roberts, Marc H. Pinsonneault, Jennifer A. Johnson, Joel C. Zinn, David H. Weinberg, Mathieu Vrard, et al. (19 authors, including <strong>Kaili Cao</strong>)</span><br>
     <span class="meta">Monthly Notices of the Royal Astronomical Society 530, 149-166 (2024) · coauthor (11 of 19)</span> · <a href="https://doi.org/10.1093/mnras/stae820">DOI</a> · <a href="https://arxiv.org/abs/2403.03249">arXiv:2403.03249</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2403.03249/abstract">ADS</a><br>
     <span class="contrib">I contributed to the uncertainties of spectroscopic observables in the APOKASC-3 catalog, provided theoretical insight into the first dredge-up, and commented on the manuscript.</span></li>
-  <li><span class="title">Simulating image coaddition with the Nancy Grace Roman Space Telescope: II. Analysis of the simulated images and implications for weak lensing</span><br>
+  <li id="arXiv-2303.08750"><span class="title">Simulating image coaddition with the Nancy Grace Roman Space Telescope: II. Analysis of the simulated images and implications for weak lensing</span><br>
     <span class="authors">Masaya Yamamoto, Katherine Laliotis, Emily Macbeth, Tianqing Zhang, Christopher M. Hirata, M. A. Troxel, et al. (19 authors, including <strong>Kaili Cao</strong>)</span><br>
     <span class="meta">Monthly Notices of the Royal Astronomical Society 528, 6680-6705 (2024) · coauthor (7 of 19)</span> · <a href="https://doi.org/10.1093/mnras/stae177">DOI</a> · <a href="https://arxiv.org/abs/2303.08750">arXiv:2303.08750</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2303.08750/abstract">ADS</a><br>
     <span class="contrib">I helped find some of the code's known issues and address them in its working version.</span></li>
-  <li><span class="title">Simulating image coaddition with the Nancy Grace Roman Space Telescope: I. Simulation methodology and general results</span><br>
+  <li id="arXiv-2303.08749"><span class="title">Simulating image coaddition with the Nancy Grace Roman Space Telescope: I. Simulation methodology and general results</span><br>
     <span class="authors">Christopher M. Hirata, Masaya Yamamoto, Katherine Laliotis, Emily Macbeth, M. A. Troxel, Tianqing Zhang, et al. (19 authors, including <strong>Kaili Cao</strong>)</span><br>
     <span class="meta">Monthly Notices of the Royal Astronomical Society 528, 2533-2561 (2024) · coauthor (7 of 19)</span> · <a href="https://doi.org/10.1093/mnras/stae182">DOI</a> · <a href="https://arxiv.org/abs/2303.08749">arXiv:2303.08749</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2303.08749/abstract">ADS</a><br>
     <span class="contrib">I helped find some of the code's known issues and address them in its working version.</span></li>
-  <li><span class="title">Studying galaxy cluster morphological metrics with Mock-X</span><br>
-    <span class="authors"><strong>Kaili Cao</strong>, David J. Barnes, Mark Vogelsberger</span><br>
-    <span class="meta">Monthly Notices of the Royal Astronomical Society 503, 3394-3413 (2021) · first author</span> · <a href="https://doi.org/10.1093/mnras/stab605">DOI</a> · <a href="https://arxiv.org/abs/2006.10752">arXiv:2006.10752</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2006.10752/abstract">ADS</a></li>
-  <li><span class="title">Characterizing hydrostatic mass bias with Mock-X</span><br>
+  <li id="arXiv-2001.11508"><span class="title">Characterizing hydrostatic mass bias with Mock-X</span><br>
     <span class="authors">David J. Barnes, Mark Vogelsberger, Francesca A. Pearce, Ana-Roxana Pop, Rahul Kannan, <strong>Kaili Cao</strong>, Scott T. Kay, Lars Hernquist</span><br>
     <span class="meta">Monthly Notices of the Royal Astronomical Society 506, 2533-2550 (2021) · coauthor (6 of 8)</span> · <a href="https://doi.org/10.1093/mnras/stab1276">DOI</a> · <a href="https://arxiv.org/abs/2001.11508">arXiv:2001.11508</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2001.11508/abstract">ADS</a><br>
     <span class="contrib">I gave feedback on early data products of the MOCK-X framework, took part in discussions of relaxation criteria, and commented on the manuscript.</span></li>
-</ol>
+</ul>
 
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao. Version 0.2, October 2026; more is coming.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao. Version 0.3, October 2026; more is coming.</p>
 </footer>
 </body>
 </html>

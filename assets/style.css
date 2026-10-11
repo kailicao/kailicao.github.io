@@ -41,3 +41,17 @@ footer.site { border-top: 1px solid var(--line); padding-top: 12px; padding-bott
 @media (max-width: 600px) { body { font-size: 16px; } h1 { font-size: 1.6rem; } }
 .pubs .contrib { display: block; margin-top: 2px; font-size: .95rem; }
 .talks li { margin-bottom: 8px; }
+.crumb { color: var(--muted); font-size: .9rem; margin: 20px 0 0; }
+.crumb + h1 { margin-top: 4px; }
+/* Drop-down under Research: opens on hover or keyboard focus; the link itself still goes to the overview */
+.menu { position: relative; }
+.submenu { display: none; position: absolute; top: 100%; left: -12px; z-index: 10; min-width: 15.5rem; margin: 0; padding: 6px 0; list-style: none;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 18px rgba(0, 0, 0, .14); }
+.menu:hover .submenu, .menu:focus-within .submenu { display: block; }
+header.site nav .submenu a { display: block; padding: 5px 14px; white-space: nowrap; color: var(--accent); font-weight: 400; border-bottom: 0; }
+header.site nav .submenu a:hover, header.site nav .submenu a:focus { background: var(--bg); }
+header.site nav .submenu a[aria-current="page"] { color: var(--text); font-weight: 600; }
+.caret { display: inline-block; margin-left: 3px; font-size: .8em; transition: transform .15s; }
+.menu:hover .caret, .menu:focus-within .caret { transform: rotate(180deg); }
+@media (prefers-reduced-motion: reduce) { .caret { transition: none; } }
+ul.pubs { list-style: none; padding-left: 0; }
