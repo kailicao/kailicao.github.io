@@ -55,3 +55,16 @@ header.site nav .submenu a[aria-current="page"] { color: var(--text); font-weigh
 .menu:hover .caret, .menu:focus-within .caret { transform: rotate(180deg); }
 @media (prefers-reduced-motion: reduce) { .caret { transition: none; } }
 ul.pubs { list-style: none; padding-left: 0; }
+.software li { margin-bottom: 12px; }
+/* Header stays at the top on wider screens; on phones, where it wraps, it scrolls away */
+@media (min-width: 700px) {
+  header.site { position: sticky; top: 0; z-index: 20; background: var(--bg); }
+  /* full-width background behind the header, without clipping the drop-down menus */
+  header.site::before { content: ""; position: absolute; top: 0; bottom: 0; left: -100vmax; right: -100vmax; background: var(--bg); z-index: -1; }
+  html { scroll-padding-top: 80px; }
+}
+/* keeps the header's full-width background from widening the page (clip, unlike hidden, keeps the header sticky) */
+body { overflow-x: clip; }
+.submenu li.sep { border-top: 1px solid var(--line); margin-top: 4px; padding-top: 4px; }
+h2 a { color: inherit; text-decoration: none; }
+h2 a:hover { text-decoration: underline; }
