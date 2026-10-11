@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software · Kaili Cao</title>
+<meta name="description" content="Kaili Cao's software (Effortless, PyIMCOM, MapHub, YREC, mesa_apokasc, ContEvol) and skills.">
+<meta name="author" content="Kaili Cao">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+<body>
+<header class="site">
+  <a class="name" href="index.html">Kaili Cao <span lang="zh">曹开力</span></a>
+  <nav aria-label="Site"><a href="index.html">Home</a><div class="menu"><a href="about.html" aria-current="page">About<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="publications.html">Publications</a></li><li><a href="presentations.html">Presentations</a></li><li><a href="software.html" aria-current="page">Software</a></li><li><a href="about/personal.html">Personal</a></li></ul></div><a href="cv/Kaili_Cao_CV.pdf">CV</a><a href="ai.html">AI</a><div class="menu"><a href="images.html">Images<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="research/image-reconstruction.html">Image Reconstruction</a></li><li><a href="research/image-analysis.html">Image Analysis</a></li></ul></div><div class="menu"><a href="cosmology.html">Cosmology<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="research/cosmological-inference.html">Cosmological Inference</a></li><li><a href="research/cosmological-simulations.html">Cosmological Simulations</a></li></ul></div><div class="menu"><a href="stars.html">Stars<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="research/stellar-modeling.html">Stellar Modeling</a></li><li><a href="research/asteroseismology.html">Asteroseismology</a></li></ul></div><div class="menu"><a href="opinions.html">Opinions<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="opinions/teaching.html">Teaching Philosophy</a></li><li><a href="opinions/ethics.html">Research Ethics</a></li><li><a href="opinions/career.html">Career Development</a></li></ul></div></nav>
+</header>
+<main>
+<p class="crumb"><a href="about.html">About</a> · Software</p>
+<h1>Software</h1>
+<p>Most of my research ends up as code. I release it publicly, mostly under open licenses and with documentation, so that others can check and reuse it.</p>
+<section>
+  <h2>Codes</h2>
+  <ul class="software">
+    <li><strong><a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">Effortless</a></strong> (Python, MIT license). An algorithm for linear image reconstruction that, like IMCOM, controls the point spread functions of output images, but is tens of times faster and has a smaller memory footprint. Its programming interface is general enough for uses beyond weak lensing and beyond Roman. I designed and wrote it. Papers: <a href="publications.html#arXiv-2607.06674">Cao 2026a</a>, <a href="publications.html#arXiv-2607.09862">Cao 2026b</a>; background in <a href="publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>.</li>
+    <li><strong><a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">PyIMCOM</a></strong> (Python, MIT license). Image combination for the Roman Space Telescope, developed by the Roman HLIS Cosmology Project Infrastructure Team, with tests, continuous integration and <a href="https://pyimcom.readthedocs.io/">documentation</a>. I led the refactoring of IMCOM into this object-oriented package, which reduced the computing cost by about an order of magnitude, and I added a configuration interface and docstrings to make it easier to use (<a href="publications.html#arXiv-2410.05442">Cao et al. 2025</a>). It produced the IMCOM coadds of OpenUniverse2024.</li>
+    <li><strong><a href="https://kailicao.github.io/maphub-public/">MapHub</a></strong> (<a href="https://github.com/kailicao/maphub-public">Python</a>). Scores each day's new arXiv preprints in astrophysics and AI for their relevance to each participant, from a short research portfolio that each participant writes, and shows the scores as a heatmap: selecting yourself shows the papers that matter most to you, and selecting a paper shows who is most likely to answer questions about it. A language model assigns the scores against a published rubric. MapHub is a carpentry of the Schmidt AI in Science Fellowship that I lead, with teammates Kyle Heyblom, Eva Albalghiti and Dimitrios Simatos; I designed and built its scorer and web viewer with AI assistance (<a href="https://claude.com/product/claude-code">Claude Code</a>).</li>
+    <li><strong><a href="https://github.com/yreclab/yrec">YREC</a></strong> (Fortran). The Yale Rotating Stellar Evolution Code. I have helped maintain and modernize it, as one of its contributors and a coauthor of its public data release (<a href="publications.html#arXiv-2603.25792">Pinsonneault et al. 2026</a>).</li>
+    <li><strong><a href="https://github.com/kailicao/mesa_apokasc">mesa_apokasc</a></strong> (Python, MIT license). The <a href="https://docs.mesastar.org/">MESA</a> models and analysis behind my comparison of stellar models with APOKASC-3 red giants (<a href="publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>), with the MESA inlists (input files) and visualization notebooks on <a href="https://zenodo.org/records/15863879">Zenodo</a>.</li>
+    <li><strong><a href="https://github.com/kailicao/ContEvol_formalism">ContEvol</a></strong> (Mathematica notebooks, MIT license). The examples for the ContEvol numerical methods (<a href="publications.html#arXiv-2405.05188">Cao 2025</a>).</li>
+  </ul>
+</section>
+
+</main>
+<footer class="site">
+  <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao. Version 0.5, October 2026; more is coming.</p>
+</footer>
+</body>
+</html>

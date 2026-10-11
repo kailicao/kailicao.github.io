@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI in Science · Kaili Cao</title>
+<meta name="description" content="Kaili Cao on AI in science: data-centric research, white-box deliverables, MapHub, how he uses AI in daily work, applications and teaching.">
+<meta name="author" content="Kaili Cao">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+<body>
+<header class="site">
+  <a class="name" href="index.html">Kaili Cao <span lang="zh">曹开力</span></a>
+  <nav aria-label="Site"><a href="index.html">Home</a><div class="menu"><a href="about.html">About<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="publications.html">Publications</a></li><li><a href="presentations.html">Presentations</a></li><li><a href="software.html">Software</a></li><li><a href="about/personal.html">Personal</a></li></ul></div><a href="cv/Kaili_Cao_CV.pdf">CV</a><a href="ai.html" aria-current="page">AI</a><div class="menu"><a href="images.html">Images<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="research/image-reconstruction.html">Image Reconstruction</a></li><li><a href="research/image-analysis.html">Image Analysis</a></li></ul></div><div class="menu"><a href="cosmology.html">Cosmology<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="research/cosmological-inference.html">Cosmological Inference</a></li><li><a href="research/cosmological-simulations.html">Cosmological Simulations</a></li></ul></div><div class="menu"><a href="stars.html">Stars<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="research/stellar-modeling.html">Stellar Modeling</a></li><li><a href="research/asteroseismology.html">Asteroseismology</a></li></ul></div><div class="menu"><a href="opinions.html">Opinions<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="opinions/teaching.html">Teaching Philosophy</a></li><li><a href="opinions/ethics.html">Research Ethics</a></li><li><a href="opinions/career.html">Career Development</a></li></ul></div></nav>
+</header>
+<main>
+<h1>AI in Science</h1>
+<p class="lead">Using physics to improve the data that AI learns from, and making sure that everything AI helps produce can be checked.</p>
+<section>
+  <h2>Where I stand</h2>
+  <p>What I can promise is that my deliverables, however much AI helped produce them, are white boxes: transparent and checkable. I am not an AI expert, and in general I do not consider myself one of the most enthusiastic people about AI, so I cannot make AI itself a white box.</p>
+  <p>In precision science, systematic errors are an ethical matter: a biased pipeline can lead a whole community to the wrong conclusions about the Universe. So I prefer methods I can interpret. I use AI to extend physical understanding, not to replace physical models with opaque networks. The best check against error is scrutiny by the community, and automation should never outpace the scientific method.</p>
+  <p>As data and computation stop being what limits progress in astronomy, and AI takes over more of the routine work, what stays scarce is innovation and judgment: seeing a question or a method nobody has tried, knowing what a method assumes and how it fails, and turning a result into physical understanding. That is where I want to spend my own effort.</p>
+</section>
+<section>
+  <h2>In my research</h2>
+  <p>Machine learning is now widely used to analyze astronomical images. But a model learns whatever is in its training data, including the telescope's imperfections: a blurry or uneven point spread function, correlated noise, artifacts from undersampling. A model trained on such data may learn the instrument rather than the sky.</p>
+<p>My approach is data-centric. Rather than building ever more complex models to make up for imperfect data, I use physics to improve the data first, so that AI discovers the universe, not the instrument. <a href="research/image-reconstruction.html">Image reconstruction</a> is where this starts. Effortless, my algorithm for linear image reconstruction, is efficient and interpretable: where IMCOM's large matrix inversion is largely a black box, Effortless designs its weights in steps that can each be understood.</p>
+</section>
+<section>
+  <h2>MapHub</h2>
+  <p>My work on AI in science began with my <a href="https://midas.umich.edu/training/postdoctoral-programs/schmidt-ai-in-science-postdoctoral-fellowship/">Schmidt AI in Science Fellowship</a> at MIDAS. Its first deliverable is <a href="https://kailicao.github.io/maphub-public/">MapHub</a>, the MIDAS arXiv Preprint Hub, a carpentry of the fellowship that I lead with teammates Kyle Heyblom, Eva Albalghiti and Dimitrios Simatos. Each day since October 2026, MapHub scores the new arXiv preprints in astrophysics and AI for their relevance to each participant, so that participants see which papers matter most to them and who is most likely to answer questions about a paper; the same scoring is working back through earlier listings. A language model assigns the scores, and everything else is open: the rubric, the code and the daily tables, with every score labeled as AI-generated. The model's reasoning may be opaque, but what MapHub delivers can be checked.</p>
+</section>
+<section>
+  <h2>In my daily work</h2>
+  <p>I work with AI as I would with a capable student: it drafts and suggests; I check, decide and take responsibility. I label its part wherever it applies.</p>
+  <ul>
+    <li>I read the literature with LSAP, the Legacy Survey of astro-ph: my system for finding, reading and remembering papers, named after the Rubin Observatory's <a href="https://rubinobservatory.org/">Legacy Survey of Space and Time</a>. I keep one file of checked notes per paper, with every entry graded by how far it can be trusted and how well I understand it. An AI chatbot reads each paper as my student: it presents the paper at my level, I question and correct it, and it writes up what it learned. An AI summary tells me whether a paper is relevant; it never means I have understood it. So I work with AI actively, correcting and extending what it says, not passively, like watching TV.</li>
+    <li>This website is written with AI assistance <a href="https://www.anthropic.com/claude">(Claude)</a> and reviewed by me, as every page's footer says.</li>
+  </ul>
+</section>
+<section>
+  <h2>Teaching with AI</h2>
+  <p>For college teachers trained in the traditional way, generative AI is both a challenge and an opportunity. It can help teachers design courses and activities, join brainstorming and discussion, and give students personalized support and feedback. For students, AI literacy is now essential, and they need guidance on using AI effectively and responsibly. A goal I find achievable: <em>a successful student will be able to do something, with or without AI, that someone else cannot easily become able to do, with or without AI.</em> In short, students should give better answers than AI, not just answers with it, and they should learn to check AI results, for example with null tests.</p>
+  <p>In 2025 I wrote a handout for fellow graduate students and college teachers, <em>A College Teacher's Survival Guide in the AI Era</em>, based on José Antonio Bowen and C. Edward Watson's <em><a href="https://doi.org/10.56021/9781421449227">Teaching with AI</a></em> (2024). The tools have changed quickly since then, but its main points still hold for me:</p>
+  <ul>
+    <li>People, not tools, are accountable for results. Students are responsible for what they submit.</li>
+    <li>No assignment is truly AI-proof, and no detector is perfect. Cheating often means students do not see the value of doing the work themselves, so the incentives need to be there.</li>
+    <li>Neither banning AI nor allowing it without limits works best. Discuss AI policies with students early, starting with why.</li>
+    <li>Used well, AI can be a patient tutor, help personalize examples, and take part in class discussion, for instance as devil's advocate.</li>
+  </ul>
+  <p>How I teach more generally is on <a href="opinions/teaching.html">Teaching Philosophy</a>.</p>
+</section>
+<section>
+  <h2>Acknowledging AI</h2>
+  <p>In research, AI plays two main roles: something like a search engine, and a writing assistant. The first does not need to be mentioned; the second should be acknowledged. Every page of this website says that it was written with AI assistance and reviewed by me.</p>
+</section>
+<section id="applications">
+  <h2>Applying for jobs with AI</h2>
+  <p>I used an AI chatbot a lot when applying for postdocs, and corrected it often. It invented facts about me, got eligibility rules and page limits wrong, rated almost every position an "excellent match", and lost track in long sessions. What worked:</p>
+  <ul>
+    <li>Give it only verified sources about yourself (CV, abstracts, exact statements of your contributions), and tell it not to make things up.</li>
+    <li>Ask it to explain any phrase before you keep it. You should be able to support every sentence you send.</li>
+    <li>Ask for small edits that keep your own words, one task at a time.</li>
+    <li>Use it for reading, summaries and structure. Check facts, fit, names and rules yourself.</li>
+  </ul>
+  <p>More from that search is on <a href="opinions/career.html">Career Development</a>.</p>
+</section>
+<section>
+  <h2>What comes next</h2>
+  <p>Since my work on AI in science began with my fellowship, most of it lies ahead. I hope AI will help me reach the goals of my research on images, cosmology and stars, while everything I deliver stays checkable.</p>
+</section>
+</main>
+<footer class="site">
+  <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao. Version 0.5, October 2026; more is coming.</p>
+</footer>
+</body>
+</html>

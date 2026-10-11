@@ -68,3 +68,6 @@ body { overflow-x: clip; }
 .submenu li.sep { border-top: 1px solid var(--line); margin-top: 4px; padding-top: 4px; }
 h2 a { color: inherit; text-decoration: none; }
 h2 a:hover { text-decoration: underline; }
+ul.news { list-style: none; padding-left: 0; }
+ul.news li { margin-bottom: 10px; }
+ul.news .date { display: inline-block; min-width: 5.5em; color: var(--muted); font-variant-numeric: tabular-nums; }
