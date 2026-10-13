@@ -20,7 +20,7 @@ a { color: var(--accent); }
 header.site, main, footer.site { max-width: 780px; margin: 0 auto; padding: 0 16px; }
 header.site { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; padding-top: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
 header.site .name { font-weight: 700; font-size: 1.15rem; color: var(--text); text-decoration: none; }
-header.site nav { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+header.site nav { display: flex; flex-wrap: wrap; gap: 4px 13px; font-size: .94rem; }
 header.site nav a { text-decoration: none; }
 header.site nav a[aria-current="page"] { color: var(--text); font-weight: 600; border-bottom: 3px solid var(--mark); }
 main { padding-top: 8px; padding-bottom: 32px; }
@@ -233,7 +233,7 @@ h2 .hide-toggle { font-size: .8rem; font-weight: 400; vertical-align: middle; ma
 .tk-n { color: var(--tk-n); } .tk-c { color: var(--tk-c); font-style: italic; } .tk-p { color: var(--tk-p); }
 
 /* Chinese version (P23): language switch and Chinese typography */
-nav a.lang { margin-left: 4px; padding: 0 8px; border: 1px solid var(--line); border-radius: 999px; font-size: .9rem; }
+nav a.lang { margin-left: 2px; padding: 0 7px; border: 1px solid var(--line); border-radius: 999px; font-size: .88rem; }
 html:lang(zh-CN) body { font-family: system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif; line-height: 1.75; }
 html:lang(zh-CN) h1, html:lang(zh-CN) h2, html:lang(zh-CN) h3 { letter-spacing: .02em; }
 html:lang(zh-CN) em { font-style: normal; font-weight: 600; }
