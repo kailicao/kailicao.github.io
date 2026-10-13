@@ -14,10 +14,11 @@
 <meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Kaili Cao (曹开力), astrophysicist, Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, MIDAS, University of Michigan">
+<meta property="og:image:alt" content="Kaili Cao (曹开力), astrophysicist, Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, MIDAS, University of Michigan, with his portrait photo">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Kaili Cao">
 <link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/figures.css">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -26,40 +27,49 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site">
   <a class="name" href="../index.html">Kaili Cao <span lang="zh">曹开力</span></a>
-  <nav aria-label="Site"><a href="../index.html">Home</a><div class="menu"><a href="../about/">About<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-directions/">Research</a></li><li><a href="../about/publications.html">Publications</a></li><li><a href="../about/presentations.html">Presentations</a></li><li><a href="../about/software.html">Software</a></li><li><a href="../about/personal.html">Personal</a></li></ul></div><a href="../cv/Kaili_Cao_CV.pdf">CV</a><a href="../ai/">AI</a><div class="menu"><a href="../images/">Images<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../images/image-reconstruction.html">Image Reconstruction</a></li><li><a href="../images/image-analysis.html">Image Analysis</a></li><li><a href="../images/extragalactic-astronomy.html">Extragalactic Astronomy</a></li><li class="sep"><a href="../glossary/#images">Glossary</a></li></ul></div><div class="menu"><a href="../cosmology/">Cosmology<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cosmology/cosmological-inference.html">Cosmological Inference</a></li><li><a href="../cosmology/cosmological-simulations.html">Cosmological Simulations</a></li><li class="sep"><a href="../glossary/#cosmology">Glossary</a></li></ul></div><div class="menu"><a href="../stars/">Stars<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../stars/stellar-modeling.html">Stellar Modeling</a></li><li><a href="../stars/asteroseismology.html">Asteroseismology</a></li><li class="sep"><a href="../glossary/#stars">Glossary</a></li></ul></div><div class="menu"><a href="./" aria-current="page">Opinions<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="learning-python.html">Learning Python</a></li><li><a href="python.html">Python Philosophy</a></li><li><a href="ethics.html">Research Ethics</a></li><li><a href="teaching.html" aria-current="page">Teaching Philosophy</a></li><li><a href="career.html">Career Development</a></li></ul></div></nav>
+  <nav aria-label="Site"><a href="../index.html">Home</a><div class="menu"><a href="../about/">About<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-directions/">Research</a></li><li><a href="../about/publications.html">Publications</a></li><li><a href="../about/presentations.html">Presentations</a></li><li><a href="../about/software.html">Software</a></li><li><a href="../about/personal.html">Personal</a></li></ul></div><div class="menu"><a href="../cv/Kaili_Cao_CV.pdf">CV<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cv/Kaili_Cao_CV.pdf">Full version (PDF)</a></li><li><a href="../cv/Kaili_Cao_CV_short.pdf">Short version (PDF)</a></li><li><a href="../cv/Kaili_Cao_Resume.pdf">Résumé (PDF, preliminary)</a></li></ul></div><div class="menu"><a href="../ai/">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="https://kailicao.github.io/maphub-public/">MapHub</a></li></ul></div><div class="menu"><a href="../images/">Images<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../images/image-reconstruction.html">Image Reconstruction</a></li><li><a href="../images/image-analysis.html">Image Analysis</a></li><li><a href="../images/extragalactic-astronomy.html">Extragalactic Astronomy</a></li><li class="sep"><a href="../glossary/#images">Glossary</a></li></ul></div><div class="menu"><a href="../cosmology/">Cosmology<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cosmology/cosmological-inference.html">Cosmological Inference</a></li><li><a href="../cosmology/cosmological-simulations.html">Cosmological Simulations</a></li><li class="sep"><a href="../glossary/#cosmology">Glossary</a></li></ul></div><div class="menu"><a href="../stars/">Stars<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../stars/stellar-modeling.html">Stellar Modeling</a></li><li><a href="../stars/asteroseismology.html">Asteroseismology</a></li><li class="sep"><a href="../glossary/#stars">Glossary</a></li></ul></div><div class="menu"><a href="./" aria-current="page">Opinions<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="learning-python.html">Learning Python</a></li><li><a href="python.html">Python Philosophy</a></li><li><a href="ethics.html">Research Ethics</a></li><li><a href="teaching.html" aria-current="page">Teaching Philosophy</a></li><li><a href="career.html">Career Development</a></li></ul></div></nav>
 </header>
 <main id="main">
 <p class="crumb"><a href="./">Opinions</a> · Teaching Philosophy</p>
 <h1>Teaching Philosophy</h1>
 <p class="lead">My goal in teaching is to cultivate independent thinkers.</p>
 <section>
-  <h2>Why teach physics</h2>
+  <h2 class="i i-atom">Why teach physics</h2>
   <p>I think of physics as the study of how nature works at the most fundamental level. But teaching physics is more than teaching its theories and their applications. By studying physics, students learn to extract, condense, express and apply information about the world, both nature and human society. In an information age, where unreliable information is everywhere, that ability and critical thinking matter more than ever. So I aim to teach skills that transfer, to physics majors and others alike, including the mathematics and computing that physics needs.</p>
   <p>I used to think teaching was about passing on knowledge. I now think it is about helping students construct their own, so my job is to make each student's learning as good as it can be, not to show what I know. College teaching should not be a selection process: students will face selection soon enough, and my job is to help every one of them as far as I can.</p>
 </section>
 <section>
-  <h2>Lecturing</h2>
+  <h2 class="i i-board">Lecturing</h2>
   <p>Multimedia has given students many ways to learn, but I still see lecturing as indispensable, as long as students are not passive receivers. I plan each course by <a href="https://en.wikipedia.org/wiki/Backward_design">backward design</a>: I set the course goals, break them into learning outcomes, and plan class activities to reach them. The subjects I teach usually move from the concrete to the abstract, and that transition is where independent thinking lies, so I often make it the learning outcome of a lesson. In an introduction to probability, for example, I emphasize turning real-world problems into mathematical language.</p>
+<figure class="fig" id="fig-backward-design">
+<ol class="fig-steps">
+  <li><div class="fig-box fig-blue-k"><strong>Course goals</strong><span>what students should be able to do</span></div></li>
+  <li><div class="fig-box fig-blue-k"><strong>Learning outcomes</strong><span>goals broken into steps I can check</span></div></li>
+  <li><div class="fig-box fig-blue-k"><strong>Class activities</strong><span>planned to reach each outcome</span></div></li>
+</ol>
+<figcaption>Backward design, a strategy from Wiggins and McTighe's <em>Understanding by Design</em> that I use in my own teaching: I set course goals first, break them into learning outcomes I can check, and plan class activities to reach them. The <a href="../about/presentations/2025-04-01_microteaching-basic-counting.pdf">slides of my microteaching lesson</a> show it in practice: they open with the learning outcomes and end by checking them. Made with AI assistance (Claude).</figcaption>
+</figure>
+
   <p>In class, I often guide students with questions. In my Python course, I asked students to explain example code in their own words, then followed up with questions that helped them recall what they knew and find the right path. When they tackled the exercises on their own, they were never stuck at the start, and could always write down what they thought, which gave me something to respond to.</p>
 </section>
 <section>
-  <h2>Feedback</h2>
+  <h2 class="i i-pen">Feedback</h2>
   <p>As experts, we find it hard to imagine what novices do not know: the <a href="https://en.wikipedia.org/wiki/Curse_of_knowledge">curse of knowledge</a>, or expert blind spot. My remedy is feedback that is specific and constructive. When I graded graduate quantum mechanics, I gave each student detailed comments, and after each assignment I wrote to the whole class about recurring errors and how to fix them.</p>
   <p>Independent thinkers should also be able to judge their own progress. I plan to use frequent short assessments, so students can check how they are doing against my feedback. They learn not only the material but how to learn, which makes them more confident and more willing to take part in class.</p>
   <p>Students also come with very different backgrounds. I see that diversity as an asset, since every student brings something to the class, and I plan to meet it with short surveys at the start and support at more than one level.</p>
 </section>
 <section>
-  <h2>Mentoring</h2>
+  <h2 class="i i-users">Mentoring</h2>
   <p>Mentoring research is part of my teaching too, and it is hardest with undergraduates and new graduate students, who are new to research. In research, everyone faces the unknown, and even the mentor does not have all the answers. So I explain what research is like and help students set reasonable expectations, because frustration is often the biggest barrier for beginners. And however busy I am, I reply to beginners' questions promptly. My aim is for students to move from using code to building their own research tools.</p>
   <p>My own path, from French literature through computer science to astrophysics, makes me especially glad to work with students whose backgrounds are not the usual ones.</p>
   <p>If you are a student who would like to work with me, see <a href="../about/#working-with-me">Working with me</a>; projects I could offer are on my <a href="../research-directions/#students">Research Directions</a>.</p>
 </section>
 <section>
-  <h2>Teaching in the AI era</h2>
+  <h2 class="i i-spark">Teaching in the AI era</h2>
   <p>How I think about AI in teaching, and in my work generally, is on <a href="../ai/">AI in Science</a>.</p>
 </section>
 <section>
-  <h2>Growing as a teacher</h2>
+  <h2 class="i i-sprout">Growing as a teacher</h2>
   <p>Higher education keeps changing with society and technology, and so does my teaching. I keep learning teaching methods, follow new educational technology, and ask colleagues for feedback. From time to time I sit in on classes in other disciplines, to remember what it is like to be a novice and to learn from other perspectives. A teacher is always a learner of teaching, and I try to keep a student's mindset.</p>
   <p>Books that shaped my teaching:</p>
   <ul>
@@ -72,11 +82,11 @@
   </ul>
 </section>
 <section>
-  <h2>What I have done</h2>
-  <p>My teaching and mentoring so far, from an online Python tutorial to grading graduate quantum mechanics, is listed on <a href="../about/#teaching">About</a>. The tutorial is the course I have designed from scratch: its stages, exercises and what I learned from teaching it are on <a href="learning-python.html">Learning Python</a>, and the ideas behind it on <a href="python.html">Python Philosophy</a>. In spring 2025, I took College Teaching (ESEPSY 7404) at Ohio State, where I planned a short lesson on permutations and combinations by backward design and taught it to my peers; the probability example under Lecturing comes from that lesson. The written feedback on the lesson said that its opening problem "was a great hook, as it was shared prior knowledge and something concrete students could relate to," and noted my "use of humor throughout": "You got students involved throughout the lesson…"</p>
+  <h2 class="i i-checklist">What I have done</h2>
+  <p>My teaching and mentoring so far, from an online Python tutorial to grading graduate quantum mechanics, is listed on <a href="../about/#teaching">About</a>. The tutorial is the course I have designed from scratch: its stages, exercises and what I learned from teaching it are on <a href="learning-python.html">Learning Python</a>, and the ideas behind it on <a href="python.html">Python Philosophy</a>. In spring 2025, I took College Teaching (ESEPSY 7404) at Ohio State, where I planned a short lesson on permutations and combinations by backward design and taught it to my peers (<a href="../about/presentations/2025-04-01_microteaching-basic-counting.pdf">slides</a>, PDF); the probability example under Lecturing comes from that lesson. The written feedback on the lesson said that its opening problem "was a great hook, as it was shared prior knowledge and something concrete students could relate to," and noted my "use of humor throughout": "You got students involved throughout the lesson…"</p>
 </section>
 <section>
-  <h2 id="courses">Courses I could teach</h2>
+  <h2 id="courses" class="i i-cap">Courses I could teach</h2>
   <p><strong>Undergraduate</strong></p>
   <ul>
     <li>Introductory astronomy: stars, galaxies and the Universe, for majors or non-majors</li>
@@ -95,11 +105,11 @@
   </ul>
 </section>
 <section>
-  <h2>Plans and outreach</h2>
+  <h2 class="i i-compass">Plans and outreach</h2>
   <p>At <a href="https://midas.umich.edu/">MIDAS</a>, I hope to run short workshops for students and researchers on high-performance Python, Git workflows and good practice in machine learning, and to mentor students working where a domain science meets AI. I see well-documented open-source software as a kind of outreach, because it lets researchers anywhere take part in large missions.</p>
 </section>
 <section>
-  <h2>Notes for students</h2>
+  <h2 class="i i-book">Notes for students</h2>
   <ul>
     <li><a href="career.html#postdocs">What I learned applying for postdocs</a></li>
   </ul>
@@ -107,7 +117,7 @@
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.6, last updated October 12, 2026.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.7, last updated October 13, 2026.</p>
 </footer>
 <script src="../assets/site.js" defer></script>
 </body>

@@ -1,4 +1,3 @@
-# Build the CV with `latexmk` in this folder: it writes Kaili_Cao_CV.pdf, the file the site links to.
+# Build the CVs and the résumé with `latexmk` in this folder: Kaili_Cao_CV.pdf (full), Kaili_Cao_CV_short.pdf and Kaili_Cao_Resume.pdf.
 $pdf_mode = 1;
-@default_files = ('main.tex');
-$jobname = 'Kaili_Cao_CV';
+@default_files = ('Kaili_Cao_CV.tex', 'Kaili_Cao_CV_short.tex', 'Kaili_Cao_Resume.tex');

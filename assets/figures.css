@@ -88,3 +88,24 @@ ol.fig-time { list-style: none; margin: 0; padding: 0 0 0 1.2rem; border-left: 3
 ol.fig-time li { position: relative; margin: 0 0 14px; padding-left: 12px; }
 ol.fig-time li::before { content: ""; position: absolute; left: calc(-1.2rem - 9px); top: .35em; width: 12px; height: 12px; border-radius: 50%; background: var(--fig-k, var(--muted)); border: 2px solid var(--surface); }
 ol.fig-time .when { display: block; color: var(--muted); font-size: .88rem; font-variant-numeric: tabular-nums; }
+/* research map: area and topic names link to their pages */
+.fig-map a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.fig-map a:hover, .fig-map a:focus { color: var(--accent); }
+.fig-pairs a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+.fig-pairs a:hover, .fig-pairs a:focus { color: var(--accent); }
+/* a figure folded away by default (details.fig-fold) */
+details.fig-fold { margin: 16px 0; }
+details.fig-fold > summary { cursor: pointer; color: var(--accent); }
+/* a tall photo, kept small */
+figure.fig-narrow { max-width: 380px; }
+/* a small photo beside a list (Home, News) */
+figure.fig-side { float: right; width: 200px; margin: 4px 0 12px 20px; padding: 10px; }
+figure.fig-side figcaption { font-size: .78rem; }
+#news::after { content: ""; display: block; clear: both; }
+@media (max-width: 600px) { figure.fig-side { width: 140px; } }
+/* a small preview figure */
+figure.fig-small { max-width: 340px; }
+figure.fig-small figcaption { font-size: .8rem; }
+/* a smaller copy of a diagram from another page */
+figure.fig-mini { max-width: 520px; zoom: .8; }
+figure.fig-medium { max-width: 520px; }

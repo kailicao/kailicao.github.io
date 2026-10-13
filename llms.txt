@@ -8,7 +8,7 @@ Disambiguation: more than one researcher is named Kaili Cao. This site is about 
 - [Home](https://kailicao.github.io/): research overview, news and contact
 - [About](https://kailicao.github.io/about/): position, team memberships, education, teaching, skills
 - [Personal](https://kailicao.github.io/about/personal.html): who he is, his path, how he works
-- [CV (PDF)](https://kailicao.github.io/cv/Kaili_Cao_CV.pdf)
+- [CV (PDF)](https://kailicao.github.io/cv/Kaili_Cao_CV.pdf); [short version](https://kailicao.github.io/cv/Kaili_Cao_CV_short.pdf); [one-page résumé for data science and software roles, preliminary](https://kailicao.github.io/cv/Kaili_Cao_Resume.pdf)
 
 ## Research
 - [Publications](https://kailicao.github.io/about/publications.html): complete list with his position among the authors and his contribution to each coauthored paper

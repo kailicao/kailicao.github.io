@@ -14,10 +14,11 @@
 <meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Kaili Cao (曹开力), astrophysicist, Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, MIDAS, University of Michigan">
+<meta property="og:image:alt" content="Kaili Cao (曹开力), astrophysicist, Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, MIDAS, University of Michigan, with his portrait photo">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="Kaili Cao">
 <link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/figures.css">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -26,41 +27,62 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site">
   <a class="name" href="../index.html">Kaili Cao <span lang="zh">曹开力</span></a>
-  <nav aria-label="Site"><a href="../index.html">Home</a><div class="menu"><a href="./" aria-current="page">About<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-directions/">Research</a></li><li><a href="publications.html">Publications</a></li><li><a href="presentations.html">Presentations</a></li><li><a href="software.html">Software</a></li><li><a href="personal.html" aria-current="page">Personal</a></li></ul></div><a href="../cv/Kaili_Cao_CV.pdf">CV</a><a href="../ai/">AI</a><div class="menu"><a href="../images/">Images<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../images/image-reconstruction.html">Image Reconstruction</a></li><li><a href="../images/image-analysis.html">Image Analysis</a></li><li><a href="../images/extragalactic-astronomy.html">Extragalactic Astronomy</a></li><li class="sep"><a href="../glossary/#images">Glossary</a></li></ul></div><div class="menu"><a href="../cosmology/">Cosmology<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cosmology/cosmological-inference.html">Cosmological Inference</a></li><li><a href="../cosmology/cosmological-simulations.html">Cosmological Simulations</a></li><li class="sep"><a href="../glossary/#cosmology">Glossary</a></li></ul></div><div class="menu"><a href="../stars/">Stars<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../stars/stellar-modeling.html">Stellar Modeling</a></li><li><a href="../stars/asteroseismology.html">Asteroseismology</a></li><li class="sep"><a href="../glossary/#stars">Glossary</a></li></ul></div><div class="menu"><a href="../opinions/">Opinions<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../opinions/learning-python.html">Learning Python</a></li><li><a href="../opinions/python.html">Python Philosophy</a></li><li><a href="../opinions/ethics.html">Research Ethics</a></li><li><a href="../opinions/teaching.html">Teaching Philosophy</a></li><li><a href="../opinions/career.html">Career Development</a></li></ul></div></nav>
+  <nav aria-label="Site"><a href="../index.html">Home</a><div class="menu"><a href="./" aria-current="page">About<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-directions/">Research</a></li><li><a href="publications.html">Publications</a></li><li><a href="presentations.html">Presentations</a></li><li><a href="software.html">Software</a></li><li><a href="personal.html" aria-current="page">Personal</a></li></ul></div><div class="menu"><a href="../cv/Kaili_Cao_CV.pdf">CV<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cv/Kaili_Cao_CV.pdf">Full version (PDF)</a></li><li><a href="../cv/Kaili_Cao_CV_short.pdf">Short version (PDF)</a></li><li><a href="../cv/Kaili_Cao_Resume.pdf">Résumé (PDF, preliminary)</a></li></ul></div><div class="menu"><a href="../ai/">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="https://kailicao.github.io/maphub-public/">MapHub</a></li></ul></div><div class="menu"><a href="../images/">Images<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../images/image-reconstruction.html">Image Reconstruction</a></li><li><a href="../images/image-analysis.html">Image Analysis</a></li><li><a href="../images/extragalactic-astronomy.html">Extragalactic Astronomy</a></li><li class="sep"><a href="../glossary/#images">Glossary</a></li></ul></div><div class="menu"><a href="../cosmology/">Cosmology<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cosmology/cosmological-inference.html">Cosmological Inference</a></li><li><a href="../cosmology/cosmological-simulations.html">Cosmological Simulations</a></li><li class="sep"><a href="../glossary/#cosmology">Glossary</a></li></ul></div><div class="menu"><a href="../stars/">Stars<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../stars/stellar-modeling.html">Stellar Modeling</a></li><li><a href="../stars/asteroseismology.html">Asteroseismology</a></li><li class="sep"><a href="../glossary/#stars">Glossary</a></li></ul></div><div class="menu"><a href="../opinions/">Opinions<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../opinions/learning-python.html">Learning Python</a></li><li><a href="../opinions/python.html">Python Philosophy</a></li><li><a href="../opinions/ethics.html">Research Ethics</a></li><li><a href="../opinions/teaching.html">Teaching Philosophy</a></li><li><a href="../opinions/career.html">Career Development</a></li></ul></div></nav>
 </header>
 <main id="main">
 <p class="crumb"><a href="./">About</a> · Personal</p>
 <h1>Personal</h1>
 <p class="lead">I am someone who tries to handle information in better ways.</p>
 <section>
-  <h2>Who I am</h2>
+  <h2 class="i i-user">Who I am</h2>
   <p>"Integrating information" is the thread that runs through what I have studied, from French literature to computer science and physics, and through each path I can imagine for myself. Researchers extract information from nature; industry understands the world through data; teachers pass on knowledge that has been put in order. I would be glad to do any of them well. The book that has shaped how I handle information most is Mortimer J. Adler and Charles Van Doren's <em><a href="https://en.wikipedia.org/wiki/How_to_Read_a_Book">How to Read a Book</a></em>: a book about reading books, a "metabook" if you like, and my bible of information management.</p>
   <p>Astrophysics suits me for the same reason: physics looks for the simplest description, and astronomy has the most complex objects. What draws me most is the method, using numerical computation to make theoretical predictions, more than any particular object.</p>
   <p>The person I want to become is both romantic and realistic, an idea inspired by <em>Don Quixote</em>. To me, real romance is not attaching beautiful things to oneself but giving imagined beautiful things to the world. Romance without reality is only fantasy, and reality without romance is gray.</p>
 </section>
 <section>
-  <h2>My path</h2>
+  <h2 class="i i-route">My path</h2>
   <p>I studied French language and literature at <a href="https://www.nju.edu.cn/en/">Nanjing University</a>. A summer as a visiting student at <a href="https://www.mit.edu/">Massachusetts Institute of Technology</a> in 2019 led to my first research paper, on galaxy clusters in simulations. I then spent a year on computer science at Nanjing before my PhD in physics at <a href="https://www.osu.edu/">The Ohio State University</a>, which took me from red giant stars to the Roman Space Telescope. I am now at the <a href="https://umich.edu/">University of Michigan</a>.</p>
+<figure class="fig" id="fig-path-timeline">
+<ol class="fig-time">
+  <li style="--fig-k: var(--fig-gold)"><span class="when">2026–</span>Schmidt AI in Science Postdoctoral Fellow, MIDAS, University of Michigan</li>
+  <li style="--fig-k: var(--fig-blue)"><span class="when">2021–2026</span>PhD in Physics, The Ohio State University</li>
+  <li style="--fig-k: var(--fig-orange)"><span class="when">2020–2021</span>A year of computer science, Nanjing University</li>
+  <li style="--fig-k: var(--muted)"><span class="when">2016–2020</span>BA in French, Nanjing University</li>
+  <li style="--fig-k: var(--muted)"><span class="when">Summer 2019</span>Visiting student at the Massachusetts Institute of Technology, where my first research paper began</li>
+</ol>
+<figcaption>My path so far. Made with AI assistance (Claude).</figcaption>
+</figure>
+
   <p>Along the way, I have come to care most about building bridges: the computational kind, between theory and data, and the human kind, between people and science.</p>
 </section>
 <section>
-  <h2>How I work</h2>
+  <h2 class="i i-clock">How I work</h2>
   <p>Since my second year of college, I have tracked how I spend my time. Each entry records what kind of activity it was, how long it took, what I did and how efficiently. Every day starts from a template, with the day's plan and a short list of daily goals, and I adjust the template as I learn what works: I look back at the end of each day, each week, every month or two, and each year. I think of the template as navigation, but in time rather than space.</p>
+<figure class="fig" id="fig-time-loop">
+<ol class="fig-steps">
+  <li><div class="fig-box fig-blue-k"><strong>Record</strong><span>type, duration, task and efficiency of each activity</span></div></li>
+  <li><div class="fig-box fig-blue-k"><strong>Analyze</strong><span>look back each day, week, month or two, and year</span></div></li>
+  <li><div class="fig-box fig-blue-k"><strong>Adjust</strong><span>update the daily template that every day starts from</span></div></li>
+</ol>
+<p class="fig-loop">↺ and repeat</p>
+<figcaption>How I manage my time: record each activity, look back at several time scales, and adjust the daily template. Made with AI assistance (Claude).</figcaption>
+</figure>
+
   <p>I keep notes on almost every part of my research, which I call work logs, and I read the literature with LSAP, my system of checked notes on every paper I read (see <a href="../ai/">AI in Science</a>). Writing things down lets me talk across time, with other people and with my past and future selves.</p>
 </section>
 <section>
-  <h2>Languages</h2>
+  <h2 class="i i-globe">Languages</h2>
   <p>Chinese is my native language. I work in English, and I studied French. In each of them, I care about using words precisely.</p>
   <p>My name in Chinese is 曹开力, written in pinyin as Cáo Kāilì. As is usual in Chinese, the family name comes first: Cao (曹) is my family name, and Kaili (开力) is my given name, which I put first in English. Cao sounds roughly like "tsow" (rhyming with "now"), and Kaili like "kye-lee."</p>
 </section>
 <section>
-  <h2>Outside work</h2>
+  <h2 class="i i-book">Outside work</h2>
   <p>I read widely: textbooks, nonfiction and fiction, newsletters and articles. I learn from online courses, documentaries and explanatory videos, and I enjoy movies, TV series, music and video games. Much of what I know came from the people who made them, and I am grateful to them.</p>
 </section>
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="colophon.html">how this site is made</a>). Version 0.6, last updated October 12, 2026.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="colophon.html">how this site is made</a>). Version 0.7, last updated October 13, 2026.</p>
 </footer>
 <script src="../assets/site.js" defer></script>
 </body>

@@ -142,3 +142,35 @@ document.querySelectorAll('main pre').forEach(function (pre) {
   });
   pre.appendChild(b);
 });
+
+// 4. Hideable blocks (data-hideable, e.g. Highlights): a [hide]/[show] button after the heading
+//    before them; shown by default, and the choice is remembered in this browser.
+document.querySelectorAll('[data-hideable]').forEach(function (box) {
+  var h = box.previousElementSibling;
+  while (h && !/^H[23]$/.test(h.tagName)) h = h.previousElementSibling;
+  if (!h) return;
+  var zh = (document.documentElement.lang || '').indexOf('zh') === 0;
+  var T = zh ? { hide: '隐藏', show: '显示' } : { hide: 'hide', show: 'show' };
+  var keyName = 'hide:' + location.pathname + '#' + (box.id || '');
+  var b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'toc-toggle hide-toggle';
+  b.setAttribute('aria-controls', box.id || '');
+  var intro = box.previousElementSibling && box.previousElementSibling.tagName === 'P' ? box.previousElementSibling : null;
+  function apply(hidden) {
+    box.hidden = hidden;
+    if (intro) intro.hidden = hidden;
+    b.textContent = hidden ? T.show : T.hide;
+    b.setAttribute('aria-expanded', String(!hidden));
+  }
+  var stored = null;
+  try { stored = localStorage.getItem(keyName); } catch (e) {}
+  apply(stored === 'hidden');
+  b.addEventListener('click', function () {
+    var hidden = !box.hidden;
+    apply(hidden);
+    try { localStorage.setItem(keyName, hidden ? 'hidden' : 'shown'); } catch (e) {}
+  });
+  h.appendChild(document.createTextNode(' '));
+  h.appendChild(b);
+});
