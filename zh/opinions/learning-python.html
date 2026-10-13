@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学习Python · 曹开力</title>
+<meta name="description" content="写给Python学习者的建议：为什么学、怎样学、到哪里找答案，来自曹开力2022至2023年的线上Python课程。">
+<link rel="alternate" hreflang="en" href="https://kailicao.github.io/opinions/learning-python.html">
+<link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/opinions/learning-python.html">
+<link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/opinions/learning-python.html">
+<link rel="canonical" href="https://kailicao.github.io/zh/opinions/learning-python.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="学习Python · 曹开力">
+<meta property="og:description" content="写给Python学习者的建议：为什么学、怎样学、到哪里找答案，来自曹开力2022至2023年的线上Python课程。">
+<meta property="og:url" content="https://kailicao.github.io/zh/opinions/learning-python.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="曹开力（Kaili Cao）">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/figures.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<style>
+/* Code blocks; move to assets/style.css when integrating */
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
+pre { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; overflow-x: auto; line-height: 1.45; }
+pre code { font-size: .88rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <a class="name" href="../index.html">曹开力 <span lang="en">Kaili Cao</span></a>
+  <nav aria-label="网站导航"><a href="../index.html">首页</a><div class="menu"><a href="../about/">关于我<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-directions/">研究</a></li><li><a href="../about/publications.html">论文</a></li><li><a href="../about/presentations.html">报告</a></li><li><a href="../about/software.html">软件</a></li><li><a href="../about/personal.html">个人</a></li></ul></div><div class="menu"><a href="../../cv/Kaili_Cao_CV.pdf">履历<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../../cv/Kaili_Cao_CV.pdf">完整版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_CV_short.pdf">简版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_Resume.pdf">一页简历（PDF，初稿）</a></li></ul></div><div class="menu"><a href="../ai/">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="https://kailicao.github.io/maphub-public/">MapHub</a></li><li class="sep"><a href="../glossary/">术语表</a></li></ul></div><div class="menu"><a href="../images/">图像<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../images/image-reconstruction.html">图像重建</a></li><li><a href="../images/image-analysis.html">图像分析</a></li><li><a href="../images/extragalactic-astronomy.html">河外天文学</a></li><li class="sep"><a href="../glossary/#images">术语表</a></li></ul></div><div class="menu"><a href="../cosmology/">宇宙学<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cosmology/cosmological-inference.html">宇宙学推断</a></li><li><a href="../cosmology/cosmological-simulations.html">宇宙学模拟</a></li><li class="sep"><a href="../glossary/#cosmology">术语表</a></li></ul></div><div class="menu"><a href="../stars/">恒星<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../stars/stellar-modeling.html">恒星建模</a></li><li><a href="../stars/asteroseismology.html">星震学</a></li><li class="sep"><a href="../glossary/#stars">术语表</a></li></ul></div><div class="menu"><a href="./" aria-current="page">观点<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="learning-python.html" aria-current="page">学习Python</a></li><li><a href="python.html">Python哲学</a></li><li><a href="ethics.html">科研伦理</a></li><li><a href="teaching.html">教学理念</a></li><li><a href="career.html">职业发展</a></li></ul></div><a class="lang" href="../../opinions/learning-python.html" hreflang="en" lang="en">English</a></nav>
+</header>
+<main id="main"><p class="crumb"><a href="./">观点</a> · 学习Python</p>
+<h1>学习Python</h1>
+<p class="lead">写给所有Python学习者的建议，来自我在2022至2023年讲授的免费线上Python课程。</p>
+<p>这些建议来自我在2022—2023年讲授的课程，那时AI还没有大量写代码。我没有为此更新这些建议，其中有些可能已经过时。在AI写代码的今天，我认为哪些东西仍然重要、为什么重要，见<a href="python.html">Python哲学</a>。</p>
+<section>
+  <h2 id="why" class="i i-bulb">学习Python有什么用</h2>
+  <p>我认为，还不会任何编程语言的人，学Python都会大有裨益：</p>
+  <ul>
+    <li>如果你的工作需要处理数据，无论是数值还是文本，Python都是有力的工具。</li>
+    <li>学会编程后，你用电脑做的很多工作都可以自动化，把时间留给需要人来做的事。</li>
+    <li>学习编程可以训练一种思维方式，帮助你更好地在信息化时代生存。</li>
+  </ul>
+  <p>AI时代又多了一个理由：读不懂的代码，你就无法检查；而读懂代码的能力，来自亲手写过一些代码。</p>
+  <p>Python并不难。只要愿意学，谁都能学到写出实用代码、满足自身需求的程度。对我来说，Python已经成了使用计算机的一种方式。科研中，我用它管理文件、运行模拟，以及读取和分析数据、绘图；学习中，用它计算和画图；生活中，几乎所有计算都交给它，还用它做一些小项目，例如为电子书制作书签，或者用暴力搜索求解一个滑块游戏。</p>
+</section>
+<section>
+  <h2 id="study" class="i i-book">学习方法</h2>
+  <ul>
+    <li><strong>先做好准备。</strong>安装一款集成开发环境（IDE），学会Python的两种运行方式：脚本用于实际工作，交互式Shell用于尝试。万事开头难，一旦卡住，就尽快求助。我不推荐初学者使用Jupyter Notebook，因为在其中更难看清输入和输出的对应关系。</li>
+    <li><strong>每个例子都自己试一遍，</strong>然后修改它，看看会发生什么。只有当你确实能<a href="python.html#try">预知它的结果</a>时，才可以不试。</li>
+    <li><strong>知道自己需要达到哪个层次。</strong>有些内容需要掌握到会写，有些只需理解到能读，还有很多只需<a href="python.html#levels">了解，知道有这回事</a>即可。等工作需要时再学细节。</li>
+    <li><strong>用<code>help</code>。</strong>键入<code>help(print)</code>，或者对方法键入<code>help(str.split)</code>，就能看到代码自带的文档。要养成这个好习惯。</li>
+    <li><strong>看代码运行。</strong><a href="https://pythontutor.com/">Python Tutor</a>可以一步一步地演示程序的运行。每走一步之前，先猜猜接下来会发生什么。</li>
+    <li><strong>带着批判的眼光阅读教学材料。</strong>我所用的课程里，有些例子本可以写得更简洁、更Pythonic；改写这些例子就是我布置的练习之一。对网上的代码和AI写的代码，也应如此。</li>
+    <li><strong>做一个项目。</strong>围绕自己遇到的实际问题做一个小项目，你会明白学这些究竟有什么用，也会对自己的能力更有信心。</li>
+  </ul>
+</section>
+<section>
+  <h2 id="answers" class="i i-search">到哪里找答案</h2>
+  <p>掌握基础知识后，要逐渐习惯于“问”已有的资料，而不是问人。这样得到的回答更快，也更靠谱：</p>
+  <ul>
+    <li><code>help</code>函数；</li>
+    <li>Python语言和你所用的各种程序包的文档；</li>
+    <li>编程论坛。初学者遇到的问题，几乎都已经有人遇到并讨论过了；不过能不能找到这些讨论是一门技巧，取决于你搜索时怎么措辞。能读英文的话，用英文搜索往往能找到更多讨论。</li>
+  </ul>
+  <p>你想做的常见操作，比如处理字符串，一定已经有人写好了，所以除非是为了练习，否则不要自己动手写。如今，问起来最快的是AI助手，它很擅长告诉你已经有哪些现成的工具。但AI的回答不是文档。事关重大时，请用<code>help</code>和官方文档核对，并自己试一试。</p>
+</section>
+<section>
+  <h2 id="teaching" class="i i-board">我的教学方式</h2>
+  <p>这门课分为三个阶段。第一阶段是基础知识：学生以南京大学的一门公开课为纲，配合我编写的学习指南、习题和每周的线上课来学习。第二阶段是实例讲解：我从自己和学生们的实际工作中提炼出实例来讲解，例如从PDF文件中提取网页链接、为电子书制作书签、统计投票数据，以及用暴力搜索求解滑块游戏华容道（<a href="huarongdao.html">可以在这里试玩</a>）。第三阶段是个人项目：每位学生着手做一个自己的小项目，用Python解决实际问题，亲身体会它能为自己省下多少时间。正如陆游所说：“<span lang="zh">纸上得来终觉浅，绝知此事要躬行</span>。”</p>
+<figure class="fig" id="fig-tutorial-stages">
+<ol class="fig-steps">
+  <li><div class="fig-box fig-blue-k"><strong>基础知识</strong><span>学习指南、习题、每周的课</span></div></li>
+  <li><div class="fig-box fig-blue-k"><strong>实例讲解</strong><span>来自实际工作的问题，重在思路</span></div></li>
+  <li><div class="fig-box fig-gold-k"><strong>个人项目</strong><span>学生自己的实际问题</span></div></li>
+</ol>
+<figcaption>我的Python教程的三个阶段（2022—2023年）。借助AI（Claude）制作。</figcaption>
+</figure>
+
+  <p>我用四字成语为各个模块命名，从讲Python数据类型的“<span lang="zh">锅碗瓢盆</span>”，到讲如何分解问题的“<span lang="zh">庖丁解牛</span>”——典出《庄子》，庖丁顺着牛身上天然的关节下刀。习题力求有趣：用切片从年份列表中取出属于唐朝的年份；找出干支纪年中与2022年同为壬寅的所有年份；或者借助<code>help</code>查到的字符串方法，把“abracadabra”变成“obrocodobro”。</p>
+  <p>课程不设统一的进度。我不断更正文字文档，如果它与录屏有出入，以文档为准。我关于教学的整体想法，见<a href="teaching.html">教学理念</a>；这门课程也列在<a href="../about/#teaching">关于我</a>页面上。在密歇根大学数据与人工智能研究院（Michigan Institute for Data and AI in Society，<a href="https://midas.umich.edu/">MIDAS</a>），我希望开设一些短期工作坊，内容包括高性能Python、Git工作流程，以及机器学习中的良好实践。</p>
+</section>
+<section>
+  <h2 id="reading" class="i i-link">延伸阅读</h2>
+  <p>我向学生推荐过的书和网站：</p>
+  <ul>
+    <li>David Amos、Dan Bader、Joanna Jablonski和Fletcher Heisler，<em><a href="https://realpython.com/products/python-basics-book/">Python Basics: A Practical Introduction to Python 3</a></em>（Real Python，2021）：简明易懂的入门教材。其中有一节讲如何在列表、元组和字典之间作选择，只有一页，单独拿出来读也很值得。</li>
+    <li>Dan Bader，<em><a href="https://realpython.com/products/python-tricks-book/">Python Tricks: The Book</a></em>（2017）：适合学完基础之后阅读。</li>
+    <li>Harold Abelson和Gerald Jay Sussman，<em>Structure and Interpretation of Computer Programs</em>，以及John DeNero的<a href="https://www.composingprograms.com/3ed/">Composing Programs</a>（相当于这本书的Python版）：适合想要深入学习的读者。</li>
+    <li>Aditya Bhargava，<em><a href="https://www.manning.com/books/grokking-algorithms">Grokking Algorithms</a></em>（中文版《算法图解》，袁国忠译，2017年）：一本图文并茂的算法入门书。</li>
+    <li>吴军，《<span lang="zh">数学之美</span>》（第3版，2020年）：讲述数学如何驱动信息技术，尤其是自然语言处理。</li>
+    <li>麻省理工学院的<a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a>：介绍代码之外的各种工具。</li>
+  </ul>
+</section>
+</main>
+<footer class="site">
+  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8，最后更新于2026年10月13日。</p>
+</footer>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

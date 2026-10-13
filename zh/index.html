@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>曹开力：巡天分析基础设施</title>
+<meta name="description" content="天文物理学者曹开力的个人网站：为下一代天文巡天建设分析基础设施，研究图像、宇宙学、恒星与科学中的人工智能。">
+<link rel="alternate" hreflang="en" href="https://kailicao.github.io/">
+<link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/">
+<link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/">
+<link rel="canonical" href="https://kailicao.github.io/zh/">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="曹开力：巡天分析基础设施">
+<meta property="og:description" content="天文物理学者曹开力的个人网站：为下一代天文巡天建设分析基础设施，研究图像、宇宙学、恒星与科学中的人工智能。">
+<meta property="og:url" content="https://kailicao.github.io/zh/">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="曹开力（Kaili Cao）">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/figures.css">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <a class="name" href="index.html">曹开力 <span lang="en">Kaili Cao</span></a>
+  <nav aria-label="网站导航"><a href="index.html" aria-current="page">首页</a><div class="menu"><a href="about/">关于我<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="research-directions/">研究</a></li><li><a href="about/publications.html">论文</a></li><li><a href="about/presentations.html">报告</a></li><li><a href="about/software.html">软件</a></li><li><a href="about/personal.html">个人</a></li></ul></div><div class="menu"><a href="../cv/Kaili_Cao_CV.pdf">履历<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cv/Kaili_Cao_CV.pdf">完整版（PDF）</a></li><li><a href="../cv/Kaili_Cao_CV_short.pdf">简版（PDF）</a></li><li><a href="../cv/Kaili_Cao_Resume.pdf">一页简历（PDF，初稿）</a></li></ul></div><div class="menu"><a href="ai/">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="https://kailicao.github.io/maphub-public/">MapHub</a></li><li class="sep"><a href="glossary/">术语表</a></li></ul></div><div class="menu"><a href="images/">图像<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="images/image-reconstruction.html">图像重建</a></li><li><a href="images/image-analysis.html">图像分析</a></li><li><a href="images/extragalactic-astronomy.html">河外天文学</a></li><li class="sep"><a href="glossary/#images">术语表</a></li></ul></div><div class="menu"><a href="cosmology/">宇宙学<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="cosmology/cosmological-inference.html">宇宙学推断</a></li><li><a href="cosmology/cosmological-simulations.html">宇宙学模拟</a></li><li class="sep"><a href="glossary/#cosmology">术语表</a></li></ul></div><div class="menu"><a href="stars/">恒星<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="stars/stellar-modeling.html">恒星建模</a></li><li><a href="stars/asteroseismology.html">星震学</a></li><li class="sep"><a href="glossary/#stars">术语表</a></li></ul></div><div class="menu"><a href="opinions/">观点<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="opinions/learning-python.html">学习Python</a></li><li><a href="opinions/python.html">Python哲学</a></li><li><a href="opinions/ethics.html">科研伦理</a></li><li><a href="opinions/teaching.html">教学理念</a></li><li><a href="opinions/career.html">职业发展</a></li></ul></div><a class="lang" href="../" hreflang="en" lang="en">English</a></nav>
+</header>
+<main id="main">
+<section class="intro">
+  <figure class="portrait">
+  <img src="../assets/kaili-cao.jpg" width="480" height="480" alt="曹开力的肖像：一位面带微笑的男子，黑色短发，戴眼镜，身穿蓝色条纹衬衫，背景为灰色。">
+  <figcaption>照片：Michigan Photography</figcaption>
+  </figure>
+  <h1>曹开力 <span lang="en">Kaili Cao</span></h1>
+  <p class="identity">天文物理学者 · <a href="https://midas.umich.edu/training/postdoctoral-programs/schmidt-ai-in-science-postdoctoral-fellowship/">埃里克与温迪·施密特“科学中的人工智能”博士后研究员</a>，任职于<a href="https://umich.edu/">密歇根大学</a><a href="https://midas.umich.edu/">数据与人工智能研究院（Michigan Institute for Data and AI in Society，MIDAS）</a><br>
+  ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a> · <a href="../cv/Kaili_Cao_CV.pdf">履历（PDF）</a> · <a href="../cv/Kaili_Cao_CV_short.pdf">简版履历（PDF）</a> · <a href="../cv/Kaili_Cao_Resume.pdf">一页简历（PDF，初稿）</a></p>
+  <p class="lead">我参与建设下一代巡天所需的分析基础设施，并用它来探究物理规律。</p>
+  <ul class="glance">
+    <li><strong>科学中的人工智能：</strong>我以施密特“科学中的人工智能”博士后研究员的身份主持<a href="ai/#maphub">MapHub</a>项目。凡是AI参与产出的东西，我都用同一个标准来要求：必须可以核查。</li>
+    <li><strong>图像：</strong>我设计了<a href="images/image-reconstruction.html">“无为”（Effortless）</a>算法，它能从南希·格蕾丝·罗曼空间望远镜的欠采样曝光中重建出充分采样的图像，速度比前身<a class="term" href="glossary/#imcom">IMCOM</a>快50到60倍；我还主导重写了IMCOM本身。</li>
+    <li><strong>宇宙学：</strong>我预测<a href="cosmology/cosmological-inference.html">罗曼的弱引力透镜巡天</a>能测出宇宙的哪些性质、测到什么程度。</li>
+    <li><strong>恒星：</strong>我用数千颗红巨星检验<a href="stars/stellar-modeling.html">恒星模型</a>，并让高光度巨星的<a href="stars/asteroseismology.html">星震学质量</a>更加可靠。</li>
+    <li><strong>团队：</strong>我是罗曼空间望远镜两个团队的成员，分别从事<a href="https://roman-hlis-cosmology.caltech.edu/">弱引力透镜宇宙学</a>和<a href="https://science.nasa.gov/mission/roman-space-telescope/asteroseismology-using-the-galactic-bulge-time-domain-survey/">星震学</a>研究。</li>
+  </ul>
+  <p>在我看来，天文巡天是对大片天区的采样，也是对时间的采样。借助这样的采样，我们能看到支配整个宇宙的规律，而不只是个别天体的特殊之处。在这个意义上，巡天标志着天文学从自然历史（又称博物学）向自然哲学的转变——正如<a href="https://en.wikipedia.org/wiki/Tycho_Brahe">第谷·布拉厄</a>对行星的观测记录促成了<a href="https://zh.wikipedia.org/zh-cn/开普勒定律">开普勒定律</a>，又进一步引出了<a href="https://zh.wikipedia.org/zh-cn/万有引力定律">牛顿的万有引力定律</a>。</p>
+  <p>下一代巡天——例如<a href="https://science.nasa.gov/mission/roman-space-telescope/">罗曼空间望远镜</a>的巡天——将带来丰硕的成果。当未来的史学家回望2020年代时，我希望他们看到，进步的不只是我们的仪器，还有我们的分析方法。正因如此，我在俄亥俄州立大学的博士论文（2026年）题为<em>《为下一代天文巡天翻新分析基础设施》</em>。它涵盖两对概念：从恒星内部到宇宙大尺度结构，从理论建模到数据分析。我主要将这些过往工作视为未来研究的铺垫；未来的研究计划见<a href="research-directions/">研究方向</a>页面。</p>
+</section>
+<section>
+  <h2><a href="about/">关于我</a></h2>
+  <p>我是密歇根大学MIDAS的埃里克与温迪·施密特“科学中的人工智能”博士后研究员，也是罗曼空间望远镜两个团队的成员。我从法国文学和计算机科学转入<a class="term" href="glossary/#astrophysics">天文物理</a>，一路上教过编程，也指导过学生。<a href="about/">关于我</a>页面介绍了我的教育背景、教学经历和技能，列出了我的<a href="about/publications.html">论文</a>、<a href="about/presentations.html">报告</a>和<a href="about/software.html">软件</a>，还有一些<a href="about/personal.html">个人方面的介绍</a>；我的<a href="../cv/Kaili_Cao_CV.pdf">履历</a>为PDF格式。</p>
+</section>
+<section id="research">
+  <h2>研究</h2>
+  <p>我的研究涵盖图像、宇宙学和恒星三个方向，科学中的人工智能则是我博士后项目的重点。每个方向的页面都会介绍要解决的问题、我的工作、相关论文和下一步计划，其中包括一个我希望继续发展的构想。我的全部论文以及我在每篇中的贡献，都列在<a href="about/publications.html">论文</a>页面上。这些工作在未来五年将走向何处，见<a href="research-directions/"><strong>研究方向</strong></a>。每个方向的页面都以一段面向学生的介绍开头，<a href="glossary/">术语表</a>则解释了相关术语。</p>
+<figure class="fig" id="fig-research-map">
+<div class="fig-map">
+  <span></span><span class="head">数据分析</span><span class="head">理论建模</span>
+  <span></span><div class="fig-box fig-band wide"><strong><a href="images/">图像</a>：<a href="images/image-reconstruction.html">图像重建</a> · <a href="images/image-analysis.html">图像分析</a> · <a href="images/extragalactic-astronomy.html">河外天文学</a></strong></div>
+  <span class="row"><a href="cosmology/">宇宙学</a></span><div class="fig-box fig-blue-k"><a href="cosmology/cosmological-inference.html">宇宙学推断</a></div><div class="fig-box fig-blue-k"><a href="cosmology/cosmological-simulations.html">宇宙学模拟</a></div>
+  <span class="row"><a href="stars/">恒星</a></span><div class="fig-box fig-orange-k"><a href="stars/asteroseismology.html">星震学</a></div><div class="fig-box fig-orange-k"><a href="stars/stellar-modeling.html">恒星建模</a></div>
+  <span></span><div class="fig-box fig-gold-k fig-gold-band wide"><a href="ai/">科学中的人工智能</a>：贯穿所有方向的方法</div>
+</div>
+<figcaption>我的研究方向。图像方面的工作是巡天科学的基础；宇宙学和恒星都分为数据分析和理论建模两个侧面；科学中的人工智能则是贯穿其中的方法。借助AI（Claude）制作。</figcaption>
+</figure>
+
+  <h3><a href="ai/">科学中的人工智能</a></h3>
+  <p>用物理学改进AI学习所用的数据，并确保AI参与产出的一切都可以核查：这里介绍我的研究、MapHub，以及我在日常工作和教学中如何使用AI。</p>
+  <h3><a href="images/">图像</a></h3>
+  <ul class="tracks">
+    <li><a href="images/image-reconstruction.html"><strong>图像重建</strong></a>：从望远镜的欠采样曝光中重建充分采样、点扩散函数可控的图像，服务于罗曼空间望远镜，也适用于其他望远镜。</li>
+    <li><a href="images/image-analysis.html"><strong>图像分析</strong></a>：天文图像的物理含义——噪声、探测器效应与系统误差，以及如何把图像理解为对连续场的离散采样。</li>
+    <li><a href="images/extragalactic-astronomy.html"><strong>河外天文学</strong></a>：近邻星系、遥远星系与类星体，以及强引力透镜——我乐于为这些课题贡献自己在图像处理方面的专长。</li>
+  </ul>
+  <h3><a href="cosmology/">宇宙学</a></h3>
+  <ul class="tracks">
+    <li><a href="cosmology/cosmological-inference.html"><strong>宇宙学推断</strong></a>：罗曼这样的巡天能告诉我们宇宙的哪些信息，以及如何提取这些信息。</li>
+    <li><a href="cosmology/cosmological-simulations.html"><strong>宇宙学模拟</strong></a>：模拟宇宙结构，以及支撑这些模拟的数值方法。</li>
+  </ul>
+  <h3><a href="stars/">恒星</a></h3>
+  <ul class="tracks">
+    <li><a href="stars/stellar-modeling.html"><strong>恒星建模</strong></a>：用数千颗观测到的红巨星检验恒星演化模型。</li>
+    <li><a href="stars/asteroseismology.html"><strong>星震学</strong></a>：从开普勒到罗曼，用恒星振荡精确测量恒星的质量和年龄。</li>
+  </ul>
+</section>
+<section>
+  <h2><a href="opinions/">观点</a></h2>
+  <ul class="tracks">
+    <li><a href="opinions/learning-python.html"><strong>学习Python</strong></a>：我讲授的免费线上Python课程（2022至2023年）的笔记，另附一个可以动手玩的<a href="opinions/huarongdao.html">华容道求解器</a>。</li>
+    <li><a href="opinions/python.html"><strong>Python哲学</strong></a>：当大部分代码都由AI来写，代码中还有哪些东西值得我们去理解。</li>
+    <li><a href="opinions/ethics.html"><strong>科研伦理</strong></a>：合作、指导关系、数据、署名、同行评审、利益冲突与研究不端行为。</li>
+    <li><a href="opinions/teaching.html"><strong>教学理念</strong></a>：我如何教学、如何指导学生，以及我做的科普工作。</li>
+    <li><a href="opinions/career.html"><strong>职业发展</strong></a>：记录我迄今为止职业生涯中的一些心得，先从申请博士后谈起。欢迎大家提建议。</li>
+  </ul>
+</section>
+<section id="news">
+  <h2>动态</h2>
+<figure class="fig fig-side" id="fig-roman-launch">
+<img src="../assets/figures/roman-launch.jpg" width="720" height="1193" loading="lazy" alt="从发射台旁拍摄的发射瞬间：明亮的橙色火焰和翻滚的烟雾。">
+<figcaption>2026年8月30日，南希·格蕾丝·罗曼空间望远镜发射。图片来源：NASA/Joel Kowsky（<a href="https://www.nasa.gov/image-detail/amf-nhq202608300037/">NHQ202608300037</a>）。</figcaption>
+</figure>
+  <ul class="news">
+    <li><span class="date">2026年10月</span> MIDAS的arXiv预印本中心<a href="https://kailicao.github.io/maphub-public/">MapHub</a>于10月6日生成了首批每日表格；10月11日，我上线了这个网站。</li>
+    <li><span class="date">2026年9月</span> 我以埃里克与温迪·施密特“科学中的人工智能”博士后研究员的身份加入密歇根大学MIDAS；MIDAS在<a href="https://midas.umich.edu/midas-postdoc-bootcamp-2026-welcoming-the-new-cohort/">2026年MIDAS博士后训练营</a>上迎来了新一届研究员。</li>
+    <li><span class="date">2026年8月</span> <a href="https://science.nasa.gov/mission/roman-space-telescope/">罗曼空间望远镜</a>于2026年8月30日发射。我博士期间的许多工作都是在为处理它的数据作准备，我期待看到它拍摄的第一批图像。</li>
+    <li><span class="date">2026年6月</span> 6月25日，我在俄亥俄州立大学完成了博士论文答辩，论文题为<em>《为下一代天文巡天翻新分析基础设施》</em>（答辩<a href="../about/presentations/2026-06-25_dissertation-defense.pdf">幻灯片</a>，PDF）。</li>
+  </ul>
+</section>
+<section>
+  <h2>联系方式</h2>
+  <p>电子邮件：<a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · GitHub：<a href="https://github.com/kailicao">kailicao</a>。关于我的任何工作，都欢迎来信交流。我特别乐意讨论哪些话题、怎样联系我最方便，见<a href="about/#working-with-me">与我合作</a>。</p>
+</section>
+<!-- terms:start -->
+<details class="terms-box" id="terms" hidden>
+<summary>本页术语（2）</summary>
+<dl class="glossary">
+  <dt id="term-imcom">IMCOM</dt>
+  <dd>IMCOM是IMage COMbination（图像合并）的缩写，是一种图像协加方法。它选取各个输入像素的权重，使输出图像的点扩散函数尽可能接近用户指定的目标，同时把噪声控制住。PyIMCOM是它面向罗曼的现代实现，“无为”（Effortless）则是更快的后继方法。</dd>
+  <dt id="term-astrophysics">天文物理（astrophysics）</dt>
+  <dd>本站把astrophysics译作“天文物理”。通行的译名是“天体物理”；这里换一种说法，是因为宇宙学研究的对象有时不是某个具体的天体。已有通行译名的名称照常使用，如“NASA天体物理数据系统”。</dd>
+</dl>
+<p><a href="glossary/">查看完整术语表</a></p>
+</details>
+<!-- terms:end -->
+</main>
+<footer class="site">
+  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="about/colophon.html">本站的制作</a>）。版本0.8，最后更新于2026年10月13日。</p>
+</footer>
+<script src="../assets/site.js" defer></script>
+<script src="../assets/terms.js" defer></script>
+</body>
+</html>

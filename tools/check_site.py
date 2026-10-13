@@ -7,7 +7,7 @@
 Run from the repository root. Prints problems; exits with status 1 if any are found.
 """
 import html.parser, os, re, sys, urllib.request, urllib.error
-from urllib.parse import urlsplit, unquote
+from urllib.parse import urlsplit, unquote, quote
 
 ROOT = os.getcwd()
 SITE = 'https://kailicao.github.io/'
@@ -74,7 +74,7 @@ def main(external=False):
             if not img.get('alt') and img.get('alt') != '':
                 problems.append(f'{p}: image without alt text: {img.get("src")}')
     footers = {re.sub(r'\s+', ' ', pg.footer).strip() for p, pg in pages.items() if pg.footer}
-    versions = {m for f in footers for m in re.findall(r'Version [\d.]+[^.]*', f)}
+    versions = {m for f in footers for m in re.findall(r'(?:Version |版本)([\d.]*\d)', f)}
     if len(versions) > 1: problems.append(f'footers disagree: {sorted(versions)}')
     if os.path.exists('sitemap.xml'):
         locs = re.findall(r'<loc>(.*?)</loc>', open('sitemap.xml', encoding='utf-8').read())
@@ -84,7 +84,7 @@ def main(external=False):
     if external:
         for u in sorted(ext):
             try:
-                req = urllib.request.Request(u, method='HEAD', headers={'User-Agent': 'Mozilla/5.0 (site link check)'})
+                req = urllib.request.Request(quote(u, safe=':/?#[]@!$&\'()*+,;=%~'), method='HEAD', headers={'User-Agent': 'Mozilla/5.0 (site link check)'})
                 urllib.request.urlopen(req, timeout=15)
             except urllib.error.HTTPError as e:
                 if e.code not in (403, 405, 429): problems.append(f'external link returns {e.code}: {u}')

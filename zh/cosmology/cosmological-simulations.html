@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宇宙学模拟 · 曹开力</title>
+<meta name="description" content="宇宙结构的模拟及其数值方法：星系团形态学指标研究，以及ContEvol数值方法。">
+<link rel="alternate" hreflang="en" href="https://kailicao.github.io/cosmology/cosmological-simulations.html">
+<link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/cosmology/cosmological-simulations.html">
+<link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/cosmology/cosmological-simulations.html">
+<link rel="canonical" href="https://kailicao.github.io/zh/cosmology/cosmological-simulations.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="宇宙学模拟 · 曹开力">
+<meta property="og:description" content="宇宙结构的模拟及其数值方法：星系团形态学指标研究，以及ContEvol数值方法。">
+<meta property="og:url" content="https://kailicao.github.io/zh/cosmology/cosmological-simulations.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="曹开力（Kaili Cao）">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/figures.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <a class="name" href="../index.html">曹开力 <span lang="en">Kaili Cao</span></a>
+  <nav aria-label="网站导航"><a href="../index.html">首页</a><div class="menu"><a href="../about/">关于我<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-directions/">研究</a></li><li><a href="../about/publications.html">论文</a></li><li><a href="../about/presentations.html">报告</a></li><li><a href="../about/software.html">软件</a></li><li><a href="../about/personal.html">个人</a></li></ul></div><div class="menu"><a href="../../cv/Kaili_Cao_CV.pdf">履历<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../../cv/Kaili_Cao_CV.pdf">完整版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_CV_short.pdf">简版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_Resume.pdf">一页简历（PDF，初稿）</a></li></ul></div><div class="menu"><a href="../ai/">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="https://kailicao.github.io/maphub-public/">MapHub</a></li><li class="sep"><a href="../glossary/">术语表</a></li></ul></div><div class="menu"><a href="../images/">图像<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../images/image-reconstruction.html">图像重建</a></li><li><a href="../images/image-analysis.html">图像分析</a></li><li><a href="../images/extragalactic-astronomy.html">河外天文学</a></li><li class="sep"><a href="../glossary/#images">术语表</a></li></ul></div><div class="menu"><a href="./" aria-current="page">宇宙学<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="cosmological-inference.html">宇宙学推断</a></li><li><a href="cosmological-simulations.html" aria-current="page">宇宙学模拟</a></li><li class="sep"><a href="../glossary/#cosmology">术语表</a></li></ul></div><div class="menu"><a href="../stars/">恒星<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../stars/stellar-modeling.html">恒星建模</a></li><li><a href="../stars/asteroseismology.html">星震学</a></li><li class="sep"><a href="../glossary/#stars">术语表</a></li></ul></div><div class="menu"><a href="../opinions/">观点<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../opinions/learning-python.html">学习Python</a></li><li><a href="../opinions/python.html">Python哲学</a></li><li><a href="../opinions/ethics.html">科研伦理</a></li><li><a href="../opinions/teaching.html">教学理念</a></li><li><a href="../opinions/career.html">职业发展</a></li></ul></div><a class="lang" href="../../cosmology/cosmological-simulations.html" hreflang="en" lang="en">English</a></nav>
+</header>
+<main id="main"><p class="crumb"><a href="./">宇宙学</a> · 宇宙学模拟</p>
+<h1>宇宙学模拟</h1>
+<p class="lead">宇宙结构的模拟，以及驱动这些模拟的数值方法。</p>
+<section id="in-brief">
+<h2>简介</h2>
+<p>宇宙学中的许多问题无法单凭纸笔解答。引力把早期近乎均匀的宇宙中的物质聚拢起来，形成由片状结构、纤维状结构和致密团块组成的网络（见图）；要详细追踪这一过程，就需要<a class="term" href="../glossary/#simulation">计算机模拟</a>（cosmological simulation）。最致密的团块里是<a class="term" href="../glossary/#galaxy-cluster">星系团</a>（galaxy cluster）——靠自身引力束缚在一起的天体中，质量最大的就是它们。</p>
+<p>模拟连接着理论与观测，但前提是两者要在同等条件下比较。模拟出的星系团必须先像真实的星系团那样“观测”一遍，才能与之比较：例如把它转换成仿真的X射线图像，因为星系团中星系之间的热气体会发出X射线。</p>
+<p>模拟内部的数值方法同样重要。模拟要分成许多小的时间步来推进，每一步都是一种近似。采用某些方法时，能量等本应守恒的量会出现微小的误差，并在数百万步中不断累积；<a class="term" href="../glossary/#symplectic">辛方法</a>（symplectic method）则能让这些误差始终保持在较小的水平。因此，数值方法决定了模拟结果在长时间尺度上有多可信。</p>
+<p>为什么这很重要？像南希·格蕾丝·罗曼空间望远镜这样的巡天将精确测量宇宙结构；而在不同的宇宙学模型下宇宙应该是什么样子，要靠模拟来预测。我的工作涉及这两个方面：我的第一个项目比较了模拟星系团的仿真观测，之后我又发展了新的数值方法（见下文）。</p>
+<figure class="fig" id="fig-cosmic-web">
+<img src="../../assets/figures/cosmic-web.png" width="1455" height="736" loading="lazy" alt="两幅正方形的密度图。左图近乎均匀，只有微弱的起伏。右图是由深色纤维状结构组成的网络，这些结构在致密的节点处交汇，环绕着浅色的空旷区域。">
+<figcaption>玩具模型（二维的<a class="term" href="../glossary/#zeldovich">泽尔多维奇近似</a>（Zel'dovich approximation）；并非出自我的研究）。引力把物质从近乎均匀的初始起伏（左）聚拢成纤维状结构和团块（右；在三维情况下还有片状结构）：这就是模拟和巡天所测量的宇宙网。借助AI（Claude）制作。</figcaption>
+</figure>
+<p class="newbie">对这一领域还不熟悉？<a href="../glossary/">术语表</a>用通俗的语言解释了相关术语；带下划线的术语都链接到术语表。</p>
+</section>
+<section>
+<h2>我的工作</h2>
+<p>我的科研工作是从宇宙学模拟起步的：2019年，我作为访问本科生在麻省理工学院做研究。我们利用Mock-X框架，研究了如何判定星系团处于动力学弛豫状态。我们考察了九种常用的形态学指标，所用的是5.4万幅星系团合成X射线图像，来自<a href="https://www.tng-project.org/">IllustrisTNG</a>、<a href="https://www.astro.ljmu.ac.uk/~igm/BAHAMAS/">BAHAMAS</a>和<a href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.465..213B/abstract">MACSIS</a>模拟。结果发现，由不同指标定义的弛豫子样本彼此吻合得很差，因此挑选“弛豫”星系团会引入显著的选择效应（<a href="../about/publications.html#arXiv-2006.10752">Cao et al. 2021</a>）。</p>
+<p>读博期间，我还发展了ContEvol——一族隐式数值方法，只需求解线性方程，并且近乎<a href="https://en.wikipedia.org/wiki/Symplectic_integrator">保辛</a>。这些方法给出的是连续解，能处理从轨道运动到薛定谔方程的各种问题（<a href="../about/publications.html#arXiv-2405.05188">Cao 2025</a>；<a href="https://github.com/kailicao/ContEvol_formalism">代码</a>）。</p>
+</section>
+<section><h2>论文</h2>
+<h3>第一作者论文</h3>
+<ul class="pubs">
+  <li><span class="title">ContEvol formalism: numerical methods based on Hermite spline optimization</span><br>
+    <span class="authors"><strong>Kaili Cao</strong></span><br>
+    <span class="meta">Mathematics 13, 3981 (2025) · 独立作者</span> · <a href="https://doi.org/10.3390/math13243981">DOI</a> · <a href="https://arxiv.org/abs/2405.05188">arXiv:2405.05188</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2405.05188/abstract">ADS</a> · <a href="https://github.com/kailicao/ContEvol_formalism">代码</a></li>
+  <li><span class="title">Studying galaxy cluster morphological metrics with Mock-X</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, David J. Barnes, Mark Vogelsberger</span><br>
+    <span class="meta">Monthly Notices of the Royal Astronomical Society 503, 3394-3413 (2021) · 第一作者</span> · <a href="https://doi.org/10.1093/mnras/stab605">DOI</a> · <a href="https://arxiv.org/abs/2006.10752">arXiv:2006.10752</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2006.10752/abstract">ADS</a> · 报告与墙报：<a href="../../about/presentations/2019-08-23_smurf-relaxed-clusters.pdf">SMURF，麻省理工学院，2019年</a></li>
+</ul>
+<h3>合作论文</h3>
+<ul class="pubs">
+  <li><span class="title">Characterizing hydrostatic mass bias with Mock-X</span><br>
+    <span class="authors">David J. Barnes, Mark Vogelsberger, Francesca A. Pearce, Ana-Roxana Pop, Rahul Kannan, <strong>Kaili Cao</strong>, Scott T. Kay, Lars Hernquist</span><br>
+    <span class="meta">Monthly Notices of the Royal Astronomical Society 506, 2533-2550 (2021) · 合作作者（8位作者中第6位）</span> · <a href="https://doi.org/10.1093/mnras/stab1276">DOI</a> · <a href="https://arxiv.org/abs/2001.11508">arXiv:2001.11508</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2001.11508/abstract">ADS</a><br>
+    <span class="contrib">我对Mock-X框架的早期数据产品提供了反馈，参与了关于弛豫判据的讨论，并对稿件提出了意见。</span></li>
+</ul></section>
+<section>
+<h2>下一步</h2>
+<p><strong>ContCosmos</strong>：我一直希望重返宇宙学模拟领域，包括N体模拟。如今我对大尺度结构的统计量了解得深入多了，也更清楚我们能从模拟中学到什么；我计划探索能否用ContEvol来构建这类模拟。</p>
+<p>这些工作在我未来五年计划中的位置，见<a href="../research-directions/">研究方向</a>。</p>
+</section>
+<!-- terms:start -->
+<details class="terms-box" id="terms">
+<summary>本页术语（4）</summary>
+<dl class="glossary">
+  <dt id="term-simulation">宇宙学模拟（cosmological simulation）</dt>
+  <dd>用计算机从早期宇宙一直算到今天，追踪物质（有时还包括气体和恒星）在引力作用下的运动。N体模拟用大量粒子来代表物质。</dd>
+  <dt id="term-galaxy-cluster">星系团（galaxy cluster）</dt>
+  <dd>由引力束缚在一起的成百上千个星系，其间充满数千万度的气体，这些气体在X射线波段发光。星系团是引力束缚天体中质量最大的。如果一个星系团自上次并合以来已经稳定下来，就称它是弛豫的（relaxed）。</dd>
+  <dt id="term-symplectic">辛方法（symplectic method）</dt>
+  <dd>一种数值方法，用来追踪物体在引力等力作用下的运动。它的构造使每个时间步都遵守这类运动的几何结构（辛结构）；由此带来的一个结果是“相空间体积”守恒（相空间体积综合度量了位置和速度的弥散程度）。因此，即使计算很长时间，能量等守恒量的误差也始终很小，不会稳步增长。我提出的一族数值方法ContEvol近乎保辛。</dd>
+  <dt id="term-zeldovich">泽尔多维奇近似（Zel'dovich approximation）</dt>
+  <dd>描述结构形成的一个简单模型：每一小团物质都沿着早期涟漪所决定的方向作直线运动，于是物质在路径交汇处堆积起来。它刻画了宇宙网最初的形成过程。</dd>
+</dl>
+<p><a href="../glossary/">查看完整术语表</a></p>
+</details>
+<!-- terms:end -->
+</main>
+<footer class="site">
+  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8，最后更新于2026年10月13日。</p>
+</footer>
+<script src="../../assets/terms.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

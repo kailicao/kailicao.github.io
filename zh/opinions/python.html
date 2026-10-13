@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python哲学 · 曹开力</title>
+<meta name="description" content="曹开力为AI时代修订的Python编程建议：读懂代码、先明确输入和输出、名字是代词、先手动做一遍。">
+<link rel="alternate" hreflang="en" href="https://kailicao.github.io/opinions/python.html">
+<link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/opinions/python.html">
+<link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/opinions/python.html">
+<link rel="canonical" href="https://kailicao.github.io/zh/opinions/python.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="Python哲学 · 曹开力">
+<meta property="og:description" content="曹开力为AI时代修订的Python编程建议：读懂代码、先明确输入和输出、名字是代词、先手动做一遍。">
+<meta property="og:url" content="https://kailicao.github.io/zh/opinions/python.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="曹开力（Kaili Cao）">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/figures.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <a class="name" href="../index.html">曹开力 <span lang="en">Kaili Cao</span></a>
+  <nav aria-label="网站导航"><a href="../index.html">首页</a><div class="menu"><a href="../about/">关于我<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-directions/">研究</a></li><li><a href="../about/publications.html">论文</a></li><li><a href="../about/presentations.html">报告</a></li><li><a href="../about/software.html">软件</a></li><li><a href="../about/personal.html">个人</a></li></ul></div><div class="menu"><a href="../../cv/Kaili_Cao_CV.pdf">履历<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../../cv/Kaili_Cao_CV.pdf">完整版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_CV_short.pdf">简版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_Resume.pdf">一页简历（PDF，初稿）</a></li></ul></div><div class="menu"><a href="../ai/">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="https://kailicao.github.io/maphub-public/">MapHub</a></li><li class="sep"><a href="../glossary/">术语表</a></li></ul></div><div class="menu"><a href="../images/">图像<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../images/image-reconstruction.html">图像重建</a></li><li><a href="../images/image-analysis.html">图像分析</a></li><li><a href="../images/extragalactic-astronomy.html">河外天文学</a></li><li class="sep"><a href="../glossary/#images">术语表</a></li></ul></div><div class="menu"><a href="../cosmology/">宇宙学<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cosmology/cosmological-inference.html">宇宙学推断</a></li><li><a href="../cosmology/cosmological-simulations.html">宇宙学模拟</a></li><li class="sep"><a href="../glossary/#cosmology">术语表</a></li></ul></div><div class="menu"><a href="../stars/">恒星<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../stars/stellar-modeling.html">恒星建模</a></li><li><a href="../stars/asteroseismology.html">星震学</a></li><li class="sep"><a href="../glossary/#stars">术语表</a></li></ul></div><div class="menu"><a href="./" aria-current="page">观点<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="learning-python.html">学习Python</a></li><li><a href="python.html" aria-current="page">Python哲学</a></li><li><a href="ethics.html">科研伦理</a></li><li><a href="teaching.html">教学理念</a></li><li><a href="career.html">职业发展</a></li></ul></div><a class="lang" href="../../opinions/python.html" hreflang="en" lang="en">English</a></nav>
+</header>
+<main id="main">
+<p class="crumb"><a href="./">观点</a> · Python哲学</p>
+<h1>Python哲学</h1>
+<p class="lead">如今，很多代码都由AI来写。仍然值得下功夫的，是对代码作用的直观认识——有了它，你才能读懂代码、检查代码，并且知道它什么时候出了错。</p>
+<p>2022至2023年，我创建并讲授了一门免费的线上Python课程，四期共46名学生，其中不少人完全没有编程基础。我为课程写的材料，很多是关于细节的：哪个方法有什么作用，该用哪种语法，去哪里查。几年之后，这些细节大多可以交给AI助手，它给出答案比我自己去查还快。但我关于怎样思考代码的建议，反而变得更有用了，因为和AI合作时，读代码的时间比写代码多。本页汇集了这些建议，并针对AI时代作了修订。给学习者的实用建议以及这门课的教学方式，见<a href="learning-python.html">学习Python</a>。</p>
+<section>
+  <h2 id="levels" class="i i-layers">掌握、理解与了解</h2>
+  <p>在学习指南中，我为每个知识点都设定了学习目标，分为三个层次：</p>
+  <ul>
+    <li><strong>掌握：</strong>能够用它写出实现所需功能的代码，越熟练越好。</li>
+    <li><strong>理解：</strong>理解它的作用方式，能够看懂别人用它写的代码。</li>
+    <li><strong>了解：</strong>知道Python有这样的功能即可，需要时再深入学习。</li>
+  </ul>
+  <p>当时，课程的大部分内容以“掌握”为目标，也就是会写。如今，写代码的工作很大一部分已由AI代劳，“了解”这一层更是几乎全部交给了它：它记得每一个字符串方法、每一个关键字参数。仍然要靠人自己的是“理解”，也就是读懂代码；本页其余部分讲的都是这一层。会写仍然重要，因为读懂代码的能力来自亲手写过代码；不过我现在会把重心向读代码倾斜。</p>
+</section>
+<section>
+  <h2 id="try" class="i i-play">自己试一试，除非你能预知结果</h2>
+  <p>编程是一门实践的艺术。如果你想知道一种写法行不行，最好的方法往往不是问人，而是自己尝试一下。我要求学生把每个例子都自行尝试一遍，然后改一改例子，看看会发生什么。</p>
+  <p>只有一种例外：如果你看到输入就能知道输出是什么，或者能说出脚本中每一行的作用，就可以不试。判断这一点，需要本着实事求是的原则。正如孔子所说：“<span lang="zh">知之为知之，不知为不知</span>。”如果对结果没有把握，动手试一试总是更稳妥的。</p>
+  <p>同样的标准，现在也适用于AI替你写的代码。如果你能说出每一行的作用，就算是检查过了；如果说不出，就运行一下，把里面的内容打印出来，搞清楚之后，再在它的基础上搭建其他东西。</p>
+</section>
+<section>
+  <h2 id="io" class="i i-io">先明确输入和输出</h2>
+  <p>写程序之前，要明确输入什么、输出什么——无论是程序整体还是其中的每个局部。</p>
+  <ul>
+    <li><strong>程序整体</strong>的输入和输出一般是文件。输入文件是如何组织的？程序实际需要使用哪些数据？输出文件是给人读还是给另一个程序读？读者需要从中获取哪些信息，哪种格式最合适？</li>
+    <li><strong>每个函数</strong>接受参数，返回一个值。要实现它的功能，需要告诉它哪些信息？调用它的代码需要它做什么、返回什么？</li>
+  </ul>
+  <p>除非文件是给人读的最终成品，否则我会同时写出生成它的程序和读取它的程序。</p>
+  <p>向AI提出一个好的请求，需要的也正是这些。如果你说不清输入什么、应该输出什么，AI就只能猜，而<a href="https://peps.python.org/pep-0020/">Zen of Python</a>警告的恰恰是这一点：“面对模棱两可，拒绝猜测的诱惑。”（In the face of ambiguity, refuse the temptation to guess.）</p>
+</section>
+<section>
+  <h2 id="names" class="i i-tag">名字是代词</h2>
+  <p>头脑清楚地写程序，意味着在每一行都知道每个名字指的是什么：它的类型和内容。如果不知道，就借助<code>type</code>和<code>print</code>搞明白——尤其是在使用其他人写的代码时。AI写的代码，就是其他人写的代码。</p>
+  <p>我发现最有帮助的一个比喻是：Python中的名字就像代词。你不需要事先声明它们；一个名字指代的，就是最后交给它的东西。函数也是如此：实参好比名词，形参好比代词。如果你写的函数有一个名为<code>arg</code>的形参，那么写这个函数时，函数处理的对象是“被称为<code>arg</code>的东西”；而程序实际运行时，函数处理的对象是“被当作<code>arg</code>交给函数的东西”。</p>
+<figure class="fig" id="fig-names-pronouns">
+<div class="fig-names">
+  <div class="fig-box fig-orange-k name">a</div><span class="arrow" aria-hidden="true">→</span>
+  <div class="fig-box fig-blue-k obj">[1, 2, 3, 4]<span>一个列表对象</span></div>
+  <div class="fig-box fig-orange-k name">b</div><span class="arrow" aria-hidden="true">→</span>
+</div>
+<figcaption>名字就是代词：执行<code>b = a</code>之后，两个名字指代同一个列表，所以<code>b.append(4)</code>也会改变<code>a</code>指代的东西。<a href="https://pythontutor.com/">Python Tutor</a>能一步一步地演示这个过程，很适合自己动手看一看。借助AI（Claude）制作。</figcaption>
+</figure>
+
+  <p>用代词来理解，就能解释Python中最常见的一种意外。下面的<code>b</code>并不是列表的副本，而是指代同一个列表的第二个代词：</p>
+<pre><code class="language-python"><span class="tk-p">&gt;&gt;&gt;</span> a = [<span class="tk-n">1</span>, <span class="tk-n">2</span>, <span class="tk-n">3</span>]
+<span class="tk-p">&gt;&gt;&gt;</span> b = a
+<span class="tk-p">&gt;&gt;&gt;</span> b.append(<span class="tk-n">4</span>)
+<span class="tk-p">&gt;&gt;&gt;</span> a
+[<span class="tk-n">1</span>, <span class="tk-n">2</span>, <span class="tk-n">3</span>, <span class="tk-n">4</span>]</code></pre>
+  <p>所以我给初学者定的规矩是：除非有特别的理由，否则不要给同一个东西起两个名字，也不要给两个东西起同一个名字。照此去做，你甚至可以不学变量的作用域。</p>
+  <h3>可以询问的对象</h3>
+  <p>在Python中，名字指代的一切都是对象：数字、列表、字典，甚至函数。以复数<code>z = 3 + 4j</code>为例。它的实部和虚部<code>z.real</code>和<code>z.imag</code>是它的属性，也就是属于它的数据；它的共轭复数<code>z.conjugate()</code>则来自一个方法，也就是属于它的函数。面向过程的思路，就好像<code>z</code>是个没有生命的东西，我们把它扔进一台机器，机器吐出它的共轭复数。面向对象的思路，则是把<code>z</code>喊过来，问它：你的共轭复数是什么？Python两种写法都支持，例如<code>sorted(items)</code>和<code>items.sort()</code>。</p>
+  <p>大部分使用Python的人从来不需要设计自己的类，但几乎每个人都会用到以类来组织的程序包，所以建立这样的认识很有好处。而且，模块化和面向对象的思想方法是组织思路的有力工具——即使不编程也是如此。</p>
+</section>
+<section>
+  <h2 id="hand" class="i i-pen">先手动做一遍</h2>
+  <p>面对一项新任务时，我会先想象自己手动完成它。在一道练习中，学生们先用纸笔列出4个数字的全错位排列，也就是没有一个数字留在原位的排列方式：先列出全部24种排列，再从中筛选出符合条件的9种。然后他们才编写程序，再把程序推广到任意个数字。</p>
+  <p>另一个例子来自实际工作：一个文件中每投一次票就记录一行用户id，要统计每位用户各自投了几次票。在拿到实际数据之前，我们先生成了一些模拟数据，这样就可以提前编写和测试程序。写代码之前，我们先想清楚了如何存储统计结果：用一个字典，记录每位用户的票数。能运行的第一版往往很慢。想象手动完成这项工作，就能想到更好的办法：你不会为每位用户把整个列表扫一遍，而是从头到尾过一遍，每遇到一票就画一笔“正”字。而到最后，几乎总会发现已经有人写好了：</p>
+<pre><code class="language-python"><span class="tk-c"># Slow: one pass through all the votes for each user</span>
+counts = {user: votes.count(user) <span class="tk-k">for</span> user <span class="tk-k">in</span> <span class="tk-b">set</span>(votes)}
+
+<span class="tk-c"># Tally marks: one pass, one mark per vote</span>
+counts = {}
+<span class="tk-k">for</span> user <span class="tk-k">in</span> votes:
+    counts[user] = counts.get(user, <span class="tk-n">0</span>) + <span class="tk-n">1</span>
+
+<span class="tk-c"># Someone has already written it</span>
+<span class="tk-k">from</span> collections <span class="tk-k">import</span> Counter
+counts = Counter(votes)</code></pre>
+  <p>AI通常会直接跳到第三种写法，这没有问题。正是因为亲手走过了前两种写法，你才能看出第三种为什么是对的，以及它大致应该运行多长时间。</p>
+</section>
+<section>
+  <h2 id="shape" class="i i-code">好代码的样子</h2>
+  <ul>
+    <li><strong>函数</strong>最好相互独立（如果两个函数之间存在千丝万缕的联系，往往就应该合并），易于移植（在别处使用时不需要改动或只需要很少的改动），长度适中：过短则考虑并入调用它的函数，过长则考虑进一步拆分。用函数组织起来的程序，读起来就像一篇总分结构的文章。</li>
+    <li><strong>注释</strong>是初学者容易轻视的一点，但其实非常重要。我的标准是：拿代码向别人请教时，不需要另外解释它是做什么的。合理的命名可以减轻对注释的需求。对于结构比较复杂的程序，我有时会先用注释搭好框架，再具体写代码。</li>
+    <li><strong>重复</strong>是一个信号：三行及以上相似度很高的代码，一般就应该用循环合并。写嵌套循环时，要一层一层地写。</li>
+    <li><strong>朴素胜于巧妙：</strong>递归最能体现计算思维，但除非非用不可，我在实践中更倾向于用循环。</li>
+    <li><strong>风格：</strong><a href="https://peps.python.org/pep-0008/">PEP 8</a>是很好的指南，但最低要求是在同一个项目内保持一致。当你纠结于两种写法时，运行<code>import this</code>，读一读Zen of Python。</li>
+  </ul>
+  <p>对AI写的代码，也应当提出这些要求，因为有了这些品质，代码才便于审查。注释的标准可以直接套用：现在你请教的“别人”常常是AI，而审查代码的是你自己。</p>
+</section>
+<section>
+  <h2 id="time" class="i i-clock">什么值得花时间</h2>
+  <p>我以前跟学生说，用编程完成一项工作，时间成本可以分为三部分：学习相关的功能、编写和调试代码、运行程序。运行时间一般可以忽略，因为要么很短，要么可以一边等一边做其他事。别人写的代码一般比自己写的更系统、更优雅；但如果学习时间太长，那还不如自己写，毕竟写代码是为了实现功能，不是为了美观。</p>
+  <p>AI改变了这笔账。如今学习一个库的成本很低，天平因此偏向了现成的工具：如果已经有人写好了你需要的东西，AI几分钟就能教会你怎么用。没有改变的，是本页其余部分讲的那些东西。不管工具是谁写的，你仍然需要知道它对你的数据做了什么。</p>
+</section>
+</main>
+<footer class="site">
+  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8，最后更新于2026年10月13日。</p>
+</footer>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

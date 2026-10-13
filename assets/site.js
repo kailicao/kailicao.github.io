@@ -174,3 +174,8 @@ document.querySelectorAll('[data-hideable]').forEach(function (box) {
   h.appendChild(document.createTextNode(' '));
   h.appendChild(b);
 });
+
+// 5. The language button (中文 / English) keeps the #anchor, e.g. a glossary entry.
+document.querySelectorAll('a.lang').forEach(function (a) {
+  a.addEventListener('click', function () { if (location.hash) a.href = a.href.split('#')[0] + location.hash; });
+});

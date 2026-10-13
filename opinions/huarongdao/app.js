@@ -13,7 +13,44 @@
   for (const b of root.querySelectorAll('button[data-action]')) buttons[b.dataset.action] = b;
 
   const SIZES = { C: [2, 2], H: [2, 1], V: [1, 2], S: [1, 1] };
-  const NAMES = { C: 'Cao Cao', H: 'a horizontal general', V: 'a vertical general', S: 'a soldier' };
+  // Interface text in English or Chinese, following the page's lang attribute.
+  const ZH = document.documentElement.lang.toLowerCase().startsWith('zh');
+  const NAMES = ZH ? { C: '曹操', H: '一位横放的将军', V: '一位竖放的将军', S: '一名小兵' }
+                   : { C: 'Cao Cao', H: 'a horizontal general', V: 'a vertical general', S: 'a soldier' };
+  const LEVELS_ZH = { 'Easy': '简单', 'Medium': '中等', 'Hard': '困难', 'Very hard': '极难' };
+  const NAMES_ZH = {
+    'Five generals standing': '五将皆竖', 'Open gate': '大开城门', 'Five generals lying': '五将皆横',
+    'Five lying, tangled': '五将皆横（纠缠）', 'Side by side': '并肩而立', 'Three across': '三将横陈',
+    '横刀立马 (the classic)': '横刀立马（经典开局）', 'Soldiers at the back': '兵在后方',
+    'Hardest with one horizontal': '一横将中最难', 'Hardest with four horizontals': '四横将中最难',
+    'Two across, Cao Cao on top': '二将横陈，曹操在上', 'Three across, symmetric': '三将横陈（对称）',
+    'Hardest with three horizontals': '三横将中最难', 'The hardest of all': '所有开局中最难' };
+  const nameOf = p => ZH ? (NAMES_ZH[p.name] || p.name) : p.name;
+  const T = ZH ? {
+    option: (p) => `${nameOf(p)}（${p.moves}步）`,
+    two: (word) => `${word}两格`, join: '，再', right: '向右移', left: '向左移', up: '向上移', down: '向下移',
+    play: '播放', playLabel: '播放解法', pause: '暂停',
+    start: (n) => `开局：还需${n}步。`, escaped: (s, n) => `第${s}步，共${n}步：曹操逃脱！`, at: (s, n) => `第${s}步，共${n}步。`,
+    backStart: '回到开局。', back: (s, n) => `退回第${s}步，共${n}步。`,
+    moved: (s, n, what, last) => `第${s}步，共${n}步：${what}${last ? '。曹操逃脱！' : '。'}`,
+    loaded: (name) => `${name}：大块的曹操要从底部的出口逃出。按“求解”搜索最短解法。`,
+    solving: '求解中……', locale: 'zh-CN',
+    none: (k) => `无解：曹操无法从这个布局中逃脱（共搜索了${k}个局面）。`,
+    solved: (m, k, ms) => `求解完成：共${m}步，这是最少步数；共搜索了${k}个局面，用时${ms}毫秒。可用下方按钮逐步查看。`,
+    moves: (who, dir) => `${who}${dir}`,
+  } : {
+    option: (p) => `${p.name} (${p.moves} moves)`,
+    two: (word) => `${word} two cells`, join: ' and ', right: 'right', left: 'left', up: 'up', down: 'down',
+    play: 'Play', playLabel: 'Play the solution', pause: 'Pause',
+    start: (n) => `Start: ${n} moves to go.`, escaped: (s, n) => `Move ${s} of ${n}: Cao Cao escapes!`, at: (s, n) => `Move ${s} of ${n}.`,
+    backStart: 'Back at the start.', back: (s, n) => `Back to move ${s} of ${n}.`,
+    moved: (s, n, what, last) => `Move ${s} of ${n}: ${what}${last ? '. Cao Cao escapes!' : '.'}`,
+    loaded: (name) => `${name}: Cao Cao, the large block, must reach the exit at the bottom. ` + 'Press Solve to search for the shortest solution.',
+    solving: 'Solving…', locale: 'en-US',
+    none: (k) => `No solution: Cao Cao cannot escape from this layout (searched ${k} positions).`,
+    solved: (m, k, ms) => `Solved in ${m} moves, the fewest possible, after searching ` + `${k} positions in ${ms} ms. Use the buttons to step through it.`,
+    moves: (who, dir) => `${who} moves ${dir}`,
+  };
   const TYPES = ['C', 'H', 'V', 'S'];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -27,12 +64,12 @@
   const levels = [...new Set(PUZZLES.map(p => p.level))];
   for (const level of levels) {
     const group = document.createElement('optgroup');
-    group.label = level;
+    group.label = ZH ? (LEVELS_ZH[level] || level) : level;
     PUZZLES.forEach((p, i) => {
       if (p.level !== level) return;
       const option = document.createElement('option');
       option.value = i;
-      option.textContent = `${p.name} (${p.moves} moves)`;
+      option.textContent = T.option(p);
       group.appendChild(option);
     });
     select.appendChild(group);
@@ -99,7 +136,7 @@
         pieces[type].delete(gone[i]);
         pieces[type].set(added[i], g);
         place(g, added[i]);
-        description = `${NAMES[type]} moves ${direction(gone[i], added[i])}`;
+        description = T.moves(NAMES[type], direction(gone[i], added[i]));
       }
     }
     current = coords;
@@ -109,18 +146,18 @@
   function direction(from, to) {
     const [c0, r0] = board.getColRow(from), [c1, r1] = board.getColRow(to);
     const parts = [];
-    const say = (n, word) => parts.push(Math.abs(n) === 2 ? `${word} two cells` : word);
-    if (c1 !== c0) say(c1 - c0, c1 > c0 ? 'right' : 'left');
-    if (r1 !== r0) say(r1 - r0, r1 > r0 ? 'up' : 'down');
-    return parts.join(' and ');
+    const say = (n, word) => parts.push(Math.abs(n) === 2 ? T.two(word) : word);
+    if (c1 !== c0) say(c1 - c0, c1 > c0 ? T.right : T.left);
+    if (r1 !== r0) say(r1 - r0, r1 > r0 ? T.up : T.down);
+    return parts.join(T.join);
   }
 
   // --- controls --------------------------------------------------------------
   function stop() {
     if (timer) clearInterval(timer);
     timer = null;
-    buttons.play.textContent = 'Play';
-    buttons.play.setAttribute('aria-label', 'Play the solution');
+    buttons.play.textContent = T.play;
+    buttons.play.setAttribute('aria-label', T.playLabel);
   }
 
   function update(message) {
@@ -140,9 +177,9 @@
     if (Math.abs(target - step) !== 1) {
       drawFresh(path[target]);
       step = target;
-      update(target === 0 ? `Start: ${path.length - 1} moves to go.`
-                          : target === path.length - 1 ? `Move ${step} of ${path.length - 1}: Cao Cao escapes!`
-                          : `Move ${step} of ${path.length - 1}.`);
+      update(target === 0 ? T.start(path.length - 1)
+                          : target === path.length - 1 ? T.escaped(step, path.length - 1)
+                          : T.at(step, path.length - 1));
       return;
     }
     const forward = target > step;
@@ -150,9 +187,9 @@
     step = target;
     const total = path.length - 1;
     if (!forward) {
-      update(step === 0 ? 'Back at the start.' : `Back to move ${step} of ${total}.`);
+      update(step === 0 ? T.backStart : T.back(step, total));
     } else {
-      update(`Move ${step} of ${total}: ${what}${step === total ? '. Cao Cao escapes!' : '.'}`);
+      update(T.moved(step, total, what, step === total));
     }
   }
 
@@ -162,34 +199,32 @@
     path = null; step = 0;
     drawFresh(puzzle.coords);
     root.classList.toggle('animate', !reducedMotion);
-    update(`${puzzle.name}: Cao Cao, the large block, must reach the exit at the bottom. ` +
-           'Press Solve to search for the shortest solution.');
+    update(T.loaded(nameOf(puzzle)));
   }
 
   function solve() {
-    status.textContent = 'Solving…';
+    status.textContent = T.solving;
     buttons.solve.disabled = true;
     setTimeout(() => {  // let the message appear before the search runs
       const solution = new Solution(board, current);
       const t0 = performance.now();
       const found = solution.findPath();
       const ms = Math.round(performance.now() - t0);
-      const searched = solution.nsearched.toLocaleString('en-US');
+      const searched = solution.nsearched.toLocaleString(T.locale);
       if (!found) {
-        update(`No solution: Cao Cao cannot escape from this layout (searched ${searched} positions).`);
+        update(T.none(searched));
         return;
       }
       path = found; step = 0;
-      update(`Solved in ${path.length - 1} moves, the fewest possible, after searching ` +
-             `${searched} positions in ${ms} ms. Use the buttons to step through it.`);
+      update(T.solved(path.length - 1, searched, ms));
     }, 30);
   }
 
   function play() {
     if (timer) { stop(); return; }
     if (!path || step === path.length - 1) return;
-    buttons.play.textContent = 'Pause';
-    buttons.play.setAttribute('aria-label', 'Pause');
+    buttons.play.textContent = T.pause;
+    buttons.play.setAttribute('aria-label', T.pause);
     timer = setInterval(() => {
       goTo(step + 1);
       if (step === path.length - 1) { stop(); update(); }

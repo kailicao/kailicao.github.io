@@ -5,7 +5,8 @@ The glossary (glossary/index.html, and zh/glossary/index.html for Chinese pages)
 source: definitions are written and corrected there only. This script copies the definitions of the terms a
 page links to (links with class="term") into a collapsible box at the end of the page's <main>. The small
 script assets/terms.js then shows the same definitions in a pop-up when a reader hovers, focuses or taps a
-term. Without JavaScript, the box still works and term links still lead to the glossary.
+term. Without JavaScript, the box still works and term links still lead to the glossary. Other pages with term
+links (Home, About, Software) get the same box, hidden, so that their pop-ups work too.
 
 Run from the site root after editing the glossary or a page:   python3 tools/terms.py
 It is idempotent: the box sits between <!-- terms:start --> and <!-- terms:end --> and is rebuilt each run.
@@ -43,7 +44,7 @@ def rebase(fragment, page_dir):
         return f'{m.group(1)}"{link(target, page_dir)}{"#" + frag if frag else ""}"'
     return re.sub(r'(href=)"([^"]+)"', fix, fragment)
 
-def build(root, lang, page):
+def build(root, lang, page, shown=True):
     path = os.path.join(root, page)
     if not os.path.exists(path): return 0
     s = open(path, encoding='utf-8').read()
@@ -62,8 +63,9 @@ def build(root, lang, page):
         open(path, 'w', encoding='utf-8').write(s); return 0
     title, more = LABELS[lang]
     items = '\n'.join(f'  <dt id="term-{t}">{G[t][0]}</dt>\n  <dd>{rebase(G[t][1], page_dir)}</dd>' for t in ids)
-    box = (f'{START}\n<details class="terms-box" id="terms">\n<summary>{title}（{len(ids)}）</summary>\n' if lang == 'zh' else
-           f'{START}\n<details class="terms-box" id="terms">\n<summary>{title} ({len(ids)})</summary>\n')
+    attrs = '' if shown else ' hidden'  # other pages: the box only feeds the pop-ups
+    box = (f'{START}\n<details class="terms-box" id="terms"{attrs}>\n<summary>{title}（{len(ids)}）</summary>\n' if lang == 'zh' else
+           f'{START}\n<details class="terms-box" id="terms"{attrs}>\n<summary>{title} ({len(ids)})</summary>\n')
     box += f'<dl class="glossary">\n{items}\n</dl>\n<p><a href="{gloss_rel}">{more}</a></p>\n</details>\n{END}\n'
     s = s.replace('</main>', box + '</main>', 1)
     js = posixpath.relpath('assets/terms.js', posixpath.dirname(page) or '.')
@@ -82,3 +84,13 @@ if __name__ == '__main__':
             p = page if lang == 'en' else 'zh/' + page
             n = build(root, lang, p)
             print(f'{p}: {n} terms')
+        # Any other page with term links gets a hidden box, so its pop-ups work too.
+        base = os.path.join(root, 'zh') if lang == 'zh' else root
+        for d, dirs, files in os.walk(base):
+            if lang == 'en': dirs[:] = [x for x in dirs if x not in ('zh', '.git')]
+            for f in files:
+                p = posixpath.relpath(posixpath.join(d, f).replace(os.sep, '/'), root)
+                q = p[3:] if lang == 'zh' else p
+                if not f.endswith('.html') or q in PAGES or q.startswith('glossary/'): continue
+                if 'class="term"' in open(os.path.join(root, p), encoding='utf-8').read():
+                    print(f'{p}: {build(root, lang, p, shown=False)} terms (pop-ups only)')

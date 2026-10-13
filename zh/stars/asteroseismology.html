@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>星震学 · 曹开力</title>
+<meta name="description" content="用恒星振荡测量红巨星的质量和年龄：改进星震学标度关系的校正，展望罗曼星震学。">
+<link rel="alternate" hreflang="en" href="https://kailicao.github.io/stars/asteroseismology.html">
+<link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/stars/asteroseismology.html">
+<link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/stars/asteroseismology.html">
+<link rel="canonical" href="https://kailicao.github.io/zh/stars/asteroseismology.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="星震学 · 曹开力">
+<meta property="og:description" content="用恒星振荡测量红巨星的质量和年龄：改进星震学标度关系的校正，展望罗曼星震学。">
+<meta property="og:url" content="https://kailicao.github.io/zh/stars/asteroseismology.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="曹开力（Kaili Cao）">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/figures.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <a class="name" href="../index.html">曹开力 <span lang="en">Kaili Cao</span></a>
+  <nav aria-label="网站导航"><a href="../index.html">首页</a><div class="menu"><a href="../about/">关于我<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-directions/">研究</a></li><li><a href="../about/publications.html">论文</a></li><li><a href="../about/presentations.html">报告</a></li><li><a href="../about/software.html">软件</a></li><li><a href="../about/personal.html">个人</a></li></ul></div><div class="menu"><a href="../../cv/Kaili_Cao_CV.pdf">履历<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../../cv/Kaili_Cao_CV.pdf">完整版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_CV_short.pdf">简版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_Resume.pdf">一页简历（PDF，初稿）</a></li></ul></div><div class="menu"><a href="../ai/">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="https://kailicao.github.io/maphub-public/">MapHub</a></li><li class="sep"><a href="../glossary/">术语表</a></li></ul></div><div class="menu"><a href="../images/">图像<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../images/image-reconstruction.html">图像重建</a></li><li><a href="../images/image-analysis.html">图像分析</a></li><li><a href="../images/extragalactic-astronomy.html">河外天文学</a></li><li class="sep"><a href="../glossary/#images">术语表</a></li></ul></div><div class="menu"><a href="../cosmology/">宇宙学<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cosmology/cosmological-inference.html">宇宙学推断</a></li><li><a href="../cosmology/cosmological-simulations.html">宇宙学模拟</a></li><li class="sep"><a href="../glossary/#cosmology">术语表</a></li></ul></div><div class="menu"><a href="./" aria-current="page">恒星<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="stellar-modeling.html">恒星建模</a></li><li><a href="asteroseismology.html" aria-current="page">星震学</a></li><li class="sep"><a href="../glossary/#stars">术语表</a></li></ul></div><div class="menu"><a href="../opinions/">观点<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../opinions/learning-python.html">学习Python</a></li><li><a href="../opinions/python.html">Python哲学</a></li><li><a href="../opinions/ethics.html">科研伦理</a></li><li><a href="../opinions/teaching.html">教学理念</a></li><li><a href="../opinions/career.html">职业发展</a></li></ul></div><a class="lang" href="../../stars/asteroseismology.html" hreflang="en" lang="en">English</a></nav>
+</header>
+<main id="main"><p class="crumb"><a href="./">恒星</a> · 星震学</p>
+<h1>星震学</h1>
+<p class="lead">从开普勒空间望远镜到南希·格蕾丝·罗曼空间望远镜，用恒星振荡精确测量恒星的质量和年龄。</p>
+<section id="in-brief">
+<h2>简介</h2>
+<p>恒星会像钟一样鸣响：声波在恒星内部传播，激起振动，让恒星的亮度出现极其微小的起伏。<strong>星震学</strong>（asteroseismology）就是“恒星的地震学”：它利用这些振动来探查恒星内部，正如地震学家利用地震波研究地球内部一样。</p>
+<p><a class="term" href="../glossary/#red-giant">红巨星</a>（red giant）尤其适合这类研究。<a class="term" href="../glossary/#kepler">开普勒</a>（Kepler）等空间望远镜连续数年记录了它们的亮度，这样得到的数据就是<a class="term" href="../glossary/#light-curve">光变曲线</a>（light curve）。对光变曲线作<a class="term" href="../glossary/#fourier">傅里叶变换</a>（Fourier transform），就得到<a class="term" href="../glossary/#power-spectrum">功率谱</a>（power spectrum），从中可以看出恒星在各个频率上振动的强弱。红巨星的功率谱是一排间距均匀的峰，像一把梳子（见图），可以用两个数值来概括：</p>
+<ul>
+  <li><a class="term" href="../glossary/#numax">ν<sub>max</sub></a>，即最大功率频率，取决于恒星的<a class="term" href="../glossary/#surface-gravity">表面重力</a>（surface gravity）和温度；</li>
+  <li><a class="term" href="../glossary/#delta-nu">Δν</a>，即大频率间隔（峰与峰之间的间隔），取决于恒星的平均密度。</li>
+</ul>
+<p>借助<a class="term" href="../glossary/#scaling-relations">标度关系</a>（scaling relations），再结合恒星的表面温度，就能由这两个数值得到恒星的质量和半径。为什么两个数值就够了？因为ν<sub>max</sub>通过表面重力与质量和半径相关联，Δν则通过平均密度与二者相关联，两者结合起来，就能把质量和半径都确定下来。而恒星的质量决定了它在核心聚变氢的时间有多长；之后的红巨星阶段相对短暂。所以，知道了红巨星的质量，再加上它的化学成分，就能较好地估计它的年龄。这种方法可以同时用于成千上万颗恒星，而它们的年龄能告诉我们银河系的各个部分是何时形成的：这正是<a class="term" href="../glossary/#galactic-archaeology">银河考古学</a>（Galactic archaeology）的研究课题。</p>
+<p>标度关系只是近似的。它们虽有理论依据，但需要用质量或半径已由其他途径得知的恒星来校准，例如根据<a class="term" href="../glossary/#gaia">Gaia</a>测得的距离推算出的半径；而且对于光度最高的巨星，标度关系存在明显的<a class="term" href="../glossary/#systematics">系统性</a>（systematics）偏移，必须加以校正。到目前为止，我的工作都围绕这些校正展开。</p>
+<figure class="fig" id="fig-oscillation-spectrum">
+<svg viewBox="0 0 400 236" role="img" aria-label="频谱由几组间隔均匀的峰组成，频率范围约为80到160微赫兹，最高的峰在120微赫兹附近；图中标出了间隔Δν和最大功率频率νmax。"><path class="s-blue" stroke-width="1" d="M11.5 185V184.5M12.5 185V184.5M14.5 185V184.5M15.5 185V182.1M16.5 185V183.3M17.5 185V184.1M18.5 185V182.2M19.5 185V181.9M20.5 185V184.0M21.5 185V183.6M22.5 185V184.2M23.5 185V184.0M24.5 185V183.9M26.5 185V183.8M28.5 185V184.1M29.5 185V183.7M30.5 185V184.2M31.5 185V182.6M32.5 185V184.1M33.5 185V184.1M34.5 185V184.6M35.5 185V182.9M36.5 185V179.4M37.5 185V181.5M38.5 185V184.3M39.5 185V180.1M40.5 185V179.8M41.5 185V181.9M42.5 185V181.6M43.5 185V183.4M44.5 185V183.8M45.5 185V182.4M46.5 185V183.1M47.5 185V184.4M48.5 185V183.2M49.5 185V184.3M50.5 185V183.2M51.5 185V183.4M52.5 185V183.5M53.5 185V183.8M54.5 185V182.3M55.5 185V180.0M56.5 185V183.7M57.5 185V183.3M58.5 185V183.5M59.5 185V183.0M60.5 185V183.8M61.5 185V184.3M62.5 185V183.3M63.5 185V183.5M64.5 185V181.5M65.5 185V184.5M66.5 185V182.6M67.5 185V177.5M68.5 185V177.2M69.5 185V183.4M70.5 185V181.9M71.5 185V169.7M72.5 185V178.0M73.5 185V181.0M74.5 185V184.1M75.5 185V183.1M76.5 185V181.7M77.5 185V183.5M78.5 185V183.6M79.5 185V181.3M80.5 185V182.4M81.5 185V183.7M82.5 185V181.6M83.5 185V180.0M84.5 185V182.1M85.5 185V180.8M86.5 185V169.0M87.5 185V179.9M88.5 185V181.4M89.5 185V179.7M90.5 185V182.9M91.5 185V181.8M92.5 185V184.3M93.5 185V184.5M94.5 185V182.9M95.5 185V183.3M96.5 185V177.8M97.5 185V182.3M98.5 185V177.6M99.5 185V161.7M100.5 185V178.0M101.5 185V179.3M102.5 185V173.0M103.5 185V141.3M104.5 185V172.7M105.5 185V181.7M106.5 185V183.1M107.5 185V183.5M108.5 185V181.2M109.5 185V184.3M110.5 185V183.6M111.5 185V184.0M112.5 185V183.7M113.5 185V182.3M114.5 185V180.6M115.5 185V170.8M116.5 185V178.6M117.5 185V171.6M118.5 185V152.2M119.5 185V178.0M120.5 185V176.6M121.5 185V172.1M122.5 185V178.1M123.5 185V183.5M124.5 185V182.2M125.5 185V183.7M126.5 185V181.3M127.5 185V182.2M128.5 185V182.4M129.5 185V179.6M130.5 185V166.4M131.5 185V137.0M132.5 185V171.8M133.5 185V174.1M134.5 185V130.3M135.5 185V120.0M136.5 185V174.4M137.5 185V180.6M138.5 185V180.8M139.5 185V181.1M140.5 185V183.5M141.5 185V181.7M142.5 185V183.3M143.5 185V182.7M144.5 185V183.1M145.5 185V177.5M146.5 185V170.1M147.5 185V163.4M148.5 185V172.0M149.5 185V130.0M150.5 185V138.1M151.5 185V174.7M152.5 185V161.3M153.5 185V172.3M154.5 185V181.7M155.5 185V180.4M156.5 185V183.4M157.5 185V181.6M158.5 185V182.8M159.5 185V182.4M160.5 185V178.6M161.5 185V171.8M162.5 185V126.2M163.5 185V135.7M164.5 185V172.1M165.5 185V161.4M166.5 185V64.7M167.5 185V132.2M168.5 185V167.8M169.5 185V180.3M170.5 185V181.9M171.5 185V182.4M172.5 185V181.6M173.5 185V182.8M174.5 185V182.9M175.5 185V182.5M176.5 185V179.6M177.5 185V177.9M178.5 185V152.4M179.5 185V163.8M180.5 185V163.5M181.5 185V75.5M182.5 185V150.1M183.5 185V170.8M184.5 185V149.5M185.5 185V175.8M186.5 185V181.1M187.5 185V181.9M188.5 185V181.4M189.5 185V183.1M190.5 185V181.5M191.5 185V181.0M192.5 185V178.6M193.5 185V165.7M194.5 185V90.9M195.5 185V158.8M196.5 185V171.2M197.5 185V144.7M198.5 185V35.0M199.5 185V155.8M200.5 185V174.0M201.5 185V178.8M202.5 185V182.0M203.5 185V182.8M204.5 185V180.8M205.5 185V181.1M206.5 185V181.9M207.5 185V182.4M208.5 185V179.1M209.5 185V172.3M210.5 185V139.2M211.5 185V166.4M212.5 185V139.1M213.5 185V68.1M214.5 185V160.6M215.5 185V161.8M216.5 185V146.7M217.5 185V177.0M218.5 185V179.4M219.5 185V181.3M220.5 185V182.5M221.5 185V181.5M222.5 185V182.7M223.5 185V180.8M224.5 185V177.4M225.5 185V156.8M226.5 185V105.8M227.5 185V168.1M228.5 185V170.5M229.5 185V102.8M230.5 185V70.5M231.5 185V169.9M232.5 185V178.8M233.5 185V180.2M234.5 185V180.3M235.5 185V181.5M236.5 185V183.0M237.5 185V183.3M238.5 185V181.9M239.5 185V180.7M240.5 185V180.2M241.5 185V162.4M242.5 185V146.5M243.5 185V167.4M244.5 185V110.5M245.5 185V120.3M246.5 185V168.2M247.5 185V151.9M248.5 185V166.9M249.5 185V179.9M250.5 185V182.4M251.5 185V182.9M252.5 185V183.4M253.5 185V182.0M254.5 185V182.7M255.5 185V181.9M256.5 185V178.0M257.5 185V145.6M258.5 185V150.6M259.5 185V175.6M260.5 185V167.2M261.5 185V99.2M262.5 185V149.3M263.5 185V177.5M264.5 185V181.3M265.5 185V182.0M266.5 185V180.7M267.5 185V181.7M268.5 185V183.4M269.5 185V179.6M270.5 185V181.2M271.5 185V182.8M272.5 185V177.3M273.5 185V163.2M274.5 185V172.3M275.5 185V167.7M276.5 185V104.9M277.5 185V160.7M278.5 185V174.4M279.5 185V156.2M280.5 185V177.4M281.5 185V182.8M282.5 185V183.3M283.5 185V183.6M284.5 185V183.2M285.5 185V183.5M286.5 185V183.5M287.5 185V180.6M288.5 185V179.1M289.5 185V153.7M290.5 185V172.3M291.5 185V179.6M292.5 185V172.7M293.5 185V137.7M294.5 185V175.1M295.5 185V182.0M296.5 185V179.5M297.5 185V183.4M298.5 185V182.7M299.5 185V184.0M300.5 185V183.6M301.5 185V182.0M302.5 185V182.8M303.5 185V183.7M304.5 185V180.5M305.5 185V170.4M306.5 185V178.1M307.5 185V170.3M308.5 185V146.3M309.5 185V175.3M310.5 185V176.6M311.5 185V174.6M312.5 185V179.7M313.5 185V183.3M314.5 185V184.0M315.5 185V182.5M316.5 185V184.2M317.5 185V184.4M318.5 185V183.5M319.5 185V182.7M320.5 185V180.1M321.5 185V174.3M322.5 185V181.8M323.5 185V181.3M324.5 185V170.7M325.5 185V169.4M326.5 185V182.1M327.5 185V183.3M328.5 185V184.5M329.5 185V183.9M330.5 185V183.2M331.5 185V183.9M332.5 185V183.0M333.5 185V183.4M334.5 185V183.8M335.5 185V183.5M336.5 185V182.1M337.5 185V179.3M338.5 185V182.5M339.5 185V175.3M340.5 185V173.7M341.5 185V180.3M342.5 185V177.5M343.5 185V182.8M344.5 185V182.1M345.5 185V183.4M346.5 185V184.5M347.5 185V184.3M348.5 185V184.3M350.5 185V184.0M351.5 185V184.1M352.5 185V182.2M353.5 185V181.9M354.5 185V184.3M355.5 185V183.7M356.5 185V179.5M357.5 185V182.3M358.5 185V182.0M359.5 185V183.6M361.5 185V183.5M362.5 185V183.3M363.5 185V176.2M365.5 185V183.2M366.5 185V183.8M367.5 185V179.3M368.5 185V183.8M369.5 185V181.3M370.5 185V183.8M371.5 185V179.3M372.5 185V182.9M373.5 185V183.4M374.5 185V183.2M375.5 185V184.5M376.5 185V184.5M378.5 185V183.2M379.5 185V184.6M380.5 185V183.7M381.5 185V184.0M382.5 185V184.6M383.5 185V184.4M384.5 185V184.3M385.5 185V183.3M386.5 185V184.1M387.5 185V184.4M388.5 185V183.5M389.5 185V184.2"/><line class="axis" x1="10" x2="390" y1="185" y2="185"/><line class="s-orange" stroke-width="1.5" stroke-dasharray="5 4" x1="200.0" x2="200.0" y1="185" y2="28"/><text x="206.0" y="38" font-size="16">νmax</text><line class="s-orange" stroke-width="2" x1="135.1" x2="166.8" y1="48" y2="48" marker-start="url(#hrd-a)" marker-end="url(#hrd-a)"/><text x="150.9" y="38" font-size="16" text-anchor="middle">Δν</text><defs><marker id="hrd-a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="orange"/></marker></defs><text class="muted" x="10.0" y="205" font-size="14" text-anchor="middle">60</text><text class="muted" x="105.0" y="205" font-size="14" text-anchor="middle">90</text><text class="muted" x="200.0" y="205" font-size="14" text-anchor="middle">120</text><text class="muted" x="295.0" y="205" font-size="14" text-anchor="middle">150</text><text class="muted" x="390.0" y="205" font-size="14" text-anchor="middle">180</text><text class="muted" x="200.0" y="227" font-size="14" text-anchor="middle">频率（μHz）</text></svg>
+<figcaption>模拟的红巨星振荡功率谱（并非真实数据），其规律依照<a href="https://doi.org/10.1146/annurev-astro-082812-140938">Chaplin and Miglio (2013)</a>的描述：径向模以大频率间隔Δν均匀排列；每个径向模的频率稍低处都有一个较弱的模，到下一个径向模约一半的位置还有一组偶极模；所有模都在最大功率频率νmax附近最强。120 μHz的频率相当于大约每2.3小时振荡一次。结合恒星的温度，这两个数值就能给出它的质量和半径。借助AI（Claude）制作。</figcaption>
+</figure>
+<p class="newbie">对这一领域还不熟悉？<a href="../glossary/">术语表</a>用通俗的语言解释了相关术语；带下划线的术语都链接到术语表。</p>
+</section>
+<section>
+<h2>我的工作</h2>
+<p><a href="../about/publications.html#arXiv-2410.00102">APOKASC-3</a>的校正把星震学半径与<a href="https://www.cosmos.esa.int/web/gaia">Gaia</a>测得的半径挂钩，并把两者之间的全部差异都归于ν<sub>max</sub>。我们提出了另一种方案：Δν的校正因子来自理论模型，本身也可能不够完善；因此，更合理的做法或许是用Gaia测得的半径直接校正星震学半径（<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>）。新的校正公式在两个方面降低了系统误差：一是不同星震学方法之间的一致性提高了，二是结果对“如何由振荡频率推断平均密度”的依赖大大减弱。与APOKASC-3相比，它还让<a class="term" href="../glossary/#alpha-rich">富α恒星</a>（α-rich population）在红巨星分支下段与上段的结果更加一致——这些恒星无论处在哪一段，质量和年龄都应大致相同：两段的中位质量之差从6.65%缩小到1.72%，中位年龄之差从−21.8%缩小到−9.6%。</p>
+<figure class="fig" id="fig-luminous-ages">
+<img src="../../assets/highlights/luminous-giants-fig2-middle.png" width="800" height="523" loading="lazy" alt="四幅子图：在模型与加权方案的三种组合下，星震学质量和年龄随最大功率频率的变化。采用APOKASC-3的校正时（上），三者在低频处不一致；采用原始校正时（下），三者一致。">
+<figcaption>红巨星的星震学质量（左）和年龄（右）随ν<sub>max</sub>的变化，分别由模型与加权方案的三种组合得出：采用APOKASC-3的校正时（上），三者对光度最高的巨星（ν<sub>max</sub>较低）给出的结果不一致；采用我们校正的原始版本时（下），三者一致。<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>的图2中间两行（附坐标轴标注），<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。</figcaption>
+</figure>
+<p>我还参与了APOKASC-3星表的工作（尤其是其中光谱测量的不确定度），以及相关的红巨星研究。罗曼的<a href="https://roman.gsfc.nasa.gov/science/Galactic_Bulge_Time_Domain_Survey.html">银河系核球时域巡天</a>主要用于寻找系外行星，但也将提供丰富的星震学数据：观测对象远多于以往的各项任务，而且位于核球和银心区域，而不在太阳附近。据一项预测，核球中约有18.5万颗红巨星的振荡可以被探测到。我是罗曼大视场科学团队的成员，参与基于这项巡天的星震学研究。</p>
+</section>
+<section><h2>论文</h2>
+<h3>第一作者论文</h3>
+<ul class="pubs">
+  <li><span class="title">Toward Accurate Asteroseismic Masses for Luminous Giants</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, Marc H. Pinsonneault</span><br>
+    <span class="meta">The Astrophysical Journal Letters 990, L26 (2025) · 第一作者</span> · <a href="https://doi.org/10.3847/2041-8213/adfa12">DOI</a> · <a href="https://arxiv.org/abs/2508.06609">arXiv:2508.06609</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2508.06609/abstract">ADS</a> · 报告与墙报：<a href="../../about/presentations/2025-10-07_galactic-genesis.pdf">Galactic Genesis Working Group，2025年</a></li>
+</ul>
+<h3>合作论文</h3>
+<ul class="pubs">
+  <li><span class="title">Beyond the Nyquist frequency: Asteroseismic catalog of undersampled Kepler late subgiants and early red giants</span><br>
+    <span class="authors">B. Liagre, R. A. García, S. Mathur, M. H. Pinsonneault, A. Serenelli, J. C. Zinn, et al.（共12位作者，包括<strong>Kaili Cao</strong>）</span><br>
+    <span class="meta">Astronomy &amp; Astrophysics 702, A144 (2025) · 合作作者（12位作者中第7位）</span> · <a href="https://doi.org/10.1051/0004-6361/202555167">DOI</a> · <a href="https://arxiv.org/abs/2508.15654">arXiv:2508.15654</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2508.15654/abstract">ADS</a><br>
+    <span class="contrib">我提供了第一型上涌信号的理论预测，并参与了相关讨论。</span></li>
+  <li><span class="title">Modeling Asteroseismic Yields for the Roman Galactic Bulge Time-Domain Survey</span><br>
+    <span class="authors">Trevor J. Weiss, Noah J. Downing, Marc H. Pinsonneault, Joel C. Zinn, Dennis Stello, Timothy R. Bedding, et al.（共13位作者，包括<strong>Kaili Cao</strong>）</span><br>
+    <span class="meta">The Astrophysical Journal 987, 181 (2025) · 合作作者（13位作者中第7位）</span> · <a href="https://doi.org/10.3847/1538-4357/adde5b">DOI</a> · <a href="https://arxiv.org/abs/2503.04999">arXiv:2503.04999</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2503.04999/abstract">ADS</a><br>
+    <span class="contrib">我参与了关于罗曼星震学的讨论，并对稿件提出了意见。</span></li>
+  <li><span class="title">Red giants evolutionary status determination: the complete Kepler catalog</span><br>
+    <span class="authors">M. Vrard, M. H. Pinsonneault, Y. Elsworth, M. Hon, T. Kallinger, J. Kuszlewicz, et al.（共15位作者，包括<strong>Kaili Cao</strong>）</span><br>
+    <span class="meta">Astronomy &amp; Astrophysics 697, A165 (2025) · 合作作者（15位作者中第11位）</span> · <a href="https://doi.org/10.1051/0004-6361/202452635">DOI</a> · <a href="https://arxiv.org/abs/2411.03101">arXiv:2411.03101</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2411.03101/abstract">ADS</a><br>
+    <span class="contrib">我参与了讨论，探讨如何区分首次上升红巨星分支的恒星与渐近巨星分支恒星。</span></li>
+  <li><span class="title">APOKASC-3: The Third Joint Spectroscopic and Asteroseismic catalog for Evolved Stars in the Kepler Fields</span><br>
+    <span class="authors">Marc H. Pinsonneault, Joel C. Zinn, Jamie Tayar, Aldo Serenelli, Rafael A. Garcia, Savita Mathur, et al.（共41位作者，包括<strong>Kaili Cao</strong>）</span><br>
+    <span class="meta">The Astrophysical Journal Supplement Series 276, 69 (2025) · 合作作者（41位作者中第19位）</span> · <a href="https://doi.org/10.3847/1538-4365/ad9fef">DOI</a> · <a href="https://arxiv.org/abs/2410.00102">arXiv:2410.00102</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2410.00102/abstract">ADS</a><br>
+    <span class="contrib">我参与了关于星表的讨论，在其光谱可观测量的不确定度方面作出了重要贡献，并参与了论文的撰写。</span></li>
+  <li><span class="title">Nature vs. Nurture: Distinguishing Effects from Stellar Processing and Chemical Evolution on Carbon and Nitrogen in Red Giant Stars</span><br>
+    <span class="authors">John D. Roberts, Marc H. Pinsonneault, Jennifer A. Johnson, Joel C. Zinn, David H. Weinberg, Mathieu Vrard, et al.（共19位作者，包括<strong>Kaili Cao</strong>）</span><br>
+    <span class="meta">Monthly Notices of the Royal Astronomical Society 530, 149-166 (2024) · 合作作者（19位作者中第11位）</span> · <a href="https://doi.org/10.1093/mnras/stae820">DOI</a> · <a href="https://arxiv.org/abs/2403.03249">arXiv:2403.03249</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2403.03249/abstract">ADS</a><br>
+    <span class="contrib">我参与了APOKASC-3星表中光谱可观测量不确定度的工作，提供了关于第一型上涌的理论见解，并对稿件提出了意见。</span></li>
+</ul></section>
+<section>
+<h2>下一步</h2>
+<p><strong>DynFlux</strong>：罗曼的探测器灵敏度很高，预计这项巡天的大部分星震学观测对象都会接近甚至超过饱和（<a href="https://doi.org/10.3847/1538-4357/adde5b">Weiss et al. 2025</a>，图9）。DynFlux的目标是从饱和像素的像素级校准做起，为饱和恒星取得可靠的时域测光。我还计划协助刻画罗曼观测到的演化恒星的性质，并把这项巡天的数千次曝光合成银河系核球的深度图像。</p>
+<p>这些工作在我未来五年计划中的位置，见<a href="../research-directions/">研究方向</a>。</p>
+</section>
+<!-- terms:start -->
+<details class="terms-box" id="terms">
+<summary>本页术语（13）</summary>
+<dl class="glossary">
+  <dt id="term-red-giant">红巨星、红巨星分支（red giant，red giant branch）</dt>
+  <dd>核心的氢已经耗尽、体积膨胀到原来许多倍（可达一百倍甚至更多）的恒星，表面温度较低，颜色发红。红巨星分支是这类恒星逐渐变亮时，在赫茨普龙—罗素图上走过的路径。</dd>
+  <dt id="term-kepler">开普勒空间望远镜（Kepler）</dt>
+  <dd>NASA的一台空间望远镜（2009年至2018年）。在主任务期间（2009年至2013年），它几乎不间断地测量了约15万颗恒星的亮度，前后长达四年，主要目的是寻找行星。它的光变曲线还揭示了数千颗红巨星的振荡。</dd>
+  <dt id="term-light-curve">光变曲线（light curve）</dt>
+  <dd>天体亮度随时间变化的记录。</dd>
+  <dt id="term-fourier">傅里叶变换（Fourier transform）</dt>
+  <dd>一种数学工具，把随时间变化的信号分解为它所包含的各个频率。</dd>
+  <dt id="term-power-spectrum">振荡功率谱（power spectrum of oscillations）</dt>
+  <dd>描述信号在各个频率上变化有多大，可以通过傅里叶变换得到。之所以叫“功率”，是因为它衡量的是变化幅度的平方，就像波的功率一样。红巨星光变曲线的功率谱呈现为一排梳齿状的振荡峰。</dd>
+  <dt id="term-numax">最大功率频率ν<sub>max</sub>（nu-max）</dt>
+  <dd>恒星振荡最强处的频率。它主要取决于恒星的表面重力，也与温度有关。</dd>
+  <dt id="term-surface-gravity">表面重力log g（surface gravity）</dt>
+  <dd>恒星表面的引力加速度，g = GM/R²。天文学家通常给出log g，即以cm/s²为单位的g取以10为底的对数。太阳的log g为4.44（约27000 cm/s²，是地球的28倍）；观测到的红巨星大多在1到3.5之间。</dd>
+  <dt id="term-delta-nu">大频率间隔Δν（large frequency separation）</dt>
+  <dd>恒星振荡功率谱中各个峰之间的规则间隔（称为“大”频率间隔，是为了与其他类型的峰之间较小的间隔相区别）。它取决于声波穿过恒星所需的时间，并随恒星平均密度的增大而增大（与平均密度的平方根成正比）。</dd>
+  <dt id="term-scaling-relations">标度关系（scaling relations）</dt>
+  <dd>一些简单的公式，以太阳为参照，由ν<sub>max</sub>、Δν和恒星的表面温度推算出恒星的质量和半径。它们效果很好，但需要校准和校正。</dd>
+  <dt id="term-galactic-archaeology">银河考古学（Galactic archaeology）</dt>
+  <dd>根据银河系中恒星的年龄、化学成分和运动，重建银河系的历史。</dd>
+  <dt id="term-gaia">Gaia</dt>
+  <dd>欧洲空间局的一项任务（2013年至2025年），测量了十亿多颗恒星的位置、距离和运动。知道了距离，就能把恒星的视亮度换算成它的光度（真正的发光本领）；再结合光度和温度，就能得到它的半径，而且不依赖于星震学。</dd>
+  <dt id="term-systematics">系统误差（systematics，systematic errors）</dt>
+  <dd>把结果始终推向同一方向的误差，而不是让结果随机散开的误差。数据再多也无法把它平均掉，所以必须弄清它的来源并加以校正。未经校正的噪声图样（例如条纹）如果与信号相似，就可能变成系统误差。</dd>
+  <dt id="term-alpha-rich">富α星族（α-rich population）</dt>
+  <dd>“α元素”相对于铁的含量比太阳高的恒星。α元素包括氧、镁、硅等，是恒星通过不断添加氦原子核（即α粒子）合成的。这些恒星形成于银河系历史的早期，所以大多比较年老。</dd>
+</dl>
+<p><a href="../glossary/">查看完整术语表</a></p>
+</details>
+<!-- terms:end -->
+</main>
+<footer class="site">
+  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8，最后更新于2026年10月13日。</p>
+</footer>
+<script src="../../assets/terms.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

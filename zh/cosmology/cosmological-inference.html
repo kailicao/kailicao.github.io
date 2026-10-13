@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宇宙学推断 · 曹开力</title>
+<meta name="description" content="从星系巡天数据推断宇宙学参数：3×2点分析，以及为罗曼高纬度成像巡天所作的费希尔预测。">
+<link rel="alternate" hreflang="en" href="https://kailicao.github.io/cosmology/cosmological-inference.html">
+<link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/cosmology/cosmological-inference.html">
+<link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/cosmology/cosmological-inference.html">
+<link rel="canonical" href="https://kailicao.github.io/zh/cosmology/cosmological-inference.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="宇宙学推断 · 曹开力">
+<meta property="og:description" content="从星系巡天数据推断宇宙学参数：3×2点分析，以及为罗曼高纬度成像巡天所作的费希尔预测。">
+<meta property="og:url" content="https://kailicao.github.io/zh/cosmology/cosmological-inference.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="曹开力（Kaili Cao）">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/figures.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <a class="name" href="../index.html">曹开力 <span lang="en">Kaili Cao</span></a>
+  <nav aria-label="网站导航"><a href="../index.html">首页</a><div class="menu"><a href="../about/">关于我<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-directions/">研究</a></li><li><a href="../about/publications.html">论文</a></li><li><a href="../about/presentations.html">报告</a></li><li><a href="../about/software.html">软件</a></li><li><a href="../about/personal.html">个人</a></li></ul></div><div class="menu"><a href="../../cv/Kaili_Cao_CV.pdf">履历<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../../cv/Kaili_Cao_CV.pdf">完整版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_CV_short.pdf">简版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_Resume.pdf">一页简历（PDF，初稿）</a></li></ul></div><div class="menu"><a href="../ai/">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="https://kailicao.github.io/maphub-public/">MapHub</a></li><li class="sep"><a href="../glossary/">术语表</a></li></ul></div><div class="menu"><a href="../images/">图像<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../images/image-reconstruction.html">图像重建</a></li><li><a href="../images/image-analysis.html">图像分析</a></li><li><a href="../images/extragalactic-astronomy.html">河外天文学</a></li><li class="sep"><a href="../glossary/#images">术语表</a></li></ul></div><div class="menu"><a href="./" aria-current="page">宇宙学<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="cosmological-inference.html" aria-current="page">宇宙学推断</a></li><li><a href="cosmological-simulations.html">宇宙学模拟</a></li><li class="sep"><a href="../glossary/#cosmology">术语表</a></li></ul></div><div class="menu"><a href="../stars/">恒星<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../stars/stellar-modeling.html">恒星建模</a></li><li><a href="../stars/asteroseismology.html">星震学</a></li><li class="sep"><a href="../glossary/#stars">术语表</a></li></ul></div><div class="menu"><a href="../opinions/">观点<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../opinions/learning-python.html">学习Python</a></li><li><a href="../opinions/python.html">Python哲学</a></li><li><a href="../opinions/ethics.html">科研伦理</a></li><li><a href="../opinions/teaching.html">教学理念</a></li><li><a href="../opinions/career.html">职业发展</a></li></ul></div><a class="lang" href="../../cosmology/cosmological-inference.html" hreflang="en" lang="en">English</a></nav>
+</header>
+<main id="main"><p class="crumb"><a href="./">宇宙学</a> · 宇宙学推断</p>
+<h1>宇宙学推断</h1>
+<p class="lead">像南希·格蕾丝·罗曼空间望远镜这样的巡天能告诉我们宇宙的哪些信息，又该如何把这些信息提取出来。</p>
+<section id="in-brief">
+<h2>简介</h2>
+<p>宇宙学研究的是宇宙由什么组成、又是如何随时间变化的。在宇宙学的<a class="term" href="../glossary/#standard-model">标准模型</a>（standard model of cosmology）中，宇宙自大爆炸以来一直在膨胀，由普通物质、<a class="term" href="../glossary/#dark-matter">暗物质</a>（dark matter）和暗能量组成。这个模型包含几个数值，称为<a class="term" href="../glossary/#cosmological-parameters">宇宙学参数</a>（cosmological parameters），观测的任务就是测量它们。其中有两个参数在本站经常出现。<a class="term" href="../glossary/#omega-m">Ω<sub>m</sub></a>是物质（包括普通物质和暗物质）在当今宇宙总能量中所占的比例，约为0.3，其余部分大多是暗能量。<a class="term" href="../glossary/#sigma-8">σ<sub>8</sub></a>衡量的是物质在数千万光年尺度上的成团程度。这些数值也可以用来检验模型本身：一些<a class="term" href="../glossary/#weak-lensing">弱引力透镜</a>（weak gravitational lensing）巡天发现，物质的成团程度略低于根据宇宙微波背景（早期宇宙遗留下来的光）所作的预测。这可能意味着两者之间存在矛盾，而罗曼的高精度测量有助于把这个问题弄清楚。</p>
+<p><strong>推断</strong>就是从数据出发得到这些数值，并给出如实的误差棒。星系巡天并不直接测量这些参数，它测量的是星系的位置和形状。理论无法预测每个星系具体在哪里，只能预测星系整体呈现的统计规律，所以我们要把数据浓缩成理论能够预测的统计量。对罗曼这类巡天而言，最主要的统计量是三个<a class="term" href="../glossary/#two-point">两点相关函数</a>（two-point correlation function）：它们考察相隔一定距离的两个星系，在位置和形状上平均有怎样的关联（见图）。</p>
+<p>距离来自<a class="term" href="../glossary/#redshift">红移</a>（redshift）：宇宙膨胀会把光拉长，所以越遥远的星系看起来越红。在几个颜色滤光片中测量星系的亮度，称为<a class="term" href="../glossary/#photometry">测光</a>（photometry）。光被拉长时，星系在这些滤光片中的亮度分布也会随之移动，由此可以估算出近似的红移。这样就可以把星系划分到不同的<a class="term" href="../glossary/#redshift-bins">红移区间</a>（redshift bins）中：每个区间是一个距离切片，也就对应宇宙历史上的一个时期。</p>
+<p>把测得的统计量与参数取各种可能值时的预测相比较，就能看出哪些取值与数据相符，以及参数在多大范围内变动仍与数据大致相符：这个范围就是误差棒（见<a class="term" href="../glossary/#mcmc">马尔可夫链蒙特卡洛</a>（Markov chain Monte Carlo，MCMC）和<a class="term" href="../glossary/#fisher">费希尔预测</a>（Fisher forecast））。在真实数据到来之前，<a class="term" href="../glossary/#forecast">预测</a>（forecast）可以估计一项巡天能达到怎样的精度，以及分析中的哪些选择影响最大。我目前在这方面的工作，就是为罗曼所作的这样一项预测。</p>
+<figure class="fig" id="fig-3x2pt">
+<div class="fig-three">
+  <div class="fig-box fig-blue-k"><strong>宇宙剪切</strong><span>形状—形状配对：同一处前景物质会拉伸（即<a class="term" href="../glossary/#shear">剪切</a>，shear）遥远星系的像，这些星系的形状是否因此朝同一方向排列？</span></div>
+  <div class="fig-box fig-blue-k"><strong>星系—星系透镜</strong><span>位置—形状配对：较近星系所处的物质，是否会把更远的星系沿着以较近星系为中心的圆周拉伸？</span></div>
+  <div class="fig-box fig-blue-k"><strong>星系成团</strong><span>位置—位置配对：星系彼此相邻出现的频率是否高于随机情况？</span></div>
+</div>
+<p class="fig-loop">↓ 与宇宙学参数取各种可能值时的预测相比较 ↓</p>
+<div class="fig-box fig-gold-k fig-gold-band"><strong>参数及其误差棒</strong><span>例如Ω<sub>m</sub>和σ<sub>8</sub></span></div>
+<figcaption>“3×2点”分析中的三种统计量：每一种都考察成对的星系（即“两点”）如何随间距变化，三者再结合起来。它们由数百万个星系在若干红移区间中的位置和形状测得。示意图借助AI（Claude）制作。</figcaption>
+</figure>
+<p class="newbie">对这一领域还不熟悉？<a href="../glossary/">术语表</a>用通俗的语言解释了相关术语；带下划线的术语都链接到术语表。</p>
+</section>
+<section id="in-more-depth">
+<h2>深入了解</h2>
+<p>我认为宇宙学推断中有两个关键点：首先，推断出的模型和参数应当尽可能准确；其次，由于结果永远无法做到完美，我们需要知道自己对它们有多大把握。</p>
+<p>在弱引力透镜研究中，观测数据与理论建模通常在汇总统计量的层面上合流。根据星系的位置和形状，我们可以计算出三个两点相关函数：宇宙剪切（前方物质对遥远星系的透镜效应）、星系—星系透镜和星系成团。三者结合起来，称为“3×2点”分析。多波段测光可以给出每个星系的近似红移，从而把样本划分到不同的红移区间，反映宇宙随时间的变化。把观测到的相关函数与理论预测相比较，就能推断宇宙学模型及其参数。在数据到来之前，预测可以告诉我们一项巡天能把参数约束到什么程度，以及分析中的哪些选择影响最大。</p>
+</section>
+<section>
+<h2>我的工作</h2>
+<p>在我们的项目基础设施团队中，宇宙学参数推断使用的是<a href="https://github.com/SBU-COSMOLIKE/cocoa">CoCoA</a>：它把<a href="https://github.com/CosmoLike">CosmoLike</a>（计算理论预测）和<a href="https://cobaya.readthedocs.io/">Cobaya</a>（在参数空间中采样）结合起来，采样通常采用<a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo">马尔可夫链蒙特卡洛</a>（MCMC）方法。马尔可夫链蒙特卡洛方法稳健可靠，但计算代价高昂，因此在团队的第一次数据挑战中，我转而主导了费希尔预测（<a href="../about/publications.html#arXiv-2601.00438">Cao et al. 2026</a>）。<a href="https://en.wikipedia.org/wiki/Fisher_information">费希尔方法</a>把参数的概率分布近似为高斯分布。这当然只是一种近似，不过我们发现它与马尔可夫链蒙特卡洛的结果吻合良好；而且利用费希尔矩阵，探索各种不同的情形要容易得多。</p>
+<figure class="fig" id="fig-forecast">
+<img src="../../assets/highlights/forecast-fig6.png" width="1000" height="490" loading="lazy" alt="两幅子图分别显示傅里叶空间和实空间中对σ8和Ωm的约束：费希尔预测的椭圆与马尔可夫链蒙特卡洛样本的比较。">
+<figcaption>罗曼高纬度成像巡天对σ<sub>8</sub>和Ω<sub>m</sub>的预测约束，左为傅里叶空间，右为实空间：费希尔预测（虚线）与马尔可夫链蒙特卡洛样本（蓝色）的比较。<a href="../about/publications.html#arXiv-2601.00438">Cao et al. 2026</a>的图6，<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。</figcaption>
+</figure>
+<p>在这次数据挑战的假设下，星系—星系透镜加星系成团对σ<sub>8</sub>和Ω<sub>m</sub>的约束比仅用宇宙剪切更强，三者结合则能带来进一步的提升。用严格的外部<a class="term" href="../glossary/#prior">先验</a>（prior）限定<a class="term" href="../glossary/#power-spectrum-cosmo">功率谱</a>（matter power spectrum）的形状，可将<a class="term" href="../glossary/#figure-of-merit">性能指标</a>（figure of merit，衡量参数约束精度的指标）提升1.2到3.5倍；最小的角尺度所含的信息远多于最大的角尺度，最高的红移区间也多于最低的红移区间；而将测光红移偏差和剪切偏差的先验宽度放大为两倍或缩小为一半，性能指标的变化不超过20%。我还在一项关于罗曼与薇拉·鲁宾天文台模型近似的研究中，贡献了费希尔预测方面的这些经验。</p>
+</section>
+<section><h2>论文</h2>
+<h3>第一作者论文</h3>
+<ul class="pubs">
+  <li><span class="title">Fisher Forecasts for Cosmological Yields from 3×2pt Analysis of the Roman Space Telescope High Latitude Imaging Survey</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, David H. Weinberg, Vivian Miranda, Nihar Dalal, Tim Eifler, Jiachuan Xu, Haley Bowden, Katarina Markovič, Roman HLIS Cosmology PIT</span><br>
+    <span class="meta">The Astrophysical Journal 1010, 21 (2026) · 第一作者</span> · <a href="https://doi.org/10.3847/1538-4357/ae9bc0">DOI</a> · <a href="https://arxiv.org/abs/2601.00438">arXiv:2601.00438</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2601.00438/abstract">ADS</a> · 报告与墙报：<a href="../../about/presentations/2025-10-13_cosmo-25.pdf">COSMO-25，2025年</a>、<a href="../../about/presentations/2026-04-17_um-cosmology-seminar.pdf">密歇根大学研讨会，2026年</a>、<a href="https://workshop.ipac.caltech.edu/roman2026/files/KAILI_CAO_roman2026a.pdf">墙报，Roman 2026</a></li>
+</ul>
+<h3>合作论文</h3>
+<ul class="pubs">
+  <li><span class="title">Accurate modeling for 3×2pt analyses in Roman and Rubin: a study of model approximations</span><br>
+    <span class="authors">Junzhou Zhang, Chihway Chang, Jiachuan Xu, Vivian Miranda, Chun-Hao To, Haley Bowden, et al.（共9位作者，包括<strong>Kaili Cao</strong>）</span><br>
+    <span class="meta">arXiv预印本 · 合作作者（9位作者中第7位）</span> · <a href="https://arxiv.org/abs/2606.23781">arXiv:2606.23781</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2606.23781/abstract">ADS</a><br>
+    <span class="contrib">我贡献了自己在费希尔预测方面的经验。</span></li>
+</ul></section>
+<section>
+<h2>下一步</h2>
+<p><strong>深度“填充”（Depth Padding）</strong>：一种处理巡天覆盖区域内观测深度差异的方法，目的是让宇宙学推断变得更简单。这些差异来自天空背景的变化、不均匀的拼接模式以及仪器缺陷。</p>
+<p>这些工作在我未来五年计划中的位置，见<a href="../research-directions/">研究方向</a>。</p>
+</section>
+<!-- terms:start -->
+<details class="terms-box" id="terms">
+<summary>本页术语（17）</summary>
+<dl class="glossary">
+  <dt id="term-standard-model">宇宙学标准模型（standard model of cosmology，ΛCDM）</dt>
+  <dd>目前的标准图景：宇宙从早期炽热、致密的状态（大爆炸）膨胀而来；它包含普通物质、冷（运动缓慢的）暗物质和暗能量（Λ，即宇宙学常数）；结构则是在引力作用下，由早期微小的涟漪逐渐长成的。少数几个宇宙学参数就能描述这一模型。</dd>
+  <dt id="term-dark-matter">暗物质（dark matter）</dt>
+  <dd>不发光也不吸收光、但有引力的物质。宇宙中的物质大部分都是暗物质；弱引力透镜通过暗物质的引力直接测量暗物质。</dd>
+  <dt id="term-cosmological-parameters">宇宙学参数（cosmological parameters）</dt>
+  <dd>宇宙学标准模型中的少数几个参数，例如物质的多少和物质的成团程度。巡天力图精确地测量这些参数，并检验模型本身是否成立。</dd>
+  <dt id="term-omega-m">物质密度参数Ω<sub>m</sub>（omega-m）</dt>
+  <dd>当今宇宙的能量密度中物质（普通物质和暗物质）所占的比例，约为0.3。其余几乎全是暗能量，它使宇宙的膨胀不断加速。</dd>
+  <dt id="term-sigma-8">物质波动幅度σ<sub>8</sub>（sigma-8）</dt>
+  <dd>衡量当今物质成团程度的量：在半径约3700万光年的球内取平均后，物质密度的典型相对涨落（按照把涨落视为小量的最简单理论来预测）。宇宙学家把这个半径写作8 h<sup>−1</sup>兆秒差距，其中1兆秒差距约为330万光年，h ≈ 0.7描述宇宙的膨胀速率。</dd>
+  <dt id="term-weak-lensing">弱引力透镜（weak gravitational lensing）</dt>
+  <dd>遥远星系发出的光被前方物质的引力轻微弯折，使星系的像被拉伸约1%。对数百万个星系取平均，就能绘出所有物质（包括暗物质）的分布，从而检验宇宙学模型。</dd>
+  <dt id="term-two-point">两点相关函数（two-point correlation function）</dt>
+  <dd>一种统计量，考察某一点上的某个量，与相隔一定距离的另一点上的同一个量（或另一个量）平均而言有什么关系。对星系来说，问题就是：成对出现的星系是否比随机情况下更多？它们的形状是否相互对齐？弱引力透镜研究同时使用其中三个：宇宙剪切、星系—星系透镜和星系成团。三者合在一起，构成“3×2点”分析。</dd>
+  <dt id="term-redshift">红移（redshift）</dt>
+  <dd>光在传播途中，宇宙不断膨胀，光的波长因而被拉长，变得更红。星系离我们越远，红移就越高，所以红移既可以衡量距离，也可以衡量宇宙时间。</dd>
+  <dt id="term-photometry">测光（photometry）</dt>
+  <dd>测量天体有多亮，通常要透过几种不同颜色的滤镜。不同滤镜下的亮度反映了天体的颜色，进而反映它的温度或红移。</dd>
+  <dt id="term-redshift-bins">红移区间（redshift bins）</dt>
+  <dd>把红移相近的星系分为一组：每组相当于不同距离上的一个切片，因而也对应宇宙历史上的不同时期。</dd>
+  <dt id="term-mcmc">马尔可夫链蒙特卡洛（Markov chain Monte Carlo，MCMC）</dt>
+  <dd>一类算法，通过有引导的随机游走，同时探索许多参数的可能取值（“蒙特卡洛”指其随机性；“马尔可夫链”是因为每一步只取决于当前的位置）。这种游走的设计让它在参数与数据吻合得更好的地方停留更久，所以把它走过的位置画成直方图，就能看出参数的合理范围，也就是误差棒。这类算法稳健可靠，但计算量很大。</dd>
+  <dt id="term-fisher">费希尔预测（Fisher forecast）</dt>
+  <dd>一种快速的估计方法，用来估计一项实验能把某些参数测得多精确。它考察每个参数变化时，预测的测量值变化得有多快：变化越快，数据就越能把这个参数确定下来。它假定每个参数取值的概率在最佳值周围按钟形曲线（即高斯分布）下降。得名于统计学家Ronald Fisher。</dd>
+  <dt id="term-forecast">预测（forecast）</dt>
+  <dd>在获得数据之前，估计一项巡天能把某个量测得多精确；这种估计用于规划巡天及其数据分析。</dd>
+  <dt id="term-shear">剪切（shear）</dt>
+  <dd>把图像沿一个方向拉伸、沿垂直方向压缩，使圆变成略扁的椭圆。弱引力透镜会使遥远星系的像产生约1%的剪切；宇宙剪切就是这种效应在整个天空上的分布图样。</dd>
+  <dt id="term-prior">先验（prior）</dt>
+  <dd>在看数据之前对某个参数所作的假定，例如来自其他实验的取值范围。“紧”的先验（tight priors）意味着很强的外部知识。</dd>
+  <dt id="term-power-spectrum-cosmo">物质功率谱（matter power spectrum）</dt>
+  <dd>描述物质密度在各个长度尺度上涨落有多大。它与恒星的振荡功率谱是同一个思路，只不过针对的是空间中的距离，而不是时间上的频率。许多宇宙学统计量（包括弱引力透镜的统计量）都是由它预测出来的。</dd>
+  <dt id="term-figure-of-merit">性能指标（figure of merit）</dt>
+  <dd>用一个数概括一项实验对一组参数的约束有多精确；数值越大，误差棒越小。</dd>
+</dl>
+<p><a href="../glossary/">查看完整术语表</a></p>
+</details>
+<!-- terms:end -->
+</main>
+<footer class="site">
+  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8，最后更新于2026年10月13日。</p>
+</footer>
+<script src="../../assets/terms.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

@@ -4,6 +4,8 @@
 
 Disambiguation: more than one researcher is named Kaili Cao. This site is about the astrophysicist with ORCID 0000-0002-1699-6944; the authoritative list of his papers is the NASA ADS search by ORCID linked below.
 
+A Chinese version of this site (中文版) is at https://kailicao.github.io/zh/; the English pages are the reference version.
+
 ## About
 - [Home](https://kailicao.github.io/): research overview, news and contact
 - [About](https://kailicao.github.io/about/): position, team memberships, education, teaching, skills
