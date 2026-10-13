@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kailicao.github.io/sitemap.xml
+# A summary for AI tools: https://kailicao.github.io/llms.txt

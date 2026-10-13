@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asteroseismology · Kaili Cao</title>
+<meta name="description" content="Kaili Cao&#x27;s research on Asteroseismology: Stellar oscillations as precise measures of stellar masses and ages, from Kepler to Roman.">
+<link rel="canonical" href="https://kailicao.github.io/stars/asteroseismology.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="Asteroseismology · Kaili Cao">
+<meta property="og:description" content="Kaili Cao&#x27;s research on Asteroseismology: Stellar oscillations as precise measures of stellar masses and ages, from Kepler to Roman.">
+<meta property="og:url" content="https://kailicao.github.io/stars/asteroseismology.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kaili Cao (曹开力), astrophysicist, Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, MIDAS, University of Michigan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Kaili Cao">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/figures.css">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <a class="name" href="../index.html">Kaili Cao <span lang="zh">曹开力</span></a>
+  <nav aria-label="Site"><a href="../index.html">Home</a><div class="menu"><a href="../about.html">About<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../about/publications.html">Publications</a></li><li><a href="../about/presentations.html">Presentations</a></li><li><a href="../about/software.html">Software</a></li><li><a href="../about/personal.html">Personal</a></li></ul></div><a href="../cv/Kaili_Cao_CV.pdf">CV</a><a href="../ai.html">AI</a><div class="menu"><a href="../images.html">Images<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../images/image-reconstruction.html">Image Reconstruction</a></li><li><a href="../images/image-analysis.html">Image Analysis</a></li><li><a href="../images/extragalactic-astronomy.html">Extragalactic Astronomy</a></li></ul></div><div class="menu"><a href="../cosmology.html">Cosmology<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cosmology/cosmological-inference.html">Cosmological Inference</a></li><li><a href="../cosmology/cosmological-simulations.html">Cosmological Simulations</a></li></ul></div><div class="menu"><a href="../stars.html" aria-current="page">Stars<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="stellar-modeling.html">Stellar Modeling</a></li><li><a href="asteroseismology.html" aria-current="page">Asteroseismology</a></li></ul></div><div class="menu"><a href="../opinions.html">Opinions<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../opinions/teaching.html">Teaching Philosophy</a></li><li><a href="../opinions/python.html">Python Philosophy</a></li><li><a href="../opinions/learning-python.html">Learning Python</a></li><li><a href="../opinions/ethics.html">Research Ethics</a></li><li><a href="../opinions/career.html">Career Development</a></li></ul></div></nav>
+</header>
+<main id="main">
+<p class="crumb"><a href="../stars.html">Stars</a> · Asteroseismology</p>
+<h1>Asteroseismology</h1>
+<p class="lead">Stellar oscillations as precise measures of stellar masses and ages, from Kepler to Roman.</p>
+<section id="in-brief">
+<h2>In brief</h2>
+<p>Stars ring like bells. Sound waves travel through a star's interior and set up vibrations, which make its brightness flicker by tiny amounts. <strong>Asteroseismology</strong>, "star seismology", uses these vibrations to see inside stars, much as seismologists use earthquake waves to study the inside of the Earth.</p>
+<p><a class="term" href="../glossary.html#red-giant">Red giants</a> are especially good for this. Space telescopes such as <a class="term" href="../glossary.html#kepler">Kepler</a> recorded their brightness for years: a <a class="term" href="../glossary.html#light-curve">light curve</a>. A <a class="term" href="../glossary.html#fourier">Fourier transform</a> turns the light curve into a <a class="term" href="../glossary.html#power-spectrum">power spectrum</a>, which shows how strongly the star vibrates at each frequency. For a red giant, it is a comb of evenly spaced peaks (see the figure), summarized by two numbers:</p>
+<ul>
+  <li><a class="term" href="../glossary.html#numax">ν<sub>max</sub></a>, the frequency of maximum power, which depends on the star's <a class="term" href="../glossary.html#surface-gravity">surface gravity</a> and temperature; and</li>
+  <li><a class="term" href="../glossary.html#delta-nu">Δν</a>, the spacing between the peaks, which depends on the star's mean density.</li>
+</ul>
+<p><a class="term" href="../glossary.html#scaling-relations">Scaling relations</a> turn these two numbers, together with the star's surface temperature, into its mass and radius. Why two numbers are enough: ν<sub>max</sub> depends on mass and radius through surface gravity, and Δν through mean density, so together they pin down both. And a star's mass sets how long it burns hydrogen in its core; the red giant stage that follows is comparatively short. So a red giant's mass, together with its composition, gives a good estimate of its age. This works for many thousands of stars at once, and their ages tell us when different parts of the Milky Way formed: the subject of <a class="term" href="../glossary.html#galactic-archaeology">galactic archaeology</a>.</p>
+<p>The scaling relations are approximate. They are motivated by theory, but they need to be calibrated with stars whose masses or radii are known in other ways, for example radii from <a class="term" href="../glossary.html#gaia">Gaia</a> distances, and for the most luminous giants they show clear <a class="term" href="../glossary.html#systematics">systematic</a> offsets that have to be corrected. My work so far is on those corrections.</p>
+<figure class="fig" id="fig-oscillation-spectrum">
+<svg viewBox="0 0 400 236" role="img" aria-label="A spectrum of regularly spaced peaks between about 90 and 150 microhertz, tallest near 120, with the spacing Δν and the frequency of maximum power νmax marked."><path class="s-blue" stroke-width="1" d="M10.5 185V173.3M11.5 185V177.5M12.5 185V169.6M13.5 185V170.3M14.5 185V173.3M15.5 185V173.5M16.5 185V174.8M17.5 185V169.4M18.5 185V171.6M19.5 185V175.0M20.5 185V177.9M21.5 185V172.2M22.5 185V173.3M23.5 185V168.3M24.5 185V172.8M25.5 185V173.1M26.5 185V174.3M27.5 185V172.6M28.5 185V169.3M29.5 185V177.4M30.5 185V172.5M31.5 185V173.0M32.5 185V173.0M33.5 185V176.1M34.5 185V181.8M35.5 185V176.2M36.5 185V177.5M37.5 185V170.1M38.5 185V174.3M39.5 185V175.0M40.5 185V176.0M41.5 185V175.9M42.5 185V179.0M43.5 185V175.3M44.5 185V176.3M45.5 185V167.3M46.5 185V177.0M47.5 185V179.1M48.5 185V178.1M49.5 185V174.2M50.5 185V180.0M51.5 185V173.3M52.5 185V179.2M53.5 185V168.5M54.5 185V176.9M55.5 185V180.6M56.5 185V177.9M57.5 185V175.0M58.5 185V175.0M59.5 185V169.9M60.5 185V176.9M61.5 185V173.8M62.5 185V177.2M63.5 185V173.6M64.5 185V178.9M65.5 185V176.4M66.5 185V178.3M67.5 185V178.6M68.5 185V171.9M69.5 185V177.8M70.5 185V179.7M71.5 185V168.0M72.5 185V172.5M73.5 185V177.7M74.5 185V180.3M75.5 185V169.7M76.5 185V178.6M77.5 185V173.0M78.5 185V177.4M79.5 185V175.8M80.5 185V180.5M81.5 185V176.8M82.5 185V175.6M83.5 185V172.6M84.5 185V169.3M85.5 185V178.4M86.5 185V170.1M87.5 185V172.1M88.5 185V167.3M89.5 185V177.4M90.5 185V171.1M91.5 185V175.2M92.5 185V176.6M93.5 185V176.4M94.5 185V178.3M95.5 185V179.3M96.5 185V175.5M97.5 185V173.9M98.5 185V176.2M99.5 185V169.6M100.5 185V168.6M101.5 185V174.2M102.5 185V174.3M103.5 185V174.6M104.5 185V175.7M105.5 185V172.7M106.5 185V171.3M107.5 185V176.0M108.5 185V180.3M109.5 185V180.8M110.5 185V171.7M111.5 185V181.3M112.5 185V181.6M113.5 185V180.5M114.5 185V170.3M115.5 185V146.9M116.5 185V148.8M117.5 185V177.6M118.5 185V165.1M119.5 185V179.8M120.5 185V181.9M121.5 185V179.8M122.5 185V178.4M123.5 185V173.8M124.5 185V171.6M125.5 185V175.8M126.5 185V177.9M127.5 185V178.0M128.5 185V173.7M129.5 185V175.4M130.5 185V172.2M131.5 185V177.0M132.5 185V173.7M133.5 185V176.5M134.5 185V153.4M135.5 185V138.3M136.5 185V175.1M137.5 185V179.3M138.5 185V178.8M139.5 185V177.2M140.5 185V177.5M141.5 185V178.7M142.5 185V178.1M143.5 185V177.0M144.5 185V176.4M145.5 185V173.8M146.5 185V155.4M147.5 185V139.8M148.5 185V175.4M149.5 185V173.4M150.5 185V165.7M151.5 185V176.3M152.5 185V179.2M153.5 185V176.5M154.5 185V171.9M155.5 185V178.8M156.5 185V180.4M157.5 185V178.0M158.5 185V178.3M159.5 185V176.3M160.5 185V166.3M161.5 185V144.1M162.5 185V169.4M163.5 185V175.8M164.5 185V179.9M165.5 185V103.2M166.5 185V105.0M167.5 185V164.3M168.5 185V169.4M169.5 185V177.8M170.5 185V178.0M171.5 185V175.3M172.5 185V178.6M173.5 185V179.2M174.5 185V178.6M175.5 185V175.4M176.5 185V178.6M177.5 185V156.3M178.5 185V111.9M179.5 185V173.0M180.5 185V178.4M181.5 185V177.8M182.5 185V177.4M183.5 185V179.3M184.5 185V177.9M185.5 185V179.1M186.5 185V176.7M187.5 185V181.2M188.5 185V175.3M189.5 185V177.0M190.5 185V176.2M191.5 185V169.1M192.5 185V153.2M193.5 185V138.6M194.5 185V175.5M195.5 185V147.7M196.5 185V151.1M197.5 185V40.0M198.5 185V170.6M199.5 185V170.3M200.5 185V179.3M201.5 185V178.1M202.5 185V182.1M203.5 185V179.4M204.5 185V178.6M205.5 185V173.6M206.5 185V177.5M207.5 185V177.7M208.5 185V166.9M209.5 185V45.0M210.5 185V156.5M211.5 185V179.1M212.5 185V179.8M213.5 185V173.5M214.5 185V180.6M215.5 185V176.2M216.5 185V177.1M217.5 185V181.6M218.5 185V180.6M219.5 185V175.3M220.5 185V179.0M221.5 185V174.8M222.5 185V173.9M223.5 185V162.9M224.5 185V134.5M225.5 185V172.1M226.5 185V176.9M227.5 185V171.7M228.5 185V89.6M229.5 185V126.6M230.5 185V180.4M231.5 185V179.4M232.5 185V175.8M233.5 185V178.0M234.5 185V178.5M235.5 185V179.1M236.5 185V177.9M237.5 185V178.3M238.5 185V180.2M239.5 185V172.5M240.5 185V144.5M241.5 185V161.4M242.5 185V179.9M243.5 185V180.9M244.5 185V180.2M245.5 185V179.2M246.5 185V179.0M247.5 185V178.2M248.5 185V181.2M249.5 185V180.7M250.5 185V179.4M251.5 185V180.0M252.5 185V181.2M253.5 185V178.3M254.5 185V176.3M255.5 185V141.6M256.5 185V177.3M257.5 185V178.5M258.5 185V178.3M259.5 185V150.8M260.5 185V157.9M261.5 185V180.1M262.5 185V173.6M263.5 185V178.6M264.5 185V180.0M265.5 185V181.3M266.5 185V181.4M267.5 185V178.5M268.5 185V180.7M269.5 185V180.1M270.5 185V180.5M271.5 185V125.1M272.5 185V178.8M273.5 185V176.2M274.5 185V181.2M275.5 185V180.8M276.5 185V179.9M277.5 185V181.2M278.5 185V177.4M279.5 185V177.9M280.5 185V181.8M281.5 185V179.5M282.5 185V180.7M283.5 185V179.4M284.5 185V180.2M285.5 185V181.0M286.5 185V174.4M287.5 185V181.1M288.5 185V177.3M289.5 185V181.1M290.5 185V175.4M291.5 185V170.4M292.5 185V178.9M293.5 185V180.2M294.5 185V179.4M295.5 185V182.2M296.5 185V180.9M297.5 185V180.5M298.5 185V180.9M299.5 185V181.8M300.5 185V179.3M301.5 185V181.5M302.5 185V176.0M303.5 185V177.3M304.5 185V181.8M305.5 185V181.1M306.5 185V181.9M307.5 185V180.4M308.5 185V178.4M309.5 185V182.5M310.5 185V181.4M311.5 185V180.1M312.5 185V179.6M313.5 185V179.1M314.5 185V181.1M315.5 185V181.8M316.5 185V182.0M317.5 185V179.9M318.5 185V181.4M319.5 185V178.4M320.5 185V181.7M321.5 185V182.2M322.5 185V180.5M323.5 185V181.8M324.5 185V178.9M325.5 185V180.9M326.5 185V179.5M327.5 185V181.3M328.5 185V182.3M329.5 185V182.3M330.5 185V182.0M331.5 185V180.1M332.5 185V182.0M333.5 185V180.2M334.5 185V181.8M335.5 185V179.5M336.5 185V181.9M337.5 185V182.8M338.5 185V178.8M339.5 185V183.4M340.5 185V183.1M341.5 185V182.7M342.5 185V181.9M343.5 185V177.7M344.5 185V181.0M345.5 185V182.1M346.5 185V181.8M347.5 185V181.3M348.5 185V182.5M349.5 185V181.7M350.5 185V181.3M351.5 185V182.5M352.5 185V183.2M353.5 185V182.0M354.5 185V180.4M355.5 185V181.7M356.5 185V182.4M357.5 185V181.2M358.5 185V182.3M359.5 185V182.8M360.5 185V181.4M361.5 185V182.1M362.5 185V182.2M363.5 185V181.8M364.5 185V183.1M365.5 185V182.1M366.5 185V182.4M367.5 185V183.3M368.5 185V180.5M369.5 185V182.2M370.5 185V183.4M371.5 185V181.3M372.5 185V182.0M373.5 185V181.6M374.5 185V182.6M375.5 185V182.2M376.5 185V179.3M377.5 185V180.5M378.5 185V179.0M379.5 185V181.0M380.5 185V182.8M381.5 185V182.7M382.5 185V182.4M383.5 185V183.0M384.5 185V182.4M385.5 185V180.3M386.5 185V181.7M387.5 185V182.8M388.5 185V182.4M389.5 185V182.5"/><line class="axis" x1="10" x2="390" y1="185" y2="185"/><line class="s-orange" stroke-width="1.5" stroke-dasharray="5 4" x1="200.0" x2="200.0" y1="185" y2="28"/><text x="206.0" y="38" font-size="16">νmax</text><line class="s-orange" stroke-width="2" x1="136.7" x2="168.3" y1="48" y2="48" marker-start="url(#hrd-a)" marker-end="url(#hrd-a)"/><text x="152.5" y="38" font-size="16" text-anchor="middle">Δν</text><defs><marker id="hrd-a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="orange"/></marker></defs><text class="muted" x="10.0" y="205" font-size="14" text-anchor="middle">60</text><text class="muted" x="105.0" y="205" font-size="14" text-anchor="middle">90</text><text class="muted" x="200.0" y="205" font-size="14" text-anchor="middle">120</text><text class="muted" x="295.0" y="205" font-size="14" text-anchor="middle">150</text><text class="muted" x="390.0" y="205" font-size="14" text-anchor="middle">180</text><text class="muted" x="200.0" y="227" font-size="14" text-anchor="middle">frequency (μHz)</text></svg>
+<figcaption>Simulated power spectrum (not real data) of a red giant's oscillations: a comb of peaks spaced by the large frequency separation Δν, strongest near the frequency of maximum power νmax. A frequency of 120 μHz means one oscillation about every 2.3 hours. With the star's temperature, these two numbers give its mass and radius. Made with AI assistance (Claude).</figcaption>
+</figure>
+<p class="newbie">New to this topic? The <a href="../glossary.html">Glossary</a> explains the terms in plain language; underlined terms link to it.</p>
+</section>
+<section>
+<h2>What I have done</h2>
+<p>In <a href="../about/publications.html#arXiv-2410.00102">APOKASC-3</a>, the corrections tied asteroseismic radii to radii measured by <a href="https://www.cosmos.esa.int/web/gaia">Gaia</a>, and the whole difference was ascribed to ν<sub>max</sub>. With Marc Pinsonneault, I proposed an alternative: since the corrections for Δν, which come from models, can be imperfect too, an arguably better use of the Gaia radii is to correct the asteroseismic radii directly (<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>). The new formulation reduces the systematics in two ways: different asteroseismic methods agree better, and the results depend much less on how mean density is inferred from the oscillation frequencies. Compared with APOKASC-3, it also brings the lower and upper red giant branch into better agreement for <a class="term" href="../glossary.html#alpha-rich">α-rich stars</a>, which are expected to have similar masses and ages on both: the difference between their median masses shrinks from 6.65% to 1.72%, and between their median ages from −21.8% to −9.6%.</p>
+<p>I also contributed to the APOKASC-3 catalog, especially the uncertainties of its spectroscopic measurements, and to related studies of red giants. Roman's <a href="https://roman.gsfc.nasa.gov/science/Galactic_Bulge_Time_Domain_Survey.html">Galactic Bulge Time Domain Survey</a> is designed mainly to find exoplanets, but it will also be a great source of asteroseismic data, with far more targets than previous missions, in the Galactic bulge and center rather than the solar neighborhood: one forecast suggests oscillations in about 185,000 red giants in the bulge. I am a member of the Roman Wide-Field Science Team for asteroseismology with that survey.</p>
+</section>
+<section><h2>Papers</h2>
+<h3>First-author papers</h3>
+<ul class="pubs">
+  <li><span class="title">Toward Accurate Asteroseismic Masses for Luminous Giants</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, Marc H. Pinsonneault</span><br>
+    <span class="meta">The Astrophysical Journal Letters 990, L26 (2025) · first author</span> · <a href="https://doi.org/10.3847/2041-8213/adfa12">DOI</a> · <a href="https://arxiv.org/abs/2508.06609">arXiv:2508.06609</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2508.06609/abstract">ADS</a></li>
+</ul>
+<h3>Coauthored papers</h3>
+<ul class="pubs">
+  <li><span class="title">Beyond the Nyquist frequency: Asteroseismic catalog of undersampled Kepler late subgiants and early red giants</span><br>
+    <span class="authors">B. Liagre, R. A. García, S. Mathur, M. H. Pinsonneault, A. Serenelli, J. C. Zinn, et al. (12 authors, including <strong>Kaili Cao</strong>)</span><br>
+    <span class="meta">Astronomy &amp; Astrophysics 702, A144 (2025) · coauthor (7 of 12)</span> · <a href="https://doi.org/10.1051/0004-6361/202555167">DOI</a> · <a href="https://arxiv.org/abs/2508.15654">arXiv:2508.15654</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2508.15654/abstract">ADS</a><br>
+    <span class="contrib">I provided theoretical predictions of first dredge-up signals and took part in related discussions.</span></li>
+  <li><span class="title">Modeling Asteroseismic Yields for the Roman Galactic Bulge Time-Domain Survey</span><br>
+    <span class="authors">Trevor J. Weiss, Noah J. Downing, Marc H. Pinsonneault, Joel C. Zinn, Dennis Stello, Timothy R. Bedding, et al. (13 authors, including <strong>Kaili Cao</strong>)</span><br>
+    <span class="meta">The Astrophysical Journal 987, 181 (2025) · coauthor (7 of 13)</span> · <a href="https://doi.org/10.3847/1538-4357/adde5b">DOI</a> · <a href="https://arxiv.org/abs/2503.04999">arXiv:2503.04999</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2503.04999/abstract">ADS</a><br>
+    <span class="contrib">I took part in discussions of Roman asteroseismology and commented on the manuscript.</span></li>
+  <li><span class="title">Red giants evolutionary status determination: the complete Kepler catalog</span><br>
+    <span class="authors">M. Vrard, M. H. Pinsonneault, Y. Elsworth, M. Hon, T. Kallinger, J. Kuszlewicz, et al. (15 authors, including <strong>Kaili Cao</strong>)</span><br>
+    <span class="meta">Astronomy &amp; Astrophysics 697, A165 (2025) · coauthor (11 of 15)</span> · <a href="https://doi.org/10.1051/0004-6361/202452635">DOI</a> · <a href="https://arxiv.org/abs/2411.03101">arXiv:2411.03101</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2411.03101/abstract">ADS</a><br>
+    <span class="contrib">I took part in discussions of how to tell first-ascent red giant branch stars from asymptotic giant branch stars.</span></li>
+  <li><span class="title">APOKASC-3: The Third Joint Spectroscopic and Asteroseismic catalog for Evolved Stars in the Kepler Fields</span><br>
+    <span class="authors">Marc H. Pinsonneault, Joel C. Zinn, Jamie Tayar, Aldo Serenelli, Rafael A. Garcia, Savita Mathur, et al. (41 authors, including <strong>Kaili Cao</strong>)</span><br>
+    <span class="meta">The Astrophysical Journal Supplement Series 276, 69 (2025) · coauthor (19 of 41)</span> · <a href="https://doi.org/10.3847/1538-4365/ad9fef">DOI</a> · <a href="https://arxiv.org/abs/2410.00102">arXiv:2410.00102</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2410.00102/abstract">ADS</a><br>
+    <span class="contrib">I took part in discussions of the catalog, contributed substantially to the uncertainties of its spectroscopic observables, and contributed to writing the paper.</span></li>
+  <li><span class="title">Nature vs. Nurture: Distinguishing Effects from Stellar Processing and Chemical Evolution on Carbon and Nitrogen in Red Giant Stars</span><br>
+    <span class="authors">John D. Roberts, Marc H. Pinsonneault, Jennifer A. Johnson, Joel C. Zinn, David H. Weinberg, Mathieu Vrard, et al. (19 authors, including <strong>Kaili Cao</strong>)</span><br>
+    <span class="meta">Monthly Notices of the Royal Astronomical Society 530, 149-166 (2024) · coauthor (11 of 19)</span> · <a href="https://doi.org/10.1093/mnras/stae820">DOI</a> · <a href="https://arxiv.org/abs/2403.03249">arXiv:2403.03249</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2403.03249/abstract">ADS</a><br>
+    <span class="contrib">I contributed to the uncertainties of spectroscopic observables in the APOKASC-3 catalog, provided theoretical insight into the first dredge-up, and commented on the manuscript.</span></li>
+</ul></section>
+<section>
+<h2>What comes next</h2>
+<p><strong>DynFlux</strong>: Roman's detectors are very sensitive, and most of the survey's asteroseismic targets are expected to be near or beyond saturation (<a href="https://doi.org/10.3847/1538-4357/adde5b">Weiss et al. 2025</a>, Figure 9). DynFlux aims at reliable time-domain photometry of saturated stars, starting from pixel-level calibration of saturated pixels. I also plan to help characterize the evolved stars Roman observes, and to combine the survey's thousands of exposures into deep images of the Galactic bulge.</p>
+<p>How this fits into my next five years: <a href="../research-directions.html">Research Directions</a>.</p>
+</section>
+<!-- terms:start -->
+<details class="terms-box" id="terms">
+<summary>Terms on this page (13)</summary>
+<dl class="glossary">
+  <dt id="term-red-giant">Red giant, red giant branch</dt>
+  <dd>A star that has run out of hydrogen in its core and swollen to many times its former size (up to a hundred times or more), with a cool, red surface. The red giant branch is the path such stars follow in the Hertzsprung–Russell diagram as they grow brighter.</dd>
+  <dt id="term-kepler">Kepler</dt>
+  <dd>A NASA space telescope (2009–2018) that, in its main mission (2009–2013), measured the brightness of about 150,000 stars almost continuously for four years, mainly to find planets. Its light curves also revealed the oscillations of thousands of red giants.</dd>
+  <dt id="term-light-curve">Light curve</dt>
+  <dd>A record of an object's brightness over time.</dd>
+  <dt id="term-fourier">Fourier transform</dt>
+  <dd>A mathematical tool that breaks a signal varying in time into the frequencies it contains.</dd>
+  <dt id="term-power-spectrum">Power spectrum (of oscillations)</dt>
+  <dd>How much a signal varies at each frequency, found with a Fourier transform; "power" because it measures the square of the variation's amplitude, as power in a wave does. For a red giant's light curve, it shows a comb of oscillation peaks.</dd>
+  <dt id="term-numax">ν<sub>max</sub> (nu-max)</dt>
+  <dd>The frequency at which a star's oscillations are strongest. It depends mainly on the star's surface gravity, and also on its temperature.</dd>
+  <dt id="term-surface-gravity">Surface gravity (log g)</dt>
+  <dd>The gravitational acceleration at a star's surface, g = GM/R². Astronomers quote log g, the base-10 logarithm of g in cm/s². The Sun's is 4.44 (about 27,000 cm/s², 28 times Earth's); most observed red giants' are about 1 to 3.5.</dd>
+  <dt id="term-delta-nu">Δν (large frequency separation)</dt>
+  <dd>The regular spacing between the peaks in a star's oscillation power spectrum ("large" to tell it from smaller spacings between other kinds of peaks). It is set by the time sound takes to cross the star, and grows with the star's mean density (as its square root).</dd>
+  <dt id="term-scaling-relations">Scaling relations</dt>
+  <dd>Simple formulas that give a star's mass and radius from ν<sub>max</sub>, Δν and its surface temperature, by comparison with the Sun. They work well but need calibration and corrections.</dd>
+  <dt id="term-galactic-archaeology">Galactic archaeology</dt>
+  <dd>Reconstructing the history of the Milky Way from the ages, compositions and motions of its stars.</dd>
+  <dt id="term-gaia">Gaia</dt>
+  <dd>A European Space Agency mission (2013–2025) that measured positions, distances and motions of more than a billion stars. A distance turns a star's apparent brightness into its true luminosity, and luminosity and temperature give its radius, independently of asteroseismology.</dd>
+  <dt id="term-systematics">Systematics, systematic errors</dt>
+  <dd>Errors that push results in a consistent direction, instead of scattering them randomly. More data do not average them away, so they must be understood and corrected. Uncorrected noise patterns, such as stripes, can become systematics when they mimic the signal.</dd>
+  <dt id="term-alpha-rich">α-rich population</dt>
+  <dd>Stars with more "α elements" (such as oxygen, magnesium and silicon, which stars build by adding helium nuclei, or α particles) relative to iron than the Sun has. They formed early in the Milky Way's history, so they are mostly old.</dd>
+</dl>
+<p><a href="../glossary.html">Full glossary</a></p>
+</details>
+<!-- terms:end -->
+</main>
+<footer class="site">
+  <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.6, last updated October 12, 2026.</p>
+</footer>
+<script src="../assets/terms.js" defer></script>
+</body>
+</html>

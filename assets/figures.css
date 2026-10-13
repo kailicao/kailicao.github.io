@@ -1,0 +1,90 @@
+/* Figures for kailicao.github.io: HTML and inline-SVG diagrams that follow the site's
+   light and dark themes. Made with AI assistance (Claude). Can be merged into style.css. */
+:root {
+  --fig-blue: #1f5aa6; --fig-orange: #c2560c; --fig-gold: #d4a300;
+  --fig-gold-bg: #fbf3d0; --fig-band: #f1f0eb; --fig-dark: #3b3b38; --fig-on-dark: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fig-blue: #5b97e3; --fig-orange: #d27a40; --fig-gold: #ffcb05;
+    --fig-gold-bg: #2e2a17; --fig-band: #262624; --fig-dark: #0c0c0c; --fig-on-dark: #f2f2ef;
+  }
+}
+:root[data-theme="dark"] {
+  --fig-blue: #5b97e3; --fig-orange: #d27a40; --fig-gold: #ffcb05;
+  --fig-gold-bg: #2e2a17; --fig-band: #262624; --fig-dark: #0c0c0c; --fig-on-dark: #f2f2ef;
+}
+
+/* figure frame */
+figure.fig { margin: 20px 0; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+figure.fig figcaption { margin-top: 12px; color: var(--muted); font-size: .9rem; line-height: 1.5; }
+figure.fig img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+.fig-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* inline SVG charts */
+.fig svg { display: block; width: 100%; height: auto; overflow: visible; }
+.fig svg text { fill: var(--text); font-family: inherit; }
+.fig svg .muted { fill: var(--muted); }
+.fig svg .axis { stroke: var(--line); stroke-width: 1.5; fill: none; }
+.fig svg .grid { stroke: var(--line); stroke-width: 1; opacity: .6; }
+.fig svg .curve { stroke: var(--muted); stroke-width: 2.5; fill: none; }
+.fig svg .blue { fill: var(--fig-blue); } .fig svg .s-blue { stroke: var(--fig-blue); fill: none; }
+.fig svg .orange { fill: var(--fig-orange); } .fig svg .s-orange { stroke: var(--fig-orange); fill: none; }
+.fig svg .dot { stroke: var(--surface); stroke-width: 2; }
+.fig-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 8px 0 0; padding: 0; list-style: none; font-size: .9rem; color: var(--text); }
+.fig-legend li::before { content: ""; display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; background: var(--k, var(--muted)); }
+.fig-legend .k-blue { --k: var(--fig-blue); } .fig-legend .k-orange { --k: var(--fig-orange); } .fig-legend .k-gray { --k: var(--muted); }
+
+/* boxes */
+.fig-box { border: 2px solid var(--fig-k, var(--muted)); border-radius: 10px; background: var(--bg); padding: 12px 14px; text-align: center; }
+.fig-box strong { display: block; color: var(--text); }
+.fig-box span { display: block; color: var(--muted); font-size: .88rem; margin-top: 4px; line-height: 1.4; }
+.fig-blue-k { --fig-k: var(--fig-blue); } .fig-orange-k { --fig-k: var(--fig-orange); } .fig-gold-k { --fig-k: var(--fig-gold); }
+.fig-band { background: var(--fig-band); } .fig-gold-band { background: var(--fig-gold-bg); }
+
+/* steps: a row of boxes joined by arrows; stacks vertically on phones */
+.fig-steps { display: flex; align-items: stretch; gap: 0; margin: 0; padding: 0; list-style: none; }
+.fig-steps > li { flex: 1 1 0; display: flex; }
+.fig-steps > li .fig-box { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.fig-steps > li + li::before { content: "→"; align-self: center; color: var(--fig-blue); font-size: 1.4rem; padding: 0 8px; }
+.fig-loop { margin-top: 8px; text-align: center; color: var(--muted); font-size: .9rem; }
+@media (max-width: 600px) {
+  .fig-steps { flex-direction: column; }
+  .fig-steps > li { flex-direction: column; }
+  .fig-steps > li + li::before { content: "↓"; padding: 4px 0; text-align: center; }
+}
+
+/* research map */
+.fig-map { display: grid; grid-template-columns: 1.6rem 1fr 1fr; gap: 10px; align-items: stretch; }
+.fig-map .head { color: var(--muted); text-align: center; font-size: .92rem; align-self: end; }
+.fig-map .row { writing-mode: vertical-rl; transform: rotate(180deg); color: var(--muted); font-size: .92rem; text-align: center; }
+.fig-map .wide { grid-column: 2 / 4; }
+.fig-map .fig-box { display: flex; align-items: center; justify-content: center; min-height: 3.2rem; }
+
+/* software map: code → area rows */
+.fig-pairs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px 10px; align-items: center; margin: 0; }
+.fig-pairs .head { color: var(--muted); font-size: .92rem; text-align: center; }
+.fig-pairs .arrow { color: var(--muted); }
+
+/* white box */
+.fig-wb { display: flex; align-items: center; gap: 12px; }
+.fig-wb .opaque { flex: 0 0 34%; background: var(--fig-dark); border-color: var(--fig-dark); }
+.fig-wb .opaque strong { color: var(--fig-on-dark); } .fig-wb .opaque span { color: var(--fig-on-dark); opacity: .8; }
+.fig-wb .arrow { color: var(--muted); font-size: 1.4rem; }
+.fig-wb .deliv { flex: 1; text-align: left; }
+.fig-wb ul { margin: 8px 0 0; padding: 0; list-style: none; }
+.fig-wb li { margin: 4px 0; } .fig-wb li::before { content: "✓"; color: var(--fig-blue); font-weight: 700; margin-right: 8px; }
+@media (max-width: 600px) { .fig-wb { flex-direction: column; align-items: stretch; } .fig-wb .arrow { text-align: center; transform: rotate(90deg); } }
+
+/* names are pronouns */
+.fig-names { display: grid; grid-template-columns: auto auto 1fr; gap: 10px 12px; align-items: center; }
+.fig-names .name { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 1.15rem; min-width: 3rem; }
+.fig-names .arrow { color: var(--text); }
+.fig-names .obj span { font-family: inherit; }
+.fig-names .obj { grid-column: 3; grid-row: 1 / 3; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 1.15rem; min-height: 5.5rem; display: flex; flex-direction: column; justify-content: center; }
+
+/* path timeline: vertical list */
+ol.fig-time { list-style: none; margin: 0; padding: 0 0 0 1.2rem; border-left: 3px solid var(--line); }
+ol.fig-time li { position: relative; margin: 0 0 14px; padding-left: 12px; }
+ol.fig-time li::before { content: ""; position: absolute; left: calc(-1.2rem - 9px); top: .35em; width: 12px; height: 12px; border-radius: 50%; background: var(--fig-k, var(--muted)); border: 2px solid var(--surface); }
+ol.fig-time .when { display: block; color: var(--muted); font-size: .88rem; font-variant-numeric: tabular-nums; }

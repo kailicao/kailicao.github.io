@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Huarongdao Solver · Kaili Cao</title>
+<meta name="description" content="Kaili Cao&#x27;s Huarongdao (Klotski) solver: pick a starting layout and watch the shortest solution, with the original Python program and its JavaScript port.">
+<link rel="canonical" href="https://kailicao.github.io/opinions/huarongdao.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="Huarongdao Solver · Kaili Cao">
+<meta property="og:description" content="Kaili Cao&#x27;s Huarongdao (Klotski) solver: pick a starting layout and watch the shortest solution, with the original Python program and its JavaScript port.">
+<meta property="og:url" content="https://kailicao.github.io/opinions/huarongdao.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kaili Cao (曹开力), astrophysicist, Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, MIDAS, University of Michigan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Kaili Cao">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<style>
+/* Code blocks; move to assets/style.css when integrating */
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
+pre { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; overflow-x: auto; line-height: 1.45; }
+pre code { font-size: .88rem; }
+/* The solver; move to assets/style.css when integrating */
+.hrd { margin: 20px 0 8px; }
+.hrd-pick { margin: 0 0 8px; }
+.hrd-pick label { font-weight: 600; margin-right: 8px; }
+.hrd select, .hrd button { font: inherit; font-size: .95rem; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 4px 10px; }
+.hrd select { max-width: 100%; }
+.hrd button { min-width: 2.6em; cursor: pointer; }
+.hrd button:disabled { opacity: .45; cursor: default; }
+.hrd select:focus-visible, .hrd button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+#hrd-board { display: block; width: min(100%, 280px); height: auto; margin: 4px 0 10px; }
+#hrd-board .frame { fill: none; stroke: var(--muted); stroke-width: .08; stroke-linecap: round; }
+#hrd-board .exit { fill: var(--muted); }
+.piece rect { fill-opacity: .85; }
+.piece-C rect { fill: #1f77b4; }
+.piece-H rect { fill: #d62728; }
+.piece-V rect { fill: #ff7f0e; }
+.piece-S rect { fill: #2ca02c; }
+.piece text { fill: #fff; font-weight: 600; }
+.hrd.animate .piece { transition: transform .3s ease; }
+.hrd-controls { display: flex; flex-wrap: wrap; gap: 6px; }
+#hrd-status { min-height: 3.2em; color: var(--muted); margin-top: 10px; }
+.hrd-table { border-collapse: collapse; font-size: .95rem; margin: 8px 0; }
+.hrd-table th, .hrd-table td { border-bottom: 1px solid var(--line); padding: 4px 10px; text-align: right; }
+.hrd-table th:first-child, .hrd-table td:first-child { text-align: left; padding-left: 0; }
+details { margin: 10px 0; }
+details summary { cursor: pointer; }
+details pre { max-height: 32em; overflow: auto; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <a class="name" href="../index.html">Kaili Cao <span lang="zh">曹开力</span></a>
+  <nav aria-label="Site"><a href="../index.html">Home</a><div class="menu"><a href="../about.html">About<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../about/publications.html">Publications</a></li><li><a href="../about/presentations.html">Presentations</a></li><li><a href="../about/software.html">Software</a></li><li><a href="../about/personal.html">Personal</a></li></ul></div><a href="../cv/Kaili_Cao_CV.pdf">CV</a><a href="../ai.html">AI</a><div class="menu"><a href="../images.html">Images<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../images/image-reconstruction.html">Image Reconstruction</a></li><li><a href="../images/image-analysis.html">Image Analysis</a></li><li><a href="../images/extragalactic-astronomy.html">Extragalactic Astronomy</a></li></ul></div><div class="menu"><a href="../cosmology.html">Cosmology<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cosmology/cosmological-inference.html">Cosmological Inference</a></li><li><a href="../cosmology/cosmological-simulations.html">Cosmological Simulations</a></li></ul></div><div class="menu"><a href="../stars.html">Stars<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../stars/stellar-modeling.html">Stellar Modeling</a></li><li><a href="../stars/asteroseismology.html">Asteroseismology</a></li></ul></div><div class="menu"><a href="../opinions.html" aria-current="page">Opinions<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="teaching.html">Teaching Philosophy</a></li><li><a href="python.html">Python Philosophy</a></li><li><a href="learning-python.html">Learning Python</a></li><li><a href="ethics.html">Research Ethics</a></li><li><a href="career.html">Career Development</a></li></ul></div></nav>
+</header>
+<main id="main">
+<p class="crumb"><a href="../opinions.html">Opinions</a> · <a href="learning-python.html">Learning Python</a> · Huarongdao Solver</p>
+<h1>Huarongdao Solver</h1>
+<p class="lead">In 2022, I wrote a Python program that solves Huarongdao, a Chinese sliding-block puzzle, as a demonstration for my Python tutorial. Pick a starting layout, and a port of the program finds the shortest solution in your browser.</p>
+
+<div class="hrd" id="hrd">
+  <p class="hrd-pick"><label for="hrd-puzzle">Starting layout</label>
+  <select id="hrd-puzzle"></select></p>
+  <svg id="hrd-board" viewBox="-0.15 -0.15 4.3 5.75" role="img" aria-labelledby="hrd-status">
+    <path class="frame" d="M 1 5.04 H -0.04 V -0.04 H 4.04 V 5.04 H 3"/>
+    <text class="exit" x="2" y="5.45" text-anchor="middle" font-size=".32">exit</text>
+    <g class="pieces"></g>
+  </svg>
+  <div class="hrd-controls">
+    <button type="button" data-action="solve">Solve</button>
+    <button type="button" data-action="start" aria-label="Go to the start">⏮</button>
+    <button type="button" data-action="back" aria-label="One move back">◀</button>
+    <button type="button" data-action="play">Play</button>
+    <button type="button" data-action="forward" aria-label="One move forward">▶</button>
+    <button type="button" data-action="end" aria-label="Go to the end">⏭</button>
+  </div>
+  <p id="hrd-status" aria-live="polite"></p>
+  <noscript><p>The solver needs JavaScript.</p></noscript>
+</div>
+
+<section>
+  <h2 id="puzzle">The puzzle</h2>
+  <p>Huarongdao (<span lang="zh">华容道</span>, "the Huarong Trail") is a sliding-block puzzle, a relative of <a href="https://en.wikipedia.org/wiki/Klotski">Klotski</a>. It is named after an episode in the <em>Romance of the Three Kingdoms</em>: after his defeat at the Battle of Red Cliffs, the warlord Cao Cao flees along the Huarong Trail, where the general Guan Yu, who owes him a debt of gratitude, lets him pass.</p>
+  <p>The board has four columns and five rows. Cao Cao is the large square block; the generals are blocks of two cells, standing or lying; the soldiers are single cells; and two cells are empty. The goal is to slide Cao Cao out through the exit at the bottom center. As is customary, moving one piece counts as one move, even when it slides two cells or, for a soldier, turns a corner. By this count, the classic layout, <span lang="zh">横刀立马</span> ("blade leveled, horse reined in"), in which Guan Yu lies just below Cao Cao, takes 81 moves.</p>
+</section>
+
+<section>
+  <h2 id="how">How the program works</h2>
+  <ul>
+    <li><strong>A configuration is a tuple of coordinates.</strong> Each cell has a number from 0 to 19, and each piece is recorded by the number of its upper-left cell. Pieces of the same kind are interchangeable, so their coordinates are kept sorted, and the whole configuration becomes a tuple that can serve as a key in a dictionary.</li>
+    <li><strong>Moves are found from the empty cells.</strong> Only a piece next to an empty cell can move, so <code>Config.getNeighbors</code> looks around the two empty cells, not at every piece, and lists every configuration one move away.</li>
+    <li><strong>The search is breadth-first.</strong> <code>Solution</code> keeps a queue of configurations to examine and a dictionary recording where each one was reached from. Configurations are examined in order of the number of moves needed to reach them, so the first time Cao Cao reaches the exit, the solution is the shortest possible. The path is then traced back through the dictionary.</li>
+    <li><strong>The search space is small.</strong> With the classic set of pieces, there are only 65,880 possible layouts, as <code>count_possible_configs</code> counts, so the search takes well under a second.</li>
+  </ul>
+  <p>The original program drew each step with Matplotlib and joined the pictures into a video with OpenCV. This page draws the board instead.</p>
+</section>
+
+<section>
+  <h2 id="layouts">The layouts in the list</h2>
+  <p>The list was chosen with AI assistance (Claude). For each mix of lying and standing generals, every possible layout was listed, and the original program's move rules were used to find, for every layout, the fewest moves needed to free Cao Cao. The list runs from easy layouts to the hardest that exist, and each move count was confirmed with the original program. Apart from <span lang="zh">横刀立马</span>, the names are descriptions, not traditional names.</p>
+  <table class="hrd-table">
+    <thead><tr><th scope="col">Generals (lying + standing)</th><th scope="col">Layouts</th><th scope="col">Solvable</th><th scope="col">Most moves needed</th></tr></thead>
+    <tbody>
+      <tr><td>0 + 5</td><td>15,660</td><td>7,462</td><td>19</td></tr>
+      <tr><td>1 + 4 (classic)</td><td>65,880</td><td>53,954</td><td>93</td></tr>
+      <tr><td>2 + 3</td><td>109,260</td><td>83,972</td><td>138</td></tr>
+      <tr><td>3 + 2</td><td>106,800</td><td>82,835</td><td>135</td></tr>
+      <tr><td>4 + 1</td><td>51,660</td><td>30,778</td><td>97</td></tr>
+      <tr><td>5 + 0</td><td>14,220</td><td>8,114</td><td>56</td></tr>
+    </tbody>
+  </table>
+  <p>The count of 65,880 layouts agrees with the original program's own count, and the 138-move maximum agrees with the hardest Huarongdao layout known.</p>
+</section>
+
+<section>
+  <h2 id="notes">Notes on the code</h2>
+  <p><em>Written at my request by Claude, the AI assistant that ported the program.</em></p>
+  <ul>
+    <li><strong>What works well.</strong> The design is clean: <code>Board</code> knows the geometry, <code>Config</code> knows the moves, and <code>Solution</code> runs the search. Sorted tuples as dictionary keys make repeated configurations easy to skip, and searching from the empty cells keeps the move generation short. The test functions and <code>count_possible_configs</code>, which estimates the size of the search before running it, are good habits.</li>
+    <li><strong>A false solution when there is none.</strong> If the queue empties before Cao Cao escapes, <code>__find_path</code> sets <code>final_coords</code> to the last configuration examined, and the program then draws a path to it as if it were a solution. The port returns no solution instead.</li>
+    <li><strong>An invalid layout is only warned about.</strong> The validity check prints a warning and carries on. The port has a separate <code>isValid</code> method, and the page offers only valid, solvable layouts.</li>
+    <li><strong>The cache never hits.</strong> <code>getNeighbors</code> stores its result as <code>self.__Neighbors</code>, but checks for it with <code>'__Neighbors' in self.__dict__</code>. Python renames double-underscore attributes, so the key in <code>__dict__</code> is <code>'_Config__Neighbors'</code>, and the check is always false. This is harmless here, since each configuration's neighbors are needed only once.</li>
+    <li><strong>Unneeded clean-up.</strong> The <code>__del__</code> methods that clear <code>__dict__</code>, and the <code>del</code> statements, are not needed: Python frees objects that are no longer used.</li>
+    <li><strong>A simpler queue.</strong> <code>queue.Queue</code> is designed for passing work between threads. In a single-threaded program, <code>collections.deque</code> is simpler and faster.</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="port">The JavaScript port</h2>
+  <p>The port was written with AI assistance (Claude). It keeps the original's classes, methods and move rules, renamed in JavaScript style (<code>getNeighbors</code>, <code>findPath</code>), so that the two programs can be read side by side. It leaves out the drawing, uses short strings instead of tuples as dictionary keys, and returns no solution when Cao Cao cannot escape. It finds solutions of the same length as the original for every layout in the list and for 1,800 randomly chosen layouts, 603 of them unsolvable. Because it follows the original design rather than being optimized, it is only modestly faster than the Python program; the status line above shows how long each search took.</p>
+</section>
+
+<section>
+  <h2 id="code">Source code</h2>
+  <details>
+    <summary>Original Python program (2022)</summary>
+<p>Download: <a href="huarongdao/huarongdao_v22.11.16.py"><code>huarongdao_v22.11.16.py</code></a></p>
+<pre><code>from timeit import default_timer as timer
+start_time = timer()
+elapsed_time = lambda: timer() - start_time
+
+from itertools import combinations
+from math import comb
+
+from queue import Queue
+from sys import exit
+import cv2
+import os
+
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
+rcParams.update({&#x27;font.family&#x27; : &#x27;serif&#x27;, &#x27;mathtext.fontset&#x27; : &#x27;dejavuserif&#x27;,
+                 &#x27;font.size&#x27; : 12, &#x27;text.latex.preamble&#x27; : r&quot;\usepackage{amsmath}&quot;,
+                 &#x27;xtick.major.pad&#x27; : 2, &#x27;ytick.major.pad&#x27; : 2, &#x27;xtick.major.size&#x27; : 6, &#x27;ytick.major.size&#x27; : 6,
+                 &#x27;xtick.minor.size&#x27; : 3, &#x27;ytick.minor.size&#x27; : 3, &#x27;axes.linewidth&#x27; : 2, &#x27;axes.labelpad&#x27; : 1})
+from matplotlib.patches import FancyBboxPatch, BoxStyle
+
+
+def count_possible_configs():
+    ctr = 0
+    
+    for generals in combinations(range(4, 20), 4):
+        occupied = [general + shift for general in generals for shift in [0, -4]]
+        if len(set(occupied)) &lt; 8: continue
+    
+        for Caocao in range(4, 20):
+            if Caocao % 4 == 3: continue
+            occupied1 = occupied + [Caocao + shift for shift in [0, 1, -4, -3]]
+            if len(set(occupied1)) &lt; 12: continue
+    
+            for Guanyu in range(20):
+                if Guanyu % 4 == 3: continue
+                occupied2 = occupied1 + [Guanyu, Guanyu + 1]
+                if len(set(occupied2)) &lt; 14: continue
+                ctr += 1
+    
+    ctr *= comb(6, 4)
+    print(ctr)  # 65880
+
+
+class Board():
+    def __init__(self, width: int=4, height: int=5):
+        self.width = width
+        self.height = height
+
+
+    def __del__(self):
+        self.__dict__.clear()
+
+
+    def __getCol(self, coord: int) -&gt; int:
+        return coord % self.width
+
+
+    def __getRow(self, coord: int) -&gt; int:
+        return coord // self.width
+
+
+    def getColRow(self, coord: int) -&gt; (int, int):
+        return self.__getCol(coord), self.__getRow(coord)
+
+
+    # def __getLeft(self, coord: int, shift: int=1):
+    #     col = self.__getCol(coord)
+    #     if col &lt; shift: return -1
+    #     return coord - shift
+
+
+    # def __getRight(self, coord: int, shift: int=1):
+    #     col = self.__getCol(coord)
+    #     if col &gt;= self.width - shift: return -1
+    #     return coord + shift
+
+
+    # def __getUp(self, coord: int, shift: int=1):
+    #     row = self.__getRow(coord)
+    #     if row &gt;= self.height - shift: return -1
+    #     return coord + shift * self.width
+
+
+    # def __getDown(self, coord: int, shift: int=1):
+    #     row = self.__getRow(coord)
+    #     if row &lt; shift: return -1
+    #     return coord - shift * self.width
+
+
+    def getNeighbor(self, coord: int, hshift: int=0, vshift: int=0) -&gt; int:
+        col, row = self.getColRow(coord)
+        col += hshift; row += vshift
+
+        if not 0 &lt;= col &lt; self.width: return -1
+        if not 0 &lt;= row &lt; self.height: return -1
+
+        return row * self.width + col
+
+
+    def getVicinity(self, coord: int) -&gt; dict:
+        vicinity = {}
+
+        for hshift in [-2, -1, 1, 2]:
+            vicinity[(hshift, 0)] = self.getNeighbor(coord, hshift=hshift)
+        for vshift in [-2, -1, 1, 2]:
+            vicinity[(0, vshift)] = self.getNeighbor(coord, vshift=vshift)
+
+        return vicinity
+
+
+    def getVicinity2(self, coords: (int, int)) -&gt; (str, dict):
+        coord1, coord2 = coords
+        adjacent = &#x27;&#x27;
+        if coord1 == self.getNeighbor(coord2, hshift=-1):
+            adjacent = &#x27;H&#x27;
+        elif coord1 == self.getNeighbor(coord2, vshift=-1):
+            adjacent = &#x27;V&#x27;
+
+        vicinity = {}
+
+        for shift, coord in self.getVicinity(coord1).items():
+            vicinity[(1,) + shift] = coord
+        for shift, coord in self.getVicinity(coord2).items():
+            vicinity[(2,) + shift] = coord
+
+        if adjacent == &#x27;H&#x27;:
+            for key in [(2, -2, 0), (2, -1, 0), (1, 1, 0), (1, 2, 0)]:
+                vicinity[key] = -1
+        elif adjacent == &#x27;V&#x27;:
+            for key in [(2, 0, -2), (2, 0, -1), (1, 0, 1), (1, 0, 2)]:
+                vicinity[key] = -1
+
+        return adjacent, vicinity
+
+
+def test_Board_methods():
+    board = Board()
+
+    for coord in range(20):
+        print(coord, board.getVicinity(coord))
+
+    print(board.getVicinity2((6, 10)))
+
+
+class Config():
+    def __init__(self, board: Board, coords: (int, tuple, tuple, tuple, tuple)\
+                 =(17, (9,), (8, 11, 16, 19), (0, 3, 5, 6), (1, 2))):
+        self.__board     =      board
+        self.__Caocao    =      coords[0]
+        self.__HGenerals = list(coords[1])
+        self.__VGenerals = list(coords[2])
+        self.__Soldiers  = list(coords[3])
+        self.__Vacancies = list(coords[4])
+
+
+    def __del__(self):
+        self.__dict__.clear()
+
+
+    def display(self, figname: str):
+        fig, ax = plt.subplots(figsize=(self.__board.width + 0.1,
+                                        self.__board.height))
+
+        x, y = self.__board.getColRow(self.__Caocao)
+        ax.add_artist(FancyBboxPatch([x + 0.1, y - 0.9], 1.8, 1.8,
+            boxstyle=BoxStyle(&quot;Round&quot;, pad=0.05), color=&#x27;tab:blue&#x27;, alpha=0.7))
+        ax.text(x + 1.0, y - 0.05, figname, ha=&#x27;center&#x27;, va=&#x27;center&#x27;,
+                color=&#x27;tab:blue&#x27;, fontsize=36)
+
+        for Hgeneral in self.__HGenerals:
+            x, y = self.__board.getColRow(Hgeneral)
+            ax.add_artist(FancyBboxPatch([x + 0.1, y + 0.1], 1.8, 0.8,
+                boxstyle=BoxStyle(&quot;Round&quot;, pad=0.05), color=&#x27;tab:red&#x27;, alpha=0.7))
+
+        for Vgeneral in self.__VGenerals:
+            x, y = self.__board.getColRow(Vgeneral)
+            ax.add_artist(FancyBboxPatch([x + 0.1, y - 0.9], 0.8, 1.8,
+                boxstyle=BoxStyle(&quot;Round&quot;, pad=0.05), color=&#x27;tab:orange&#x27;, alpha=0.7))
+
+        for soldier in self.__Soldiers:
+            x, y = self.__board.getColRow(soldier)
+            ax.add_artist(FancyBboxPatch([x + 0.1, y + 0.1], 0.8, 0.8,
+                boxstyle=BoxStyle(&quot;Round&quot;, pad=0.05), color=&#x27;tab:green&#x27;, alpha=0.7))
+
+
+        ax.axis(&#x27;equal&#x27;); ax.axis(&#x27;off&#x27;)
+        ax.set_xlim((-0.1, 4.1)); ax.set_xticks([])
+        ax.set_ylim((-0.0, 5.0)); ax.set_yticks([])
+        ax.patch.set_alpha(0.0)
+
+        fig.tight_layout()
+        fig.savefig(f&#x27;{figname}.png&#x27;, dpi=128)
+        plt.close(fig)
+
+
+    def __moveCaocao(self, shift: (int, int)):
+        new_Caocao = self.__board.getNeighbor(self.__Caocao, *shift)
+
+        if shift == (1, 0):
+            new_vacancies = (self.__board.getNeighbor(self.__Caocao, vshift=-1),
+                             self.__Caocao)
+        elif shift == (-1, 0):
+            new_vacancies = (self.__board.getNeighbor(self.__Caocao, hshift=1, vshift=-1),
+                             self.__board.getNeighbor(self.__Caocao, hshift=1))
+        elif shift == (0, -1):
+            new_vacancies = (self.__Caocao,
+                             self.__board.getNeighbor(self.__Caocao, hshift=1))
+        elif shift == (0, 1):
+            new_vacancies = (self.__board.getNeighbor(self.__Caocao, vshift=-1),
+                             self.__board.getNeighbor(self.__Caocao, hshift=1, vshift=-1))
+
+        coords = (new_Caocao, tuple(self.__HGenerals), tuple(self.__VGenerals),
+                  tuple(self.__Soldiers), new_vacancies)
+        self.__Neighbors.append(coords)
+
+
+    @staticmethod
+    def list_replace(array: list, old: int, new: int):
+        array[array.index(old)] = new
+        array.sort()
+
+
+    def __moveHGeneral(self, old_coord: int, shift: (int, int)):
+        new_HGenerals = self.__HGenerals.copy()
+        Config.list_replace(new_HGenerals, old_coord,
+                            self.__board.getNeighbor(old_coord, *shift))
+
+        if shift == (1, 0):
+            new_vacancies = self.__Vacancies.copy()
+            Config.list_replace(new_vacancies,
+                                self.__board.getNeighbor(old_coord, hshift=2),
+                                old_coord)
+        elif shift == (-1, 0):
+            new_vacancies = self.__Vacancies.copy()
+            Config.list_replace(new_vacancies,
+                                self.__board.getNeighbor(old_coord, hshift=-1),
+                                self.__board.getNeighbor(old_coord, hshift=1))
+        else:
+            new_vacancies = (old_coord,
+                             self.__board.getNeighbor(old_coord, hshift=1))
+
+        coords = (self.__Caocao, tuple(new_HGenerals), tuple(self.__VGenerals),
+                  tuple(self.__Soldiers), tuple(sorted(new_vacancies)))
+        self.__Neighbors.append(coords)
+
+
+    def __moveVGeneral(self, old_coord: int, shift: (int, int)):
+        new_VGenerals = self.__VGenerals.copy()
+        Config.list_replace(new_VGenerals, old_coord,
+                            self.__board.getNeighbor(old_coord, *shift))
+
+        if shift == (0, 1):
+            new_vacancies = self.__Vacancies.copy()
+            Config.list_replace(new_vacancies,
+                                self.__board.getNeighbor(old_coord, vshift=1),
+                                self.__board.getNeighbor(old_coord, vshift=-1))
+        elif shift == (0, -1):
+            new_vacancies = self.__Vacancies.copy()
+            Config.list_replace(new_vacancies,
+                                self.__board.getNeighbor(old_coord, vshift=-2),
+                                old_coord)
+        else:
+            new_vacancies = [old_coord,
+                             self.__board.getNeighbor(old_coord, vshift=-1)]
+            new_vacancies.sort()
+
+        coords = (self.__Caocao, tuple(self.__HGenerals), tuple(new_VGenerals),
+                  tuple(self.__Soldiers), tuple(new_vacancies))
+        self.__Neighbors.append(coords)
+
+
+    def __moveSoldier(self, old_coord: int, new_coord: int):
+        new_Soldiers = self.__Soldiers.copy()
+        Config.list_replace(new_Soldiers, old_coord, new_coord)
+
+        new_vacancies = self.__Vacancies.copy()
+        Config.list_replace(new_vacancies, new_coord, old_coord)
+
+        coords = (self.__Caocao, tuple(self.__HGenerals), tuple(self.__VGenerals),
+                  tuple(new_Soldiers), tuple(new_vacancies))
+        self.__Neighbors.append(coords)
+
+
+    def getNeighbors(self, allow_twice: bool=True):
+        if &#x27;__Neighbors&#x27; in self.__dict__:
+            return self.__Neighbors
+
+        self.__Neighbors = []
+        adjacent, vicinity = self.__board.getVicinity2(self.__Vacancies)
+        vacancy1, vacancy2 = self.__Vacancies
+
+        # try to move Caocao
+        if adjacent == &#x27;V&#x27;:
+            if vicinity[(2, -2, 0)] == self.__Caocao:
+                self.__moveCaocao((1, 0))
+            elif vicinity[(2, 1, 0)] == self.__Caocao:
+                self.__moveCaocao((-1, 0))
+
+        elif adjacent == &#x27;H&#x27;:
+            if vicinity[(1, 0, 2)] == self.__Caocao:
+                self.__moveCaocao((0, -1))
+            elif vicinity[(1, 0, -1)] == self.__Caocao:
+                self.__moveCaocao((0, 1))
+
+        # try to move an HGeneral
+        for v in [1, 2]:
+            if vicinity[(v, -2, 0)] in self.__HGenerals:
+                self.__moveHGeneral(vicinity[(v, -2, 0)], (1, 0))
+            if vicinity[(v, 1, 0)] in self.__HGenerals:
+                self.__moveHGeneral(vicinity[(v, 1, 0)], (-1, 0))
+
+        if adjacent == &#x27;H&#x27;:
+            if vicinity[(1, 0, 1)] in self.__HGenerals:
+                self.__moveHGeneral(vicinity[(1, 0, 1)], (0, -1))
+            if vicinity[(1, 0, -1)] in self.__HGenerals:
+                self.__moveHGeneral(vicinity[(1, 0, -1)], (0, 1))
+
+            if allow_twice:
+                if vicinity[(1, -2, 0)] in self.__HGenerals:
+                    self.__moveHGeneral(vicinity[(1, -2, 0)], (2, 0))
+                if vicinity[(2, 1, 0)] in self.__HGenerals:
+                    self.__moveHGeneral(vicinity[(2, 1, 0)], (-2, 0))
+
+        # try to move a VGeneral
+        for v in [1, 2]:
+            if vicinity[(v, 0, -1)] in self.__VGenerals:
+                self.__moveVGeneral(vicinity[(v, 0, -1)], (0, 1))
+            if vicinity[(v, 0, 2)] in self.__VGenerals:
+                self.__moveVGeneral(vicinity[(v, 0, 2)], (0, -1))
+
+        if adjacent == &#x27;V&#x27;:
+            if vicinity[(2, -1, 0)] in self.__VGenerals:
+                self.__moveVGeneral(vicinity[(2, -1, 0)], (1, 0))
+            if vicinity[(2, 1, 0)] in self.__VGenerals:
+                self.__moveVGeneral(vicinity[(2, 1, 0)], (-1, 0))
+
+            if allow_twice:
+                if vicinity[(1, 0, -1)] in self.__VGenerals:
+                    self.__moveVGeneral(vicinity[(1, 0, -1)], (0, 2))
+                if vicinity[(2, 0, 2)] in self.__VGenerals:
+                    self.__moveVGeneral(vicinity[(2, 0, 2)], (0, -2))
+
+        # try to move a Soldier
+        for v, vacancy in enumerate(self.__Vacancies, start=1):
+            for shift in [(1, 0), (-1, 0), (0, -1), (0, 1)]:
+                old_coord = vicinity[(v,) + shift]
+                if old_coord in self.__Soldiers:
+                    self.__moveSoldier(old_coord, vacancy)
+                    if allow_twice and adjacent:
+                        self.__moveSoldier(old_coord, sum(self.__Vacancies) - vacancy)
+
+        return self.__Neighbors
+
+
+def test_Config_methods():
+    board = Board()
+    # init_coords = (17, (9,), (8, 11, 16, 19), (0, 3, 5, 6), (1, 2))
+    init_coords = (17, (9,), (4, 6, 16, 19), (1, 3, 5, 11), (7, 8))
+    config = Config(board, init_coords)
+    config.display(&#x27;0&#x27;)
+
+    neighbors = config.getNeighbors()
+    del config
+
+    for i, neighbor in enumerate(neighbors, start=1):
+        print(i, neighbor)
+        config = Config(board, neighbor)
+        config.display(repr(i))
+        del config
+
+    del board
+
+
+class Solution():
+    def __init__(self, board: Board, init_coords: (int, tuple, tuple, tuple, tuple)=\
+                 (17, (9,), (8, 11, 16, 19), (0, 3, 5, 6), (1, 2)),
+                 max_nsteps: int=100000, allow_twice: bool=True):
+        self.board = board
+        self.init_coords = init_coords
+        self.max_nsteps = max_nsteps
+        self.allow_twice = allow_twice
+
+        validity_check = [self.board.getNeighbor(init_coords[0], *shift)
+                          for shift in [(0, 0), (1, 0), (0, -1), (1, -1)]]
+        for i in range(1, 5):
+            for coord in init_coords[i]:
+                validity_check.append(coord)
+                if i == 1: validity_check.append(self.board.getNeighbor(coord, hshift=1))
+                if i == 2: validity_check.append(self.board.getNeighbor(coord, vshift=-1))
+        validity_check.sort()
+        if validity_check != list(range(self.board.width * self.board.height)):
+            print(f&#x27; &gt; Warning: Config({init_coords}) is invalid&#x27;)
+
+
+    def __del__(self):
+        self.__dict__.clear()
+
+
+    def __find_path(self):
+        self.__coords_dict = {self.init_coords: None}
+        self.__coords_queue = Queue()
+        self.__coords_queue.put(self.init_coords)
+        self.final_coords = None
+
+        for i in range(self.max_nsteps):
+            coords = self.__coords_queue.get()
+            if i % 1000 == 0: print(i, coords)
+
+            if coords[0] == 5:
+                print(i, coords)
+                self.final_coords = coords
+                del self.__coords_queue
+                break
+
+            config = Config(self.board, coords)
+            # config.display(repr(i))
+            # print(i, coords, self.__coords_dict[coords])
+
+            neighbors = config.getNeighbors(allow_twice=self.allow_twice)
+            for neighbor in neighbors:
+                if neighbor in self.__coords_dict: continue
+                self.__coords_dict[neighbor] = coords
+                self.__coords_queue.put(neighbor)
+            del config
+
+            if self.__coords_queue.empty():
+                self.final_coords = coords
+                break
+
+        self.path = []
+        if self.final_coords is not None:
+            coords = self.final_coords
+            while coords:
+                self.path.append(coords)
+                coords = self.__coords_dict[coords]
+            self.path.reverse()
+        self.__coords_dict.clear()
+
+
+    def __display(self):
+        print(&#x27; &gt; Visualizing&#x27;, &#x27;@&#x27;, elapsed_time())
+
+        images = []
+        for i, coords in enumerate(self.path):
+            print(i, coords)
+            config = Config(self.board, coords)
+            config.display(repr(i))
+            images.append(f&#x27;{i}.png&#x27;)
+            del config
+
+        frame = cv2.imread(images[0])
+        height, width, layers = frame.shape
+        video = cv2.VideoWriter(&#x27;huarongdao.mp4&#x27;, 0, 5, (width, height))
+
+        for image in images:
+            video.write(cv2.imread(image))
+            os.remove(image)
+
+        cv2.destroyAllWindows()
+        video.release()
+
+
+    def __call__(self):
+        self.__find_path()
+        if self.path: self.__display()
+
+
+if __name__ == &quot;__main__&quot;:
+    # count_possible_configs()
+    # test_Board_methods()
+    # test_Config_methods()
+
+    board = Board()
+    solution = Solution(board,
+                        # init_coords=(17, (1, 5, 9), (11, 19), (4, 8, 12, 16), (0, 3)),
+                        allow_twice=True)
+    solution()
+    del solution
+
+    print(&#x27; &gt; Finished!&#x27;, &#x27;@&#x27;, elapsed_time())</code></pre>
+  </details>
+  <details>
+    <summary>JavaScript port</summary>
+<p>Download: <a href="huarongdao/solver.js"><code>solver.js</code></a></p>
+<pre><code>// Huarongdao solver: a JavaScript port of Kaili Cao&#x27;s Python program
+// (huarongdao_v22.11.16.py), ported with AI assistance (Claude).
+//
+// The port keeps the original&#x27;s classes (Board, Config, Solution), methods and
+// move rules, so the two can be read side by side. It leaves out the drawing
+// (matplotlib, OpenCV), which the web page does instead, and it changes two
+// things: Solution.findPath returns null when no solution exists, and the
+// queue is a plain array with a moving head instead of queue.Queue.
+//
+// Coordinates follow the original: the board is 4 columns by 5 rows, a cell&#x27;s
+// coordinate is row * 4 + col, and row 0 is the bottom row. A piece&#x27;s
+// coordinate is its upper-left cell. A configuration (&quot;coords&quot;) is
+//   [caocao, hGenerals, vGenerals, soldiers, vacancies]
+// with every list sorted, e.g. the classic 横刀立马:
+//   [17, [9], [8, 11, 16, 19], [0, 3, 5, 6], [1, 2]]
+// Cao Cao escapes when his coordinate is 5 (bottom center).
+
+&#x27;use strict&#x27;;
+
+class Board {
+  constructor(width = 4, height = 5) {
+    this.width = width;
+    this.height = height;
+  }
+
+  getColRow(coord) {
+    return [coord % this.width, Math.floor(coord / this.width)];
+  }
+
+  // The cell shifted by (hshift, vshift) from coord, or -1 if off the board.
+  getNeighbor(coord, hshift = 0, vshift = 0) {
+    let [col, row] = this.getColRow(coord);
+    col += hshift; row += vshift;
+    if (!(col &gt;= 0 &amp;&amp; col &lt; this.width)) return -1;
+    if (!(row &gt;= 0 &amp;&amp; row &lt; this.height)) return -1;
+    return row * this.width + col;
+  }
+
+  // Cells up to two steps away from coord in each direction,
+  // keyed by &quot;hshift,vshift&quot;.
+  getVicinity(coord) {
+    const vicinity = {};
+    for (const hshift of [-2, -1, 1, 2]) {
+      vicinity[`${hshift},0`] = this.getNeighbor(coord, hshift, 0);
+    }
+    for (const vshift of [-2, -1, 1, 2]) {
+      vicinity[`0,${vshift}`] = this.getNeighbor(coord, 0, vshift);
+    }
+    return vicinity;
+  }
+
+  // The vicinity of both vacancies, keyed by &quot;v,hshift,vshift&quot; (v = 1 or 2),
+  // and whether the vacancies are adjacent horizontally (&#x27;H&#x27;) or
+  // vertically (&#x27;V&#x27;). Cells that are the other vacancy, or lie beyond it,
+  // are masked with -1.
+  getVicinity2(coords) {
+    const [coord1, coord2] = coords;
+    let adjacent = &#x27;&#x27;;
+    if (coord1 === this.getNeighbor(coord2, -1, 0)) {
+      adjacent = &#x27;H&#x27;;
+    } else if (coord1 === this.getNeighbor(coord2, 0, -1)) {
+      adjacent = &#x27;V&#x27;;
+    }
+
+    const vicinity = {};
+    for (const [shift, coord] of Object.entries(this.getVicinity(coord1))) {
+      vicinity[`1,${shift}`] = coord;
+    }
+    for (const [shift, coord] of Object.entries(this.getVicinity(coord2))) {
+      vicinity[`2,${shift}`] = coord;
+    }
+
+    if (adjacent === &#x27;H&#x27;) {
+      for (const key of [&#x27;2,-2,0&#x27;, &#x27;2,-1,0&#x27;, &#x27;1,1,0&#x27;, &#x27;1,2,0&#x27;]) vicinity[key] = -1;
+    } else if (adjacent === &#x27;V&#x27;) {
+      for (const key of [&#x27;2,0,-2&#x27;, &#x27;2,0,-1&#x27;, &#x27;1,0,1&#x27;, &#x27;1,0,2&#x27;]) vicinity[key] = -1;
+    }
+    return { adjacent, vicinity };
+  }
+}
+
+const numeric = (a, b) =&gt; a - b;
+
+class Config {
+  constructor(board, coords) {
+    this.board = board;
+    this.caocao = coords[0];
+    this.hGenerals = [...coords[1]];
+    this.vGenerals = [...coords[2]];
+    this.soldiers = [...coords[3]];
+    this.vacancies = [...coords[4]];
+    this.neighbors = null;
+  }
+
+  static listReplace(array, oldValue, newValue) {
+    array[array.indexOf(oldValue)] = newValue;
+    array.sort(numeric);
+  }
+
+  moveCaocao(shift) {
+    const b = this.board, c = this.caocao;
+    const newCaocao = b.getNeighbor(c, ...shift);
+    let newVacancies;
+    if (shift[0] === 1 &amp;&amp; shift[1] === 0) {
+      newVacancies = [b.getNeighbor(c, 0, -1), c];
+    } else if (shift[0] === -1 &amp;&amp; shift[1] === 0) {
+      newVacancies = [b.getNeighbor(c, 1, -1), b.getNeighbor(c, 1, 0)];
+    } else if (shift[0] === 0 &amp;&amp; shift[1] === -1) {
+      newVacancies = [c, b.getNeighbor(c, 1, 0)];
+    } else {  // (0, 1)
+      newVacancies = [b.getNeighbor(c, 0, -1), b.getNeighbor(c, 1, -1)];
+    }
+    this.neighbors.push([newCaocao, [...this.hGenerals], [...this.vGenerals],
+                         [...this.soldiers], newVacancies]);
+  }
+
+  moveHGeneral(oldCoord, shift) {
+    const b = this.board;
+    const newHGenerals = [...this.hGenerals];
+    Config.listReplace(newHGenerals, oldCoord, b.getNeighbor(oldCoord, ...shift));
+
+    let newVacancies;
+    if (shift[0] === 1 &amp;&amp; shift[1] === 0) {
+      newVacancies = [...this.vacancies];
+      Config.listReplace(newVacancies, b.getNeighbor(oldCoord, 2, 0), oldCoord);
+    } else if (shift[0] === -1 &amp;&amp; shift[1] === 0) {
+      newVacancies = [...this.vacancies];
+      Config.listReplace(newVacancies, b.getNeighbor(oldCoord, -1, 0),
+                         b.getNeighbor(oldCoord, 1, 0));
+    } else {  // vertical moves, and horizontal moves by two cells
+      newVacancies = [oldCoord, b.getNeighbor(oldCoord, 1, 0)];
+    }
+    this.neighbors.push([this.caocao, newHGenerals, [...this.vGenerals],
+                         [...this.soldiers], newVacancies.sort(numeric)]);
+  }
+
+  moveVGeneral(oldCoord, shift) {
+    const b = this.board;
+    const newVGenerals = [...this.vGenerals];
+    Config.listReplace(newVGenerals, oldCoord, b.getNeighbor(oldCoord, ...shift));
+
+    let newVacancies;
+    if (shift[0] === 0 &amp;&amp; shift[1] === 1) {
+      newVacancies = [...this.vacancies];
+      Config.listReplace(newVacancies, b.getNeighbor(oldCoord, 0, 1),
+                         b.getNeighbor(oldCoord, 0, -1));
+    } else if (shift[0] === 0 &amp;&amp; shift[1] === -1) {
+      newVacancies = [...this.vacancies];
+      Config.listReplace(newVacancies, b.getNeighbor(oldCoord, 0, -2), oldCoord);
+    } else {  // horizontal moves, and vertical moves by two cells
+      newVacancies = [oldCoord, b.getNeighbor(oldCoord, 0, -1)].sort(numeric);
+    }
+    this.neighbors.push([this.caocao, [...this.hGenerals], newVGenerals,
+                         [...this.soldiers], newVacancies]);
+  }
+
+  moveSoldier(oldCoord, newCoord) {
+    const newSoldiers = [...this.soldiers];
+    Config.listReplace(newSoldiers, oldCoord, newCoord);
+    const newVacancies = [...this.vacancies];
+    Config.listReplace(newVacancies, newCoord, oldCoord);
+    this.neighbors.push([this.caocao, [...this.hGenerals], [...this.vGenerals],
+                         newSoldiers, newVacancies]);
+  }
+
+  // All configurations reachable in one move. With allowTwice, a piece may
+  // also move two cells in a straight line, or a soldier may turn a corner,
+  // which still counts as one move.
+  getNeighbors(allowTwice = true) {
+    if (this.neighbors !== null) return this.neighbors;
+    this.neighbors = [];
+    const { adjacent, vicinity: vic } = this.board.getVicinity2(this.vacancies);
+    const H = this.hGenerals, V = this.vGenerals;
+
+    // try to move Caocao
+    if (adjacent === &#x27;V&#x27;) {
+      if (vic[&#x27;2,-2,0&#x27;] === this.caocao) this.moveCaocao([1, 0]);
+      else if (vic[&#x27;2,1,0&#x27;] === this.caocao) this.moveCaocao([-1, 0]);
+    } else if (adjacent === &#x27;H&#x27;) {
+      if (vic[&#x27;1,0,2&#x27;] === this.caocao) this.moveCaocao([0, -1]);
+      else if (vic[&#x27;1,0,-1&#x27;] === this.caocao) this.moveCaocao([0, 1]);
+    }
+
+    // try to move an HGeneral
+    for (const v of [1, 2]) {
+      if (H.includes(vic[`${v},-2,0`])) this.moveHGeneral(vic[`${v},-2,0`], [1, 0]);
+      if (H.includes(vic[`${v},1,0`])) this.moveHGeneral(vic[`${v},1,0`], [-1, 0]);
+    }
+    if (adjacent === &#x27;H&#x27;) {
+      if (H.includes(vic[&#x27;1,0,1&#x27;])) this.moveHGeneral(vic[&#x27;1,0,1&#x27;], [0, -1]);
+      if (H.includes(vic[&#x27;1,0,-1&#x27;])) this.moveHGeneral(vic[&#x27;1,0,-1&#x27;], [0, 1]);
+      if (allowTwice) {
+        if (H.includes(vic[&#x27;1,-2,0&#x27;])) this.moveHGeneral(vic[&#x27;1,-2,0&#x27;], [2, 0]);
+        if (H.includes(vic[&#x27;2,1,0&#x27;])) this.moveHGeneral(vic[&#x27;2,1,0&#x27;], [-2, 0]);
+      }
+    }
+
+    // try to move a VGeneral
+    for (const v of [1, 2]) {
+      if (V.includes(vic[`${v},0,-1`])) this.moveVGeneral(vic[`${v},0,-1`], [0, 1]);
+      if (V.includes(vic[`${v},0,2`])) this.moveVGeneral(vic[`${v},0,2`], [0, -1]);
+    }
+    if (adjacent === &#x27;V&#x27;) {
+      if (V.includes(vic[&#x27;2,-1,0&#x27;])) this.moveVGeneral(vic[&#x27;2,-1,0&#x27;], [1, 0]);
+      if (V.includes(vic[&#x27;2,1,0&#x27;])) this.moveVGeneral(vic[&#x27;2,1,0&#x27;], [-1, 0]);
+      if (allowTwice) {
+        if (V.includes(vic[&#x27;1,0,-1&#x27;])) this.moveVGeneral(vic[&#x27;1,0,-1&#x27;], [0, 2]);
+        if (V.includes(vic[&#x27;2,0,2&#x27;])) this.moveVGeneral(vic[&#x27;2,0,2&#x27;], [0, -2]);
+      }
+    }
+
+    // try to move a Soldier
+    const vacancySum = this.vacancies[0] + this.vacancies[1];
+    this.vacancies.forEach((vacancy, i) =&gt; {
+      const v = i + 1;
+      for (const [h, vs] of [[1, 0], [-1, 0], [0, -1], [0, 1]]) {
+        const oldCoord = vic[`${v},${h},${vs}`];
+        if (this.soldiers.includes(oldCoord)) {
+          this.moveSoldier(oldCoord, vacancy);
+          if (allowTwice &amp;&amp; adjacent) this.moveSoldier(oldCoord, vacancySum - vacancy);
+        }
+      }
+    });
+
+    return this.neighbors;
+  }
+}
+
+class Solution {
+  constructor(board, initCoords, { maxNsteps = 100000, allowTwice = true } = {}) {
+    this.board = board;
+    this.initCoords = initCoords;
+    this.maxNsteps = maxNsteps;
+    this.allowTwice = allowTwice;
+    this.path = null;
+    this.nsearched = 0;
+  }
+
+  // True if the pieces cover the board exactly once.
+  isValid() {
+    const b = this.board, c = this.initCoords;
+    const cells = [[0, 0], [1, 0], [0, -1], [1, -1]].map(s =&gt; b.getNeighbor(c[0], ...s));
+    for (let i = 1; i &lt; 5; i++) {
+      for (const coord of c[i]) {
+        cells.push(coord);
+        if (i === 1) cells.push(b.getNeighbor(coord, 1, 0));
+        if (i === 2) cells.push(b.getNeighbor(coord, 0, -1));
+      }
+    }
+    cells.sort(numeric);
+    return cells.length === b.width * b.height &amp;&amp; cells.every((x, i) =&gt; x === i);
+  }
+
+  // Breadth-first search: the first configuration found with Cao Cao at the
+  // exit is reached in the fewest moves. Returns the list of configurations
+  // from start to finish, or null if Cao Cao cannot escape.
+  findPath() {
+    // a configuration as a short string, e.g. &#x27;17|9|8,11,16,19|0,3,5,6|1,2&#x27;
+    const key = coords =&gt; coords.join(&#x27;|&#x27;);
+    const parents = new Map([[key(this.initCoords), null]]);
+    const queue = [this.initCoords];
+    let head = 0, finalCoords = null;
+
+    for (let i = 0; i &lt; this.maxNsteps &amp;&amp; head &lt; queue.length; i++) {
+      const coords = queue[head++];
+      if (coords[0] === 5) { finalCoords = coords; break; }
+
+      const config = new Config(this.board, coords);
+      for (const neighbor of config.getNeighbors(this.allowTwice)) {
+        const k = key(neighbor);
+        if (parents.has(k)) continue;
+        parents.set(k, coords);
+        queue.push(neighbor);
+      }
+    }
+    this.nsearched = parents.size;
+
+    if (finalCoords === null) { this.path = null; return null; }
+    const path = [];
+    for (let coords = finalCoords; coords !== null; coords = parents.get(key(coords))) {
+      path.push(coords);
+    }
+    this.path = path.reverse();
+    return this.path;
+  }
+}
+
+if (typeof module !== &#x27;undefined&#x27;) module.exports = { Board, Config, Solution };</code></pre>
+  </details>
+  <p>The page also uses <a href="huarongdao/puzzles.js"><code>puzzles.js</code></a>, the list of layouts, and <a href="huarongdao/app.js"><code>app.js</code></a>, which draws the board and runs the buttons; both were written with AI assistance (Claude). More about my Python tutorial is on <a href="learning-python.html">Learning Python</a>.</p>
+</section>
+</main>
+<script src="huarongdao/solver.js"></script>
+<script src="huarongdao/puzzles.js"></script>
+<script src="huarongdao/app.js"></script>
+
+<footer class="site">
+  <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.6, last updated October 12, 2026.</p>
+</footer>
+</body>
+</html>

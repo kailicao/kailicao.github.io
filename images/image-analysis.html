@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image Analysis · Kaili Cao</title>
+<meta name="description" content="Kaili Cao&#x27;s research on Image Analysis: The physical meaning of astronomical images: noise, detector effects and systematics, and images as discrete samples of continuous fields.">
+<link rel="canonical" href="https://kailicao.github.io/images/image-analysis.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="Image Analysis · Kaili Cao">
+<meta property="og:description" content="Kaili Cao&#x27;s research on Image Analysis: The physical meaning of astronomical images: noise, detector effects and systematics, and images as discrete samples of continuous fields.">
+<meta property="og:url" content="https://kailicao.github.io/images/image-analysis.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kaili Cao (曹开力), astrophysicist, Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, MIDAS, University of Michigan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Kaili Cao">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/figures.css">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <a class="name" href="../index.html">Kaili Cao <span lang="zh">曹开力</span></a>
+  <nav aria-label="Site"><a href="../index.html">Home</a><div class="menu"><a href="../about.html">About<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../about/publications.html">Publications</a></li><li><a href="../about/presentations.html">Presentations</a></li><li><a href="../about/software.html">Software</a></li><li><a href="../about/personal.html">Personal</a></li></ul></div><a href="../cv/Kaili_Cao_CV.pdf">CV</a><a href="../ai.html">AI</a><div class="menu"><a href="../images.html" aria-current="page">Images<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="image-reconstruction.html">Image Reconstruction</a></li><li><a href="image-analysis.html" aria-current="page">Image Analysis</a></li><li><a href="extragalactic-astronomy.html">Extragalactic Astronomy</a></li></ul></div><div class="menu"><a href="../cosmology.html">Cosmology<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cosmology/cosmological-inference.html">Cosmological Inference</a></li><li><a href="../cosmology/cosmological-simulations.html">Cosmological Simulations</a></li></ul></div><div class="menu"><a href="../stars.html">Stars<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../stars/stellar-modeling.html">Stellar Modeling</a></li><li><a href="../stars/asteroseismology.html">Asteroseismology</a></li></ul></div><div class="menu"><a href="../opinions.html">Opinions<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../opinions/teaching.html">Teaching Philosophy</a></li><li><a href="../opinions/python.html">Python Philosophy</a></li><li><a href="../opinions/learning-python.html">Learning Python</a></li><li><a href="../opinions/ethics.html">Research Ethics</a></li><li><a href="../opinions/career.html">Career Development</a></li></ul></div></nav>
+</header>
+<main id="main">
+<p class="crumb"><a href="../images.html">Images</a> · Image Analysis</p>
+<h1>Image Analysis</h1>
+<p class="lead">The physical meaning of astronomical images: noise, detector effects and systematics, and images as discrete samples of continuous fields.</p>
+<section id="in-brief">
+<h2>In brief</h2>
+<p>Every astronomical image mixes signal with imperfections. The detector adds <a class="term" href="../glossary.html#noise">noise</a>, some pixels misbehave, and the processing leaves its own traces. To measure something tiny, such as the 1% stretch of <a class="term" href="../glossary.html#weak-lensing">weak gravitational lensing</a>, you first have to understand these imperfections well enough to model them or remove them.</p>
+<p>One example comes from Roman's infrared detectors. Their pixels are read out one after another, so the pixels in a row are read within a short time. Slow drifts in the readout electronics then shift a whole row up or down together, leaving faint horizontal stripes. This is <a class="term" href="../glossary.html#correlated-noise">correlated noise</a>: unlike random noise (called <a class="term" href="../glossary.html#white-noise">white noise</a>), it is shared by neighboring pixels, so combining pixels does not beat it down nearly as well (see the figure). Left uncorrected, the stripes give the image a preferred direction, which can bias the measured shapes of galaxies. Errors that push results in a consistent direction are called <a class="term" href="../glossary.html#systematics">systematics</a>; taking more data does not make them go away, so they must be modeled or removed.</p>
+<p>A deeper question runs through this work: what does a pixel value actually mean? It is best thought of not as a little square of sky, but as a <a class="term" href="../glossary.html#sampling">sample</a>, at one point, of the sky's brightness after it has been blurred by the telescope and by the way the pixel collects light across its area. Treating images as discrete samples of continuous brightness maps is the starting point of my ideas on this topic. So far, I have contributed to team studies of noise in Roman images and of tools that remove it (below).</p>
+<figure class="fig" id="fig-correlated-noise">
+<img src="../assets/figures/correlated-noise.png" width="1440" height="720" loading="lazy" alt="Two square noise images. Left: grainy noise with no pattern. Right: the same kind of grain plus faint horizontal bands that are lighter or darker across whole rows.">
+<figcaption>Illustration (not real data). Left: random, or white, noise: each pixel varies independently, so averaging many pixels beats it down. Right: correlated noise, here horizontal stripes like those from an infrared detector's readout: neighboring pixels in a row share the same error, so averaging along the row does not remove it. Made with AI assistance (Claude).</figcaption>
+</figure>
+<p class="newbie">New to this topic? The <a href="../glossary.html">Glossary</a> explains the terms in plain language; underlined terms link to it.</p>
+</section>
+<section>
+<h2>What I have done</h2>
+<p>My work here so far is in team studies of noise and systematics in simulated Roman images, to which I have contributed: how noise biases weak lensing measurements; how to remove correlated noise stripes, whose power on large scales the team's <a href="../about/publications.html#arXiv-2512.05949">imDestripe</a> reduces by factors of 10 to 30; and how to make <a class="term" href="../glossary.html#photometry">photometry</a> robust using both Roman and <a href="https://rubinobservatory.org/">Rubin</a> images, where ignoring correlated noise underestimates photometric uncertainties by up to about three times. My contribution has mainly been PyIMCOM, the platform for several of these studies, and my expertise in <a class="term" href="../glossary.html#imcom">IMCOM</a>.</p>
+<p>My interest in image analysis grew out of my work on <a href="image-reconstruction.html">image reconstruction</a>. Developing Effortless made me think hard about the physical meaning of astronomical images, and about the relationship between discrete samples and continuous fields.</p>
+</section>
+<section><h2>Papers</h2>
+<h3>Coauthored papers</h3>
+<ul class="pubs">
+  <li><span class="title">Robust Photometry for Roman High-Latitude Imaging Survey Cosmology Using Roman and Rubin Imaging</span><br>
+    <span class="authors">Chun-Hao To, Tae-Hyeon Shin, Chihway Chang, Christopher Hirata, Brett H. Andrews, Ami Choi, et al. (21 authors, including <strong>Kaili Cao</strong>)</span><br>
+    <span class="meta">arXiv preprint · coauthor (10 of 21)</span> · <a href="https://arxiv.org/abs/2607.09849">arXiv:2607.09849</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.09849/abstract">ADS</a><br>
+    <span class="contrib">I contributed my expertise in IMCOM.</span></li>
+  <li><span class="title">Removing correlated noise stripes from the Nancy Grace Roman Space Telescope survey images</span><br>
+    <span class="authors">Katherine Laliotis, Christopher M. Hirata, Emily Macbeth, <strong>Kaili Cao</strong></span><br>
+    <span class="meta">Publications of the Astronomical Society of Japan 78, 810 (2026) · coauthor (4 of 4)</span> · <a href="https://doi.org/10.1093/pasj/psag020">DOI</a> · <a href="https://arxiv.org/abs/2512.05949">arXiv:2512.05949</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2512.05949/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">Code</a><br>
+    <span class="contrib">I led the development of the PyIMCOM software, the platform for this work, and commented on the manuscript.</span></li>
+  <li><span class="title">OpenUniverse2024: A shared, simulated view of the sky for the next generation of cosmological surveys</span><br>
+    <span class="authors">OpenUniverse, The LSST Dark Energy Science Collaboration, The Roman HLIS Project Infrastructure Team, The Roman RAPID Project Infrastructure Team, The Roman Supernova Cosmology Project Infrastructure Team, A. Alarcon, et al. (61 authors, including <strong>Kaili Cao</strong>)</span><br>
+    <span class="meta">Monthly Notices of the Royal Astronomical Society 544, 3799-3823 (2025) · coauthor (14 of 61)</span> · <a href="https://doi.org/10.1093/mnras/staf1833">DOI</a> · <a href="https://arxiv.org/abs/2501.05632">arXiv:2501.05632</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2501.05632/abstract">ADS</a><br>
+    <span class="contrib">I led the development of the PyIMCOM software used to produce the IMCOM coadds, and contributed to writing the paper.</span></li>
+  <li><span class="title">Analysis of biasing from noise from the Nancy Grace Roman Space Telescope: implications for weak lensing</span><br>
+    <span class="authors">Katherine Laliotis, Emily Macbeth, Christopher M. Hirata, <strong>Kaili Cao</strong>, Masaya Yamamoto, Michael Troxel</span><br>
+    <span class="meta">Publications of the Astronomical Society of the Pacific 136, 124506 (2024) · coauthor (4 of 6)</span> · <a href="https://doi.org/10.1088/1538-3873/ad9bec">DOI</a> · <a href="https://arxiv.org/abs/2410.11088">arXiv:2410.11088</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2410.11088/abstract">ADS</a><br>
+    <span class="contrib">I led the development of the PyIMCOM software used to combine the images, took part in discussions of the data analysis methods, and commented on the manuscript.</span></li>
+</ul></section>
+<section>
+<h2>What comes next</h2>
+<p><strong>Fetterless</strong>: new tools for analyzing and generating images as discrete samples of continuous fields. The idea is still at an early stage.</p>
+<p>How this fits into my next five years: <a href="../research-directions.html">Research Directions</a>.</p>
+</section>
+<!-- terms:start -->
+<details class="terms-box" id="terms">
+<summary>Terms on this page (8)</summary>
+<dl class="glossary">
+  <dt id="term-noise">Noise</dt>
+  <dd>Random fluctuations in a measurement that are not part of the signal, for example from the random arrival of photons or from the detector's electronics.</dd>
+  <dt id="term-weak-lensing">Weak gravitational lensing</dt>
+  <dd>The slight bending of light from distant galaxies by the gravity of matter in front of them, which stretches their images by about 1%. Averaged over millions of galaxies, it maps all the matter, including dark matter, and so tests cosmological models.</dd>
+  <dt id="term-correlated-noise">Correlated noise</dt>
+  <dd>Noise that is shared by neighboring pixels instead of varying independently from pixel to pixel; for example, stripes that make a whole row slightly brighter or darker. Unlike white noise, it is not beaten down efficiently by combining neighboring pixels, and if uncorrected it can mimic real patterns.</dd>
+  <dt id="term-white-noise">White noise</dt>
+  <dd>Noise that varies independently from one pixel (or moment) to the next, with equal strength on all scales, by analogy with white light, which mixes all colors equally. Averaging N pixels of white noise reduces it by a factor of √N.</dd>
+  <dt id="term-systematics">Systematics, systematic errors</dt>
+  <dd>Errors that push results in a consistent direction, instead of scattering them randomly. More data do not average them away, so they must be understood and corrected. Uncorrected noise patterns, such as stripes, can become systematics when they mimic the signal.</dd>
+  <dt id="term-sampling">Sampling</dt>
+  <dd>Recording a continuous quantity at discrete points; a camera samples the sky's brightness at each pixel. See also Nyquist–Shannon sampling theorem.</dd>
+  <dt id="term-photometry">Photometry</dt>
+  <dd>Measuring how bright an object is, often through several color filters. Brightness in different filters gives information about color, and so about temperature or redshift.</dd>
+  <dt id="term-imcom">IMCOM</dt>
+  <dd>Short for IMage COMbination: an image-combination method that chooses the weights of input pixels so that the output image has a PSF as close as possible to a target the user specifies, while keeping the noise under control. PyIMCOM is its modern implementation for Roman, and Effortless is a faster successor.</dd>
+</dl>
+<p><a href="../glossary.html">Full glossary</a></p>
+</details>
+<!-- terms:end -->
+</main>
+<footer class="site">
+  <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.6, last updated October 12, 2026.</p>
+</footer>
+<script src="../assets/terms.js" defer></script>
+</body>
+</html>
