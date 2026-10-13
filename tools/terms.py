@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Add a "Terms on this page" box to each science page, built from the central glossary.
 
-The glossary (glossary.html, and zh/glossary.html for Chinese pages) stays the single
+The glossary (glossary/index.html, and zh/glossary/index.html for Chinese pages) stays the single
 source: definitions are written and corrected there only. This script copies the definitions of the terms a
 page links to (links with class="term") into a collapsible box at the end of the page's <main>. The small
 script assets/terms.js then shows the same definitions in a pop-up when a reader hovers, focuses or taps a
@@ -14,7 +14,7 @@ import html, os, posixpath, re, sys
 
 PAGES = ['stars/asteroseismology.html', 'stars/stellar-modeling.html', 'images/image-reconstruction.html',
          'images/image-analysis.html', 'cosmology/cosmological-inference.html',
-         'cosmology/cosmological-simulations.html', 'research-directions.html', 'ai.html']
+         'cosmology/cosmological-simulations.html', 'research-directions/index.html', 'ai/index.html']
 LABELS = {'en': ('Terms on this page', 'Full glossary'), 'zh': ('本页术语', '查看完整术语表')}
 START, END = '<!-- terms:start -->', '<!-- terms:end -->'
 
@@ -26,15 +26,21 @@ def load_glossary(path):
         out[tid] = (dt.strip(), dd)
     return out
 
+def link(target, page_dir):
+    """Relative link from page_dir to target; a section's index.html is linked as its folder."""
+    if target.endswith('/index.html'):
+        return posixpath.relpath(posixpath.dirname(target), page_dir or '.') + '/'
+    return posixpath.relpath(target, page_dir or '.')
+
 def rebase(fragment, page_dir):
-    """Rewrite relative links in a glossary definition (written relative to the site root) for page_dir."""
+    """Rewrite relative links in a glossary definition (written relative to glossary/) for page_dir."""
     def fix(m):
         url = m.group(2)
         if re.match(r'[a-z]+:|#|/', url): return m.group(0)
         path, frag = (url.split('#', 1) + [''])[:2]
-        target = posixpath.normpath(path) if path else 'glossary.html'
-        rel = posixpath.relpath(target, page_dir or '.')
-        return f'{m.group(1)}"{rel}{"#" + frag if frag else ""}"'
+        target = posixpath.normpath(posixpath.join('glossary', path)) if path else 'glossary/index.html'
+        if posixpath.basename(target) and '.' not in posixpath.basename(target): target += '/index.html'
+        return f'{m.group(1)}"{link(target, page_dir)}{"#" + frag if frag else ""}"'
     return re.sub(r'(href=)"([^"]+)"', fix, fragment)
 
 def build(root, lang, page):
@@ -43,7 +49,7 @@ def build(root, lang, page):
     s = open(path, encoding='utf-8').read()
     s = re.sub(re.escape(START) + r'.*?' + re.escape(END) + r'\n?', '', s, flags=re.S)
     page_dir = posixpath.dirname(page[3:] if lang == 'zh' else page)
-    gloss_rel = posixpath.relpath('glossary.html', page_dir or '.')
+    gloss_rel = link('glossary/index.html', page_dir)
     ids = []
     for href in re.findall(r'<a class="term" href="([^"]+)"', s):
         tid = href.split('#', 1)[1] if '#' in href else None
@@ -68,9 +74,9 @@ def build(root, lang, page):
 
 if __name__ == '__main__':
     root = sys.argv[1] if len(sys.argv) > 1 else '.'
-    GLOSS = {'en': load_glossary(os.path.join(root, 'glossary.html'))}
-    if os.path.exists(os.path.join(root, 'zh/glossary.html')):
-        GLOSS['zh'] = load_glossary(os.path.join(root, 'zh/glossary.html'))
+    GLOSS = {'en': load_glossary(os.path.join(root, 'glossary/index.html'))}
+    if os.path.exists(os.path.join(root, 'zh/glossary/index.html')):
+        GLOSS['zh'] = load_glossary(os.path.join(root, 'zh/glossary/index.html'))
     for lang in GLOSS:
         for page in PAGES:
             p = page if lang == 'en' else 'zh/' + page

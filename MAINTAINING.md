@@ -4,7 +4,7 @@ The site is hand-written HTML with no build step. A few things are repeated acro
 summarized elsewhere, so they need updating together. Run the checker before every push:
 
     python tools/terms.py                  # rebuild the "Terms on this page" boxes from the glossary (after editing the glossary or a science page)
-    python tools/check_site.py             # internal links, anchors, alt text, footers, sitemap
+    python tools/check_site.py             # internal links, anchors, alt text, footers, sitemap, scripts
     python tools/check_site.py --external  # also checks external links (slow; do it before releases)
 
 ## When something happens (news, talk, paper)
@@ -39,7 +39,10 @@ summarized elsewhere, so they need updating together. Run the checker before eve
 - Ask one or two people to read the home page and tell you what they think you do.
 
 ## Conventions
-- American English; plain words; claims only as strong as the papers.
+- American English, including its punctuation: commas and periods go inside closing quotation marks
+  ("star seismology,"), but not inside the site's structured data (JSON); plain words; claims only as
+  strong as the papers.
 - Label your role in every paper and project; label AI assistance and illustrations.
-- New pages: copy the head and footer of an existing page at the same depth, then fix the title,
+- New pages: copy the head, the footer and the scripts before `</body>` (`assets/site.js`, which
+  shows each link's address on hover and adds the Contents box) of an existing page at the same depth, then fix the title,
   description, canonical link and Open Graph tags.

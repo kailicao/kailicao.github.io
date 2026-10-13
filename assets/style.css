@@ -139,3 +139,35 @@ a.term:hover, a.term:focus { color: var(--accent); background: color-mix(in srgb
 .term-pop-actions { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; margin-top: 8px; font-size: .9rem; }
 .term-pop-off { font: inherit; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; cursor: pointer; }
 .term-pop-off:hover, .term-pop-off:focus { color: var(--text); border-color: var(--muted); }
+
+/* Contents (assets/site.js): a box at the top of the page, a sidebar beside the text on wide screens */
+.toc { margin: 16px 0 8px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font-size: .92rem; line-height: 1.45; max-width: 24em; }
+.toc-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.toc-title { font-weight: 600; }
+.toc-toggle { font: inherit; font-size: .85rem; color: var(--accent); background: none; border: 0; padding: 2px 0; cursor: pointer; }
+.toc-toggle::before { content: "["; color: var(--muted); }
+.toc-toggle::after { content: "]"; color: var(--muted); }
+.toc ol { list-style: none; margin: 6px 0 2px; padding: 0; }
+.toc ol ol { margin: 2px 0 2px 1em; }
+.toc li { margin: 3px 0; }
+.toc a { text-decoration: none; }
+.toc a:hover, .toc a:focus { text-decoration: underline; }
+.toc a.toc-current { color: var(--text); font-weight: 600; }
+.toc.toc-hidden { padding-top: 6px; padding-bottom: 6px; }
+/* beside the text whenever the margin has room; its width follows the margin (narrower windows,
+   such as Chrome with vertical tabs), and it never starts closer than 12px to the window's edge */
+@media (min-width: 1180px) {
+  .toc { position: fixed; top: var(--toc-top, 90px); width: clamp(150px, calc(50% - 390px - 52px), 212px);
+    left: max(12px, calc(50% - 390px - 250px)); max-height: calc(100vh - var(--toc-top, 90px) - 24px); overflow-y: auto; margin: 0; background: transparent; border: 0; border-right: 1px solid var(--line); border-radius: 0; padding: 0 14px 0 0; }
+  .toc.toc-hidden { border-right: 0; width: auto; }
+}
+@media print { .toc { display: none; } }
+
+/* Code: inline code in a light box; code blocks with a Copy button (assets/site.js) */
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
+:not(pre) > code { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: .05em .3em; }
+pre { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; overflow-x: auto; line-height: 1.45; }
+pre code { font-size: .88rem; }
+.copy-code { position: absolute; top: 6px; right: 6px; font: inherit; font-size: .8rem; color: var(--accent); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 2px 8px; cursor: pointer; opacity: .85; }
+.copy-code:hover, .copy-code:focus-visible { opacity: 1; }
+@media print { .copy-code { display: none; } }

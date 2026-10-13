@@ -6,14 +6,14 @@ Disambiguation: more than one researcher is named Kaili Cao. This site is about 
 
 ## About
 - [Home](https://kailicao.github.io/): research overview, news and contact
-- [About](https://kailicao.github.io/about.html): position, team memberships, education, teaching, skills
+- [About](https://kailicao.github.io/about/): position, team memberships, education, teaching, skills
 - [Personal](https://kailicao.github.io/about/personal.html): who he is, his path, how he works
 - [CV (PDF)](https://kailicao.github.io/cv/Kaili_Cao_CV.pdf)
 
 ## Research
 - [Publications](https://kailicao.github.io/about/publications.html): complete list with his position among the authors and his contribution to each coauthored paper
 - [Publications on NASA ADS, by ORCID](https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0002-1699-6944&sort=date%20desc)
-- [AI in Science](https://kailicao.github.io/ai.html): white-box deliverables; MapHub
+- [AI in Science](https://kailicao.github.io/ai/): white-box deliverables; MapHub
 - [Image Reconstruction](https://kailicao.github.io/images/image-reconstruction.html): IMCOM, PyIMCOM and Effortless for the Roman Space Telescope
 - [Image Analysis](https://kailicao.github.io/images/image-analysis.html)
 - [Extragalactic Astronomy](https://kailicao.github.io/images/extragalactic-astronomy.html): image processing expertise offered to studies of nearby and distant galaxies
@@ -21,17 +21,20 @@ Disambiguation: more than one researcher is named Kaili Cao. This site is about 
 - [Cosmological Simulations](https://kailicao.github.io/cosmology/cosmological-simulations.html)
 - [Stellar Modeling](https://kailicao.github.io/stars/stellar-modeling.html)
 - [Asteroseismology](https://kailicao.github.io/stars/asteroseismology.html)
-- [Software](https://kailicao.github.io/about/software.html): Effortless, PyIMCOM, MapHub, YREC, mesa_apokasc, ContEvol
+- [Software](https://kailicao.github.io/about/software.html): Effortless, MapHub, PyIMCOM, YREC, mesa_apokasc, ContEvol
 - [Presentations](https://kailicao.github.io/about/presentations.html)
+- [Research Directions](https://kailicao.github.io/research-directions/): plans for the next five years, and projects for students
+- [Glossary](https://kailicao.github.io/glossary/): plain-language definitions of the terms on the research pages
 
 ## Opinions
-- [Teaching Philosophy](https://kailicao.github.io/opinions/teaching.html)
-- [Python Philosophy](https://kailicao.github.io/opinions/python.html)
 - [Learning Python](https://kailicao.github.io/opinions/learning-python.html)
+- [Python Philosophy](https://kailicao.github.io/opinions/python.html)
 - [Research Ethics](https://kailicao.github.io/opinions/ethics.html)
+- [Teaching Philosophy](https://kailicao.github.io/opinions/teaching.html)
 - [Career Development](https://kailicao.github.io/opinions/career.html)
 
 ## Optional
 - [Huarongdao Solver](https://kailicao.github.io/opinions/huarongdao.html): a sliding-block puzzle solver from his Python tutorial
+- [How this site is made](https://kailicao.github.io/about/colophon.html)
 - [GitHub](https://github.com/kailicao)
 - [ORCID](https://orcid.org/0000-0002-1699-6944)

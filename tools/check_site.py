@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Check kailicao.github.io before publishing (no dependencies; Python 3.8+).
 
-  python tools/check_site.py             # internal links, anchors, images, footers, sitemap
+  python tools/check_site.py             # internal links, anchors, images, footers, sitemap, scripts
   python tools/check_site.py --external  # also ask every external link whether it still works (slow)
 
 Run from the repository root. Prints problems; exits with status 1 if any are found.
@@ -18,7 +18,7 @@ PROJECT_SITES = ('maphub-public/',)  # other repositories served under the same 
 class Page(html.parser.HTMLParser):
     def __init__(self):
         super().__init__()
-        self.ids, self.links, self.imgs, self.footer = set(), [], [], ''
+        self.ids, self.links, self.imgs, self.scripts, self.footer = set(), [], [], [], ''
         self._in_footer = False
 
     def handle_starttag(self, tag, attrs):
@@ -27,6 +27,7 @@ class Page(html.parser.HTMLParser):
         if tag == 'a' and 'name' in a: self.ids.add(a['name'])
         if tag == 'a' and 'href' in a: self.links.append(a['href'])
         if tag == 'img': self.imgs.append(a)
+        if tag == 'script' and 'src' in a: self.scripts.append(a['src'])
         if tag == 'footer': self._in_footer = True
 
     def handle_endtag(self, tag):
@@ -50,6 +51,8 @@ def main(external=False):
         parser = Page(); parser.feed(open(os.path.join(ROOT, p), encoding='utf-8').read()); pages[p] = parser
     problems, ext = [], set()
     for p, pg in pages.items():
+        if not any(s.endswith('assets/site.js') for s in pg.scripts):
+            problems.append(f'{p}: missing assets/site.js (link addresses on hover, contents)')
         base = os.path.dirname(p)
         for href in pg.links:
             if href.startswith(('mailto:', 'tel:', 'javascript:')): continue
