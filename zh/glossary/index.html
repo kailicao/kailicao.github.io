@@ -58,7 +58,7 @@
   <dd>IMCOM是IMage COMbination（图像合并）的缩写，是一种图像协加方法。它选取各个输入像素的权重，使输出图像的点扩散函数尽可能接近用户指定的目标，同时把噪声控制住。PyIMCOM是它面向罗曼的现代实现，“无为”（Effortless）则是更快的后继方法。<span class="seen">出现于：<a href="../images/image-reconstruction.html">图像重建</a>。</span></dd>
   <dt id="arcsecond">角秒（arcsecond）</dt>
   <dd>天球上的角度单位，等于1/3600度。满月的视直径约为1800角秒；南希·格蕾丝·罗曼空间望远镜的像素宽0.11角秒。<span class="seen">出现于：<a href="../images/image-reconstruction.html">图像重建</a>。</span></dd>
-  <dt id="flux-calibration">流量校准（flux calibration）</dt>
+  <dt id="flux-calibration">流量定标（flux calibration）</dt>
   <dd>把探测器记录的读数换算成物理上的亮度（流量，即每秒到达单位面积的能量），使不同曝光、不同仪器的测量结果相互吻合。<span class="seen">出现于：<a href="../images/image-reconstruction.html">图像重建</a>。</span></dd>
   <dt id="nyquist">奈奎斯特—香农采样定理（Nyquist–Shannon sampling theorem）</dt>
   <dd>信号处理中的一个结论。任何信号（包括一颗恒星的图像）都可以写成一系列大小不同的波之和（即傅里叶级数）。如果其中最小的波有一定的尺寸，那么只要在这个最小波的每个波长内采样两次以上，就能准确地还原信号。如果采样比这更粗，精细的细节就会丢失，或者伪装成较粗的图样，这种现象称为混叠（aliasing）。<span class="seen">出现于：<a href="../images/image-reconstruction.html">图像重建</a>。</span></dd>
@@ -109,7 +109,7 @@
   <dd>在看数据之前对某个参数所作的假定，例如来自其他实验的取值范围。“紧”的先验（tight priors）意味着很强的外部知识。<span class="seen">出现于：<a href="../cosmology/cosmological-inference.html">宇宙学推断</a>。</span></dd>
   <dt id="symplectic">辛方法（symplectic method）</dt>
   <dd>一种数值方法，用来追踪物体在引力等力作用下的运动。它的构造使每个时间步都遵守这类运动的几何结构（辛结构）；由此带来的一个结果是“相空间体积”守恒（相空间体积综合度量了位置和速度的弥散程度）。因此，即使计算很长时间，能量等守恒量的误差也始终很小，不会稳步增长。我提出的一族数值方法ContEvol近乎保辛。<span class="seen">出现于：<a href="../cosmology/cosmological-simulations.html">宇宙学模拟</a>。</span></dd>
-  <dt id="figure-of-merit">性能指标（figure of merit）</dt>
+  <dt id="figure-of-merit">性能指标（figure of merit，FoM）</dt>
   <dd>用一个数概括一项实验对一组参数的约束有多精确；数值越大，误差棒越小。<span class="seen">出现于：<a href="../cosmology/cosmological-inference.html">宇宙学推断</a>。</span></dd>
   <dt id="galaxy-cluster">星系团（galaxy cluster）</dt>
   <dd>由引力束缚在一起的成百上千个星系，其间充满数千万度的气体，这些气体在X射线波段发光。星系团是引力束缚天体中质量最大的。如果一个星系团自上次并合以来已经稳定下来，就称它是弛豫的（relaxed）。<span class="seen">出现于：<a href="../cosmology/cosmological-simulations.html">宇宙学模拟</a>。</span></dd>
@@ -211,7 +211,7 @@
 </main>
 <footer class="site">
   <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.1，最后更新于2026年10月13日。</p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.2，最后更新于2026年10月13日。</p>
 </footer>
 <script src="../../assets/site.js" defer></script>
 </body>

@@ -10,13 +10,16 @@ summarized elsewhere, so they need updating together. Run the checker before eve
 ## When something happens (news, talk, paper)
 - **News:** add a dated line on Home (`index.html`, News).
 - **Talk:**
-  - add it to `about/presentations.html`, newest first, with slides as PDF if possible;
+  - add it to `about/presentations.html`, newest first, with slides as PDF if possible: add the deck to the
+    private deck data and run `python tools/build_talk_slides.py`, which blurs third-party images and
+    describes them;
   - add it to the CV if it is a selected talk.
 - **New paper:**
   - `about/publications.html`: add the entry with your position and contribution; update the counts line
     and, if it is a highlight, the Highlights cards;
   - the research page it belongs to;
-  - the CV (`cv/`, then rebuild with `latexmk`);
+  - the CV (`cv/`, then rebuild with `latexmk`; the PDFs are committed only at milestones, so that
+    their versions do not take much space);
   - `publications-by-year` in the figure package, if used.
 - **Paper status changes** (submitted → accepted → published): update the publication list, the
   research page and the CV together. The fact-check found these drifting apart.

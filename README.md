@@ -1,4 +1,4 @@
-# kailicao.github.io
+# Kaili Cao's Personal Website
 
 The source of Kaili Cao's personal website, published by GitHub Pages at <https://kailicao.github.io/>. Kaili Cao is an Eric and Wendy Schmidt AI in Science Postdoctoral Fellow at the Michigan Institute for Data and AI in Society (MIDAS), University of Michigan.
 
@@ -18,7 +18,7 @@ The folders mirror the site's menus: each section's page is the `index.html` of 
 | `zh/` | The Chinese version, page for page: the same folders and file names under `zh/` (`zh/about/` is the Chinese About) |
 | `assets/` | The stylesheets, the scripts (`site.js` on every page: link addresses, Contents, Copy buttons, the language button; `terms.js`: glossary pop-ups), icons and figures |
 | `cv/` | The CV in two versions, `Kaili_Cao_CV.pdf` (full, the copy the site links to) and `Kaili_Cao_CV_short.pdf` (first-author papers and selected talks), and a one-page résumé for data science and software roles, `Kaili_Cao_Resume.pdf` (from `Kaili_Cao_Resume.tex`); the CVs are built from one source: `cv.tex`, with the publication lists in `bib-*.tex` and a one-column style in `kccv.sty` that automatic parsers read; run `latexmk` in `cv/` to rebuild all three |
-| `tools/` | `check_site.py` (links, anchors, footers, sitemap, scripts) and `terms.py` (the "Terms on this page" boxes); see `MAINTAINING.md` |
+| `tools/` | `check_site.py` (links, anchors, footers, sitemap, scripts) and `terms.py` (the "Terms on this page" boxes); `build_talk_slides.py` and `build_defense_slides.py`, which build the public slide PDFs from originals and deck data kept privately (only the method is here; the open fonts they use are in `tools/fonts/`); see `MAINTAINING.md` |
 | `404.html`, `sitemap.xml`, `robots.txt`, `llms.txt` | The not-found page and files for search engines and AI tools |
 
 Contact: <kailicao@umich.edu>
