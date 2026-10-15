@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>图像重建 · 曹开力</title>
+<meta name="description" content="从欠采样曝光中重建点扩散函数可控的充分采样图像：PyIMCOM、IMCOM与“无为”。">
+<link rel="alternate" hreflang="en" href="https://kailicao.github.io/research-images/image-reconstruction.html">
+<link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/research-images/image-reconstruction.html">
+<link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/research-images/image-reconstruction.html">
+<link rel="canonical" href="https://kailicao.github.io/zh/research-images/image-reconstruction.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="图像重建 · 曹开力">
+<meta property="og:description" content="从欠采样曝光中重建点扩散函数可控的充分采样图像：PyIMCOM、IMCOM与“无为”。">
+<meta property="og:url" content="https://kailicao.github.io/zh/research-images/image-reconstruction.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="曹开力（Kaili Cao）">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/figures.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <a class="name" href="../index.html">曹开力 <span lang="en">Kaili Cao</span></a>
+  <nav aria-label="网站导航"><a href="../index.html">首页</a><div class="menu"><a href="../about/">关于我<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../about/research.html">研究</a></li><li><a href="../about/publications.html">论文</a></li><li><a href="../about/presentations.html">报告</a></li><li><a href="../about/software.html">软件</a></li><li><a href="../about/personal.html">个人</a></li></ul></div><div class="menu"><a href="../../cv/Kaili_Cao_CV.pdf">履历<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../../cv/Kaili_Cao_CV.pdf">完整版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_CV_short.pdf">简版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_Resume.pdf">一页简历（PDF，初稿）</a></li></ul></div><div class="menu"><a href="../research-ai/">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="https://kailicao.github.io/maphub-public/">MapHub</a></li><li class="sep"><a href="../research-ai/glossary.html">术语表</a></li></ul></div><div class="menu"><a href="./" aria-current="page">图像<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="image-reconstruction.html" aria-current="page">图像重建</a></li><li><a href="image-analysis.html">图像分析</a></li><li><a href="extragalactic-astronomy.html">河外天文学</a></li><li class="sep"><a href="../research-ai/glossary.html#images">术语表</a></li></ul></div><div class="menu"><a href="../research-cosmology/">宇宙学<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a></li><li><a href="../research-cosmology/cosmological-simulations.html">宇宙学模拟</a></li><li class="sep"><a href="../research-ai/glossary.html#cosmology">术语表</a></li></ul></div><div class="menu"><a href="../research-stars/">恒星<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-stars/stellar-modeling.html">恒星建模</a></li><li><a href="../research-stars/asteroseismology.html">星震学</a></li><li class="sep"><a href="../research-ai/glossary.html#stars">术语表</a></li></ul></div><div class="menu"><a href="../opinions/">观点<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../opinions/learning-python.html">学习Python</a></li><li><a href="../opinions/python.html">Python哲学</a></li><li><a href="../opinions/ethics.html">科研伦理</a></li><li><a href="../opinions/teaching.html">教学理念</a></li><li><a href="../opinions/career.html">职业发展</a></li></ul></div><a class="lang" href="../../research-images/image-reconstruction.html" hreflang="en" lang="en">English</a></nav>
+</header>
+<main id="main">
+<p class="crumb"><a href="./">图像</a> · 图像重建</p>
+<h1>图像重建</h1>
+<p class="lead">从望远镜欠采样的曝光中重建充分采样的图像，并控制其<a href="https://zh.wikipedia.org/zh-cn/点扩散函数">点扩散函数</a>；主要面向南希·格蕾丝·罗曼空间望远镜，但不限于罗曼。</p>
+<section id="in-brief">
+<h2>简介</h2>
+<p>望远镜从来不能原原本本地记录天空。即使是一个完美的点光源，比如一颗遥远的恒星，也会扩散成一小团模糊的光斑，这就是<a class="term" href="../research-ai/glossary.html#psf">点扩散函数</a>（PSF）；相机再用一个个方形的<a class="term" href="../research-ai/glossary.html#pixel">像素</a>（pixel）记录这团光斑。本页讲的是如何把原始曝光变成模糊程度精确已知的图像——精密测量离不开这一点。</p>
+<p><a href="https://science.nasa.gov/mission/roman-space-telescope/">南希·格蕾丝·罗曼空间望远镜</a>于2026年8月发射，在太空中观测，因此它的点扩散函数清晰而稳定，主要受<a class="term" href="../research-ai/glossary.html#diffraction">衍射</a>（diffraction）限制。但它的像素宽0.11<a class="term" href="../research-ai/glossary.html#arcsecond">角秒</a>（arcsecond），与点扩散函数本身的宽度相当。根据<a class="term" href="../research-ai/glossary.html#nyquist">奈奎斯特—香农采样定理</a>（Nyquist–Shannon sampling theorem），要忠实地记录一个图样，在它最精细的细节上需要两个以上的采样点；对罗曼来说，这意味着像素宽度应约为点扩散函数的一半。因此，罗曼的单次曝光是<a class="term" href="../research-ai/glossary.html#undersampled">欠采样</a>（undersampled）的：小于一个像素的细节会丢失或错乱，如下图左侧所示。</p>
+<p>这为什么重要？罗曼的主要宇宙学巡天依靠<a class="term" href="../research-ai/glossary.html#weak-lensing">弱引力透镜</a>（weak gravitational lensing）：我们与遥远星系之间的物质会使星系的光线偏折，把星系的像拉伸约1%。但星系本来就不是圆的：它们自身的形状平均拉长约30%，而且方向随机。因此，只有把数百万个星系的形状平均起来，信号才会显现；而望远镜或数据处理额外引入的任何畸变，都必须精确掌握，误差要远小于1%。</p>
+<p>解决办法从<a class="term" href="../research-ai/glossary.html#dithering">抖动</a>（dithering）开始：罗曼在两次曝光之间略微改变指向，使不同曝光在像素内的不同位置上采样天空（见右图）。随后，<strong>图像重建</strong>把这些曝光合成为一张充分采样的图像。每个输出像素都是附近输入像素的加权和。权重决定了来自相邻位置的光如何混合，因此也决定了输出图像的模糊程度，即它的点扩散函数。我的工作有两个方面。一是选择权重，使输出点扩散函数尽可能接近选定的目标，同时把噪声压低——如果权重通过减去相邻像素来锐化图像，噪声也会随之放大。二是让权重的计算足够快，足以处理数十亿像素的巡天。</p>
+<figure class="fig" id="fig-undersampling">
+<div style="display:flex;flex-wrap:wrap;gap:12px 20px">
+<div style="flex:1 1 260px"><svg viewBox="0 0 330 215" role="img" aria-label="以一个像素为间隔对恒星轮廓采样：只捕捉到了峰值。"><text x="14" y="18" font-size="15">单次曝光</text><line class="axis" x1="14" x2="316" y1="170" y2="170"/><polyline class="curve" points="14.0,169.1 15.3,169.2 16.5,169.3 17.8,169.4 19.0,169.5 20.3,169.6 21.5,169.7 22.8,169.8 24.1,169.8 25.3,169.9 26.6,170.0 27.8,170.0 29.1,170.0 30.4,170.0 31.6,170.0 32.9,169.9 34.1,169.8 35.4,169.7 36.7,169.6 37.9,169.5 39.2,169.3 40.4,169.1 41.7,169.0 42.9,168.8 44.2,168.6 45.5,168.5 46.7,168.3 48.0,168.2 49.2,168.0 50.5,168.0 51.8,167.9 53.0,167.9 54.3,167.9 55.5,167.9 56.8,168.0 58.0,168.1 59.3,168.2 60.6,168.3 61.8,168.5 63.1,168.7 64.3,168.9 65.6,169.1 66.9,169.3 68.1,169.5 69.4,169.7 70.6,169.8 71.9,169.9 73.1,170.0 74.4,170.0 75.7,170.0 76.9,169.9 78.2,169.8 79.4,169.6 80.7,169.3 82.0,169.0 83.2,168.7 84.5,168.3 85.7,167.9 87.0,167.4 88.2,166.9 89.5,166.5 90.8,166.0 92.0,165.5 93.3,165.1 94.5,164.7 95.8,164.4 97.1,164.2 98.3,164.0 99.6,163.9 100.8,163.9 102.1,164.0 103.3,164.2 104.6,164.5 105.9,164.8 107.1,165.3 108.4,165.8 109.6,166.4 110.9,167.0 112.2,167.6 113.4,168.2 114.7,168.8 115.9,169.3 117.2,169.6 118.4,169.9 119.7,170.0 121.0,169.9 122.2,169.6 123.5,169.0 124.7,168.1 126.0,166.8 127.2,165.3 128.5,163.3 129.8,161.0 131.0,158.3 132.3,155.2 133.5,151.7 134.8,147.8 136.1,143.6 137.3,138.9 138.6,134.0 139.8,128.7 141.1,123.2 142.4,117.5 143.6,111.5 144.9,105.5 146.1,99.4 147.4,93.3 148.6,87.3 149.9,81.3 151.2,75.6 152.4,70.1 153.7,64.9 154.9,60.1 156.2,55.7 157.5,51.8 158.7,48.4 160.0,45.6 161.2,43.3 162.5,41.7 163.7,40.7 165.0,40.4 166.3,40.7 167.5,41.7 168.8,43.3 170.0,45.6 171.3,48.4 172.6,51.8 173.8,55.7 175.1,60.1 176.3,64.9 177.6,70.1 178.8,75.6 180.1,81.3 181.4,87.3 182.6,93.3 183.9,99.4 185.1,105.5 186.4,111.5 187.7,117.5 188.9,123.2 190.2,128.7 191.4,134.0 192.7,138.9 193.9,143.6 195.2,147.8 196.5,151.7 197.7,155.2 199.0,158.3 200.2,161.0 201.5,163.3 202.8,165.3 204.0,166.8 205.3,168.1 206.5,169.0 207.8,169.6 209.0,169.9 210.3,170.0 211.6,169.9 212.8,169.6 214.1,169.3 215.3,168.8 216.6,168.2 217.8,167.6 219.1,167.0 220.4,166.4 221.6,165.8 222.9,165.3 224.1,164.8 225.4,164.5 226.7,164.2 227.9,164.0 229.2,163.9 230.4,163.9 231.7,164.0 233.0,164.2 234.2,164.4 235.5,164.7 236.7,165.1 238.0,165.5 239.2,166.0 240.5,166.5 241.8,166.9 243.0,167.4 244.3,167.9 245.5,168.3 246.8,168.7 248.1,169.0 249.3,169.3 250.6,169.6 251.8,169.8 253.1,169.9 254.3,170.0 255.6,170.0 256.9,170.0 258.1,169.9 259.4,169.8 260.6,169.7 261.9,169.5 263.2,169.3 264.4,169.1 265.7,168.9 266.9,168.7 268.2,168.5 269.4,168.3 270.7,168.2 272.0,168.1 273.2,168.0 274.5,167.9 275.7,167.9 277.0,167.9 278.2,167.9 279.5,168.0 280.8,168.0 282.0,168.2 283.3,168.3 284.5,168.5 285.8,168.6 287.1,168.8 288.3,169.0 289.6,169.1 290.8,169.3 292.1,169.5 293.4,169.6 294.6,169.7 295.9,169.8 297.1,169.9 298.4,170.0 299.6,170.0 300.9,170.0 302.2,170.0 303.4,170.0 304.7,169.9 305.9,169.8 307.2,169.8 308.5,169.7 309.7,169.6 311.0,169.5 312.2,169.4 313.5,169.3 314.7,169.2 316.0,169.1"/><line class="s-blue" stroke-width="2.5" x1="14.0" x2="14.0" y1="170" y2="169.1"/><circle class="blue dot" cx="14.0" cy="169.1" r="5"/><line class="s-blue" stroke-width="2.5" x1="64.3" x2="64.3" y1="170" y2="168.9"/><circle class="blue dot" cx="64.3" cy="168.9" r="5"/><line class="s-blue" stroke-width="2.5" x1="114.7" x2="114.7" y1="170" y2="168.8"/><circle class="blue dot" cx="114.7" cy="168.8" r="5"/><line class="s-blue" stroke-width="2.5" x1="165.0" x2="165.0" y1="170" y2="40.4"/><circle class="blue dot" cx="165.0" cy="40.4" r="5"/><line class="s-blue" stroke-width="2.5" x1="215.3" x2="215.3" y1="170" y2="168.8"/><circle class="blue dot" cx="215.3" cy="168.8" r="5"/><line class="s-blue" stroke-width="2.5" x1="265.7" x2="265.7" y1="170" y2="168.9"/><circle class="blue dot" cx="265.7" cy="168.9" r="5"/><line class="s-blue" stroke-width="2.5" x1="316.0" x2="316.0" y1="170" y2="169.1"/><circle class="blue dot" cx="316.0" cy="169.1" r="5"/><text class="muted" x="64.3" y="188" font-size="12" text-anchor="middle">-2</text><text class="muted" x="165.0" y="188" font-size="12" text-anchor="middle">0</text><text class="muted" x="265.7" y="188" font-size="12" text-anchor="middle">2</text><text class="muted" x="165.0" y="206" font-size="12" text-anchor="middle">位置（像素）</text></svg></div>
+<div style="flex:1 1 260px"><svg viewBox="0 0 330 215" role="img" aria-label="同一轮廓，加上错开半个像素的第二次曝光：新的采样点还捕捉到了峰的两侧。"><text x="14" y="18" font-size="15">两次抖动曝光</text><line class="axis" x1="14" x2="316" y1="170" y2="170"/><polyline class="curve" points="14.0,169.1 15.3,169.2 16.5,169.3 17.8,169.4 19.0,169.5 20.3,169.6 21.5,169.7 22.8,169.8 24.1,169.8 25.3,169.9 26.6,170.0 27.8,170.0 29.1,170.0 30.4,170.0 31.6,170.0 32.9,169.9 34.1,169.8 35.4,169.7 36.7,169.6 37.9,169.5 39.2,169.3 40.4,169.1 41.7,169.0 42.9,168.8 44.2,168.6 45.5,168.5 46.7,168.3 48.0,168.2 49.2,168.0 50.5,168.0 51.8,167.9 53.0,167.9 54.3,167.9 55.5,167.9 56.8,168.0 58.0,168.1 59.3,168.2 60.6,168.3 61.8,168.5 63.1,168.7 64.3,168.9 65.6,169.1 66.9,169.3 68.1,169.5 69.4,169.7 70.6,169.8 71.9,169.9 73.1,170.0 74.4,170.0 75.7,170.0 76.9,169.9 78.2,169.8 79.4,169.6 80.7,169.3 82.0,169.0 83.2,168.7 84.5,168.3 85.7,167.9 87.0,167.4 88.2,166.9 89.5,166.5 90.8,166.0 92.0,165.5 93.3,165.1 94.5,164.7 95.8,164.4 97.1,164.2 98.3,164.0 99.6,163.9 100.8,163.9 102.1,164.0 103.3,164.2 104.6,164.5 105.9,164.8 107.1,165.3 108.4,165.8 109.6,166.4 110.9,167.0 112.2,167.6 113.4,168.2 114.7,168.8 115.9,169.3 117.2,169.6 118.4,169.9 119.7,170.0 121.0,169.9 122.2,169.6 123.5,169.0 124.7,168.1 126.0,166.8 127.2,165.3 128.5,163.3 129.8,161.0 131.0,158.3 132.3,155.2 133.5,151.7 134.8,147.8 136.1,143.6 137.3,138.9 138.6,134.0 139.8,128.7 141.1,123.2 142.4,117.5 143.6,111.5 144.9,105.5 146.1,99.4 147.4,93.3 148.6,87.3 149.9,81.3 151.2,75.6 152.4,70.1 153.7,64.9 154.9,60.1 156.2,55.7 157.5,51.8 158.7,48.4 160.0,45.6 161.2,43.3 162.5,41.7 163.7,40.7 165.0,40.4 166.3,40.7 167.5,41.7 168.8,43.3 170.0,45.6 171.3,48.4 172.6,51.8 173.8,55.7 175.1,60.1 176.3,64.9 177.6,70.1 178.8,75.6 180.1,81.3 181.4,87.3 182.6,93.3 183.9,99.4 185.1,105.5 186.4,111.5 187.7,117.5 188.9,123.2 190.2,128.7 191.4,134.0 192.7,138.9 193.9,143.6 195.2,147.8 196.5,151.7 197.7,155.2 199.0,158.3 200.2,161.0 201.5,163.3 202.8,165.3 204.0,166.8 205.3,168.1 206.5,169.0 207.8,169.6 209.0,169.9 210.3,170.0 211.6,169.9 212.8,169.6 214.1,169.3 215.3,168.8 216.6,168.2 217.8,167.6 219.1,167.0 220.4,166.4 221.6,165.8 222.9,165.3 224.1,164.8 225.4,164.5 226.7,164.2 227.9,164.0 229.2,163.9 230.4,163.9 231.7,164.0 233.0,164.2 234.2,164.4 235.5,164.7 236.7,165.1 238.0,165.5 239.2,166.0 240.5,166.5 241.8,166.9 243.0,167.4 244.3,167.9 245.5,168.3 246.8,168.7 248.1,169.0 249.3,169.3 250.6,169.6 251.8,169.8 253.1,169.9 254.3,170.0 255.6,170.0 256.9,170.0 258.1,169.9 259.4,169.8 260.6,169.7 261.9,169.5 263.2,169.3 264.4,169.1 265.7,168.9 266.9,168.7 268.2,168.5 269.4,168.3 270.7,168.2 272.0,168.1 273.2,168.0 274.5,167.9 275.7,167.9 277.0,167.9 278.2,167.9 279.5,168.0 280.8,168.0 282.0,168.2 283.3,168.3 284.5,168.5 285.8,168.6 287.1,168.8 288.3,169.0 289.6,169.1 290.8,169.3 292.1,169.5 293.4,169.6 294.6,169.7 295.9,169.8 297.1,169.9 298.4,170.0 299.6,170.0 300.9,170.0 302.2,170.0 303.4,170.0 304.7,169.9 305.9,169.8 307.2,169.8 308.5,169.7 309.7,169.6 311.0,169.5 312.2,169.4 313.5,169.3 314.7,169.2 316.0,169.1"/><line class="s-blue" stroke-width="2.5" x1="14.0" x2="14.0" y1="170" y2="169.1"/><circle class="blue dot" cx="14.0" cy="169.1" r="5"/><line class="s-blue" stroke-width="2.5" x1="64.3" x2="64.3" y1="170" y2="168.9"/><circle class="blue dot" cx="64.3" cy="168.9" r="5"/><line class="s-blue" stroke-width="2.5" x1="114.7" x2="114.7" y1="170" y2="168.8"/><circle class="blue dot" cx="114.7" cy="168.8" r="5"/><line class="s-blue" stroke-width="2.5" x1="165.0" x2="165.0" y1="170" y2="40.4"/><circle class="blue dot" cx="165.0" cy="40.4" r="5"/><line class="s-blue" stroke-width="2.5" x1="215.3" x2="215.3" y1="170" y2="168.8"/><circle class="blue dot" cx="215.3" cy="168.8" r="5"/><line class="s-blue" stroke-width="2.5" x1="265.7" x2="265.7" y1="170" y2="168.9"/><circle class="blue dot" cx="265.7" cy="168.9" r="5"/><line class="s-blue" stroke-width="2.5" x1="316.0" x2="316.0" y1="170" y2="169.1"/><circle class="blue dot" cx="316.0" cy="169.1" r="5"/><line class="s-orange" stroke-width="2.5" x1="39.2" x2="39.2" y1="170" y2="169.3"/><circle class="orange dot" cx="39.2" cy="169.3" r="5"/><line class="s-orange" stroke-width="2.5" x1="89.5" x2="89.5" y1="170" y2="166.5"/><circle class="orange dot" cx="89.5" cy="166.5" r="5"/><line class="s-orange" stroke-width="2.5" x1="139.8" x2="139.8" y1="170" y2="128.7"/><circle class="orange dot" cx="139.8" cy="128.7" r="5"/><line class="s-orange" stroke-width="2.5" x1="190.2" x2="190.2" y1="170" y2="128.7"/><circle class="orange dot" cx="190.2" cy="128.7" r="5"/><line class="s-orange" stroke-width="2.5" x1="240.5" x2="240.5" y1="170" y2="166.5"/><circle class="orange dot" cx="240.5" cy="166.5" r="5"/><line class="s-orange" stroke-width="2.5" x1="290.8" x2="290.8" y1="170" y2="169.3"/><circle class="orange dot" cx="290.8" cy="169.3" r="5"/><text class="muted" x="64.3" y="188" font-size="12" text-anchor="middle">-2</text><text class="muted" x="165.0" y="188" font-size="12" text-anchor="middle">0</text><text class="muted" x="265.7" y="188" font-size="12" text-anchor="middle">2</text><text class="muted" x="165.0" y="206" font-size="12" text-anchor="middle">位置（像素）</text></svg></div>
+</div>
+<ul class="fig-legend"><li class="k-gray">真实的恒星轮廓</li><li class="k-blue">采样点，曝光1</li><li class="k-orange">采样点，曝光2（错开半个像素）</li></ul>
+<figcaption>示意图（一维，非真实数据）。左：用宽度与点扩散函数相当的像素对恒星采样，恒星的形状便无法保留。右：错开半个像素的第二次曝光（即“抖动”）填补了空隙；图像重建把这样的多次曝光合成为一张充分采样的图像。借助AI（Claude）制作。</figcaption>
+</figure>
+<p class="newbie">对这一领域还不熟悉？<a href="../research-ai/glossary.html">术语表</a>用通俗的语言解释了相关术语；带下划线的术语都链接到术语表。</p>
+</section>
+<section id="in-more-depth">
+<h2>深入了解</h2>
+<p><a href="https://science.nasa.gov/mission/roman-space-telescope/">罗曼空间望远镜</a>已于2026年8月30日发射。它在太空中观测，点扩散函数（PSF）稳定而清晰，主要受衍射限制。这有利也有弊。罗曼的像素宽0.11角秒，与点扩散函数本身相当，而要对图像充分采样，像素尺寸需约为其一半。因此，罗曼的原始图像是欠采样的，而目前最好的星系形状测量方法都要求图像充分采样。</p>
+<p>形状之所以重要，是因为罗曼<a href="https://roman.gsfc.nasa.gov/science/High_Latitude_Wide_Area_Survey.html">高纬度广域巡天</a>的成像部分为高纬度成像巡天。这是罗曼主要的宇宙学巡天之一，<a href="https://zh.wikipedia.org/zh-cn/弱引力透镜">弱引力透镜</a>则是它的主要科学目标之一。前景中的物质会使遥远星系的像发生畸变，但幅度只在1%左右，而星系固有形状的差异约为30%。为了找回丢失的细节，罗曼在两次曝光之间略微改变指向（即抖动），之后再把这些曝光合成为充分采样的图像。每个输出像素都是输入像素的加权和，而权重的选择也决定了输出的点扩散函数。在按罗曼巡天观测模式生成的模拟图像中，空间望远镜常用的传统方法<a href="https://ui.adsabs.harvard.edu/abs/2002PASP..114..144F/abstract">Drizzle</a>会把恒星的像变成六边形（<a href="https://doi.org/10.1093/mnras/stae182">Hirata et al. 2024</a>，图9）；而<a href="https://ui.adsabs.harvard.edu/abs/2011ApJ...741...46R/abstract">IMCOM在选择权重时</a>，力求使输出点扩散函数尽可能接近用户指定的目标——这正是弱引力透镜研究所需要的。</p>
+<p>我把这类软件看作一种科学仪器：它的设计、测试和校准，和望远镜本身一样，决定着我们能从数据中得到什么。</p>
+</section>
+<section>
+<h2>我的工作</h2>
+<p>我主导了把<a class="term" href="../research-ai/glossary.html#imcom">IMCOM</a>重构为PyIMCOM的工作：代码改为面向对象的结构，改进了数据结构，并采用新的线性代数策略，使计算成本降低了约一个数量级（<a href="../about/publications.html#arXiv-2410.05442">Cao et al. 2025</a>）。随后我细调了它的超参数：在五个波段中各比较了26种配置，按12项标准评估；例如，较宽的高斯目标点扩散函数能得到更好的图像（<a href="../about/publications.html#arXiv-2509.18286">Cao et al. 2026</a>）。PyIMCOM生成的IMCOM<a class="term" href="../research-ai/glossary.html#coadd">协加图像</a>（coadd）收录在罗曼与鲁宾天文台共用的模拟天空<a href="../about/publications.html#arXiv-2501.05632">OpenUniverse2024</a>中；PyIMCOM也是团队多篇论文的工作平台（见<a href="image-analysis.html">图像分析</a>）。</p>
+<figure class="fig" id="fig-pyimcom-star">
+<img src="../../assets/highlights/pyimcom-fig5-top.jpg" width="900" height="631" loading="lazy" alt="六幅图像：模拟的罗曼天空图像（上排）和注入的恒星（下排），分别由PyIMCOM的三种线性代数内核协加而成。">
+<figcaption>模拟的罗曼天空图像（上）和注入的恒星（下），由PyIMCOM的三种线性代数内核协加而成（各列依次为Cholesky、迭代、经验）。<a href="../about/publications.html#arXiv-2410.05442">Cao et al. 2025</a>的图5上半部分，<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。</figcaption>
+</figure>
+<p>即便如此，IMCOM的计算成本仍然很高：在单个CPU核心上，用它重建一张罗曼原始图像（单个探测器的一次曝光）大约需要一天。对于精密宇宙学研究，这样的成本尚可接受，但对其他用途来说，IMCOM就没那么有吸引力了。一项一维研究（<a href="../about/publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>）让我想到了一种新的线性图像重建算法，最初称为Fast IMCOM。由于它并不一定要合并图像，我把它改名为<strong>“无为”</strong>（Effortless，即EFFicient Optimal image ReconsTruction using LESS memory，意为高效、最优、少占内存的图像重建）。与IMCOM一样，“无为”能控制输出图像的点扩散函数；但它避开了IMCOM中最繁重的计算，因此每平方度天区的计算时间只有IMCOM的五十到六十分之一（<a href="../about/publications.html#arXiv-2607.06674">Cao 2026a</a>），占用的内存也更少——重建同样一张图像只需约半小时。它的思路是：把输入像素的权重看作某个潜在权重场的采样，直接设计这个权重场。</p>
+<p>我在两篇姊妹论文中介绍“无为”。其中一篇介绍它的数学形式、软件实现和实际应用中的问题（<a href="../about/publications.html#arXiv-2607.09862">Cao 2026b</a>）。最重要的一点是：奈奎斯特—香农采样定理固然成立，但它的前提条件与巡天数据处理面对的问题有着微妙而重要的差别。有限采样的影响，只需在测量后做一步简单的校准，就能大大降低。数值伪影、输入像素的有限窗口和无法使用的输入像素都会带来缺陷，这些缺陷都已弄清楚，并得到了控制。在软件设计上，我力求采用清晰的面向对象结构、直观的数据模型和友好的界面；它的编程接口也足够通用，能用于弱引力透镜和罗曼以外的场合。代码已<a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">在GitHub上公开</a>。</p>
+<p>在另一篇中，我把“无为”应用于模拟的罗曼图像（<a href="../about/publications.html#arXiv-2607.06674">Cao 2026a</a>）。与IMCOM相比，它能更高效地使重建图像中的点扩散函数均匀而规整，并有望更好地控制<a class="term" href="../research-ai/glossary.html#systematics">系统误差</a>（systematics）。对于理想点源，用“无为”重建的单张图像加上上述校准，可以得到与IMCOM协加约六张图像相当甚至更好的测量结果。这种校准能否推广到带噪声的星系（弱引力透镜实际测量的对象），目前尚不清楚。此外，尽管两种算法都是为弱引力透镜设计的，“无为”既能用于研究宇宙的静态特征，也能用于研究它的动态变化：它把不同时间拍摄的图像放到同一个像素网格上、统一到同一个点扩散函数，便于时域天文学的研究者比较这些图像。它的高效和可解释性，也为进一步降低测量误差提供了新的可能。</p>
+<figure class="fig fig-medium" id="fig-effortless-images">
+<img src="../../assets/highlights/effortless-i-fig1-crop.jpg" width="700" height="763" loading="lazy" alt="四幅图像：模拟的天空图像（上）和注入的恒星（下），左边由PyIMCOM协加，右边由“无为”重建。">
+<figcaption>同一组模拟的罗曼天空图像（上）和注入的恒星（下），左边由PyIMCOM协加，右边由“无为”重建。<a href="../about/publications.html#arXiv-2607.06674">Cao 2026a</a>的图1前两行前两列。</figcaption>
+</figure>
+<p>与IMCOM一样，“无为”假定输入的<a class="term" href="../research-ai/glossary.html#astrometry">天体测量</a>（astrometry）、<a class="term" href="../research-ai/glossary.html#flux-calibration">流量定标</a>（flux calibration）和点扩散函数模型都是正确的。实际上，这些输入都有误差——这也是后续工作的动因之一。</p>
+</section>
+<section><h2>论文</h2>
+<h3>第一作者论文</h3>
+<ul class="pubs">
+  <li><span class="title">Efficient Optimal Image Reconstruction for the Nancy Grace Roman Space Telescope and Beyond: II. Implementation of Effortless</span><br>
+    <span class="authors"><strong>Kaili Cao</strong></span><br>
+    <span class="meta">arXiv预印本 · 独立作者</span> · <a href="https://arxiv.org/abs/2607.09862">arXiv:2607.09862</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.09862/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">代码</a></li>
+  <li><span class="title">Efficient Optimal Image Reconstruction for the Nancy Grace Roman Space Telescope and Beyond: I. First Results with Effortless</span><br>
+    <span class="authors"><strong>Kaili Cao</strong></span><br>
+    <span class="meta">arXiv预印本 · 独立作者</span> · <a href="https://arxiv.org/abs/2607.06674">arXiv:2607.06674</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.06674/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">代码</a> · 报告与墙报：<a href="../../about/presentations/2026-01-06_aas-247-fast-imcom.pdf">AAS 247，2026年</a>、<a href="../../about/presentations/2026-03-25_rapid-response.pdf">RAPID Response，2026年</a>、<a href="https://workshop.ipac.caltech.edu/roman2026/files/KAILI_CAO_roman2026b.pdf">墙报，Roman 2026</a></li>
+  <li><span class="title">Linear Image Regridding and Coaddition with Oversampled Point Spread Functions: Lessons from 1D</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, Roman HLIS Cosmology PIT</span><br>
+    <span class="meta">The Astronomical Journal 171, 140 (2026) · 第一作者</span> · <a href="https://doi.org/10.3847/1538-3881/ae356a">DOI</a> · <a href="https://arxiv.org/abs/2510.16110">arXiv:2510.16110</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2510.16110/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">代码</a></li>
+  <li><span class="title">Simulating Image Coaddition with the Nancy Grace Roman Space Telescope. IV. Hyperparameter Optimization and Experimental Features</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, Christopher M. Hirata, Katherine Laliotis, Masaya Yamamoto, Emily Macbeth, M. A. Troxel, Roman HLIS Cosmology PIT</span><br>
+    <span class="meta">The Astrophysical Journal 998, 304 (2026) · 第一作者</span> · <a href="https://doi.org/10.3847/1538-4357/ae3a97">DOI</a> · <a href="https://arxiv.org/abs/2509.18286">arXiv:2509.18286</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2509.18286/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">代码</a></li>
+  <li><span class="title">Simulating image coaddition with the Nancy Grace Roman Space Telescope: III. Software improvements and new linear algebra strategies</span><br>
+    <span class="authors"><strong>Kaili Cao</strong>, Christopher M. Hirata, Katherine Laliotis, Masaya Yamamoto, Emily Macbeth, M. A. Troxel</span><br>
+    <span class="meta">The Astrophysical Journal Supplement Series 277, 55 (2025) · 第一作者</span> · <a href="https://doi.org/10.3847/1538-4365/adb580">DOI</a> · <a href="https://arxiv.org/abs/2410.05442">arXiv:2410.05442</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2410.05442/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">代码</a> · 报告与墙报：<a href="https://conference.ipac.caltech.edu/roman2024/talks/CAO_roman2024.pdf">Roman 2024报告</a>、<a href="../../about/presentations/2025-08-04_pyimcom-hack-session.pdf">PyIMCOM hack session，2025年</a></li>
+</ul>
+<h3>合作论文</h3>
+<ul class="pubs">
+  <li><span class="title">Simulating image coaddition with the Nancy Grace Roman Space Telescope: II. Analysis of the simulated images and implications for weak lensing</span><br>
+    <span class="authors">Masaya Yamamoto, Katherine Laliotis, Emily Macbeth, Tianqing Zhang, Christopher M. Hirata, M. A. Troxel, et al.（共19位作者，包括<strong>Kaili Cao</strong>）</span><br>
+    <span class="meta">Monthly Notices of the Royal Astronomical Society 528, 6680-6705 (2024) · 合作作者（19位作者中第7位）</span> · <a href="https://doi.org/10.1093/mnras/stae177">DOI</a> · <a href="https://arxiv.org/abs/2303.08750">arXiv:2303.08750</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2303.08750/abstract">ADS</a><br>
+    <span class="contrib">我协助找出了代码的部分已知问题，并在其工作版本中加以修正。</span></li>
+  <li><span class="title">Simulating image coaddition with the Nancy Grace Roman Space Telescope: I. Simulation methodology and general results</span><br>
+    <span class="authors">Christopher M. Hirata, Masaya Yamamoto, Katherine Laliotis, Emily Macbeth, M. A. Troxel, Tianqing Zhang, et al.（共19位作者，包括<strong>Kaili Cao</strong>）</span><br>
+    <span class="meta">Monthly Notices of the Royal Astronomical Society 528, 2533-2561 (2024) · 合作作者（19位作者中第7位）</span> · <a href="https://doi.org/10.1093/mnras/stae182">DOI</a> · <a href="https://arxiv.org/abs/2303.08749">arXiv:2303.08749</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2303.08749/abstract">ADS</a><br>
+    <span class="contrib">我协助找出了代码的部分已知问题，并在其工作版本中加以修正。</span></li>
+</ul></section>
+<section>
+<h2>下一步</h2>
+<p><strong>“无为”</strong>是我读博期间自己提出的构想，也是其中第一个开始蓬勃发展的。接下来是它的应用：为罗曼的弱引力透镜巡天生成图像；足够快地生成参考图像，供罗曼的快速警报使用；用罗曼时域巡天的数据合成深度图像；以及与鲁宾天文台的图像联合分析。再往后，是更普遍地理解点扩散函数残差，以及为重建图像中的噪声协方差建模。</p>
+<p>这些工作在我未来五年计划中的位置，见<a href="../about/research.html">研究方向</a>。</p>
+</section>
+<!-- terms:start -->
+<details class="terms-box" id="terms">
+<summary>本页术语（13）</summary>
+<dl class="glossary">
+  <dt id="term-psf">点扩散函数（point spread function，PSF）</dt>
+  <dd>望远镜和相机为单个点光源（例如一颗遥远的恒星）所成的像：一小团模糊的光斑。任何图像都是真实的天空被点扩散函数模糊之后的样子，所以要测量形状，就必须精确地知道点扩散函数。</dd>
+  <dt id="term-pixel">像素（pixel）</dt>
+  <dd>探测器或数字图像的一个单元。像素值最好理解为天空亮度在某一点上的采样，而不是一小块方形的天空；这个亮度已经被望远镜模糊过，又因像素在整个面积上收集光线而再模糊了一次。</dd>
+  <dt id="term-diffraction">衍射极限（diffraction limit）</dt>
+  <dd>望远镜所能成的最清晰的像，由光的波动性和主镜的大小决定：即使是一台完美的望远镜，也会把一个光点扩散成一小片图样。空间望远镜不受地球大气模糊的影响，可以达到衍射极限。</dd>
+  <dt id="term-arcsecond">角秒（arcsecond）</dt>
+  <dd>天球上的角度单位，等于1/3600度。满月的视直径约为1800角秒；南希·格蕾丝·罗曼空间望远镜的像素宽0.11角秒。</dd>
+  <dt id="term-nyquist">奈奎斯特—香农采样定理（Nyquist–Shannon sampling theorem）</dt>
+  <dd>信号处理中的一个结论。任何信号（包括一颗恒星的图像）都可以写成一系列大小不同的波之和（即傅里叶级数）。如果其中最小的波有一定的尺寸，那么只要在这个最小波的每个波长内采样两次以上，就能准确地还原信号。如果采样比这更粗，精细的细节就会丢失，或者伪装成较粗的图样，这种现象称为混叠（aliasing）。</dd>
+  <dt id="term-undersampled">欠采样、充分采样（undersampled，well-sampled）</dt>
+  <dd>如果像素太粗，无法捕捉图像中最精细的细节（在这些细节的尺度上采样不到两次），图像就是欠采样的；如果像素足够精细，就是充分采样的。罗曼的单次曝光是欠采样的，重建后的图像则是充分采样的。</dd>
+  <dt id="term-weak-lensing">弱引力透镜（weak gravitational lensing）</dt>
+  <dd>遥远星系发出的光被前方物质的引力轻微弯折，使星系的像被拉伸约1%。对数百万个星系取平均，就能绘出所有物质（包括暗物质）的分布，从而检验宇宙学模型。</dd>
+  <dt id="term-dithering">抖动（dithering）</dt>
+  <dd>在两次曝光之间略微改变望远镜的指向（错开的距离往往不到一个像素），使不同的曝光在天空的不同位置上采样。把这些曝光合在一起，就能找回单次欠采样曝光所遗漏的细节。</dd>
+  <dt id="term-imcom">IMCOM</dt>
+  <dd>IMCOM是IMage COMbination（图像合并）的缩写，是一种图像协加方法。它选取各个输入像素的权重，使输出图像的点扩散函数尽可能接近用户指定的目标，同时把噪声控制住。PyIMCOM是它面向罗曼的现代实现，“无为”（Effortless）则是更快的后继方法。</dd>
+  <dt id="term-coadd">协加图像、协加（coadd，coaddition）</dt>
+  <dd>把同一天区的多次曝光合并而成的图像。协加可以降低噪声；配合抖动，还能找回因欠采样而丢失的细节。</dd>
+  <dt id="term-systematics">系统误差（systematics，systematic errors）</dt>
+  <dd>把结果始终推向同一方向的误差，而不是让结果随机散开的误差。数据再多也无法把它平均掉，所以必须弄清它的来源并加以校正。未经校正的噪声图样（例如条纹）如果与信号相似，就可能变成系统误差。</dd>
+  <dt id="term-astrometry">天体测量（astrometry）</dt>
+  <dd>精确测量天体在天球上的位置。合并图像需要准确的天体测量，才能把每个像素放到正确的位置上。</dd>
+  <dt id="term-flux-calibration">流量定标（flux calibration）</dt>
+  <dd>把探测器记录的读数换算成物理上的亮度（流量，即每秒到达单位面积的能量），使不同曝光、不同仪器的测量结果相互吻合。</dd>
+</dl>
+<p><a href="../research-ai/glossary.html">查看完整术语表</a></p>
+</details>
+<!-- terms:end -->
+</main>
+<footer class="site">
+  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.2，最后更新于2026年10月13日。</p>
+</footer>
+<script src="../../assets/terms.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

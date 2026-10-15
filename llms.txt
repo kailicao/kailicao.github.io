@@ -15,18 +15,18 @@ A Chinese version of this site (中文版) is at https://kailicao.github.io/zh/;
 ## Research
 - [Publications](https://kailicao.github.io/about/publications.html): complete list with his position among the authors and his contribution to each coauthored paper
 - [Publications on NASA ADS, by ORCID](https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0002-1699-6944&sort=date%20desc)
-- [AI in Science](https://kailicao.github.io/ai/): white-box deliverables; MapHub
-- [Image Reconstruction](https://kailicao.github.io/images/image-reconstruction.html): IMCOM, PyIMCOM and Effortless for the Roman Space Telescope
-- [Image Analysis](https://kailicao.github.io/images/image-analysis.html)
-- [Extragalactic Astronomy](https://kailicao.github.io/images/extragalactic-astronomy.html): image processing expertise offered to studies of nearby and distant galaxies
-- [Cosmological Inference](https://kailicao.github.io/cosmology/cosmological-inference.html)
-- [Cosmological Simulations](https://kailicao.github.io/cosmology/cosmological-simulations.html)
-- [Stellar Modeling](https://kailicao.github.io/stars/stellar-modeling.html)
-- [Asteroseismology](https://kailicao.github.io/stars/asteroseismology.html)
+- [AI in Science](https://kailicao.github.io/research-ai/): white-box deliverables; MapHub
+- [Image Reconstruction](https://kailicao.github.io/research-images/image-reconstruction.html): IMCOM, PyIMCOM and Effortless for the Roman Space Telescope
+- [Image Analysis](https://kailicao.github.io/research-images/image-analysis.html)
+- [Extragalactic Astronomy](https://kailicao.github.io/research-images/extragalactic-astronomy.html): image processing expertise offered to studies of nearby and distant galaxies
+- [Cosmological Inference](https://kailicao.github.io/research-cosmology/cosmological-inference.html)
+- [Cosmological Simulations](https://kailicao.github.io/research-cosmology/cosmological-simulations.html)
+- [Stellar Modeling](https://kailicao.github.io/research-stars/stellar-modeling.html)
+- [Asteroseismology](https://kailicao.github.io/research-stars/asteroseismology.html)
 - [Software](https://kailicao.github.io/about/software.html): Effortless, MapHub, PyIMCOM, YREC, mesa_apokasc, ContEvol
 - [Presentations](https://kailicao.github.io/about/presentations.html)
-- [Research Directions](https://kailicao.github.io/research-directions/): plans for the next five years, and projects for students
-- [Glossary](https://kailicao.github.io/glossary/): plain-language definitions of the terms on the research pages
+- [Research Directions](https://kailicao.github.io/about/research.html): plans for the next five years, and projects for students
+- [Glossary](https://kailicao.github.io/research-ai/glossary.html): plain-language definitions of the terms on the research pages
 
 ## Opinions
 - [Learning Python](https://kailicao.github.io/opinions/learning-python.html)

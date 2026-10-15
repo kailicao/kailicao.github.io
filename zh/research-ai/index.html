@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>科学中的人工智能 · 曹开力</title>
+<meta name="description" content="曹开力在研究、MapHub、日常工作和教学中如何使用AI：用物理学改进数据，让AI参与产出的一切都可以核查。">
+<link rel="alternate" hreflang="en" href="https://kailicao.github.io/research-ai/">
+<link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/research-ai/">
+<link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/research-ai/">
+<link rel="canonical" href="https://kailicao.github.io/zh/research-ai/">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="科学中的人工智能 · 曹开力">
+<meta property="og:description" content="曹开力在研究、MapHub、日常工作和教学中如何使用AI：用物理学改进数据，让AI参与产出的一切都可以核查。">
+<meta property="og:url" content="https://kailicao.github.io/zh/research-ai/">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="曹开力（Kaili Cao）">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/figures.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <a class="name" href="../index.html">曹开力 <span lang="en">Kaili Cao</span></a>
+  <nav aria-label="网站导航"><a href="../index.html">首页</a><div class="menu"><a href="../about/">关于我<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../about/research.html">研究</a></li><li><a href="../about/publications.html">论文</a></li><li><a href="../about/presentations.html">报告</a></li><li><a href="../about/software.html">软件</a></li><li><a href="../about/personal.html">个人</a></li></ul></div><div class="menu"><a href="../../cv/Kaili_Cao_CV.pdf">履历<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../../cv/Kaili_Cao_CV.pdf">完整版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_CV_short.pdf">简版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_Resume.pdf">一页简历（PDF，初稿）</a></li></ul></div><div class="menu"><a href="./" aria-current="page">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="https://kailicao.github.io/maphub-public/">MapHub</a></li><li class="sep"><a href="../research-ai/glossary.html">术语表</a></li></ul></div><div class="menu"><a href="../research-images/">图像<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-images/image-reconstruction.html">图像重建</a></li><li><a href="../research-images/image-analysis.html">图像分析</a></li><li><a href="../research-images/extragalactic-astronomy.html">河外天文学</a></li><li class="sep"><a href="../research-ai/glossary.html#images">术语表</a></li></ul></div><div class="menu"><a href="../research-cosmology/">宇宙学<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a></li><li><a href="../research-cosmology/cosmological-simulations.html">宇宙学模拟</a></li><li class="sep"><a href="../research-ai/glossary.html#cosmology">术语表</a></li></ul></div><div class="menu"><a href="../research-stars/">恒星<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-stars/stellar-modeling.html">恒星建模</a></li><li><a href="../research-stars/asteroseismology.html">星震学</a></li><li class="sep"><a href="../research-ai/glossary.html#stars">术语表</a></li></ul></div><div class="menu"><a href="../opinions/">观点<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../opinions/learning-python.html">学习Python</a></li><li><a href="../opinions/python.html">Python哲学</a></li><li><a href="../opinions/ethics.html">科研伦理</a></li><li><a href="../opinions/teaching.html">教学理念</a></li><li><a href="../opinions/career.html">职业发展</a></li></ul></div><a class="lang" href="../../research-ai/" hreflang="en" lang="en">English</a></nav>
+</header>
+<main id="main"><h1>科学中的人工智能</h1>
+<p class="lead">用物理学改进AI学习所用的数据，并确保AI参与产出的一切都可以核查。</p>
+<section>
+  <h2>我的立场</h2>
+  <p>在科学中的人工智能方面，我的思路是：以数据为中心，结果可以核查。我的许多工作都属于反问题：从望远镜<a class="term" href="../research-ai/glossary.html#undersampled">欠采样</a>（undersampled）的曝光中重建充分采样的图像就是一例，而我为此开发的算法“无为”（Effortless）在设计上兼顾可扩展性与可解释性。我用模拟数据中的“真实”值来验证这类方法，并衡量每个输出在多大程度上达到了目标。这也正是不确定性量化（uncertainty quantification）对机器学习的要求。</p>
+  <p>对于AI参与产出的一切，我坚持同一个标准：无论AI帮了多少忙，我交付的成果都是白箱，透明且可以核查。我不是AI专家，没法让AI本身成为白箱；我能做到的，是让自己交付的东西可以核查。</p>
+  <p>在精密科学中，<a class="term" href="../research-ai/glossary.html#systematics">系统误差</a>（systematics）是一个伦理问题：一条有偏差的管线可能让整个学术群体对宇宙得出错误的结论。所以我更偏爱自己能够解释的方法。我用AI来拓展对物理的理解，而不是用不透明的网络取代物理模型。防止错误的最好办法是学术群体的审视；自动化永远不应跑在科学方法的前面。</p>
+  <p>当数据和算力不再是制约天文学进步的瓶颈，AI又接手了越来越多的常规工作时，仍然稀缺的是创新和判断：想到别人没有尝试过的问题或方法，了解一种方法有哪些假设、在什么情况下会失效，并把结果转化为对物理的理解。这正是我想投入精力的地方。</p>
+</section>
+<section>
+  <h2>在我的研究中</h2>
+  <p>机器学习如今已广泛用于分析天文图像。但模型会学到训练数据中的一切，包括望远镜的缺陷：模糊或不均匀的<a class="term" href="../research-ai/glossary.html#psf">点扩散函数</a>（point spread function）、<a class="term" href="../research-ai/glossary.html#correlated-noise">相关噪声</a>（correlated noise）、欠采样造成的伪影。用这样的数据训练出来的模型，学到的可能是仪器效应，而不是天空的实际情况。</p>
+<p>我的思路是以数据为中心。我不去构建越来越复杂的模型来弥补数据的不足，而是先用物理学改进数据，让AI发现的是宇宙的实际情况，而不是仪器效应。<a href="../research-images/image-reconstruction.html">图像重建</a>是这项工作的起点。“无为”是我开发的线性图像重建算法，高效且可解释：<a class="term" href="../research-ai/glossary.html#imcom">IMCOM</a>的大型矩阵求逆在很大程度上是一个黑箱，而“无为”分步设计输入像素的权重，每一步都可以理解。</p>
+</section>
+<section id="maphub">
+  <h2>MapHub</h2>
+  <p class="logo-right"><a href="https://kailicao.github.io/maphub-public/"><img src="../../assets/figures/maphub-logo.svg" width="88" height="88" alt="MapHub标志：由深浅不一的蓝色方块组成的三乘三网格，中心是一个黄色方块，像一张小小的热图。"></a></p>
+  <p>我在科学中的人工智能方面的工作，始于我在密歇根大学数据与人工智能研究院（Michigan Institute for Data and AI in Society，<a class="term" href="../research-ai/glossary.html#midas">MIDAS</a>）的<a href="https://midas.umich.edu/training/postdoctoral-programs/schmidt-ai-in-science-postdoctoral-fellowship/">施密特“科学中的人工智能”博士后项目</a>。它的第一项成果是MIDAS的<a class="term" href="../research-ai/glossary.html#arxiv">arXiv</a>预印本中心<a href="https://kailicao.github.io/maphub-public/">MapHub</a>。这是该博士后项目中的一个<a class="term" href="../research-ai/glossary.html#carpentry">“木工”</a>（carpentry，用AI完成的小项目），由我负责，队友有Kyle Heyblom、Eva Albalghiti和Dimitrios Simatos。从2026年10月起，MapHub每天为天文物理和AI领域新发布的arXiv预印本评分，衡量它们与每位参与者的相关程度；这样，参与者就能看到哪些论文对自己最重要，也能知道谁最有可能解答关于某篇论文的问题。更早的列表也在用同样的方式逐步补评。评分由一个大语言模型依照固定的评分标准给出，其余一切都是公开的：<a href="https://github.com/kailicao/maphub-public#scoring-rubric">评分标准</a>、代码和每日表格，而且每个分数都标明由AI生成。模型的推理过程也许不透明，但MapHub交付的成果可以核查。任何人都可以按照<a href="https://github.com/kailicao/maphub-public#run-your-own-maphub">说明</a>，为其他arXiv列表搭建自己的MapHub。</p>
+<figure class="fig" id="fig-white-box">
+<div class="fig-wb">
+  <div class="fig-box opaque"><strong>AI模型</strong><span>过程可能不透明</span></div>
+  <span class="arrow" aria-hidden="true">→</span>
+  <div class="fig-box fig-blue-k deliv"><strong>交付成果：白箱</strong>
+    <ul><li>公开的评分标准</li><li>开源代码</li><li>公开的每日表格</li><li>每个分数都标明由AI生成</li><li>分数是指引，不是评判</li></ul></div>
+</div>
+<figcaption>白箱标准，以MapHub为例：AI模型的过程也许不透明，但交付的成果可以核查。借助AI（Claude）制作。</figcaption>
+</figure>
+</section>
+<section>
+  <h2>在日常工作中</h2>
+  <p>我与AI合作，就像与一名能干的科研助手合作：它起草、提建议；我核查、决定，并承担责任。凡是用到AI的地方，我都会标明它做了哪些部分。</p>
+  <ul>
+    <li>我借助LSAP（Legacy Survey of astro-ph）阅读文献。这是我用来查找、阅读和记住论文的一套系统，名字仿照了鲁宾天文台的<a href="https://rubinobservatory.org/">时空遗产巡天</a>（Legacy Survey of Space and Time）。我为每篇论文保存一份经过核查的笔记，其中每一条都按可信程度和我的理解程度分级。AI聊天机器人像我的学生一样阅读每篇论文：它按照我的水平讲解论文，我提问并纠正它，然后它把学到的东西整理成文。AI写的摘要可以告诉我一篇论文是否相关；但读过摘要，绝不等于我已经读懂了这篇论文。所以我与AI的合作是主动的——纠正并拓展它的说法，而不是被动接受。</li>
+    <li>本站文字借助AI（<a href="https://claude.com/">Claude</a>）撰写，由我审阅，每个页面的页脚都注明了这一点。</li>
+  </ul>
+</section>
+<section>
+  <h2>与AI一起教学</h2>
+  <p>对于受过传统训练的大学教师来说，生成式AI既是挑战也是机遇。它可以帮助教师设计课程和课堂活动，参与头脑风暴和讨论，并为学生提供个性化的支持和反馈。对学生来说，AI素养如今已不可或缺，他们需要指导，才能有效且负责任地使用AI。我认为下面这个目标是可以实现的：<em>一名成功的学生，无论是否借助AI，都能做到某件事；而别人无论是否借助AI，都难以轻易学会做这件事。</em>简而言之，学生给出的答案应当比AI更好，而不只是借助AI给出答案；他们还应当学会核查AI的结果，例如通过零检验（null test）。</p>
+  <p>2025年，我为研究生同学和大学教师编写了一份讲义<em>《大学教师的AI时代生存指南》</em>，依据的是José Antonio Bowen和C. Edward Watson的<em>《<a href="https://doi.org/10.56021/9781421449227">与AI一起教学</a>》</em>（2024年）一书。此后AI工具变化很快，但在我看来，讲义的要点依然成立：</p>
+  <ul>
+    <li>对结果负责的是人，而不是工具。学生要对自己提交的作业负责。</li>
+    <li>没有哪项作业真正能防住AI，也没有哪种检测手段是完美的。作弊往往说明学生没有看到亲自完成作业的价值，所以需要提供足够的激励。</li>
+    <li>禁绝AI和放任AI都不是最好的选择。应当尽早与学生讨论AI政策，先从“为什么”谈起。</li>
+    <li>用得好的话，AI可以成为耐心的辅导老师，帮助设计个性化的例子，并参与课堂讨论，例如扮演唱反调的角色（devil's advocate）。</li>
+  </ul>
+  <p>我在教学上更全面的想法，见<a href="../opinions/teaching.html">教学理念</a>。</p>
+</section>
+<section>
+  <h2>注明AI的使用</h2>
+  <p>在科研中，AI主要扮演两种角色：一是类似搜索引擎的工具，二是写作助手。前者无须提及，后者则应当注明。本站每个页面都注明了文字借助AI撰写，由我审阅。</p>
+</section>
+<section id="applications">
+  <h2>借助AI求职</h2>
+  <p>申请博士后时，我大量使用了AI聊天机器人，也经常纠正它。它会编造有关我的信息，弄错申请资格和篇幅限制，几乎把每个职位都评为“非常匹配”，在长对话中还会理不清头绪。行之有效的做法有：</p>
+  <ul>
+    <li>关于你自己，只给它经过核实的资料（履历、摘要、对你贡献的准确表述），并告诉它不要编造。</li>
+    <li>保留任何措辞之前，先让它解释清楚。你发出去的每一句话，自己都应当说得出依据。</li>
+    <li>让它在保留你原话的基础上做小幅修改，一次只做一项任务。</li>
+    <li>用它来阅读、总结和梳理结构。事实、匹配程度、人名和规则，要自己核查。</li>
+  </ul>
+  <p>那次求职的更多心得，见<a href="../opinions/career.html">职业发展</a>。</p>
+</section>
+<section>
+  <h2>下一步</h2>
+  <p>我在科学中的人工智能方面的工作始于这个博士后项目，所以大部分工作还在后头。其中一个目标是制作可以直接用于机器学习的图像产品，也就是点扩散函数和噪声都有完整记录的重建图像，让用它们训练的模型学到的是天空的实际情况，而不是仪器效应。我希望AI能帮助我实现在图像、宇宙学和恒星方面的研究目标，同时让我交付的一切始终可以核查。AI在每个研究方向中的切入点，见我的<a href="../about/research.html#ai">研究方向</a>。</p>
+</section>
+<!-- terms:start -->
+<details class="terms-box" id="terms">
+<summary>本页术语（8）</summary>
+<dl class="glossary">
+  <dt id="term-undersampled">欠采样、充分采样（undersampled，well-sampled）</dt>
+  <dd>如果像素太粗，无法捕捉图像中最精细的细节（在这些细节的尺度上采样不到两次），图像就是欠采样的；如果像素足够精细，就是充分采样的。罗曼的单次曝光是欠采样的，重建后的图像则是充分采样的。</dd>
+  <dt id="term-systematics">系统误差（systematics，systematic errors）</dt>
+  <dd>把结果始终推向同一方向的误差，而不是让结果随机散开的误差。数据再多也无法把它平均掉，所以必须弄清它的来源并加以校正。未经校正的噪声图样（例如条纹）如果与信号相似，就可能变成系统误差。</dd>
+  <dt id="term-psf">点扩散函数（point spread function，PSF）</dt>
+  <dd>望远镜和相机为单个点光源（例如一颗遥远的恒星）所成的像：一小团模糊的光斑。任何图像都是真实的天空被点扩散函数模糊之后的样子，所以要测量形状，就必须精确地知道点扩散函数。</dd>
+  <dt id="term-correlated-noise">相关噪声（correlated noise）</dt>
+  <dd>相邻像素共有的噪声，而不是逐个像素独立变化的噪声，例如让一整行像素都略亮或略暗的条纹。与白噪声不同，把相邻像素合并起来并不能有效地压低它；如果不加校正，它还可能伪装成真实的图样。</dd>
+  <dt id="term-imcom">IMCOM</dt>
+  <dd>IMCOM是IMage COMbination（图像合并）的缩写，是一种图像协加方法。它选取各个输入像素的权重，使输出图像的点扩散函数尽可能接近用户指定的目标，同时把噪声控制住。PyIMCOM是它面向罗曼的现代实现，“无为”（Effortless）则是更快的后继方法。</dd>
+  <dt id="term-midas">MIDAS</dt>
+  <dd>密歇根大学数据与人工智能研究院（Michigan Institute for Data and AI in Society），密歇根大学的数据科学与人工智能研究机构，也是那里的施密特“科学中的人工智能”博士后研究员所在的单位。</dd>
+  <dt id="term-arxiv">arXiv</dt>
+  <dd>物理学和天文学论文的免费在线预印本库。论文通常在期刊审稿之前或审稿期间就发布在这里；天文论文在astro-ph分类下。</dd>
+  <dt id="term-carpentry">木工（carpentry）</dt>
+  <dd>施密特“科学中的人工智能”博士后项目中用AI完成的小项目。MapHub就是其中之一。</dd>
+</dl>
+<p><a href="glossary.html">查看完整术语表</a></p>
+</details>
+<!-- terms:end -->
+</main>
+<footer class="site">
+  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.2，最后更新于2026年10月13日。</p>
+</footer>
+<script src="../../assets/terms.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

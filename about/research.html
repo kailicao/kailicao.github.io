@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Directions · Kaili Cao</title>
+<meta name="description" content="Kaili Cao&#x27;s research plan: three directions for the next five years, building on survey analysis infrastructure for Roman and other surveys.">
+<link rel="alternate" hreflang="en" href="https://kailicao.github.io/about/research.html">
+<link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/about/research.html">
+<link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/about/research.html">
+<link rel="canonical" href="https://kailicao.github.io/about/research.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="Research Directions · Kaili Cao">
+<meta property="og:description" content="Kaili Cao&#x27;s research plan: three directions for the next five years, building on survey analysis infrastructure for Roman and other surveys.">
+<meta property="og:url" content="https://kailicao.github.io/about/research.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kaili Cao (曹开力), astrophysicist, Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, MIDAS, University of Michigan, with his portrait photo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Kaili Cao">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+</head>
+<body>
+<header class="site">
+  <a class="name" href="../index.html">Kaili Cao <span lang="zh">曹开力</span></a>
+  <nav aria-label="Site"><a href="../index.html">Home</a><div class="menu"><a href="../about/">About<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../about/research.html" aria-current="page">Research</a></li><li><a href="../about/publications.html">Publications</a></li><li><a href="../about/presentations.html">Presentations</a></li><li><a href="../about/software.html">Software</a></li><li><a href="../about/personal.html">Personal</a></li></ul></div><div class="menu"><a href="../cv/Kaili_Cao_CV.pdf">CV<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cv/Kaili_Cao_CV.pdf">Full version (PDF)</a></li><li><a href="../cv/Kaili_Cao_CV_short.pdf">Short version (PDF)</a></li><li><a href="../cv/Kaili_Cao_Resume.pdf">Résumé (PDF, preliminary)</a></li></ul></div><div class="menu"><a href="../research-ai/">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="https://kailicao.github.io/maphub-public/">MapHub</a></li><li class="sep"><a href="../research-ai/glossary.html">Glossary</a></li></ul></div><div class="menu"><a href="../research-images/">Images<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-images/image-reconstruction.html">Image Reconstruction</a></li><li><a href="../research-images/image-analysis.html">Image Analysis</a></li><li><a href="../research-images/extragalactic-astronomy.html">Extragalactic Astronomy</a></li><li class="sep"><a href="../research-ai/glossary.html#images">Glossary</a></li></ul></div><div class="menu"><a href="../research-cosmology/">Cosmology<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a></li><li><a href="../research-cosmology/cosmological-simulations.html">Cosmological Simulations</a></li><li class="sep"><a href="../research-ai/glossary.html#cosmology">Glossary</a></li></ul></div><div class="menu"><a href="../research-stars/">Stars<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="research.html">Stellar Modeling</a></li><li><a href="../research-stars/asteroseismology.html">Asteroseismology</a></li><li class="sep"><a href="../research-ai/glossary.html#stars">Glossary</a></li></ul></div><div class="menu"><a href="../opinions/">Opinions<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../opinions/learning-python.html">Learning Python</a></li><li><a href="../opinions/python.html">Python Philosophy</a></li><li><a href="../opinions/ethics.html">Research Ethics</a></li><li><a href="../opinions/teaching.html">Teaching Philosophy</a></li><li><a href="../opinions/career.html">Career Development</a></li></ul></div><a class="lang" href="../zh/about/research.html" hreflang="zh-CN" lang="zh-CN">中文</a></nav>
+</header>
+<main>
+<p class="crumb"><a href="../index.html#research">Research</a> · Research Directions</p>
+<h1>Research Directions</h1>
+<p class="lead">Over the next five years, I plan to turn the analysis infrastructure I built during my PhD into science with the first data from the Nancy Grace Roman Space Telescope and its sister surveys, along three directions. Each builds on finished work and aims at deliverables that others can use.</p>
+
+<section>
+  <h2 id="overview">Overview</h2>
+  <ol>
+    <li><a href="#images"><strong>Images that can be trusted</strong></a>: reconstructed survey images whose <a class="term" href="../research-ai/glossary.html#psf">point spread function</a> and noise are known, so that both physical measurements and machine learning see the sky rather than the instrument.</li>
+    <li><a href="#cosmology"><strong>Cosmology from uneven surveys</strong></a>: simpler and more robust cosmological inference from surveys whose depth varies across the sky, and new numerical methods for simulating cosmic structure.</li>
+    <li><a href="#stars"><strong>Stars as tests of physics</strong></a>: precise masses and ages for <a class="term" href="../research-ai/glossary.html#red-giant">red giants</a> from Roman's Galactic Bulge Time Domain Survey, and stellar models tested against thousands of stars.</li>
+  </ol>
+  <p>Across all three, AI is a method, held to one standard: <a href="../research-ai/">whatever AI helps produce must be checkable</a>.</p>
+</section>
+
+<section>
+  <h2 id="images">1. Images that can be trusted</h2>
+  <p><strong>The question.</strong> Roman's pixels are about as large as its point spread function (PSF), so its native images are <a class="term" href="../research-ai/glossary.html#undersampled">undersampled</a>. Weak lensing, <a class="term" href="../research-ai/glossary.html#photometry">photometry</a> and machine learning all need images whose PSF and noise are known. How well can we know them, at the scale of a whole survey?</p>
+  <p><strong>Builds on.</strong> PyIMCOM, which I refactored for Roman (<a href="../about/publications.html#arXiv-2410.05442">Cao et al. 2025</a>) and tuned (<a href="../about/publications.html#arXiv-2509.18286">Cao et al. 2026</a>); what one-dimensional models teach about regridding and <a class="term" href="../research-ai/glossary.html#coadd">coaddition</a> (<a href="../about/publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>); and Effortless, my faster algorithm for linear image reconstruction (<a href="../about/publications.html#arXiv-2607.06674">Cao 2026a</a>, <a href="../about/publications.html#arXiv-2607.09862">2026b</a>).</p>
+  <p><strong>Deliverables.</strong></p>
+  <ul>
+    <li>Applications of Effortless to survey data, with the PSF and noise properties of every output image documented.</li>
+    <li>A general description of PSF residuals in reconstructed images.</li>
+    <li>Models of the noise covariance in reconstructed images, for <a class="term" href="../research-ai/glossary.html#weak-lensing">weak lensing</a> and other precision measurements.</li>
+    <li>Fetterless: tools for analyzing and generating images as discrete samples of continuous fields (an early-stage idea).</li>
+  </ul>
+  <p>More on <a href="../research-images/image-reconstruction.html">Image Reconstruction</a> and <a href="../research-images/image-analysis.html">Image Analysis</a>.</p>
+</section>
+
+<section>
+  <h2 id="cosmology">2. Cosmology from uneven surveys</h2>
+  <p><strong>The question.</strong> A survey's depth varies across its footprint, with sky background, tiling and detector defects. That complicates every step from catalogs to cosmological parameters. Can we make the data uniform enough that inference becomes simpler, without biasing it?</p>
+  <p><strong>Builds on.</strong> Forecasts of the cosmological constraints from Roman's weak lensing survey (<a href="../about/publications.html#arXiv-2601.00438">Cao et al. 2026</a>); ContEvol, my numerical methods based on Hermite spline optimization (<a href="../about/publications.html#arXiv-2405.05188">Cao 2025</a>); and my first project, on <a class="term" href="../research-ai/glossary.html#galaxy-cluster">galaxy clusters</a> in <a class="term" href="../research-ai/glossary.html#simulation">simulations</a> (<a href="../about/publications.html#arXiv-2006.10752">Cao et al. 2021</a>).</p>
+  <p><strong>Deliverables.</strong></p>
+  <ul>
+    <li>Depth Padding: a way to fill in shallow regions of a survey with synthetic data from a machine-learning model trained on deep fields, validated so that it does not bias cosmological results.</li>
+    <li>ContCosmos: a study of whether ContEvol can formulate cosmological simulations, including N-body simulations.</li>
+  </ul>
+  <p>More on <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a> and <a href="../research-cosmology/cosmological-simulations.html">Cosmological Simulations</a>.</p>
+</section>
+
+<section>
+  <h2 id="stars">3. Stars as tests of physics</h2>
+  <p><strong>The question.</strong> Asteroseismology gives masses and ages of red giants, which test stellar physics and date the Milky Way. Roman's Galactic Bulge Time Domain Survey will observe very many of them, but most of its asteroseismic targets are expected to be near or beyond saturation. How do we get reliable measurements, and what do they tell us about how stars evolve?</p>
+  <p><strong>Builds on.</strong> More reliable masses for luminous red giants (<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>); stellar models compared with APOKASC-3 red giants (<a href="../about/publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>); and my work on the Yale Rotating Evolution Code (YREC).</p>
+  <p><strong>Deliverables.</strong></p>
+  <ul>
+    <li>DynFlux: reliable time-domain photometry of saturated stars in Roman's Galactic Bulge Time Domain Survey, starting from pixel-level calibration of saturated pixels.</li>
+    <li>Characterization of the evolved stars Roman observes, with my Roman <a class="term" href="../research-ai/glossary.html#wfst">Wide-Field Science Team</a>.</li>
+    <li>Two follow-up papers on APOKASC-3 red giants: mass loss along the red giant branch, and the α-enhancement of stars' birth composition.</li>
+    <li>A proposed overhaul of YREC, with an object-oriented framework, hooks for user-defined physics and possibly a Python interface.</li>
+  </ul>
+  <p>More on <a href="../research-stars/asteroseismology.html">Asteroseismology</a> and <a href="../research-stars/stellar-modeling.html">Stellar Modeling</a>.</p>
+</section>
+
+<section>
+  <h2 id="ai">Across the three: AI held to a standard</h2>
+  <p>AI enters each direction where its output can be checked: reconstructed images give machine learning cleaner training data; Depth Padding uses a learned model, validated against simulations; and <a href="../research-ai/#maphub">MapHub</a> already shows how an AI tool can deliver checkable results. More on <a href="../research-ai/">AI in Science</a>.</p>
+</section>
+
+<section>
+  <h2 id="students">Projects for students</h2>
+  <p>Each direction has projects for students at different stages, each extending published work and public code. Some examples:</p>
+  <ul>
+    <li>Undergraduates: running Effortless on simulated or public images and checking the results against known truth; comparing stellar models with a subset of the APOKASC-3 red giant catalog.</li>
+    <li>Graduate students:
+      <ul>
+        <li><strong>Images:</strong> applying PyIMCOM or Effortless to undersampled images from another telescope (such as Hubble or Euclid), and measuring the output point spread functions and noise as in our Roman papers (<a href="../about/publications.html#arXiv-2410.05442">Cao et al. 2025</a>, <a href="../about/publications.html#arXiv-2509.18286">2026</a>; <a href="../about/publications.html#arXiv-2607.06674">Cao 2026a</a>, <a href="../about/publications.html#arXiv-2607.09862">b</a>).</li>
+        <li><strong>Cosmology:</strong> extending the Roman 3×2pt Fisher forecasts (<a href="../about/publications.html#arXiv-2601.00438">Cao et al. 2026</a>) to other survey designs or systematics models.</li>
+        <li><strong>Stars:</strong> extending the APOKASC-3 model comparison (<a href="../about/publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>) with the public <a href="https://github.com/kailicao/mesa_apokasc">mesa_apokasc</a> models to other stellar physics; or applying the corrections for luminous giants' asteroseismic masses (<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>) to other samples.</li>
+        <li><strong>Numerical methods:</strong> testing the ContEvol methods (<a href="../about/publications.html#arXiv-2405.05188">Cao 2025</a>) on new problems.</li>
+      </ul>
+    </li>
+  </ul>
+  <p>How I mentor is on <a href="../opinions/teaching.html">Teaching Philosophy</a>. If one of these interests you, <a href="mailto:kailicao@umich.edu">write to me</a>. To take one on as a research project, including from outside the US, I can introduce you to my faculty mentors or PhD advisors where that would help (see <a href="../about/#working-with-me">Working with me</a>).</p>
+</section>
+<!-- terms:start -->
+<details class="terms-box" id="terms">
+<summary>Terms on this page (9)</summary>
+<dl class="glossary">
+  <dt id="term-psf">Point spread function (PSF)</dt>
+  <dd>The image that a telescope and camera make of a single point of light, such as a distant star: a small blur. Every image is the true sky blurred by the PSF, so knowing the PSF precisely is essential for measuring shapes.</dd>
+  <dt id="term-red-giant">Red giant, red giant branch</dt>
+  <dd>A star that has run out of hydrogen in its core and swollen to many times its former size (up to a hundred times or more), with a cool, red surface. The red giant branch is the path such stars follow in the Hertzsprung–Russell diagram as they grow brighter.</dd>
+  <dt id="term-undersampled">Undersampled, well-sampled</dt>
+  <dd>An image is undersampled when its pixels are too coarse to capture its finest details (fewer than two samples across them), and well-sampled when they are fine enough. Roman's single exposures are undersampled; reconstructed images are well-sampled.</dd>
+  <dt id="term-photometry">Photometry</dt>
+  <dd>Measuring how bright an object is, often through several color filters. Brightness in different filters gives information about color, and so about temperature or redshift.</dd>
+  <dt id="term-coadd">Coadd, coaddition</dt>
+  <dd>An image made by combining several exposures of the same part of the sky, which reduces noise and, with dithering, recovers detail lost to undersampling.</dd>
+  <dt id="term-weak-lensing">Weak gravitational lensing</dt>
+  <dd>The slight bending of light from distant galaxies by the gravity of matter in front of them, which stretches their images by about 1%. Averaged over millions of galaxies, it maps all the matter, including dark matter, and so tests cosmological models.</dd>
+  <dt id="term-galaxy-cluster">Galaxy cluster</dt>
+  <dd>A group of hundreds to thousands of galaxies bound by gravity, filled with gas at tens of millions of degrees that shines in X-rays. Clusters are the most massive gravitationally bound objects. A cluster is called relaxed when it has settled down since its last merger.</dd>
+  <dt id="term-simulation">Cosmological simulation</dt>
+  <dd>A computer calculation that follows matter (and sometimes gas and stars) under gravity from the early Universe to today. N-body simulations represent matter as many particles.</dd>
+  <dt id="term-wfst">Wide-Field Science Team</dt>
+  <dd>One of the teams NASA selected to prepare particular science with the Roman Space Telescope's wide-field surveys.</dd>
+</dl>
+<p><a href="../research-ai/glossary.html">Full glossary</a></p>
+</details>
+<!-- terms:end -->
+</main>
+<footer class="site">
+  <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.2, last updated October 13, 2026.</p>
+</footer>
+<script src="../assets/terms.js" defer></script>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

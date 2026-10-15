@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Add a "Terms on this page" box to each science page, built from the central glossary.
 
-The glossary (glossary/index.html, and zh/glossary/index.html for Chinese pages) stays the single
+The glossary (research-ai/glossary.html, and zh/research-ai/glossary.html for Chinese pages) stays the single
 source: definitions are written and corrected there only. This script copies the definitions of the terms a
 page links to (links with class="term") into a collapsible box at the end of the page's <main>. The small
 script assets/terms.js then shows the same definitions in a pop-up when a reader hovers, focuses or taps a
@@ -13,9 +13,11 @@ It is idempotent: the box sits between <!-- terms:start --> and <!-- terms:end -
 """
 import html, os, posixpath, re, sys
 
-PAGES = ['stars/asteroseismology.html', 'stars/stellar-modeling.html', 'images/image-reconstruction.html',
-         'images/image-analysis.html', 'cosmology/cosmological-inference.html',
-         'cosmology/cosmological-simulations.html', 'research-directions/index.html', 'ai/index.html']
+PAGES = ['research-stars/asteroseismology.html', 'research-stars/stellar-modeling.html',
+         'research-images/image-reconstruction.html', 'research-images/image-analysis.html',
+         'research-cosmology/cosmological-inference.html', 'research-cosmology/cosmological-simulations.html',
+         'about/research.html', 'research-ai/index.html']
+GLOSSARY = 'research-ai/glossary.html'
 LABELS = {'en': ('Terms on this page', 'Full glossary'), 'zh': ('本页术语', '查看完整术语表')}
 START, END = '<!-- terms:start -->', '<!-- terms:end -->'
 
@@ -34,12 +36,12 @@ def link(target, page_dir):
     return posixpath.relpath(target, page_dir or '.')
 
 def rebase(fragment, page_dir):
-    """Rewrite relative links in a glossary definition (written relative to glossary/) for page_dir."""
+    """Rewrite relative links in a glossary definition (written relative to the glossary's folder) for page_dir."""
     def fix(m):
         url = m.group(2)
         if re.match(r'[a-z]+:|#|/', url): return m.group(0)
         path, frag = (url.split('#', 1) + [''])[:2]
-        target = posixpath.normpath(posixpath.join('glossary', path)) if path else 'glossary/index.html'
+        target = posixpath.normpath(posixpath.join(posixpath.dirname(GLOSSARY), path)) if path else GLOSSARY
         if posixpath.basename(target) and '.' not in posixpath.basename(target): target += '/index.html'
         return f'{m.group(1)}"{link(target, page_dir)}{"#" + frag if frag else ""}"'
     return re.sub(r'(href=)"([^"]+)"', fix, fragment)
@@ -50,7 +52,7 @@ def build(root, lang, page, shown=True):
     s = open(path, encoding='utf-8').read()
     s = re.sub(re.escape(START) + r'.*?' + re.escape(END) + r'\n?', '', s, flags=re.S)
     page_dir = posixpath.dirname(page[3:] if lang == 'zh' else page)
-    gloss_rel = link('glossary/index.html', page_dir)
+    gloss_rel = link(GLOSSARY, page_dir)
     ids = []
     for href in re.findall(r'<a class="term" href="([^"]+)"', s):
         tid = href.split('#', 1)[1] if '#' in href else None
@@ -76,9 +78,9 @@ def build(root, lang, page, shown=True):
 
 if __name__ == '__main__':
     root = sys.argv[1] if len(sys.argv) > 1 else '.'
-    GLOSS = {'en': load_glossary(os.path.join(root, 'glossary/index.html'))}
-    if os.path.exists(os.path.join(root, 'zh/glossary/index.html')):
-        GLOSS['zh'] = load_glossary(os.path.join(root, 'zh/glossary/index.html'))
+    GLOSS = {'en': load_glossary(os.path.join(root, GLOSSARY))}
+    if os.path.exists(os.path.join(root, 'zh', GLOSSARY)):
+        GLOSS['zh'] = load_glossary(os.path.join(root, 'zh', GLOSSARY))
     for lang in GLOSS:
         for page in PAGES:
             p = page if lang == 'en' else 'zh/' + page
@@ -91,6 +93,6 @@ if __name__ == '__main__':
             for f in files:
                 p = posixpath.relpath(posixpath.join(d, f).replace(os.sep, '/'), root)
                 q = p[3:] if lang == 'zh' else p
-                if not f.endswith('.html') or q in PAGES or q.startswith('glossary/'): continue
+                if not f.endswith('.html') or q in PAGES or q == GLOSSARY: continue
                 if 'class="term"' in open(os.path.join(root, p), encoding='utf-8').read():
                     print(f'{p}: {build(root, lang, p, shown=False)} terms (pop-ups only)')
