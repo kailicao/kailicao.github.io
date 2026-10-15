@@ -5,3 +5,9 @@ cv/*.out
 cv/*.fls
 cv/*.fdb_latexmk
 cv/*.synctex.gz
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
