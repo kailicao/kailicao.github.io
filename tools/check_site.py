@@ -37,11 +37,14 @@ class Page(html.parser.HTMLParser):
         if self._in_footer: self.footer += data
 
 
+OTHER_SITES = ('maphub-public/',)  # project sites on kailicao.github.io, listed in sitemap.xml
+
+
 def html_files():
     for d, dirs, files in os.walk(ROOT):
         dirs[:] = [x for x in dirs if x not in SKIP_DIRS]
         for f in files:
-            if f.endswith('.html'):
+            if f.endswith('.html') and not re.fullmatch(r'google[0-9a-f]+\.html', f):  # search-engine verification files stay as given
                 yield os.path.relpath(os.path.join(d, f), ROOT).replace(os.sep, '/')
 
 
@@ -80,6 +83,7 @@ def main(external=False):
         locs = re.findall(r'<loc>(.*?)</loc>', open('sitemap.xml', encoding='utf-8').read())
         for u in locs:
             path = u[len(SITE):] or 'index.html'
+            if path.startswith(OTHER_SITES): continue  # served from another repository on the same host
             if not os.path.exists(os.path.join(ROOT, path)): problems.append(f'sitemap.xml lists a missing file: {u}')
     if external:
         for u in sorted(ext):

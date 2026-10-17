@@ -20,6 +20,7 @@ The folders mirror the site's menus: each section's page is the `index.html` of 
 | `assets/` | The stylesheets, the scripts (`site.js` on every page: link addresses, Contents, Copy buttons, the language button; `terms.js`: glossary pop-ups), icons and figures |
 | `tools/` | `check_site.py` (links, anchors, footers, sitemap, scripts) and `terms.py` (the "Terms on this page" boxes); `build_talk_slides.py` and `build_defense_slides.py`, which build the public slide PDFs from originals and deck data kept privately (only the method is here; the open fonts they use are in `tools/fonts/`); see `MAINTAINING.md` |
 | `404.html` | The not-found page, which GitHub Pages serves for every missing address; it sends readers who were after an address under `zh/` to `zh/404.html`, its Chinese counterpart |
-| `sitemap.xml`, `robots.txt`, `llms.txt` | Files for search engines and AI tools |
+| `sitemap.xml`, `robots.txt`, `llms.txt` | Files for search engines and AI tools; the sitemap also lists the MapHub viewer, served from maphub-public on the same host |
+| `google1ed45f418e6f562c.html` | Google Search Console's verification file; keep it unchanged, or the site loses its verification |
 
 Contact: <kailicao@umich.edu>

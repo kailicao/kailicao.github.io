@@ -37,7 +37,7 @@ Every English page has a Chinese page at the same path under `zh/`; the English 
 ## At each release (several times a year)
 1. Footer of every page: version and "last updated" date (all pages share one line; the checker
    warns if they disagree).
-2. `sitemap.xml`: add or remove pages; update `<lastmod>` for changed pages.
+2. `sitemap.xml`: add or remove pages; update `<lastmod>` for changed pages. It also lists the MapHub viewer (`/maphub-public/`, from another repository; `tools/check_site.py` skips it), and Google Search Console reads it: after a release, it can be resubmitted there.
 3. `llms.txt`: add or remove pages; update your position if it changed.
 4. `index.html` structured data (JSON-LD): position, affiliation, `sameAs` links.
 5. If a page's meta description changed, change its `og:description` to match.
