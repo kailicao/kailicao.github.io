@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我的Python风格 · 曹开力</title>
+<meta name="description" content="曹开力编写科研代码的Python风格：项目怎样组织、写文档、测试、作图和提交，有AI助手参与时又该怎样做。">
+<link rel="alternate" hreflang="en" href="https://kailicao.github.io/opinions/python-style.html">
+<link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/opinions/python-style.html">
+<link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/opinions/python-style.html">
+<link rel="canonical" href="https://kailicao.github.io/zh/opinions/python-style.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="我的Python风格 · 曹开力">
+<meta property="og:description" content="曹开力编写科研代码的Python风格：项目怎样组织、写文档、测试、作图和提交，有AI助手参与时又该怎样做。">
+<meta property="og:url" content="https://kailicao.github.io/zh/opinions/python-style.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="曹开力（Kaili Cao）">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/figures.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <a class="name" href="../index.html">曹开力 <span lang="en">Kaili Cao</span></a>
+  <nav aria-label="网站导航"><a href="../index.html">首页</a><div class="menu"><a href="../about/">关于我<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../about/research.html">研究</a></li><li><a href="../about/publications.html">论文</a></li><li><a href="../about/presentations.html">报告</a></li><li><a href="../about/software.html">软件</a></li><li><a href="../about/personal.html">个人</a></li></ul></div><div class="menu"><a href="../../cv/Kaili_Cao_CV.pdf">履历<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../../cv/Kaili_Cao_CV.pdf">完整版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_CV_short.pdf">简版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_Resume.pdf">一页简历（PDF，初稿）</a></li></ul></div><div class="menu"><a href="../research-ai/">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-ai/ai-ready-data.html">AI就绪的数据</a></li><li><a href="../research-ai/working-with-ai.html">与AI合作</a></li><li><a href="../research-ai/maphub.html">MapHub</a></li><li class="sep"><a href="../research-ai/glossary.html">术语表</a></li></ul></div><div class="menu"><a href="../research-images/">图像<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-images/image-reconstruction.html">图像重建</a></li><li><a href="../research-images/image-analysis.html">图像分析</a></li><li><a href="../research-images/extragalactic-astronomy.html">河外天文学</a></li><li class="sep"><a href="../research-ai/glossary.html#images">术语表</a></li></ul></div><div class="menu"><a href="../research-cosmology/">宇宙学<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a></li><li><a href="../research-cosmology/cosmological-simulations.html">宇宙学模拟</a></li><li class="sep"><a href="../research-ai/glossary.html#cosmology">术语表</a></li></ul></div><div class="menu"><a href="../research-stars/">恒星<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-stars/stellar-modeling.html">恒星建模</a></li><li><a href="../research-stars/asteroseismology.html">星震学</a></li><li class="sep"><a href="../research-ai/glossary.html#stars">术语表</a></li></ul></div><div class="menu"><a href="./" aria-current="page">观点<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="learning-python.html">学习Python</a></li><li><a href="python.html">Python哲学</a></li><li><a href="python-style.html" aria-current="page">我的Python风格</a></li><li><a href="ethics.html">科研伦理</a></li><li><a href="teaching.html">教学理念</a></li><li><a href="career.html">职业发展</a></li></ul></div><a class="lang" href="../../opinions/python-style.html" hreflang="en" lang="en">English</a></nav>
+</header>
+<main id="main">
+<p class="crumb"><a href="./">观点</a> · 我的Python风格</p>
+<h1>我的Python风格</h1>
+<p class="lead">我怎样组织和编写科研代码，让合作者不必问我，就能读懂、重新运行并继续扩展它。</p>
+<p><a href="python.html">Python哲学</a>讲的是怎样思考代码；本页讲的是我自己的代码是什么样子。这里写的是习惯，不是规定：有用的就拿去，在别人的代码仓库里则沿用它原有的风格。例子来自我编写或参与编写的代码仓库：<a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">“无为”</a>（Effortless，面向罗曼望远镜的快速线性图像重建）、<a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">PyIMCOM</a>（它的前身，我主导了它的重构）、<a href="https://github.com/kailicao/mesa_apokasc">mesa_apokasc</a>（红巨星的恒星模型）和<a href="https://github.com/kailicao/ContEvol_formalism">ContEvol</a>（一种求解微分方程的数值方法）。</p>
+<section>
+  <h2 id="layout" class="i i-layers">项目怎样组织</h2>
+  <ul>
+    <li><strong>一个程序包，加上驱动脚本。</strong>可以复用的逻辑放进一个以方法命名、可以导入的程序包；只属于某一次运行的选择，比如路径和选项，放进简短的驱动脚本，每个脚本开头都写明怎样运行。</li>
+    <li><strong>模块分层。</strong>计算内核在最底层，物理模型在其上，输入输出和分析在最上层。下层模块从不导入上层模块。</li>
+    <li><strong>类的结构与数据一致。</strong>在“无为”中，一幅输出图像包含它的各幅输入图像，以及每次处理的一小块区域。每一部分都通过上一层获取设置，因此同一份配置是向下传递的，而不是到处复制。</li>
+    <li><strong>设置也是数据；数据不进git。</strong>PyIMCOM把每次运行的设置存在一个JSON文件里，并把包括默认值在内的完整配置写进输出，因为默认值可能会变。</li>
+  </ul>
+</section>
+<section>
+  <h2 id="readable" class="i i-code">读得懂的代码</h2>
+  <ul>
+    <li><strong>处处有文档字符串。</strong>每个模块开头列出它包含的内容；每个类和公开函数都有NumPy格式的文档字符串，写明每个数组的形状、类型和单位。</li>
+    <li><strong>每个可调的数都有名字。</strong>名字用大写字母，注释里写明单位和来源；由它推出的数用公式算出来，而不是再敲一遍。这样，驱动脚本只需一行显眼的代码就能改变程序的行为。</li>
+    <li><strong>命名跟着论文走。</strong><code>psf_in</code>、<code>psf_out</code>和<code>sigma</code>的含义与公式中相同；循环变量的名字说明它数的是什么。</li>
+    <li><strong>注释解释原因。</strong>每段代码前有一句简短的注释，其余注释解释所作的选择，例如：“In principle we should flip the input PSF, but in practice it is easier to flip the weight field.”（原则上应该翻转输入的PSF，但实际上翻转权重场更方便。）</li>
+    <li><strong>报错时说明出错的是什么，</strong>比如哪一项设置的值不合法。</li>
+  </ul>
+</section>
+<section>
+  <h2 id="right" class="i i-play">先求正确，再求速度</h2>
+  <ul>
+    <li><strong>先用答案已知的情形检验。</strong>ContEvol在匀速圆周运动上、以越来越小的步长测试每一种积分方法，并输出误差；这是任何新方法的第一道检验。</li>
+    <li><strong>每次重构都做回归测试。</strong>“无为”会重新运行一个参考算例，检查输出是否保持不变。</li>
+    <li><strong>然后才提速。</strong>耗时的循环移进编译后的函数（Numba），每次提速单独提交一次，之后重新检查结果；大数组在一个阶段结束后立即释放。</li>
+    <li><strong>每个输出都能追溯。</strong>随机数种子是固定的，配置写进输出文件；耗时的批量任务会跳过已经完成的部分，因此重新提交的任务只做剩下的工作。</li>
+  </ul>
+</section>
+<section>
+  <h2 id="figures" class="i i-pen">图都由代码生成</h2>
+  <ul>
+    <li>论文中的每一幅图，都由脚本从保存的数据生成，存为矢量PDF，从不手工修改；因此回应审稿意见时，改脚本就够了。</li>
+    <li>统一的样式（字体、刻度，以及用于每个子图的一个小函数），让各篇论文中的图保持一致。</li>
+    <li>每个视觉通道只表示一个变量：颜色表示方法，线型表示另一种选择，标记则让曲线在灰度打印时仍能分辨。每条坐标轴都有带单位的标签。</li>
+    <li>当问题是“这个选择影响有多大”时，我画的是与基准的比值，并在1处画一条参考线。</li>
+    <li>每个作图脚本都注明它生成的是论文中的哪一幅图。</li>
+  </ul>
+</section>
+<section>
+  <h2 id="commits" class="i i-clock">说清改动的提交</h2>
+  <ul>
+    <li>每次提交只做一件事，标题简短，开头说明改动的类型，例如“Fix calculation of distortion matrices”“Accelerate <code>SubSlice.__call__</code> with Numba”。</li>
+    <li>改变科学结果的修复，标题以“IMPORTANT:”开头，让手里有旧输出的人知道需要检查。</li>
+    <li>改变代码用法或配置的提交，会附上正文，说明改了什么、为什么改。</li>
+    <li>在共享的代码仓库中，新功能通过分支和拉取请求（pull request）合并。</li>
+  </ul>
+</section>
+<section>
+  <h2 id="ai" class="i i-bulb">有AI助手参与时</h2>
+  <p>代码可以由助手来写，但必须有人能读懂、检查并解释其中的每一行（<a href="python.html#try">Python哲学</a>）。</p>
+  <ul>
+    <li>生成的代码沿用仓库自己的风格，而不是助手的风格。</li>
+    <li>每次改动都保持很小，以便逐一审阅；我解释不了的代码行，提交之前先简化或重写。</li>
+    <li>每条提交信息都说明程序的行为有什么变化、为什么变，并注明助手的贡献。</li>
+    <li>仓库里有一份写给助手的说明：怎样运行和测试代码，数据放在哪里，哪些事情必须先问过人才能做。<a href="https://github.com/kailicao/maphub-public">MapHub</a>是我借助AI（Claude）搭建的，这些做法在其中都能看到。</li>
+  </ul>
+</section>
+<section>
+  <h2 id="habits" class="i i-tag">我保留的习惯</h2>
+  <p>我有几个习惯和最常见的Python风格不同：几条简短的语句如果表达的是同一个意思，就写在同一行（<code>if not mask_out[i]: continue</code>）；类通过<code>__call__</code>依次运行各个阶段；探索性笔记本中的开关注明设置的日期。给别人的代码做贡献时，我沿用它的风格，也从不把风格上的改动混进改变程序行为的提交。</p>
+  <p>有些习惯更适合原型，而不是多人共用的代码。代码的用户多了，它也会添上用户需要的东西：可以安装的程序包，每次改动都会运行的测试，以及取代打印输出的日志信息。</p>
+</section>
+</main>
+<footer class="site">
+  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.3，最后更新于2026年10月18日。</p>
+</footer>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

@@ -15,7 +15,10 @@ A Chinese version of this site (中文版) is at https://kailicao.github.io/zh/;
 ## Research
 - [Publications](https://kailicao.github.io/about/publications.html): complete list with his position among the authors and his contribution to each coauthored paper
 - [Publications on NASA ADS, by ORCID](https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0002-1699-6944&sort=date%20desc)
-- [AI in Science](https://kailicao.github.io/research-ai/): white-box deliverables; MapHub
+- [AI in Science](https://kailicao.github.io/research-ai/): data-centric, checkable work with AI; an overview of the three pages below
+- [AI-Ready Data](https://kailicao.github.io/research-ai/ai-ready-data.html): using physics to improve the data AI learns from; white-box deliverables
+- [Working with AI](https://kailicao.github.io/research-ai/working-with-ai.html): reading, writing papers, teaching and applying for jobs with AI
+- [MapHub](https://kailicao.github.io/research-ai/maphub.html): daily relevance scores of new arXiv preprints for a research community
 - [Image Reconstruction](https://kailicao.github.io/research-images/image-reconstruction.html): IMCOM, PyIMCOM and Effortless for the Roman Space Telescope
 - [Image Analysis](https://kailicao.github.io/research-images/image-analysis.html)
 - [Extragalactic Astronomy](https://kailicao.github.io/research-images/extragalactic-astronomy.html): image processing expertise offered to studies of nearby and distant galaxies
@@ -31,6 +34,7 @@ A Chinese version of this site (中文版) is at https://kailicao.github.io/zh/;
 ## Opinions
 - [Learning Python](https://kailicao.github.io/opinions/learning-python.html)
 - [Python Philosophy](https://kailicao.github.io/opinions/python.html)
+- [My Python Style](https://kailicao.github.io/opinions/python-style.html)
 - [Research Ethics](https://kailicao.github.io/opinions/ethics.html)
 - [Teaching Philosophy](https://kailicao.github.io/opinions/teaching.html)
 - [Career Development](https://kailicao.github.io/opinions/career.html)

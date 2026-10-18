@@ -13,14 +13,14 @@ The folders mirror the site's menus: each section's page is the `index.html` of 
 | `index.html` | The home page |
 | `about/` | About, and under it: research directions across the areas (`research.html`), publications, presentations (with `about/presentations/`: slides as PDF files, third-party images blurred and described), software, personal, colophon |
 | `cv/` | The CV in two versions, `Kaili_Cao_CV.pdf` (full, the copy the site links to) and `Kaili_Cao_CV_short.pdf` (first-author papers and selected talks), and a one-page résumé for data science and software roles, `Kaili_Cao_Resume.pdf` (from `Kaili_Cao_Resume.tex`); the CVs are built from one source: `cv.tex`, with the publication lists in `bib-*.tex` and a one-column style in `kccv.sty` that automatic parsers read; run `latexmk` in `cv/` to rebuild all three |
-| `research-ai/` | AI in science, and the glossary the science pages link to (`glossary.html`) |
+| `research-ai/` | AI in science: an overview and its pages (`ai-ready-data.html`, AI-Ready Data; `working-with-ai.html`, Working with AI; `maphub.html`, MapHub), and the glossary the science pages link to (`glossary.html`) |
 | `research-images/`, `research-cosmology/`, `research-stars/` | Each research area's page, and one page per topic: image reconstruction, image analysis and extragalactic astronomy; cosmological inference and simulations; stellar modeling and asteroseismology |
-| `opinions/` | Opinions, and under it: learning Python (with the Huarongdao puzzle), Python philosophy, research ethics, teaching and career notes |
+| `opinions/` | Opinions, and under it: learning Python (with the Huarongdao puzzle), Python philosophy, my Python style, research ethics, teaching and career notes |
 | `zh/` | The Chinese version, page for page: the same folders and file names under `zh/` (`zh/about/` is the Chinese About) |
 | `assets/` | The stylesheets, the scripts (`site.js` on every page: link addresses, Contents, Copy buttons, the language button; `terms.js`: glossary pop-ups), icons and figures |
 | `tools/` | `check_site.py` (links, anchors, footers, sitemap, scripts) and `terms.py` (the "Terms on this page" boxes); `build_talk_slides.py` and `build_defense_slides.py`, which build the public slide PDFs from originals and deck data kept privately (only the method is here; the open fonts they use are in `tools/fonts/`); see `MAINTAINING.md` |
 | `404.html` | The not-found page, which GitHub Pages serves for every missing address; it sends readers who were after an address under `zh/` to `zh/404.html`, its Chinese counterpart |
 | `sitemap.xml`, `robots.txt`, `llms.txt` | Files for search engines and AI tools; the sitemap also lists the MapHub viewer, served from maphub-public on the same host |
-| `google1ed45f418e6f562c.html` | Google Search Console's verification file; keep it unchanged, or the site loses its verification |
+| `google1ed45f418e6f562c.html` | Google Search Console's verification file; keep it, and the `google-site-verification` meta tag in `index.html` (a second verification method), unchanged, or the site loses its verification |
 
 Contact: <kailicao@umich.edu>

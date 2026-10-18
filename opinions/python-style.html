@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Python Style · Kaili Cao</title>
+<meta name="description" content="Kaili Cao's Python style for research code: how his projects are laid out, documented, tested, plotted and committed, with and without an AI assistant.">
+<link rel="alternate" hreflang="en" href="https://kailicao.github.io/opinions/python-style.html">
+<link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/opinions/python-style.html">
+<link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/opinions/python-style.html">
+<link rel="canonical" href="https://kailicao.github.io/opinions/python-style.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="My Python Style · Kaili Cao">
+<meta property="og:description" content="Kaili Cao's Python style for research code: how his projects are laid out, documented, tested, plotted and committed, with and without an AI assistant.">
+<meta property="og:url" content="https://kailicao.github.io/opinions/python-style.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kaili Cao (曹开力), astrophysicist, Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, MIDAS, University of Michigan, with his portrait photo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Kaili Cao">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/figures.css">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site">
+  <a class="name" href="../index.html">Kaili Cao <span lang="zh">曹开力</span></a>
+  <nav aria-label="Site"><a href="../index.html">Home</a><div class="menu"><a href="../about/">About<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../about/research.html">Research</a></li><li><a href="../about/publications.html">Publications</a></li><li><a href="../about/presentations.html">Presentations</a></li><li><a href="../about/software.html">Software</a></li><li><a href="../about/personal.html">Personal</a></li></ul></div><div class="menu"><a href="../cv/Kaili_Cao_CV.pdf">CV<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../cv/Kaili_Cao_CV.pdf">Full version (PDF)</a></li><li><a href="../cv/Kaili_Cao_CV_short.pdf">Short version (PDF)</a></li><li><a href="../cv/Kaili_Cao_Resume.pdf">Résumé (PDF, preliminary)</a></li></ul></div><div class="menu"><a href="../research-ai/">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-ai/ai-ready-data.html">AI-Ready Data</a></li><li><a href="../research-ai/working-with-ai.html">Working with AI</a></li><li><a href="../research-ai/maphub.html">MapHub</a></li><li class="sep"><a href="../research-ai/glossary.html">Glossary</a></li></ul></div><div class="menu"><a href="../research-images/">Images<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-images/image-reconstruction.html">Image Reconstruction</a></li><li><a href="../research-images/image-analysis.html">Image Analysis</a></li><li><a href="../research-images/extragalactic-astronomy.html">Extragalactic Astronomy</a></li><li class="sep"><a href="../research-ai/glossary.html#images">Glossary</a></li></ul></div><div class="menu"><a href="../research-cosmology/">Cosmology<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a></li><li><a href="../research-cosmology/cosmological-simulations.html">Cosmological Simulations</a></li><li class="sep"><a href="../research-ai/glossary.html#cosmology">Glossary</a></li></ul></div><div class="menu"><a href="../research-stars/">Stars<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-stars/stellar-modeling.html">Stellar Modeling</a></li><li><a href="../research-stars/asteroseismology.html">Asteroseismology</a></li><li class="sep"><a href="../research-ai/glossary.html#stars">Glossary</a></li></ul></div><div class="menu"><a href="./" aria-current="page">Opinions<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="learning-python.html">Learning Python</a></li><li><a href="python.html">Python Philosophy</a></li><li><a href="python-style.html" aria-current="page">My Python Style</a></li><li><a href="ethics.html">Research Ethics</a></li><li><a href="teaching.html">Teaching Philosophy</a></li><li><a href="career.html">Career Development</a></li></ul></div><a class="lang" href="../zh/opinions/python-style.html" hreflang="zh-CN" lang="zh-CN">中文</a></nav>
+</header>
+<main id="main">
+<p class="crumb"><a href="./">Opinions</a> · My Python Style</p>
+<h1>My Python Style</h1>
+<p class="lead">How I organize and write research code, so that a collaborator can read it, rerun it and extend it without asking me.</p>
+<p><a href="python.html">Python Philosophy</a> is about how to think about code; this page is about how my own code looks. It describes habits, not rules: take what helps, and in someone else's repository, follow the style it already has. The examples come from repositories I wrote or helped write: <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">Effortless</a> (fast linear image reconstruction for Roman), <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">PyIMCOM</a> (its predecessor, whose refactoring I led), <a href="https://github.com/kailicao/mesa_apokasc">mesa_apokasc</a> (stellar models of red giants) and <a href="https://github.com/kailicao/ContEvol_formalism">ContEvol</a> (a numerical method for differential equations).</p>
+<section>
+  <h2 id="layout" class="i i-layers">How a project is laid out</h2>
+  <ul>
+    <li><strong>A package and its drivers.</strong> Reusable logic goes into an importable package named for the method; choices that belong to one run, such as paths and options, go into short driver scripts, each opening with a line that says how to run it.</li>
+    <li><strong>Modules in layers.</strong> Compute kernels at the bottom, physical models above them, input, output and analysis on top. A lower module never imports a higher one.</li>
+    <li><strong>Classes that mirror the data.</strong> In Effortless, an output image holds its input images and the small patches it processes one at a time. Each piece reaches its settings through its parent, so a single configuration is passed down rather than copied.</li>
+    <li><strong>Settings are data; data stays out of git.</strong> PyIMCOM keeps each run's settings in a JSON file and writes the full configuration into its output, defaults included, since defaults change.</li>
+  </ul>
+</section>
+<section>
+  <h2 id="readable" class="i i-code">Code a reader can follow</h2>
+  <ul>
+    <li><strong>Docstrings everywhere.</strong> Each module opens with a list of what it contains; each class and public function has a NumPy-style docstring, with the shape, type and unit of every array.</li>
+    <li><strong>Every tunable number has a name.</strong> It is written in capitals, with its unit and its source in a comment; derived numbers are computed from it, not typed again. A driver then changes behavior in one visible line.</li>
+    <li><strong>Names follow the paper.</strong> <code>psf_in</code>, <code>psf_out</code> and <code>sigma</code> mean what they mean in the equations, and a loop index says what it counts.</li>
+    <li><strong>Comments explain why.</strong> A short comment heads each block of code, and the rest explain choices: "In principle we should flip the input PSF, but in practice it is easier to flip the weight field."</li>
+    <li><strong>Errors name what failed,</strong> such as the setting that has an invalid value.</li>
+  </ul>
+</section>
+<section>
+  <h2 id="right" class="i i-play">Right first, then fast</h2>
+  <ul>
+    <li><strong>A case with a known answer.</strong> ContEvol runs every integrator on uniform circular motion at smaller and smaller steps and prints the error, the first test of any new method.</li>
+    <li><strong>A regression run for every refactor.</strong> Effortless reruns a reference case and checks that the output has not changed.</li>
+    <li><strong>Then speed.</strong> Hot loops move into compiled functions (Numba), one commit per speedup, with the results checked again after each; large arrays are freed as soon as a stage ends.</li>
+    <li><strong>Every output traceable.</strong> Random seeds are fixed, the configuration is written into the output, and long batch jobs skip what is already done, so a resubmitted job finishes only what is missing.</li>
+  </ul>
+</section>
+<section>
+  <h2 id="figures" class="i i-pen">Figures from code</h2>
+  <ul>
+    <li>Every figure in a paper is made by a script from saved data and saved as a vector PDF. None is edited by hand, so a referee's comment can be answered by changing the script.</li>
+    <li>One shared style (fonts, ticks, and a small helper applied to every panel) keeps figures alike from paper to paper.</li>
+    <li>One variable per visual channel: color for the method, line style for a second choice, and markers so that curves survive printing in gray. Every axis has a label with units.</li>
+    <li>When the question is how much a choice matters, I plot the ratio to a baseline, with a line at 1.</li>
+    <li>Each figure script names the figure it makes in the paper.</li>
+  </ul>
+</section>
+<section>
+  <h2 id="commits" class="i i-clock">Commits that explain</h2>
+  <ul>
+    <li>One logical change per commit, with a short subject that starts with what kind of change it is: "Fix calculation of distortion matrices", "Accelerate <code>SubSlice.__call__</code> with Numba".</li>
+    <li>A fix that changes scientific results starts with "IMPORTANT:", so that anyone holding old outputs knows to look.</li>
+    <li>A change to how the code is used or configured gets a body that says what changed and why.</li>
+    <li>In a shared repository, new features go through a branch and a pull request.</li>
+  </ul>
+</section>
+<section>
+  <h2 id="ai" class="i i-bulb">With an AI assistant</h2>
+  <p>An assistant may write the code, but a person must be able to read, check and explain every line of it (<a href="python.html#try">Python Philosophy</a>).</p>
+  <ul>
+    <li>Generated code follows the repository's style, not the assistant's.</li>
+    <li>Changes stay small, so each one can be reviewed; a line I cannot explain is simplified or rewritten before it is committed.</li>
+    <li>Each commit message says what changed in behavior and why, and credits the assistant.</li>
+    <li>The repository keeps a file of instructions for the assistant: how to run and test the code, where the data lives, and what it must never do without asking. <a href="https://github.com/kailicao/maphub-public">MapHub</a>, which I built with AI assistance (Claude), shows these practices together.</li>
+  </ul>
+</section>
+<section>
+  <h2 id="habits" class="i i-tag">Habits I keep</h2>
+  <p>A few of my habits depart from the most common Python style: short statements share a line when they read as one thought (<code>if not mask_out[i]: continue</code>); a class runs its stages through <code>__call__</code>; and flags in exploratory notebooks carry the date they were set. When I contribute to someone else's code, I follow its style, and I never mix a change of style into a commit that changes behavior.</p>
+  <p>Some habits suit a prototype better than a shared code. As a code gains users, it gains what they need: a package they can install, tests that run on every change, and log messages instead of printed ones.</p>
+</section>
+</main>
+<footer class="site">
+  <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.3, last updated October 18, 2026.</p>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

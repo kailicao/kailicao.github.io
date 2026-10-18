@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI就绪的数据 · 曹开力</title>
+<meta name="description" content="曹开力谈AI就绪的数据：用物理学改进AI学习所用的数据，并让AI参与产出的一切都可以核查。">
+<link rel="alternate" hreflang="en" href="https://kailicao.github.io/research-ai/ai-ready-data.html">
+<link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/research-ai/ai-ready-data.html">
+<link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/research-ai/ai-ready-data.html">
+<link rel="canonical" href="https://kailicao.github.io/zh/research-ai/ai-ready-data.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaili Cao">
+<meta property="og:title" content="AI就绪的数据 · 曹开力">
+<meta property="og:description" content="曹开力谈AI就绪的数据：用物理学改进AI学习所用的数据，并让AI参与产出的一切都可以核查。">
+<meta property="og:url" content="https://kailicao.github.io/zh/research-ai/ai-ready-data.html">
+<meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="曹开力（Kaili Cao）">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/figures.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site">
+  <a class="name" href="../index.html">曹开力 <span lang="en">Kaili Cao</span></a>
+  <nav aria-label="网站导航"><a href="../index.html">首页</a><div class="menu"><a href="../about/">关于我<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../about/research.html">研究</a></li><li><a href="../about/publications.html">论文</a></li><li><a href="../about/presentations.html">报告</a></li><li><a href="../about/software.html">软件</a></li><li><a href="../about/personal.html">个人</a></li></ul></div><div class="menu"><a href="../../cv/Kaili_Cao_CV.pdf">履历<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../../cv/Kaili_Cao_CV.pdf">完整版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_CV_short.pdf">简版（PDF）</a></li><li><a href="../../cv/Kaili_Cao_Resume.pdf">一页简历（PDF，初稿）</a></li></ul></div><div class="menu"><a href="./" aria-current="page">AI<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-ai/ai-ready-data.html" aria-current="page">AI就绪的数据</a></li><li><a href="../research-ai/working-with-ai.html">与AI合作</a></li><li><a href="../research-ai/maphub.html">MapHub</a></li><li class="sep"><a href="../research-ai/glossary.html">术语表</a></li></ul></div><div class="menu"><a href="../research-images/">图像<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-images/image-reconstruction.html">图像重建</a></li><li><a href="../research-images/image-analysis.html">图像分析</a></li><li><a href="../research-images/extragalactic-astronomy.html">河外天文学</a></li><li class="sep"><a href="../research-ai/glossary.html#images">术语表</a></li></ul></div><div class="menu"><a href="../research-cosmology/">宇宙学<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a></li><li><a href="../research-cosmology/cosmological-simulations.html">宇宙学模拟</a></li><li class="sep"><a href="../research-ai/glossary.html#cosmology">术语表</a></li></ul></div><div class="menu"><a href="../research-stars/">恒星<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../research-stars/stellar-modeling.html">恒星建模</a></li><li><a href="../research-stars/asteroseismology.html">星震学</a></li><li class="sep"><a href="../research-ai/glossary.html#stars">术语表</a></li></ul></div><div class="menu"><a href="../opinions/">观点<span class="caret" aria-hidden="true">▾</span></a><ul class="submenu"><li><a href="../opinions/learning-python.html">学习Python</a></li><li><a href="../opinions/python.html">Python哲学</a></li><li><a href="../opinions/python-style.html">我的Python风格</a></li><li><a href="../opinions/ethics.html">科研伦理</a></li><li><a href="../opinions/teaching.html">教学理念</a></li><li><a href="../opinions/career.html">职业发展</a></li></ul></div><a class="lang" href="../../research-ai/ai-ready-data.html" hreflang="en" lang="en">English</a></nav>
+</header>
+<main id="main">
+<p class="crumb"><a href="./">科学中的人工智能</a> · AI就绪的数据</p>
+<h1>AI就绪的数据</h1>
+<p class="lead">用物理学改进AI学习所用的数据，让模型学到的是天空，而不是仪器。</p>
+<section id="in-brief">
+  <h2>简介</h2>
+  <p>机器学习如今已广泛用于分析天文图像。但模型会学到训练数据中的一切，包括望远镜的缺陷：模糊或不均匀的<a class="term" href="../research-ai/glossary.html#psf">点扩散函数</a>（point spread function）、<a class="term" href="../research-ai/glossary.html#correlated-noise">相关噪声</a>（correlated noise）、欠采样造成的伪影。用这样的数据训练出来的模型，学到的可能是仪器效应，而不是天空的实际情况。</p>
+<p>我的思路是以数据为中心。我不去构建越来越复杂的模型来弥补数据的不足，而是先用物理学改进数据。这项工作从<a href="../research-images/image-reconstruction.html">图像重建</a>开始：把望远镜欠采样的曝光合成为充分采样的图像，其点扩散函数尽可能接近选定的目标，因此每一幅输出图像的PSF都是已知的；<a class="term" href="../research-ai/glossary.html#imcom">IMCOM</a>和“无为”做的都是这件事。</p>
+</section>
+<section id="in-more-depth">
+  <h2>深入了解</h2>
+  <p>我的许多工作都属于反问题：从望远镜<a class="term" href="../research-ai/glossary.html#undersampled">欠采样</a>（undersampled）的曝光中重建充分采样的图像就是一例，而我为此开发的算法“无为”（Effortless）在设计上兼顾可扩展性与可解释性。我用模拟数据中的“真实”值来验证这类方法，并衡量每个输出在多大程度上达到了目标。这也正是不确定性量化（uncertainty quantification）对机器学习的要求。</p>
+</section>
+<section id="done">
+  <h2>我的工作</h2>
+  <p>我主导了把IMCOM重构为PyIMCOM的工作，使计算成本降低了约一个数量级；团队成员用PyIMCOM为<a href="../about/publications.html#arXiv-2501.05632">OpenUniverse2024</a>模拟生成了IMCOM协加图像，团队的多篇论文都用到了这些图像。之后我开发了线性图像重建算法“无为”，它比IMCOM快几十倍，占用内存更少，而且可解释：IMCOM的大型矩阵求逆在很大程度上是一个黑箱，而“无为”分步设计输入像素的权重，每一步都可以理解。</p>
+</section>
+<section id="papers">
+  <h2>论文</h2>
+  <p>这项工作背后的论文（从IMCOM到“无为”）见<a href="../research-images/image-reconstruction.html">图像重建</a>；我的全部论文以及我在每篇中的贡献，见<a href="../about/publications.html">论文</a>。</p>
+</section>
+<section id="next">
+  <h2>下一步</h2>
+  <p>其中一个目标是制作可以直接用于机器学习的图像产品，也就是点扩散函数和噪声都有完整记录的重建图像。我希望AI能帮助我实现在图像、宇宙学和恒星方面的研究目标，同时让我交付的一切始终可以核查。AI在每个研究方向中的切入点，见我的<a href="../about/research.html#ai">研究方向</a>。</p>
+</section>
+<!-- terms:start -->
+<details class="terms-box" id="terms">
+<summary>本页术语（5）</summary>
+<dl class="glossary">
+  <dt id="term-psf">点扩散函数（point spread function，PSF）</dt>
+  <dd>望远镜和相机为单个点光源（例如一颗遥远的恒星）所成的像：一小团模糊的光斑。任何图像都是真实的天空被点扩散函数模糊之后的样子，所以要测量形状，就必须精确地知道点扩散函数。</dd>
+  <dt id="term-correlated-noise">相关噪声（correlated noise）</dt>
+  <dd>相邻像素共有的噪声，而不是逐个像素独立变化的噪声，例如让一整行像素都略亮或略暗的条纹。与白噪声不同，把相邻像素合并起来并不能有效地压低它；如果不加校正，它还可能伪装成真实的图样。</dd>
+  <dt id="term-imcom">IMCOM</dt>
+  <dd>IMCOM是IMage COMbination（图像合并）的缩写，是一种图像协加方法。它选取各个输入像素的权重，使输出图像的点扩散函数尽可能接近用户指定的目标，同时把噪声控制住。PyIMCOM是它面向罗曼的现代实现，“无为”（Effortless）则是更快的后继方法。</dd>
+  <dt id="term-undersampled">欠采样、充分采样（undersampled，well-sampled）</dt>
+  <dd>如果像素太粗，无法捕捉图像中最精细的细节（在这些细节的尺度上采样不到两次），图像就是欠采样的；如果像素足够精细，就是充分采样的。罗曼的单次曝光是欠采样的，重建后的图像则是充分采样的。</dd>
+  <dt id="term-systematics">系统误差（systematics，systematic errors）</dt>
+  <dd>把结果始终推向同一方向的误差，而不是让结果随机散开的误差。数据再多也无法把它平均掉，所以必须弄清它的来源并加以校正。未经校正的噪声图样（例如条纹）如果与信号相似，就可能变成系统误差。</dd>
+</dl>
+<p><a href="glossary.html">查看完整术语表</a></p>
+</details>
+<!-- terms:end -->
+</main>
+<footer class="site">
+  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.3，最后更新于2026年10月18日。</p>
+</footer>
+<script src="../../assets/terms.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

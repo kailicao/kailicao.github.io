@@ -16,7 +16,8 @@ import html, os, posixpath, re, sys
 PAGES = ['research-stars/asteroseismology.html', 'research-stars/stellar-modeling.html',
          'research-images/image-reconstruction.html', 'research-images/image-analysis.html',
          'research-cosmology/cosmological-inference.html', 'research-cosmology/cosmological-simulations.html',
-         'about/research.html', 'research-ai/index.html']
+         'about/research.html', 'research-ai/index.html', 'research-ai/ai-ready-data.html',
+         'research-ai/working-with-ai.html', 'research-ai/maphub.html']
 GLOSSARY = 'research-ai/glossary.html'
 LABELS = {'en': ('Terms on this page', 'Full glossary'), 'zh': ('本页术语', '查看完整术语表')}
 START, END = '<!-- terms:start -->', '<!-- terms:end -->'
