@@ -1,4 +1,4 @@
-% One-page résumé of Kaili Cao for data science and software engineering roles (preliminary).
+% One-page résumé of Kaili Cao for data science and software engineering roles.
 % Same parser-friendly style as the CV (kccv.sty); every claim matches the CV and the website.
 % Build with `latexmk` in this folder.
 \documentclass[11pt]{article}
@@ -18,23 +18,23 @@
 Email: \href{mailto:kailicao@umich.edu}{kailicao@umich.edu}; Website: \href{https://kailicao.github.io/}{kailicao.github.io}; GitHub: \href{https://github.com/kailicao}{github.com/kailicao}; \href{https://www.linkedin.com/in/kaili-cao-1840b5229/}{LinkedIn}\par
 
 \section{Summary}
-PhD physicist who designs algorithms and builds research software used by teams: a production image-processing package for a NASA mission team, an algorithm 50 to 60 times faster than the one it replaces, and a daily service that scores new papers with a large language model.
+PhD physicist who designs algorithms and builds research software used by teams: a production image-processing package for a NASA mission team, an algorithm 50 to 60 times faster than the one it replaces (in simulations), and a daily service that scores new papers with a large language model.
 
 \section{Skills}
 \cvitem{Programming}{Python (main language; object-oriented, high-performance code with NumPy and Numba), C/C++, Fortran, Shell and Perl, Mathematica; Git and GitHub, continuous integration, documentation and tests}
 \cvitem{Data and modeling}{Large simulated data sets, statistical modeling and parameter inference (Fisher forecasts, validated against Markov chain Monte Carlo), numerical methods, image processing, validation against simulated truth; two large scientific collaborations, 24 papers (10 first-author)}
-\cvitem{Machine learning and AI}{Machine learning in research; Erd\H{o}s Institute Data Science Boot Camp (2025); large language models in a production pipeline (MapHub)}
+\cvitem{Machine learning and AI}{scikit-learn regression in my papers (e.g., a support vector regression emulator; a Theil--Sen calibration); Erd\H{o}s Institute Data Science Boot Camp (2025); LLMs in a production pipeline (MapHub)}
 
 \section{Experience}
 \cventry{2026 -- present}{Schmidt AI in Science Postdoctoral Fellow}{Michigan Institute for Data and AI in Society (MIDAS), University~of~Michigan}{Ann Arbor}{MI}{}
 \cvbullet{Lead \href{https://kailicao.github.io/maphub-public/}{MapHub}, a team project of the fellowship: designed and built a daily automated service that scores each day's new arXiv preprints for relevance to each participant with a large language model, against a published rubric, and publishes open daily tables and a web viewer (built with AI assistance, Claude Code).}
 \cventry{2021 -- 2026}{PhD Student and Graduate Research Assistant, Physics}{The~Ohio~State~University}{Columbus}{OH}{}
 \cvbullet{Led the refactoring of IMCOM, an image-combination code for NASA's Roman Space Telescope, into \href{https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom}{PyIMCOM}, an object-oriented Python package with tests, continuous integration and documentation, cutting computing cost by about an order of magnitude; teammates used it in production for the image coadds of the OpenUniverse2024 simulations.}
-\cvbullet{Designed and wrote \href{https://github.com/Roman-HLIS-Cosmology-PIT/effortless}{Effortless}, a linear image-reconstruction algorithm that is 50 to 60 times faster than IMCOM with a smaller memory footprint, with a programming interface general enough for other telescopes.}
+\cvbullet{Designed and wrote \href{https://github.com/Roman-HLIS-Cosmology-PIT/effortless}{Effortless}, a linear image-reconstruction algorithm that is 50 to 60 times faster than IMCOM in simulations of Roman's survey and has a smaller memory footprint and a programming interface general enough for other telescopes.}
 \cvbullet{Built statistical forecasts of what Roman's weak lensing survey can measure, combining three probes, and showed that outside knowledge of the matter power spectrum improves the results by factors of 1.2 to 3.5.}
 \cvbullet{Compared stellar models with thousands of stars from a large catalog; helped modernize the Fortran code YREC; supported PyIMCOM users with documentation, onboarding and a tutorial at an internal hack week (2025).}
 \cventry{2022 -- 2023}{Instructor, Online Python Tutorial}{}{}{}{}
-\cvbullet{Created and taught a free online Python course: 46 students in four cohorts, many with no programming background; gave the lectures, designed the exercises, and mentored personal projects.}
+\cvbullet{Created and taught a free online Python course: 46 students in four cohorts, mostly first-time programmers from the humanities and social sciences, 28 of them active; gave the lectures, designed the exercises, mentored personal projects, and revised the study guide from students' feedback.}
 
 \section{Education}
 \cvitem{2026}{PhD in Physics (MS 2023), The~Ohio~State~University, Columbus, OH}
