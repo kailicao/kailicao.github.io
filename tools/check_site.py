@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Check kailicao.github.io before publishing (no dependencies; Python 3.8+).
 
-  python tools/check_site.py             # internal links, anchors, images, footers, sitemap, scripts
+  python tools/check_site.py             # internal links, anchors, alt text, footers, sitemap, scripts
   python tools/check_site.py --external  # also ask every external link whether it still works (slow)
 
 Run from the repository root. Prints problems; exits with status 1 if any are found.

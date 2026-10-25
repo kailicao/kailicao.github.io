@@ -48,7 +48,7 @@
 </section>
 <section id="done">
   <h2>我的工作</h2>
-  <p>我主导了把IMCOM重构为PyIMCOM的工作，使计算成本降低了约一个数量级；团队成员用PyIMCOM为<a href="../about/publications.html#arXiv-2501.05632">OpenUniverse2024</a>模拟生成了IMCOM协加图像，团队的多篇论文都用到了这些图像。之后我开发了线性图像重建算法“无为”，它比IMCOM快几十倍，占用内存更少，而且可解释：IMCOM的大型矩阵求逆在很大程度上是一个黑箱，而“无为”分步设计输入像素的权重，每一步都可以理解。我的论文中也用到简单、可以核查的机器学习模型，例如用支持向量回归模拟APOKASC-3的星震修正（<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>），以及用稳健回归、借助注入恒星校准“无为”的测量（<a href="../about/publications.html#arXiv-2607.09862">Cao 2026b</a>）。我在数据科学方面受过的正式训练，包括<a href="https://www.erdosinstitute.org/">Erdős Institute</a>的数据科学训练营。</p>
+  <p>我主导了把IMCOM重构为PyIMCOM的工作，使计算成本降低了约一个数量级；团队成员用PyIMCOM为<a href="../about/publications.html#arXiv-2501.05632">OpenUniverse2024</a>模拟生成了IMCOM协加图像，团队的多篇论文都用到了这些图像。之后我开发了线性图像重建算法“无为”，它比IMCOM快几十倍，占用内存更少，而且可解释：IMCOM的大型矩阵求逆在很大程度上是一个黑箱，而“无为”分步设计输入像素的权重，每一步都可以理解。我的论文中也用到简单、可以核查的机器学习模型，例如用支持向量回归模拟<a class="term" href="../research-ai/glossary.html#apokasc">APOKASC-3</a>的星震修正（<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>），以及用稳健回归、借助注入恒星校准“无为”的测量（<a href="../about/publications.html#arXiv-2607.09862">Cao 2026b</a>）。我在数据科学方面受过的正式训练，包括<a href="https://www.erdosinstitute.org/">Erdős Institute</a>的数据科学训练营。</p>
 </section>
 <section id="papers">
   <h2>论文</h2>
@@ -60,7 +60,7 @@
 </section>
 <!-- terms:start -->
 <details class="terms-box" id="terms">
-<summary>本页术语（4）</summary>
+<summary>本页术语（5）</summary>
 <dl class="glossary">
   <dt id="term-psf">点扩散函数（point spread function，PSF）</dt>
   <dd>望远镜和相机为单个点光源（例如一颗遥远的恒星）所成的像：一小团模糊的光斑。任何图像都是真实的天空被点扩散函数模糊之后的样子，所以要测量形状，就必须精确地知道点扩散函数。</dd>
@@ -70,6 +70,8 @@
   <dd>IMCOM是IMage COMbination（图像合并）的缩写，是一种图像协加方法。它选取各个输入像素的权重，使输出图像的点扩散函数尽可能接近用户指定的目标，同时把噪声控制住。PyIMCOM是它面向罗曼的现代实现，“无为”（Effortless）则是更快的后继方法。</dd>
   <dt id="term-undersampled">欠采样、充分采样（undersampled，well-sampled）</dt>
   <dd>如果像素太粗，无法捕捉图像中最精细的细节（在这些细节的尺度上采样不到两次），图像就是欠采样的；如果像素足够精细，就是充分采样的。罗曼的单次曝光是欠采样的，重建后的图像则是充分采样的。</dd>
+  <dt id="term-apokasc">APOKASC-3</dt>
+  <dd>把APOGEE光谱学和开普勒星震学结合起来的星表，收录了一万五千多颗演化恒星，大多是红巨星。“3”表示第三版。</dd>
 </dl>
 <p><a href="glossary.html">查看完整术语表</a></p>
 </details>
@@ -77,7 +79,7 @@
 </main>
 <footer class="site">
   <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.4，最后更新于2026年10月18日。</p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.5，最后更新于2026年10月24日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>

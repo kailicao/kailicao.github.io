@@ -47,7 +47,7 @@
 </section>
 <section id="done">
   <h2>What I have done</h2>
-  <p>I led the refactoring of IMCOM into PyIMCOM, which reduced its computing cost by about an order of magnitude; teammates ran PyIMCOM to make the IMCOM coadds of the <a href="../about/publications.html#arXiv-2501.05632">OpenUniverse2024</a> simulations, used in several team papers. I then developed Effortless, my algorithm for linear image reconstruction, which is tens of times faster than IMCOM, with a smaller memory footprint, and interpretable: where IMCOM's large matrix inversion is largely a black box, Effortless designs its weights in steps that can each be understood. My papers also use simple, checkable models from machine learning, for example a support vector regression that emulates the asteroseismic correction of APOKASC-3 (<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>), and a robust regression that calibrates Effortless's measurements against injected stars (<a href="../about/publications.html#arXiv-2607.09862">Cao 2026b</a>). My formal training in data science includes the <a href="https://www.erdosinstitute.org/">Erdős Institute</a> Data Science Boot Camp.</p>
+  <p>I led the refactoring of IMCOM into PyIMCOM, which reduced its computing cost by about an order of magnitude; teammates ran PyIMCOM to make the IMCOM coadds of the <a href="../about/publications.html#arXiv-2501.05632">OpenUniverse2024</a> simulations, used in several team papers. I then developed Effortless, my algorithm for linear image reconstruction, which is tens of times faster than IMCOM, with a smaller memory footprint, and interpretable: where IMCOM's large matrix inversion is largely a black box, Effortless designs its weights in steps that can each be understood. My papers also use simple, checkable models from machine learning, for example a support vector regression that emulates the asteroseismic correction of <a class="term" href="../research-ai/glossary.html#apokasc">APOKASC-3</a> (<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>), and a robust regression that calibrates Effortless's measurements against injected stars (<a href="../about/publications.html#arXiv-2607.09862">Cao 2026b</a>). My formal training in data science includes the <a href="https://www.erdosinstitute.org/">Erdős Institute</a> Data Science Boot Camp.</p>
 </section>
 <section id="papers">
   <h2>Papers</h2>
@@ -59,7 +59,7 @@
 </section>
 <!-- terms:start -->
 <details class="terms-box" id="terms">
-<summary>Terms on this page (4)</summary>
+<summary>Terms on this page (5)</summary>
 <dl class="glossary">
   <dt id="term-psf">Point spread function (PSF)</dt>
   <dd>The image that a telescope and camera make of a single point of light, such as a distant star: a small blur. Every image is the true sky blurred by the PSF, so knowing the PSF precisely is essential for measuring shapes.</dd>
@@ -69,6 +69,8 @@
   <dd>Short for IMage COMbination: an image-combination method that chooses the weights of input pixels so that the output image has a PSF as close as possible to a target the user specifies, while keeping the noise under control. PyIMCOM is its modern implementation for Roman, and Effortless is a faster successor.</dd>
   <dt id="term-undersampled">Undersampled, well-sampled</dt>
   <dd>An image is undersampled when its pixels are too coarse to capture its finest details (fewer than two samples across them), and well-sampled when they are fine enough. Roman's single exposures are undersampled; reconstructed images are well-sampled.</dd>
+  <dt id="term-apokasc">APOKASC-3</dt>
+  <dd>A catalog that combines APOGEE spectroscopy with Kepler asteroseismology for more than 15,000 evolved stars, mostly red giants. "3" is its third release.</dd>
 </dl>
 <p><a href="glossary.html">Full glossary</a></p>
 </details>
@@ -76,7 +78,7 @@
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.4, last updated October 18, 2026.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.5, last updated October 24, 2026.</p>
 </footer>
 <script src="../assets/terms.js" defer></script>
 <script src="../assets/site.js" defer></script>

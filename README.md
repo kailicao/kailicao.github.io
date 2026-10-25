@@ -2,25 +2,53 @@
 
 The source of Kaili Cao's personal website, published by GitHub Pages at <https://kailicao.github.io/>. Kaili Cao is an Eric and Wendy Schmidt AI in Science Postdoctoral Fellow at the Michigan Institute for Data and AI in Society (MIDAS), University of Michigan.
 
-Version 0.8 (October 2026) adds a Chinese version under `zh/`, with a 中文 / English button on every page that keeps the reader on the same page and anchor. Version 0.7 (October 2026) added images to the site: a research map and other diagrams drawn in HTML and inline SVG (so they follow light and dark mode and read as text), figures from my papers, NASA and ESA/Webb images, a portrait, slide thumbnails and highlights of five talks, and small icons beside section headings on the text-heavy pages. Most talks now have their slides or posters as PDF files, with third-party images of commercial or unclear rights blurred and described. The CV has a full and a short version in a one-column layout that automatic parsers read, alongside a one-page résumé. MapHub, the MIDAS arXiv Preprint Hub, is at <https://kailicao.github.io/maphub-public/>.
+The site is in English and Chinese (under `zh/`, page for page, with a 中文 / English button that keeps the reader on the same page and anchor). Its diagrams are drawn in HTML and inline SVG, so they follow light and dark mode and read as text; talks have their slides or posters as PDF files, with third-party images of commercial or unclear rights blurred and described; the CV comes in a full and a short version that automatic parsers read, alongside a one-page résumé. The current version is in every page's footer. MapHub, the MIDAS arXiv Preprint Hub, is a separate repository served at <https://kailicao.github.io/maphub-public/>.
 
-The site is plain HTML and CSS, with no build step: edit the pages directly.
+The site is plain HTML and CSS, with no build step: edit the pages directly. How to edit, check and release it is in `MAINTAINING.md`.
 
-The folders mirror the site's menus: each section's page is the `index.html` of its folder (`about/index.html` is served at `/about/`), and the root holds only the home page and the not-found page.
+The folders mirror the site's menus: each section's page is the `index.html` of its folder (`about/index.html` is served at `/about/`), and the root holds only the home page and the not-found page (and Search Console's verification file). In the order VS Code's Explorer shows them:
 
-| Path | Contents |
-| --- | --- |
-| `index.html` | The home page |
-| `about/` | About, and under it: research directions across the areas (`research.html`), publications, presentations (with `about/presentations/`: slides as PDF files, third-party images blurred and described), software, personal, colophon |
-| `cv/` | The CV in two versions, `Kaili_Cao_CV.pdf` (full, the copy the site links to) and `Kaili_Cao_CV_short.pdf` (first-author papers and selected talks), and a one-page résumé for data science and software roles, `Kaili_Cao_Resume.pdf` (from `Kaili_Cao_Resume.tex`); the CVs are built from one source: `cv.tex`, with the publication lists in `bib-*.tex` and a one-column style in `kccv.sty` that automatic parsers read; run `latexmk` in `cv/` to rebuild all three |
-| `research-ai/` | AI in science: an overview and its pages (`ai-ready-data.html`, AI-Ready Data; `working-with-ai.html`, Working with AI; `maphub.html`, MapHub), and the glossary the science pages link to (`glossary.html`) |
-| `research-images/`, `research-cosmology/`, `research-stars/` | Each research area's page, and one page per topic: image reconstruction, image analysis and extragalactic astronomy; cosmological inference and simulations; stellar modeling and asteroseismology |
-| `opinions/` | Opinions, and under it: learning Python (with the Huarongdao puzzle), Python philosophy, my Python style, research ethics, teaching and career notes |
-| `zh/` | The Chinese version, page for page: the same folders and file names under `zh/` (`zh/about/` is the Chinese About) |
-| `assets/` | The stylesheets, the scripts (`site.js` on every page: link addresses, Contents, Copy buttons, the language button; `terms.js`: glossary pop-ups), icons and figures |
-| `tools/` | `check_site.py` (links, anchors, footers, sitemap, scripts) and `terms.py` (the "Terms on this page" boxes); `build_talk_slides.py` and `build_defense_slides.py`, which build the public slide PDFs from originals and deck data kept privately (only the method is here; the open fonts they use are in `tools/fonts/`); see `MAINTAINING.md` |
-| `404.html` | The not-found page, which GitHub Pages serves for every missing address; it sends readers who were after an address under `zh/` to `zh/404.html`, its Chinese counterpart |
-| `sitemap.xml`, `robots.txt`, `llms.txt` | Files for search engines and AI tools; the sitemap also lists the MapHub viewer, served from maphub-public on the same host |
-| `google1ed45f418e6f562c.html` | Google Search Console's verification file; keep it, and the `google-site-verification` meta tag in `index.html` (a second verification method), unchanged, or the site loses its verification |
+```text
+about/                    About, and under it: research directions across the
+                          areas (research.html), publications, presentations,
+                          software, personal, colophon
+  presentations/          the slides and posters as PDF files
+assets/                   stylesheets, scripts (site.js on every page; terms.js
+                          for glossary pop-ups), icons, figures
+cv/                       the full CV (Kaili_Cao_CV.pdf, the copy the site
+                          links to), the short one (first-author papers and
+                          selected talks) and the one-page résumé, with their
+                          LaTeX sources (cv.tex with its two wrappers,
+                          Kaili_Cao_CV.tex and Kaili_Cao_CV_short.tex;
+                          bib-*.tex, kccv.sty, Kaili_Cao_Resume.tex); run
+                          latexmk here to rebuild all three (latexmkrc)
+opinions/                 Opinions: learning Python (with the Huarongdao
+                          puzzle), Python philosophy, my Python style, research
+                          ethics, teaching and career notes
+research-ai/              AI in science: AI-Ready Data, Working with AI,
+                          MapHub, and the glossary the science pages link to
+research-cosmology/       cosmological inference and simulations
+research-images/          image reconstruction, image analysis and
+                          extragalactic astronomy
+research-stars/           stellar modeling and asteroseismology
+tools/                    the checker, the term boxes and the slide builders
+                          (MAINTAINING.md), and fonts/ (open fonts the slide
+                          builders use)
+zh/                       the Chinese version: the same folders and file names
+.gitignore
+.nojekyll                 tells GitHub Pages to serve the files as they are
+404.html                  the not-found page; sends addresses under zh/ to
+                          zh/404.html
+google1ed45f418e6f562c.html  Google Search Console's verification file (below)
+index.html                the home page
+llms.txt                  for AI tools
+MAINTAINING.md            how to maintain the site
+README.md                 this file
+robots.txt                for search engines
+sitemap.xml               for search engines; it also lists the MapHub viewer,
+                          served from maphub-public on the same host
+```
+
+Keep `google1ed45f418e6f562c.html` and the `google-site-verification` meta tag in `index.html` (a second verification method) unchanged, or the site loses its verification in Google Search Console.
 
 Contact: <kailicao@umich.edu>

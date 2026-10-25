@@ -55,8 +55,8 @@
 </section>
 <section id="in-more-depth">
 <h2>深入了解</h2>
-<p><a href="https://science.nasa.gov/mission/roman-space-telescope/">罗曼空间望远镜</a>已于2026年8月30日发射。它在太空中观测，点扩散函数（PSF）稳定而清晰，主要受衍射限制。这有利也有弊。罗曼的像素宽0.11角秒，与点扩散函数本身相当，而要对图像充分采样，像素尺寸需约为其一半。因此，罗曼的原始图像是欠采样的，而目前最好的星系形状测量方法都要求图像充分采样。</p>
-<p>形状之所以重要，是因为罗曼<a href="https://roman.gsfc.nasa.gov/science/High_Latitude_Wide_Area_Survey.html">高纬度广域巡天</a>的成像部分为高纬度成像巡天。这是罗曼主要的宇宙学巡天之一，<a href="https://zh.wikipedia.org/zh-cn/弱引力透镜">弱引力透镜</a>则是它的主要科学目标之一。前景中的物质会使遥远星系的像发生畸变，但幅度只在1%左右，而星系固有形状的差异约为30%。为了找回丢失的细节，罗曼在两次曝光之间略微改变指向（即抖动），之后再把这些曝光合成为充分采样的图像。每个输出像素都是输入像素的加权和，而权重的选择也决定了输出的点扩散函数。在按罗曼巡天观测模式生成的模拟图像中，空间望远镜常用的传统方法<a href="https://ui.adsabs.harvard.edu/abs/2002PASP..114..144F/abstract">Drizzle</a>会把恒星的像变成六边形（<a href="https://doi.org/10.1093/mnras/stae182">Hirata et al. 2024</a>，图9）；而<a href="https://ui.adsabs.harvard.edu/abs/2011ApJ...741...46R/abstract">IMCOM在选择权重时</a>，力求使输出点扩散函数尽可能接近用户指定的目标——这正是弱引力透镜研究所需要的。</p>
+<p>罗曼已于2026年8月30日发射。它的点扩散函数有利也有弊：清晰而稳定固然是好事，但正因为如此清晰，罗曼的原始图像是欠采样的，而目前最好的星系形状测量方法都要求图像充分采样。</p>
+<p>形状之所以重要，是因为罗曼<a href="https://roman.gsfc.nasa.gov/science/High_Latitude_Wide_Area_Survey.html">高纬度广域巡天</a>的成像部分为高纬度成像巡天。这是罗曼主要的宇宙学巡天之一，<a href="https://zh.wikipedia.org/zh-cn/弱引力透镜">弱引力透镜</a>则是它的主要科学目标之一。各种图像重建方法的区别，在于如何选择合并抖动曝光时的权重。在按罗曼巡天观测模式生成的模拟图像中，空间望远镜常用的传统方法<a href="https://ui.adsabs.harvard.edu/abs/2002PASP..114..144F/abstract">Drizzle</a>会把恒星的像变成六边形（<a href="https://doi.org/10.1093/mnras/stae182">Hirata et al. 2024</a>，图9）；而<a href="https://ui.adsabs.harvard.edu/abs/2011ApJ...741...46R/abstract">IMCOM在选择权重时</a>，力求使输出点扩散函数尽可能接近用户指定的目标——这正是弱引力透镜研究所需要的。</p>
 <p>我把这类软件看作一种科学仪器：它的设计、测试和校准，和望远镜本身一样，决定着我们能从数据中得到什么。</p>
 <details class="fig-fold" id="statistics">
 <summary>写给统计学者：作为线性反问题的图像重建</summary>
@@ -90,7 +90,7 @@
     <span class="meta">arXiv预印本 · 独立作者</span> · <a href="https://arxiv.org/abs/2607.06674">arXiv:2607.06674</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.06674/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">代码</a> · 报告与墙报：<a href="../../about/presentations/2026-01-06_aas-247-fast-imcom.pdf">AAS 247，2026年</a>、<a href="../../about/presentations/2026-03-25_rapid-response.pdf">RAPID Response，2026年</a>、<a href="https://workshop.ipac.caltech.edu/roman2026/files/KAILI_CAO_roman2026b.pdf">墙报，Roman 2026</a></li>
   <li><span class="title">Linear Image Regridding and Coaddition with Oversampled Point Spread Functions: Lessons from 1D</span><br>
     <span class="authors"><strong>Kaili Cao</strong>, Roman HLIS Cosmology PIT</span><br>
-    <span class="meta">The Astronomical Journal 171, 140 (2026) · 第一作者</span> · <a href="https://doi.org/10.3847/1538-3881/ae356a">DOI</a> · <a href="https://arxiv.org/abs/2510.16110">arXiv:2510.16110</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2510.16110/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">代码</a></li>
+    <span class="meta">The Astronomical Journal 171, 140 (2026) · 唯一个人作者</span> · <a href="https://doi.org/10.3847/1538-3881/ae356a">DOI</a> · <a href="https://arxiv.org/abs/2510.16110">arXiv:2510.16110</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2510.16110/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">代码</a></li>
   <li><span class="title">Simulating Image Coaddition with the Nancy Grace Roman Space Telescope. IV. Hyperparameter Optimization and Experimental Features</span><br>
     <span class="authors"><strong>Kaili Cao</strong>, Christopher M. Hirata, Katherine Laliotis, Masaya Yamamoto, Emily Macbeth, M. A. Troxel, Roman HLIS Cosmology PIT</span><br>
     <span class="meta">The Astrophysical Journal 998, 304 (2026) · 第一作者</span> · <a href="https://doi.org/10.3847/1538-4357/ae3a97">DOI</a> · <a href="https://arxiv.org/abs/2509.18286">arXiv:2509.18286</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2509.18286/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">代码</a></li>
@@ -155,7 +155,7 @@
 </main>
 <footer class="site">
   <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.4，最后更新于2026年10月18日。</p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.5，最后更新于2026年10月24日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>

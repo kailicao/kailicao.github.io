@@ -43,7 +43,6 @@
     <li><a href="#cosmology"><strong>不均匀巡天中的宇宙学</strong></a>：对于深度随天区变化的巡天，实现更简单、更稳健的宇宙学推断；同时发展模拟宇宙结构的新数值方法。</li>
     <li><a href="#stars"><strong>以恒星检验物理</strong></a>：利用罗曼的银河系核球时域巡天为<a class="term" href="../research-ai/glossary.html#red-giant">红巨星</a>（red giant）测定精确的质量和年龄，并用数千颗恒星检验恒星模型。</li>
   </ol>
-  <p>在这三个方向上，AI都是作为一种方法来使用的，并且遵循同一条标准：<a href="../research-ai/">AI参与产出的任何结果都必须可以核查</a>。</p>
 </section>
 
 <section>
@@ -75,13 +74,13 @@
 <section>
   <h2 id="stars">3.以恒星检验物理</h2>
   <p><strong>核心问题。</strong>星震学可以给出红巨星的质量和年龄，用以检验恒星物理、为银河系定年。罗曼的银河系核球时域巡天将观测大量红巨星，但预计其中大部分星震学目标都接近饱和，甚至已经饱和。我们如何得到可靠的测量结果？这些结果又能揭示恒星演化的哪些规律？</p>
-  <p><strong>已有基础。</strong>为高光度红巨星测定更可靠的质量（<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>）；比较恒星模型与APOKASC-3中的红巨星（<a href="../about/publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>）；以及我在耶鲁旋转演化代码（YREC）方面的工作。</p>
+  <p><strong>已有基础。</strong>为高光度红巨星测定更可靠的质量（<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>）；比较恒星模型与APOKASC-3中的红巨星，APOKASC-3是一份光谱与星震学联合星表（<a href="../about/publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>）；以及我在耶鲁旋转演化代码（YREC）方面的工作。</p>
   <p><strong>预期成果。</strong></p>
   <ul>
     <li>DynFlux：从饱和像素的像素级定标做起，为罗曼银河系核球时域巡天中的饱和恒星实现可靠的时域测光。</li>
     <li>与我所在的罗曼<a class="term" href="../research-ai/glossary.html#wfst">大视场科学团队</a>（Wide-Field Science Team）一起，刻画罗曼观测到的演化恒星的特征。</li>
     <li>关于APOKASC-3红巨星的两篇后续论文：红巨星分支上的质量损失，以及恒星诞生时化学成分中的α元素增丰。</li>
-    <li>我提议全面改造YREC：采用面向对象的框架，加入供用户自定义物理过程的钩子，并可能提供Python接口。</li>
+    <li>我提议全面改造YREC。</li>
   </ul>
   <p>详见<a href="../research-stars/asteroseismology.html">星震学</a>和<a href="../research-stars/stellar-modeling.html">恒星建模</a>。</p>
 </section>
@@ -99,7 +98,7 @@
     <li>研究生：
       <ul>
         <li><strong>图像：</strong>把PyIMCOM或“无为”应用于其他望远镜（如哈勃或欧几里得）的欠采样图像，并像我们关于罗曼的论文（<a href="../about/publications.html#arXiv-2410.05442">Cao et al. 2025</a>、<a href="../about/publications.html#arXiv-2509.18286">2026</a>；<a href="../about/publications.html#arXiv-2607.06674">Cao 2026a</a>、<a href="../about/publications.html#arXiv-2607.09862">b</a>）那样，测量输出的点扩散函数和噪声。</li>
-        <li><strong>宇宙学：</strong>把罗曼的3×2点费希尔预测（<a href="../about/publications.html#arXiv-2601.00438">Cao et al. 2026</a>）推广到其他巡天设计或系统误差模型。</li>
+        <li><strong>宇宙学：</strong>把罗曼针对弱引力透镜和星系成团的费希尔预测（3×2点；<a href="../about/publications.html#arXiv-2601.00438">Cao et al. 2026</a>）推广到其他巡天设计或系统误差模型。</li>
         <li><strong>恒星：</strong>利用公开的<a href="https://github.com/kailicao/mesa_apokasc">mesa_apokasc</a>模型，把APOKASC-3的模型比较（<a href="../about/publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>）拓展到其他恒星物理问题；或者把高光度巨星星震学质量的校正方法（<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>）用到其他样本上。</li>
         <li><strong>数值方法：</strong>在新的问题上检验ContEvol方法（<a href="../about/publications.html#arXiv-2405.05188">Cao 2025</a>）。</li>
       </ul>
@@ -136,7 +135,7 @@
 </main>
 <footer class="site">
   <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.4，最后更新于2026年10月18日。</p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.5，最后更新于2026年10月24日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>
