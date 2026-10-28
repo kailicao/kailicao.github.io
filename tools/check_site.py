@@ -12,7 +12,7 @@ from urllib.parse import urlsplit, unquote, quote
 ROOT = os.getcwd()
 SITE = 'https://kailicao.github.io/'
 SKIP_DIRS = {'.git', 'node_modules', 'previews'}
-PROJECT_SITES = ('maphub-public/',)  # other repositories served under the same domain
+PROJECT_SITES = ('maphub-public/', 'pyrec-map/')  # other repositories served under the same domain
 
 
 class Page(html.parser.HTMLParser):
