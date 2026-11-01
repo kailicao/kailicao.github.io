@@ -38,9 +38,9 @@
 <p class="lead">Simulations of cosmic structure, and the numerical methods that run them.</p>
 <section id="in-brief">
 <h2>In brief</h2>
-<p>Many questions in cosmology cannot be answered with pen and paper. Gravity draws matter from a nearly smooth early Universe into a web of sheets, filaments and dense clumps (see the figure), and following that process in detail takes <a class="term" href="../research-ai/glossary.html#simulation">computer simulations</a>. The densest clumps host <a class="term" href="../research-ai/glossary.html#galaxy-cluster">galaxy clusters</a>: the most massive objects held together by their own gravity.</p>
+<p>Many questions in cosmology cannot be answered with pen and paper. Gravity draws matter from a nearly smooth early Universe into a web of sheets, filaments, and dense clumps (see the figure), and following that process in detail takes <a class="term" href="../research-ai/glossary.html#simulation">computer simulations</a>. The densest clumps host <a class="term" href="../research-ai/glossary.html#galaxy-cluster">galaxy clusters</a>: the most massive objects held together by their own gravity.</p>
 <p>Simulations connect theory with observation, but only if the two are compared like with like. A simulated galaxy cluster has to be "observed" the way a real one is before the two can be compared: for example, turned into a mock X-ray image, since the hot gas between a cluster's galaxies shines in X-rays.</p>
-<p>The numerical methods inside a simulation matter too. A simulation advances in many small time steps, and each step is an approximation. With some methods, tiny errors in quantities that should be conserved, such as energy, pile up over millions of steps; <a class="term" href="../research-ai/glossary.html#symplectic">symplectic methods</a> keep them small. So the method decides how far the results can be trusted over long times.</p>
+<p>The numerical methods inside a simulation matter too. A simulation advances in many small time steps, and each step is an approximation. With some methods, tiny errors in quantities that should be conserved, such as energy, pile up over millions of steps; <a class="term" href="../research-ai/glossary.html#symplectic">symplectic methods</a> keep them small. Therefore, the choice of method affects how far the results can be trusted over long times.</p>
 <p>Why it matters: surveys like Roman's will measure cosmic structure precisely, and simulations are how we predict what different cosmological models should look like. My work touches both sides: my first project compared mock observations of simulated clusters, and I have since developed new numerical methods (below).</p>
 <figure class="fig" id="fig-cosmic-web">
 <img src="../assets/figures/cosmic-web.png" width="1455" height="736" loading="lazy" alt="Two square density maps. Left: nearly uniform with faint ripples. Right: a network of dark filaments meeting at dense knots around pale empty regions.">
@@ -50,7 +50,7 @@
 </section>
 <section>
 <h2>What I have done</h2>
-<p>Cosmological simulations are where I made my research debut, as a visiting undergraduate student at the Massachusetts Institute of Technology in 2019. Using the Mock-X framework, we studied how galaxy clusters are classified as dynamically relaxed. We examined nine commonly used morphological metrics in 54,000 synthetic X-ray images of clusters from the <a href="https://www.tng-project.org/">IllustrisTNG</a>, <a href="https://www.astro.ljmu.ac.uk/~igm/BAHAMAS/">BAHAMAS</a> and <a href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.465..213B/abstract">MACSIS</a> simulations, and found that relaxed subsets defined by different metrics agree poorly, so selecting "relaxed" clusters introduces significant selection effects (<a href="../about/publications.html#arXiv-2006.10752">Cao et al. 2021</a>).</p>
+<p>Cosmological simulations are where I made my research debut, as a visiting undergraduate student at the Massachusetts Institute of Technology in 2019. Using the Mock-X framework, we studied how galaxy clusters are classified as dynamically relaxed. We examined nine commonly used morphological metrics in 54,000 synthetic X-ray images of clusters from the <a href="https://www.tng-project.org/">IllustrisTNG</a>, <a href="https://www.astro.ljmu.ac.uk/~igm/BAHAMAS/">BAHAMAS</a>, and <a href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.465..213B/abstract">MACSIS</a> simulations, and found that relaxed subsets defined by different metrics agree poorly, so selecting "relaxed" clusters introduces significant selection effects (<a href="../about/publications.html#arXiv-2006.10752">Cao et al. 2021</a>).</p>
 <p>During my PhD, I also developed ContEvol, a family of implicit numerical methods that only need to solve linear equations and are almost <a href="https://en.wikipedia.org/wiki/Symplectic_integrator">symplectic</a>. They give continuous solutions, and they handle problems from orbits to the Schrödinger equation (<a href="../about/publications.html#arXiv-2405.05188">Cao 2025</a>; <a href="https://github.com/kailicao/ContEvol_formalism">code</a>).</p>
 </section>
 <section><h2>Papers</h2>
@@ -94,7 +94,7 @@
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.5, last updated October 24, 2026.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.6, last updated November 1, 2026.</p>
 </footer>
 <script src="../assets/terms.js" defer></script>
 <script src="../assets/site.js" defer></script>

@@ -60,7 +60,7 @@ Every English page has a Chinese page at the same path under `zh/`; the English 
 
 ## Once a year (a periodic overhaul)
 - Reread every research page against your papers; revise the "What comes next" parts.
-- Check every software status label (active or archived) and "Where to start" entry.
+- Check every software status label and "Where to start" entry.
 - Reread About, Personal and "Working with me": position, teams, students, reply time.
 - Remove anything that has gone stale ("incoming", "submitted", "planned").
 - Ask one or two people to read the home page and tell you what they think you do.

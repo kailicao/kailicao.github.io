@@ -40,15 +40,15 @@
 <section id="in-brief">
   <h2>简介</h2>
   <p>机器学习如今已广泛用于分析天文图像。但模型会学到训练数据中的一切，包括望远镜的缺陷：模糊或不均匀的<a class="term" href="../research-ai/glossary.html#psf">点扩散函数</a>（point spread function）、<a class="term" href="../research-ai/glossary.html#correlated-noise">相关噪声</a>（correlated noise）、欠采样造成的伪影。用这样的数据训练出来的模型，学到的可能是仪器效应，而不是天空的实际情况。</p>
-<p>我的思路是以数据为中心。我不去构建越来越复杂的模型来弥补数据的不足，而是先用物理学改进数据。这项工作从<a href="../research-images/image-reconstruction.html">图像重建</a>开始：把望远镜欠采样的曝光合成为充分采样的图像，其点扩散函数尽可能接近选定的目标，因此每一幅输出图像的PSF都是已知的；<a class="term" href="../research-ai/glossary.html#imcom">IMCOM</a>和“无为”做的都是这件事。用统计学的语言说，这是一个线性反问题（见<a href="../research-images/image-reconstruction.html#statistics">图像重建</a>）。</p>
+<p>因此，我的思路是以数据为中心。我不去构建越来越复杂的模型来弥补数据的不足，而是先用物理学改进数据。这项工作从<a href="../research-images/image-reconstruction.html">图像重建</a>开始：把望远镜欠采样的曝光合成为充分采样的图像，其点扩散函数尽可能接近选定的目标，因此每一幅输出图像的PSF都是已知的；<a class="term" href="../research-ai/glossary.html#imcom">IMCOM</a>和“无为”（Effortless）做的都是这件事。</p>
 </section>
 <section id="in-more-depth">
   <h2>深入了解</h2>
-  <p>我的许多工作都属于反问题：从望远镜<a class="term" href="../research-ai/glossary.html#undersampled">欠采样</a>（undersampled）的曝光中重建充分采样的图像就是一例，而我为此开发的算法“无为”（Effortless）在设计上兼顾可扩展性与可解释性。我用模拟数据中的“真实”值来验证这类方法，并衡量每个输出在多大程度上达到了目标。这也正是不确定性量化（uncertainty quantification）对机器学习的要求。</p>
+  <p>我的许多工作都属于反问题：从望远镜<a class="term" href="../research-ai/glossary.html#undersampled">欠采样</a>（undersampled）的曝光中重建充分采样的图像就是一例，而且是线性反问题（见<a href="../research-images/image-reconstruction.html#statistics">图像重建</a>）；而我为此开发的算法“无为”在设计上兼顾可扩展性与可解释性。我用模拟数据中的“真实”值来验证这类方法，并衡量每个输出在多大程度上达到了目标。这也正是不确定性量化（uncertainty quantification）对机器学习的要求。</p>
 </section>
 <section id="done">
   <h2>我的工作</h2>
-  <p>我主导了把IMCOM重构为PyIMCOM的工作，使计算成本降低了约一个数量级；团队成员用PyIMCOM为<a href="../about/publications.html#arXiv-2501.05632">OpenUniverse2024</a>模拟生成了IMCOM协加图像，团队的多篇论文都用到了这些图像。之后我开发了线性图像重建算法“无为”，它比IMCOM快几十倍，占用内存更少，而且可解释：IMCOM的大型矩阵求逆在很大程度上是一个黑箱，而“无为”分步设计输入像素的权重，每一步都可以理解。我的论文中也用到简单、可以核查的机器学习模型，例如用支持向量回归模拟<a class="term" href="../research-ai/glossary.html#apokasc">APOKASC-3</a>的星震修正（<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>），以及用稳健回归、借助注入恒星校准“无为”的测量（<a href="../about/publications.html#arXiv-2607.09862">Cao 2026b</a>）。我在数据科学方面受过的正式训练，包括<a href="https://www.erdosinstitute.org/">Erdős Institute</a>的数据科学训练营。</p>
+  <p>在接替IMCOM的“无为”中（见<a href="../research-images/image-reconstruction.html">图像重建</a>），我让权重变得可以解释：IMCOM的大型矩阵求逆在很大程度上是一个黑箱，而“无为”分步设计输入像素的权重，每一步都可以理解。我的论文中也用到简单、可以核查的机器学习模型，例如用支持向量回归模拟<a class="term" href="../research-ai/glossary.html#apokasc">APOKASC-3</a>的星震修正（<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>），以及用稳健回归、借助注入恒星校准“无为”的测量（<a href="../about/publications.html#arXiv-2607.09862">Cao 2026b</a>）。我在数据科学方面受过的正式训练，包括<a href="https://www.erdosinstitute.org/">Erdős Institute</a>的数据科学训练营。</p>
 </section>
 <section id="papers">
   <h2>论文</h2>
@@ -79,7 +79,7 @@
 </main>
 <footer class="site">
   <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.5，最后更新于2026年10月24日。</p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.6，最后更新于2026年11月1日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>

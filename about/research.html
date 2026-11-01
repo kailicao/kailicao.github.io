@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research Directions · Kaili Cao</title>
-<meta name="description" content="Kaili Cao&#x27;s research plan: three directions for the next five years, building on survey analysis infrastructure for Roman and other surveys.">
+<meta name="description" content="Kaili Cao&#x27;s Research Directions: three directions for the next five years, building on survey analysis infrastructure for Roman and other surveys.">
 <link rel="alternate" hreflang="en" href="https://kailicao.github.io/about/research.html">
 <link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/about/research.html">
 <link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/about/research.html">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kaili Cao">
 <meta property="og:title" content="Research Directions · Kaili Cao">
-<meta property="og:description" content="Kaili Cao&#x27;s research plan: three directions for the next five years, building on survey analysis infrastructure for Roman and other surveys.">
+<meta property="og:description" content="Kaili Cao&#x27;s Research Directions: three directions for the next five years, building on survey analysis infrastructure for Roman and other surveys.">
 <meta property="og:url" content="https://kailicao.github.io/about/research.html">
 <meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
@@ -46,8 +46,8 @@
 
 <section>
   <h2 id="images">1. Images that can be trusted</h2>
-  <p><strong>The question.</strong> Roman's pixels are about as large as its point spread function (PSF), so its native images are <a class="term" href="../research-ai/glossary.html#undersampled">undersampled</a>. Weak lensing, <a class="term" href="../research-ai/glossary.html#photometry">photometry</a> and machine learning all need images whose PSF and noise are known. How well can we know them, at the scale of a whole survey?</p>
-  <p><strong>Builds on.</strong> PyIMCOM, which I refactored for Roman (<a href="../about/publications.html#arXiv-2410.05442">Cao et al. 2025</a>) and tuned (<a href="../about/publications.html#arXiv-2509.18286">Cao et al. 2026</a>); what one-dimensional models teach about regridding and <a class="term" href="../research-ai/glossary.html#coadd">coaddition</a> (<a href="../about/publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>); and Effortless, my faster algorithm for linear image reconstruction (<a href="../about/publications.html#arXiv-2607.06674">Cao 2026a</a>, <a href="../about/publications.html#arXiv-2607.09862">2026b</a>).</p>
+  <p><strong>The question.</strong> Roman's pixels are about as large as its point spread function (PSF), so its native images are <a class="term" href="../research-ai/glossary.html#undersampled">undersampled</a>. Weak lensing, <a class="term" href="../research-ai/glossary.html#photometry">photometry</a>, and machine learning all need images whose PSF and noise are known. How well can we know them, at the scale of a whole survey?</p>
+  <p><strong>Builds on.</strong> PyIMCOM, whose refactoring for Roman I led (<a href="../about/publications.html#arXiv-2410.05442">Cao et al. 2025</a>), and which I tuned (<a href="../about/publications.html#arXiv-2509.18286">Cao et al. 2026</a>); what one-dimensional models teach about regridding and <a class="term" href="../research-ai/glossary.html#coadd">coaddition</a> (<a href="../about/publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>); and Effortless, my faster algorithm for linear image reconstruction (<a href="../about/publications.html#arXiv-2607.06674">Cao 2026a</a>, <a href="../about/publications.html#arXiv-2607.09862">2026b</a>).</p>
   <p><strong>Deliverables.</strong></p>
   <ul>
     <li>Applications of Effortless to survey data, with the PSF and noise properties of every output image documented.</li>
@@ -60,11 +60,11 @@
 
 <section>
   <h2 id="cosmology">2. Cosmology from uneven surveys</h2>
-  <p><strong>The question.</strong> A survey's depth varies across its footprint, with sky background, tiling and detector defects. That complicates every step from catalogs to cosmological parameters. Can we make the data uniform enough that inference becomes simpler, without biasing it?</p>
+  <p><strong>The question.</strong> A survey's depth varies across its footprint, with sky background, tiling, and detector defects. That complicates every step from catalogs to cosmological parameters. Can we make the data uniform enough that inference becomes simpler, without biasing it?</p>
   <p><strong>Builds on.</strong> Forecasts of the cosmological constraints from Roman's weak lensing survey (<a href="../about/publications.html#arXiv-2601.00438">Cao et al. 2026</a>); ContEvol, my numerical methods based on Hermite spline optimization (<a href="../about/publications.html#arXiv-2405.05188">Cao 2025</a>); and my first project, on <a class="term" href="../research-ai/glossary.html#galaxy-cluster">galaxy clusters</a> in <a class="term" href="../research-ai/glossary.html#simulation">simulations</a> (<a href="../about/publications.html#arXiv-2006.10752">Cao et al. 2021</a>).</p>
   <p><strong>Deliverables.</strong></p>
   <ul>
-    <li>Depth Padding: a way to fill in shallow regions of a survey with synthetic data from a machine-learning model trained on deep fields, validated so that it does not bias cosmological results.</li>
+    <li>Depth Padding: a way to fill in shallow regions of a survey by learning from deep fields, validated so that it does not bias cosmological results.</li>
     <li>ContCosmos: a study of whether ContEvol can formulate cosmological simulations, including N-body simulations.</li>
   </ul>
   <p>More on <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a> and <a href="../research-cosmology/cosmological-simulations.html">Cosmological Simulations</a>.</p>
@@ -72,7 +72,7 @@
 
 <section>
   <h2 id="stars">3. Stars as tests of physics</h2>
-  <p><strong>The question.</strong> Asteroseismology gives masses and ages of red giants, which test stellar physics and date the Milky Way. Roman's Galactic Bulge Time Domain Survey will observe very many of them, but most of its asteroseismic targets are expected to be near or beyond saturation. How do we get reliable measurements, and what do they tell us about how stars evolve?</p>
+  <p><strong>The question.</strong> Asteroseismology gives masses and ages of red giants, which test stellar physics and date the Milky Way. Roman's Galactic Bulge Time Domain Survey will observe very many of them, but about half of its asteroseismic targets are expected to be near or beyond saturation. How do we get reliable measurements, and what do they tell us about how stars evolve?</p>
   <p><strong>Builds on.</strong> More reliable masses for luminous red giants (<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>); stellar models compared with red giants in APOKASC-3, a joint spectroscopic and asteroseismic catalog (<a href="../about/publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>); and my work on the Yale Rotating Evolution Code (YREC).</p>
   <p><strong>Deliverables.</strong></p>
   <ul>
@@ -86,7 +86,7 @@
 
 <section>
   <h2 id="ai">Across the three: AI held to a standard</h2>
-  <p>AI enters each direction where its output can be checked: reconstructed images give machine learning cleaner training data; Depth Padding uses a learned model, validated against simulations; and <a href="../research-ai/maphub.html">MapHub</a> already shows how an AI tool can deliver checkable results. More on <a href="../research-ai/">AI in Science</a>.</p>
+  <p>AI enters each direction where its output can be checked: reconstructed images give machine learning cleaner training data; Depth Padding uses a learned model, validated against simulations; and <a href="../research-ai/maphub.html">MapHub</a> is one example of an AI tool that delivers checkable results. More on <a href="../research-ai/">AI in Science</a>.</p>
 </section>
 
 <section>
@@ -134,7 +134,7 @@
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.5, last updated October 24, 2026.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.6, last updated November 1, 2026.</p>
 </footer>
 <script src="../assets/terms.js" defer></script>
 <script src="../assets/site.js" defer></script>

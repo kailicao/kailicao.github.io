@@ -39,15 +39,15 @@
 <section id="in-brief">
   <h2>In brief</h2>
   <p>Machine learning is now widely used to analyze astronomical images. But a model learns whatever is in its training data, including the telescope's imperfections: a blurry or uneven <a class="term" href="../research-ai/glossary.html#psf">point spread function</a>, <a class="term" href="../research-ai/glossary.html#correlated-noise">correlated noise</a>, artifacts from undersampling. A model trained on such data may learn the instrument rather than the sky.</p>
-<p>My approach is data-centric. Rather than building ever more complex models to make up for imperfect data, I use physics to improve the data first. <a href="../research-images/image-reconstruction.html">Image reconstruction</a> is where this starts: combining a telescope's undersampled exposures into well-sampled images whose point spread function is as close as possible to a chosen target, so that every output image comes with a known PSF, as <a class="term" href="../research-ai/glossary.html#imcom">IMCOM</a> and Effortless do. In statistical terms, it is a linear inverse problem (<a href="../research-images/image-reconstruction.html#statistics">Image Reconstruction</a>).</p>
+<p>My approach is therefore data-centric. Rather than building ever more complex models to make up for imperfect data, I use physics to improve the data first. This starts with <a href="../research-images/image-reconstruction.html">image reconstruction</a>: combining a telescope's undersampled exposures into well-sampled images whose point spread function is as close as possible to a chosen target, so that every output image comes with a known PSF, as <a class="term" href="../research-ai/glossary.html#imcom">IMCOM</a> and Effortless do.</p>
 </section>
 <section id="in-more-depth">
   <h2>In more depth</h2>
-  <p>Much of my work is on inverse problems: reconstructing <a class="term" href="../research-ai/glossary.html#undersampled">well-sampled</a> images from a telescope's undersampled exposures is one, and Effortless, my algorithm for it, is built to be both scalable and interpretable. I validate such methods against simulated truth and measure how well each output meets its target, which is the discipline that uncertainty quantification asks of machine learning too.</p>
+  <p>Much of my work is on inverse problems: reconstructing <a class="term" href="../research-ai/glossary.html#undersampled">well-sampled</a> images from a telescope's undersampled exposures is a linear one (<a href="../research-images/image-reconstruction.html#statistics">Image Reconstruction</a>), and Effortless, my algorithm for it, is built to be both scalable and interpretable. I validate such methods against simulated truth and measure how well each output meets its target, which is the discipline that uncertainty quantification asks of machine learning too.</p>
 </section>
 <section id="done">
   <h2>What I have done</h2>
-  <p>I led the refactoring of IMCOM into PyIMCOM, which reduced its computing cost by about an order of magnitude; teammates ran PyIMCOM to make the IMCOM coadds of the <a href="../about/publications.html#arXiv-2501.05632">OpenUniverse2024</a> simulations, used in several team papers. I then developed Effortless, my algorithm for linear image reconstruction, which is tens of times faster than IMCOM, with a smaller memory footprint, and interpretable: where IMCOM's large matrix inversion is largely a black box, Effortless designs its weights in steps that can each be understood. My papers also use simple, checkable models from machine learning, for example a support vector regression that emulates the asteroseismic correction of <a class="term" href="../research-ai/glossary.html#apokasc">APOKASC-3</a> (<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>), and a robust regression that calibrates Effortless's measurements against injected stars (<a href="../about/publications.html#arXiv-2607.09862">Cao 2026b</a>). My formal training in data science includes the <a href="https://www.erdosinstitute.org/">Erdős Institute</a> Data Science Boot Camp.</p>
+  <p>In Effortless, my successor to IMCOM (<a href="../research-images/image-reconstruction.html">Image Reconstruction</a>), I made the weights interpretable: where IMCOM's large matrix inversion is largely a black box, Effortless designs its weights in steps that can each be understood. My papers also use simple, checkable models from machine learning, for example a support vector regression that emulates the asteroseismic correction of <a class="term" href="../research-ai/glossary.html#apokasc">APOKASC-3</a> (<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>), and a robust regression that calibrates Effortless's measurements against injected stars (<a href="../about/publications.html#arXiv-2607.09862">Cao 2026b</a>). My formal training in data science includes the <a href="https://www.erdosinstitute.org/">Erdős Institute</a> Data Science Boot Camp.</p>
 </section>
 <section id="papers">
   <h2>Papers</h2>
@@ -55,7 +55,7 @@
 </section>
 <section id="next">
   <h2>What comes next</h2>
-  <p>One goal is image products ready for machine learning: reconstructed images whose PSFs and noise are documented. I hope AI will help me reach the goals of my research on images, cosmology and stars, while everything I deliver stays checkable. Where AI enters each direction is on my <a href="../about/research.html#ai">Research Directions</a>.</p>
+  <p>One goal is image products ready for machine learning: reconstructed images whose PSFs and noise are documented. I hope AI will help me reach the goals of my research on images, cosmology, and stars, while everything I deliver stays checkable. Where AI enters each direction is on my <a href="../about/research.html#ai">Research Directions</a>.</p>
 </section>
 <!-- terms:start -->
 <details class="terms-box" id="terms">
@@ -78,7 +78,7 @@
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.5, last updated October 24, 2026.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.6, last updated November 1, 2026.</p>
 </footer>
 <script src="../assets/terms.js" defer></script>
 <script src="../assets/site.js" defer></script>

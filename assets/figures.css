@@ -106,6 +106,4 @@ figure.fig-side figcaption { font-size: .78rem; }
 /* a small preview figure */
 figure.fig-small { max-width: 340px; }
 figure.fig-small figcaption { font-size: .8rem; }
-/* a smaller copy of a diagram from another page */
-figure.fig-mini { max-width: 520px; zoom: .8; }
 figure.fig-medium { max-width: 520px; }

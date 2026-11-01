@@ -40,8 +40,8 @@
 <section id="in-brief">
 <h2>简介</h2>
 <p>望远镜从来不能原原本本地记录天空。即使是一个完美的点光源，比如一颗遥远的恒星，也会扩散成一小团模糊的光斑，这就是<a class="term" href="../research-ai/glossary.html#psf">点扩散函数</a>（PSF）；相机再用一个个方形的<a class="term" href="../research-ai/glossary.html#pixel">像素</a>（pixel）记录这团光斑。本页讲的是如何把原始曝光变成模糊程度精确已知的图像——精密测量离不开这一点。</p>
-<p><a href="https://science.nasa.gov/mission/roman-space-telescope/">南希·格蕾丝·罗曼空间望远镜</a>于2026年8月发射，在太空中观测，因此它的点扩散函数清晰而稳定，主要受<a class="term" href="../research-ai/glossary.html#diffraction">衍射</a>（diffraction）限制。但它的像素宽0.11<a class="term" href="../research-ai/glossary.html#arcsecond">角秒</a>（arcsecond），与点扩散函数本身的宽度相当。根据<a class="term" href="../research-ai/glossary.html#nyquist">奈奎斯特—香农采样定理</a>（Nyquist–Shannon sampling theorem），要忠实地记录一个图样，在它最精细的细节上需要两个以上的采样点；对罗曼来说，这意味着像素宽度应约为点扩散函数的一半。因此，罗曼的单次曝光是<a class="term" href="../research-ai/glossary.html#undersampled">欠采样</a>（undersampled）的：小于一个像素的细节会丢失或错乱，如下图左侧所示。</p>
-<p>这为什么重要？罗曼的主要宇宙学巡天依靠<a class="term" href="../research-ai/glossary.html#weak-lensing">弱引力透镜</a>（weak gravitational lensing）：我们与遥远星系之间的物质会使星系的光线偏折，把星系的像拉伸约1%。但星系本来就不是圆的：它们自身的形状平均拉长约30%，而且方向随机。因此，只有把数百万个星系的形状平均起来，信号才会显现；而望远镜或数据处理额外引入的任何畸变，都必须精确掌握，误差要远小于1%。</p>
+<p><a href="https://science.nasa.gov/mission/roman-space-telescope/">南希·格蕾丝·罗曼空间望远镜</a>于2026年8月发射，在太空中观测，因此它的点扩散函数尖锐而稳定，主要受<a class="term" href="../research-ai/glossary.html#diffraction">衍射</a>（diffraction）限制。但它的像素宽0.11<a class="term" href="../research-ai/glossary.html#arcsecond">角秒</a>（arcsecond），与点扩散函数本身的宽度相当。根据<a class="term" href="../research-ai/glossary.html#nyquist">奈奎斯特—香农采样定理</a>（Nyquist–Shannon sampling theorem），要忠实地记录一个图样，在它最精细的细节上需要两个以上的采样点；对罗曼来说，这意味着像素宽度应约为点扩散函数的一半。因此，罗曼的单次曝光是<a class="term" href="../research-ai/glossary.html#undersampled">欠采样</a>（undersampled）的：小于一个像素的细节会丢失或错乱，如下图左侧所示。</p>
+<p>这为什么重要？罗曼主要的宇宙学巡天之一——<a href="https://roman.gsfc.nasa.gov/science/High_Latitude_Wide_Area_Survey.html">高纬度成像巡天</a>——依靠<a class="term" href="../research-ai/glossary.html#weak-lensing">弱引力透镜</a>（weak gravitational lensing）：我们与遥远星系之间的物质会使星系的光线偏折，把星系的像拉伸约1%。但星系本来就不是圆的：它们自身的形状平均拉长约30%，而且方向随机。因此，只有把数百万个星系的形状平均起来，信号才会显现；而望远镜或数据处理额外引入的任何畸变，都必须精确掌握，误差要远小于1%。</p>
 <p>解决办法从<a class="term" href="../research-ai/glossary.html#dithering">抖动</a>（dithering）开始：罗曼在两次曝光之间略微改变指向，使不同曝光在像素内的不同位置上采样天空（见右图）。随后，<strong>图像重建</strong>把这些曝光合成为一张充分采样的图像。每个输出像素都是附近输入像素的加权和。权重决定了来自相邻位置的光如何混合，因此也决定了输出图像的模糊程度，即它的点扩散函数。我的工作有两个方面。一是选择权重，使输出点扩散函数尽可能接近选定的目标，同时把噪声压低——如果权重通过减去相邻像素来锐化图像，噪声也会随之放大。二是让权重的计算足够快，足以处理数十亿像素的巡天。</p>
 <figure class="fig" id="fig-undersampling">
 <div style="display:flex;flex-wrap:wrap;gap:12px 20px">
@@ -55,12 +55,11 @@
 </section>
 <section id="in-more-depth">
 <h2>深入了解</h2>
-<p>罗曼已于2026年8月30日发射。它的点扩散函数有利也有弊：清晰而稳定固然是好事，但正因为如此清晰，罗曼的原始图像是欠采样的，而目前最好的星系形状测量方法都要求图像充分采样。</p>
-<p>形状之所以重要，是因为罗曼<a href="https://roman.gsfc.nasa.gov/science/High_Latitude_Wide_Area_Survey.html">高纬度广域巡天</a>的成像部分为高纬度成像巡天。这是罗曼主要的宇宙学巡天之一，<a href="https://zh.wikipedia.org/zh-cn/弱引力透镜">弱引力透镜</a>则是它的主要科学目标之一。各种图像重建方法的区别，在于如何选择合并抖动曝光时的权重。在按罗曼巡天观测模式生成的模拟图像中，空间望远镜常用的传统方法<a href="https://ui.adsabs.harvard.edu/abs/2002PASP..114..144F/abstract">Drizzle</a>会把恒星的像变成六边形（<a href="https://doi.org/10.1093/mnras/stae182">Hirata et al. 2024</a>，图9）；而<a href="https://ui.adsabs.harvard.edu/abs/2011ApJ...741...46R/abstract">IMCOM在选择权重时</a>，力求使输出点扩散函数尽可能接近用户指定的目标——这正是弱引力透镜研究所需要的。</p>
-<p>我把这类软件看作一种科学仪器：它的设计、测试和校准，和望远镜本身一样，决定着我们能从数据中得到什么。</p>
+<p>罗曼尖锐的点扩散函数有利也有弊：它稳定，却导致原始图像采样率不足，而目前最好的星系形状测量方法都要求图像充分采样。各种图像重建方法的区别，在于如何选择合并抖动曝光时的权重。在按罗曼巡天观测模式生成的模拟图像中，空间望远镜常用的传统方法<a href="https://ui.adsabs.harvard.edu/abs/2002PASP..114..144F/abstract">Drizzle</a>会把恒星的像变成六边形（<a href="https://doi.org/10.1093/mnras/stae182">Hirata et al. 2024</a>，图9）。相比之下，<a href="https://ui.adsabs.harvard.edu/abs/2011ApJ...741...46R/abstract">IMCOM在选择权重时</a>，力求使输出点扩散函数尽可能接近用户指定的目标——这正是弱引力透镜研究所需要的。</p>
+<p>因此，我把图像处理软件看作仪器的一部分：它的设计、测试和校准，和望远镜的设计一样，影响着我们能从数据中得到什么。</p>
 <details class="fig-fold" id="statistics">
 <summary>写给统计学者：作为线性反问题的图像重建</summary>
-<p>用统计学的语言说，这是一个<a class="term" href="../research-ai/glossary.html#inverse-problem">线性反问题</a>。设输入像素为<var>x</var> = <var>Af</var> + <var>ε</var>，其中<var>f</var>是天空，<var>A</var>包含点扩散函数和采样，<var>ε</var>是协方差为<var>Σ</var>的噪声；那么所有线性方法——Drizzle、IMCOM和“无为”都是如此——给出的都是<var>y</var> = <var>Wx</var>，它应当逼近具有明确PSF的目标<var>Tf</var>。权重在<a class="term" href="../research-ai/glossary.html#psf-leakage">泄漏</a>与噪声之间取舍：泄漏是取决于天空的偏差（<var>WA</var> − <var>T</var>）<var>f</var>，噪声是协方差为<var>WΣW</var><sup>T</sup>的方差；例如，IMCOM最小化的是‖<var>WA</var> − <var>T</var>‖<sup>2</sup> + <var>κ</var> tr(<var>WΣW</var><sup>T</sup>)。在一维研究中（<a href="../about/publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>），我把PSF表述为来自已知方向的光子落点的概率分布，并说明了重采样和协加改变的是信息的表示方式，却不能增加信息。“无为”在傅里叶空间中计算权重，而不必求解IMCOM那样的大型线性方程组，这正是它速度快的原因。</p>
+<p>用统计学的语言说，这是一个<a class="term" href="../research-ai/glossary.html#inverse-problem">线性反问题</a>。设输入像素为<var>x</var> = <var>Af</var> + <var>ε</var>，其中<var>f</var>是天空，<var>A</var>包含点扩散函数和采样，<var>ε</var>是协方差为<var>Σ</var>的噪声；那么所有线性方法——Drizzle、IMCOM和“无为”（Effortless）都是如此——给出的都是<var>y</var> = <var>Wx</var>，它应当逼近具有明确PSF的目标<var>Tf</var>。权重在<a class="term" href="../research-ai/glossary.html#psf-leakage">泄漏</a>与噪声之间取舍：泄漏是取决于天空的偏差（<var>WA</var> − <var>T</var>）<var>f</var>，噪声是协方差为<var>WΣW</var><sup>T</sup>的方差；例如，IMCOM最小化的是‖<var>WA</var> − <var>T</var>‖<sup>2</sup> + <var>κ</var> tr(<var>WΣW</var><sup>T</sup>)。在一维研究中（<a href="../about/publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>），我把PSF表述为来自已知方向的光子落点的概率分布，并说明了重采样和协加改变的是信息的表示方式，却不能增加信息。“无为”在傅里叶空间中计算权重，而不必求解IMCOM那样的大型线性方程组，这正是它速度快的原因。</p>
 </details>
 </section>
 <section>
@@ -155,7 +154,7 @@
 </main>
 <footer class="site">
   <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.5，最后更新于2026年10月24日。</p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.6，最后更新于2026年11月1日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>
