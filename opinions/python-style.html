@@ -35,8 +35,8 @@
 <main id="main">
 <p class="crumb"><a href="./">Opinions</a> · My Python Style</p>
 <h1>My Python Style</h1>
-<p class="lead">How I organize and write research code, so that a collaborator can read it, rerun it, and extend it without asking me.</p>
-<p><a href="python.html">Python Philosophy</a> is about how to think about code; this page is about how my own code looks. It describes habits, not rules: take what helps, and in someone else's repository, follow the style it already has. The examples come from repositories I wrote or helped write: <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">Effortless</a> (fast linear image reconstruction for Roman), <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">PyIMCOM</a> (its predecessor, whose refactoring I led), <a href="https://github.com/kailicao/mesa_apokasc">mesa_apokasc</a> (stellar models of red giants), and <a href="https://github.com/kailicao/ContEvol_formalism">ContEvol</a> (a numerical method for differential equations).</p>
+<p class="lead">How I organize and write research code, so that a collaborator can read it, rerun it, and extend it on their own.</p>
+<p><a href="python.html">Python Philosophy</a> is about how to think about code; this page is about how my own code looks. It describes habits, not rules: Take what helps, and in someone else's repository, follow the style it already has. The examples come from repositories I wrote or helped write: <a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">Effortless</a> (fast linear image reconstruction for Roman), <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">PyIMCOM</a> (its predecessor, whose refactoring I led), <a href="https://github.com/kailicao/mesa_apokasc">mesa_apokasc</a> (stellar models of red giants), and <a href="https://github.com/kailicao/ContEvol_formalism">ContEvol</a> (a numerical method for differential equations).</p>
 <section>
   <h2 id="layout" class="i i-layers">How a project is laid out</h2>
   <ul>
@@ -68,7 +68,7 @@
 <section>
   <h2 id="figures" class="i i-pen">Figures from code</h2>
   <ul>
-    <li>Every figure in a paper is made by a script from saved data and saved as a vector PDF. None is edited by hand, so a referee's comment can be answered by changing the script.</li>
+    <li>Every figure in a paper is made by a script from saved data and saved as a vector PDF, with scatter plots of many points rasterized within it. None is edited by hand, so a referee's comment can be answered by changing the script.</li>
     <li>One shared style (fonts, ticks, and a small helper applied to every panel) keeps figures alike from paper to paper.</li>
     <li>One variable per visual channel: color for the method, line style for a second choice, and markers so that curves survive printing in gray. Every axis has a label with units.</li>
     <li>When the question is how much a choice matters, I plot the ratio to a baseline, with a line at 1.</li>
@@ -96,13 +96,13 @@
 </section>
 <section>
   <h2 id="habits" class="i i-tag">Habits I keep</h2>
-  <p>A few of my habits depart from the most common Python style: short statements share a line when they read as one thought (<code>if not mask_out[i]: continue</code>); a class runs its stages through <code>__call__</code>; and flags in exploratory notebooks carry the date they were set. When I contribute to someone else's code, I follow its style, and I never mix a change of style into a commit that changes behavior.</p>
+  <p>A few of my habits depart from the most common Python style: Short statements share a line when they read as one thought (<code>if not mask_out[i]: continue</code>); a class runs its stages through <code>__call__</code>; flags in exploratory notebooks carry the date they were set. When I contribute to someone else's code, I follow its style, and I never mix a change of style into a commit that changes behavior.</p>
   <p>Some habits suit a prototype better than a shared code. As a code gains users, it gains what they need: a package they can install, tests that run on every change, and log messages instead of printed ones.</p>
 </section>
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.6, last updated November 1, 2026.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.9, last updated November 7, 2026.</p>
 </footer>
 <script src="../assets/site.js" defer></script>
 </body>

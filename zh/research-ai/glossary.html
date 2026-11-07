@@ -43,7 +43,7 @@
 <h2 id="images">图像与望远镜</h2>
 <dl class="glossary">
   <dt id="white-noise">白噪声（white noise）</dt>
-  <dd>逐个像素（或逐个时刻）独立变化、在所有尺度上强度相同的噪声。这个名称借用了白光的类比：白光等量地混合了所有颜色。把N个像素的白噪声取平均，噪声会降为原来的1/√N。<span class="seen">出现于：<a href="../research-images/image-analysis.html">图像分析</a>。</span></dd>
+  <dd>逐个像素（或逐个时刻）独立变化、在所有尺度上强度相同的噪声。这个名称借用了白光的类比：白光等量地混合了所有颜色。把<math alttext="N"><mi>N</mi></math>个像素的白噪声取平均，噪声会降为原来的<math alttext="1/√N"><mfrac><mn>1</mn><msqrt><mi>N</mi></msqrt></mfrac></math>。<span class="seen">出现于：<a href="../research-images/image-analysis.html">图像分析</a>。</span></dd>
   <dt id="sampling">采样（sampling）</dt>
   <dd>在离散的点上记录一个连续的量；相机在每个像素上对天空的亮度采样。另见奈奎斯特—香农采样定理。<span class="seen">出现于：<a href="../research-images/image-reconstruction.html">图像重建</a>、<a href="../research-images/image-analysis.html">图像分析</a>。</span></dd>
   <dt id="psf">点扩散函数（point spread function，PSF）</dt>
@@ -135,7 +135,7 @@
   <dt id="scaling-relations">标度关系（scaling relations）</dt>
   <dd>一些简单的公式，以太阳为参照，由ν<sub>max</sub>、Δν和恒星的表面温度推算出恒星的质量和半径。它们效果很好，但需要校准和校正。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>。</span></dd>
   <dt id="surface-gravity">表面重力log g（surface gravity）</dt>
-  <dd>恒星表面的引力加速度，g = GM/R²。天文学家通常给出log g，即以cm/s²为单位的g取以10为底的对数。太阳的log g为4.44（约27000 cm/s²，是地球的28倍）；观测到的红巨星大多在1到3.5之间。<span class="seen">出现于：<a href="../research-stars/stellar-modeling.html">恒星建模</a>、<a href="../research-stars/asteroseismology.html">星震学</a>。</span></dd>
+  <dd>恒星表面的引力加速度，<math alttext="g = GM/R²"><mi>g</mi><mo>=</mo><mi>G</mi><mi>M</mi><mo>/</mo><msup><mi>R</mi><mn>2</mn></msup></math>。天文学家通常给出log g，即以cm/s²为单位的g取以10为底的对数。太阳的log g为4.44（约27000 cm/s²，是地球的28倍）；观测到的红巨星大多在1到3.5之间。<span class="seen">出现于：<a href="../research-stars/stellar-modeling.html">恒星建模</a>、<a href="../research-stars/asteroseismology.html">星震学</a>。</span></dd>
   <dt id="delta-nu">大频率间隔Δν（large frequency separation）</dt>
   <dd>恒星振荡功率谱中各个峰之间的规则间隔（称为“大”频率间隔，是为了与其他类型的峰之间较小的间隔相区别）。它取决于声波穿过恒星所需的时间，并随恒星平均密度的增大而增大（与平均密度的平方根成正比）。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>。</span></dd>
   <dt id="dex">dex</dt>
@@ -165,7 +165,7 @@
   <dt id="kepler">开普勒空间望远镜（Kepler）</dt>
   <dd>NASA的一台空间望远镜（2009年至2018年）。在主任务期间（2009年至2013年），它几乎不间断地测量了约15万颗恒星的亮度，前后长达四年，主要目的是寻找行星。它的光变曲线还揭示了数千颗红巨星的振荡。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>、<a href="../research-stars/stellar-modeling.html">恒星建模</a>。</span></dd>
   <dt id="cn">碳氮比[C/N]</dt>
-  <dd>恒星表面碳与氮之比相对于太阳的值，取对数表示：[C/N] = −0.2意味着这个比值是太阳的10<sup>−0.2</sup> ≈ 0.63倍。第一型上涌会降低这个比值，所以它可以衡量混合作用深入到了什么程度。<span class="seen">出现于：<a href="../research-stars/stellar-modeling.html">恒星建模</a>。</span></dd>
+  <dd>恒星表面碳与氮之比相对于太阳的值，取对数表示：<math alttext="[C/N] = −0.2"><mo>[</mo><mi mathvariant="normal">C</mi><mo>/</mo><mi mathvariant="normal">N</mi><mo>]</mo><mo>=</mo><mo>−</mo><mn>0.2</mn></math>意味着这个比值是太阳的<math alttext="10^−0.2 ≈ 0.63"><msup><mn>10</mn><mrow><mo>−</mo><mn>0.2</mn></mrow></msup><mo>≈</mo><mn>0.63</mn></math>倍。第一型上涌会降低这个比值，所以它可以衡量混合作用深入到了什么程度。<span class="seen">出现于：<a href="../research-stars/stellar-modeling.html">恒星建模</a>。</span></dd>
   <dt id="galactic-archaeology">银河考古学（Galactic archaeology）</dt>
   <dd>根据银河系中恒星的年龄、化学成分和运动，重建银河系的历史。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>。</span></dd>
   <dt id="power-spectrum">振荡功率谱（power spectrum of oscillations）</dt>
@@ -215,7 +215,7 @@
 </main>
 <footer class="site">
   <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.6，最后更新于2026年11月1日。</p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.9，最后更新于2026年11月7日。</p>
 </footer>
 <script src="../../assets/site.js" defer></script>
 </body>

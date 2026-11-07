@@ -2,7 +2,7 @@
 
 > Kaili Cao is an astrophysicist and Eric and Wendy Schmidt AI in Science Postdoctoral Fellow at the Michigan Institute for Data and AI in Society (MIDAS), University of Michigan (2026–2028). PhD in Physics, The Ohio State University, 2026. ORCID 0000-0002-1699-6944. He works on image reconstruction for the Nancy Grace Roman Space Telescope, cosmological inference and simulations, red giant stars (asteroseismology and stellar modeling), and AI in science.
 
-Disambiguation: more than one researcher is named Kaili Cao. This site is about the astrophysicist with ORCID 0000-0002-1699-6944; the authoritative list of his papers is the NASA ADS search by ORCID linked below.
+Disambiguation: more than one researcher is named Kaili Cao. This site is about the astrophysicist with ORCID 0000-0002-1699-6944; the authoritative list of his publications is the NASA ADS search by ORCID linked below.
 
 A Chinese version of this site (中文版) is at https://kailicao.github.io/zh/; the English pages are the reference version.
 
@@ -28,7 +28,7 @@ A Chinese version of this site (中文版) is at https://kailicao.github.io/zh/;
 - [Asteroseismology](https://kailicao.github.io/research-stars/asteroseismology.html)
 - [Software](https://kailicao.github.io/about/software.html): Effortless, MapHub, PyIMCOM, YREC, mesa_apokasc, ContEvol
 - [Presentations](https://kailicao.github.io/about/presentations.html)
-- [Research Directions](https://kailicao.github.io/about/research.html): plans for the next five years, and projects for students
+- [Research Directions](https://kailicao.github.io/about/research.html): plans for the next few years, and projects for students
 - [Glossary](https://kailicao.github.io/research-ai/glossary.html): plain-language definitions of the terms on the research pages
 
 ## Opinions

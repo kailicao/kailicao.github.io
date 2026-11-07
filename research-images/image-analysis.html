@@ -39,22 +39,26 @@
 <section id="in-brief">
 <h2>In brief</h2>
 <p>Every astronomical image mixes signal with imperfections. The detector adds <a class="term" href="../research-ai/glossary.html#noise">noise</a>, some pixels misbehave, and the processing leaves its own traces. To measure something tiny, such as the 1% stretch of <a class="term" href="../research-ai/glossary.html#weak-lensing">weak gravitational lensing</a>, you first have to understand these imperfections well enough to model them or remove them.</p>
-<p>One example comes from Roman's infrared detectors. Their pixels are read out one after another, so the pixels in a row are read within a short time. Slow drifts in the readout electronics then shift a whole row up or down together, leaving faint horizontal stripes. This is <a class="term" href="../research-ai/glossary.html#correlated-noise">correlated noise</a>: unlike random noise (called <a class="term" href="../research-ai/glossary.html#white-noise">white noise</a>), it is shared by neighboring pixels, so combining pixels does not beat it down nearly as well (see the figure). Left uncorrected, the stripes give the image a preferred direction, which can bias the measured shapes of galaxies. Errors that push results in a consistent direction are called <a class="term" href="../research-ai/glossary.html#systematics">systematics</a>; taking more data does not make them go away, so they must be modeled or removed.</p>
-<p>A deeper question runs through this work: what does a pixel value actually mean? It is best thought of not as a little square of sky, but as a <a class="term" href="../research-ai/glossary.html#sampling">sample</a>, at one point, of the sky's brightness after it has been blurred by the telescope and by the way the pixel collects light across its area. Treating images as discrete samples of continuous brightness maps is the starting point of my ideas on this topic. So far, I have contributed to team studies of noise in Roman images and of tools that remove it (below).</p>
+<p>One example comes from Roman's infrared detectors. Their pixels are read out one after another, so the pixels in a row are read within a short time. Slow drifts in the readout electronics then shift a whole row up or down together, leaving faint horizontal stripes. This is <a class="term" href="../research-ai/glossary.html#correlated-noise">correlated noise</a>: Unlike random noise (called <a class="term" href="../research-ai/glossary.html#white-noise">white noise</a>), it is shared by neighboring pixels, so combining pixels does not beat it down nearly as well (see the figure). Left uncorrected, the stripes give the image a preferred direction, which can bias the measured shapes of galaxies. Errors that push results in a consistent direction are called <a class="term" href="../research-ai/glossary.html#systematics">systematics</a>; taking more data does not make them go away, so they must be modeled or removed.</p>
+<p>A deeper question runs through this work: What does a pixel value actually mean? It is best thought of not as a little square of sky, but as a <a class="term" href="../research-ai/glossary.html#sampling">sample</a>, at one point, of the sky's brightness after it has been blurred by the telescope and by the way the pixel collects light across its area. Treating images as discrete samples of continuous brightness maps is the starting point of my ideas on this topic. So far, I have contributed to team studies of noise in Roman images and of tools that remove it (below).</p>
 <figure class="fig" id="fig-correlated-noise">
 <img src="../assets/figures/correlated-noise.png" width="1440" height="720" loading="lazy" alt="Two square noise images. Left: grainy noise with no pattern. Right: the same kind of grain plus faint horizontal bands that are lighter or darker across whole rows.">
-<figcaption>Illustration (not real data). Left: random, or white, noise: each pixel varies independently, so averaging many pixels beats it down. Right: correlated noise, here horizontal stripes like those from an infrared detector's readout: neighboring pixels in a row share the same error, so averaging along the row does not remove it. Made with AI assistance (Claude).</figcaption>
+<figcaption>Illustration (not real data). Left: random, or white, noise: Each pixel varies independently, so averaging many pixels beats it down. Right: correlated noise, here horizontal stripes like those from an infrared detector's readout: Neighboring pixels in a row share the same error, so averaging along the row does not remove it. Made with AI assistance (Claude).</figcaption>
 </figure>
 <p class="newbie">New to this topic? The <a href="../research-ai/glossary.html">Glossary</a> explains the terms in plain language; underlined terms link to it.</p>
 </section>
 <section>
 <h2>What I have done</h2>
-<p>My work here so far is in team studies of noise and systematics in simulated Roman images, to which I have contributed: how noise biases weak lensing measurements; how to remove correlated noise stripes, whose power on large scales the team's <a href="../about/publications.html#arXiv-2512.05949">imDestripe</a> reduces by factors of 10 to 30; and how to make <a class="term" href="../research-ai/glossary.html#photometry">photometry</a> robust using both Roman and <a href="https://rubinobservatory.org/">Rubin</a> images, where ignoring correlated noise underestimates photometric uncertainties by up to a factor of about three. My contribution has mainly been PyIMCOM, the platform for several of these studies, and my expertise in <a class="term" href="../research-ai/glossary.html#imcom">IMCOM</a>.</p>
+<p>My work here so far is in team studies of noise and systematics in simulated Roman images, to which I have contributed: how noise biases weak lensing measurements; how to remove correlated noise stripes, whose power on large scales the team's <a href="../about/publications.html#arXiv-2512.05949">imDestripe</a> reduces by factors of 10 to 30; how to make <a class="term" href="../research-ai/glossary.html#photometry">photometry</a> robust using both Roman and <a href="https://rubinobservatory.org/">Rubin</a> images, where ignoring correlated noise underestimates photometric uncertainties by up to a factor of about three. My contribution has mainly been PyIMCOM, the platform for several of these studies, and my expertise in <a class="term" href="../research-ai/glossary.html#imcom">IMCOM</a>.</p>
 <p>My interest in image analysis grew out of my work on <a href="image-reconstruction.html">image reconstruction</a>. Developing Effortless made me think hard about the physical meaning of astronomical images, and about the relationship between discrete samples and continuous fields.</p>
 </section>
 <section><h2>Papers</h2>
 <h3>Coauthored papers</h3>
 <ul class="pubs">
+  <li><span class="title">Combining Rubin and Roman photometry and its implications for photometric redshift estimation</span><br>
+    <span class="authors">Tae-hyeon Shin, Rachel Mandelbaum, Chun-Hao To, Axel Guinot, Andrew Hearin, Arun Kannawadi, et al. (17 authors, including <strong>Kaili Cao</strong>)</span><br>
+    <span class="meta">arXiv preprint · coauthor (9 of 17)</span> · <a href="https://arxiv.org/abs/2610.22547">arXiv:2610.22547</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2610.22547/abstract">ADS</a><br>
+    <span class="contrib">I contributed my expertise in IMCOM.</span></li>
   <li><span class="title">Robust Photometry for Roman High-Latitude Imaging Survey Cosmology Using Roman and Rubin Imaging</span><br>
     <span class="authors">Chun-Hao To, Tae-Hyeon Shin, Chihway Chang, Christopher Hirata, Brett H. Andrews, Ami Choi, et al. (21 authors, including <strong>Kaili Cao</strong>)</span><br>
     <span class="meta">arXiv preprint · coauthor (10 of 21)</span> · <a href="https://arxiv.org/abs/2607.09849">arXiv:2607.09849</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.09849/abstract">ADS</a><br>
@@ -75,7 +79,7 @@
 <section>
 <h2>What comes next</h2>
 <p><strong>Fetterless</strong>: new tools for analyzing and generating images as discrete samples of continuous fields. The idea is still at an early stage.</p>
-<p>How this fits into my next five years: <a href="../about/research.html">Research Directions</a>.</p>
+<p>How this fits into my next few years: <a href="../about/research.html">Research Directions</a>.</p>
 </section>
 <!-- terms:start -->
 <details class="terms-box" id="terms">
@@ -88,7 +92,7 @@
   <dt id="term-correlated-noise">Correlated noise</dt>
   <dd>Noise that is shared by neighboring pixels instead of varying independently from pixel to pixel; for example, stripes that make a whole row slightly brighter or darker. Unlike white noise, it is not beaten down efficiently by combining neighboring pixels, and if uncorrected it can mimic real patterns.</dd>
   <dt id="term-white-noise">White noise</dt>
-  <dd>Noise that varies independently from one pixel (or moment) to the next, with equal strength on all scales, by analogy with white light, which mixes all colors equally. Averaging N pixels of white noise reduces it by a factor of √N.</dd>
+  <dd>Noise that varies independently from one pixel (or moment) to the next, with equal strength on all scales, by analogy with white light, which mixes all colors equally. Averaging <math alttext="N"><mi>N</mi></math> pixels of white noise reduces it by a factor of <math alttext="√N"><msqrt><mi>N</mi></msqrt></math>.</dd>
   <dt id="term-systematics">Systematics, systematic errors</dt>
   <dd>Errors that push results in a consistent direction, instead of scattering them randomly. More data do not average them away, so they must be understood and corrected. Uncorrected noise patterns, such as stripes, can become systematics when they mimic the signal.</dd>
   <dt id="term-sampling">Sampling</dt>
@@ -104,7 +108,7 @@
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.6, last updated November 1, 2026.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.9, last updated November 7, 2026.</p>
 </footer>
 <script src="../assets/terms.js" defer></script>
 <script src="../assets/site.js" defer></script>

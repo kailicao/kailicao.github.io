@@ -59,7 +59,7 @@
 <p>因此，我把图像处理软件看作仪器的一部分：它的设计、测试和校准，和望远镜的设计一样，影响着我们能从数据中得到什么。</p>
 <details class="fig-fold" id="statistics">
 <summary>写给统计学者：作为线性反问题的图像重建</summary>
-<p>用统计学的语言说，这是一个<a class="term" href="../research-ai/glossary.html#inverse-problem">线性反问题</a>。设输入像素为<var>x</var> = <var>Af</var> + <var>ε</var>，其中<var>f</var>是天空，<var>A</var>包含点扩散函数和采样，<var>ε</var>是协方差为<var>Σ</var>的噪声；那么所有线性方法——Drizzle、IMCOM和“无为”（Effortless）都是如此——给出的都是<var>y</var> = <var>Wx</var>，它应当逼近具有明确PSF的目标<var>Tf</var>。权重在<a class="term" href="../research-ai/glossary.html#psf-leakage">泄漏</a>与噪声之间取舍：泄漏是取决于天空的偏差（<var>WA</var> − <var>T</var>）<var>f</var>，噪声是协方差为<var>WΣW</var><sup>T</sup>的方差；例如，IMCOM最小化的是‖<var>WA</var> − <var>T</var>‖<sup>2</sup> + <var>κ</var> tr(<var>WΣW</var><sup>T</sup>)。在一维研究中（<a href="../about/publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>），我把PSF表述为来自已知方向的光子落点的概率分布，并说明了重采样和协加改变的是信息的表示方式，却不能增加信息。“无为”在傅里叶空间中计算权重，而不必求解IMCOM那样的大型线性方程组，这正是它速度快的原因。</p>
+<p>用统计学的语言说，这是一个<a class="term" href="../research-ai/glossary.html#inverse-problem">线性反问题</a>。设输入像素为<math alttext="x = Af + ε"><mi>x</mi><mo>=</mo><mi>A</mi><mi>f</mi><mo>+</mo><mi>ε</mi></math>，其中<math alttext="f"><mi>f</mi></math>是天空，<math alttext="A"><mi>A</mi></math>包含点扩散函数和采样，<math alttext="ε"><mi>ε</mi></math>是协方差为<math alttext="Σ"><mi>Σ</mi></math>的噪声；那么所有线性方法——Drizzle、IMCOM和“无为”（Effortless）都是如此——给出的都是<math alttext="y = Wx"><mi>y</mi><mo>=</mo><mi>W</mi><mi>x</mi></math>，它应当逼近具有明确PSF的目标<math alttext="Tf"><mi>T</mi><mi>f</mi></math>。权重在<a class="term" href="../research-ai/glossary.html#psf-leakage">泄漏</a>与噪声之间取舍：泄漏是取决于天空的偏差<math alttext="(WA − T)f"><mo>(</mo><mi>W</mi><mi>A</mi><mo>−</mo><mi>T</mi><mo>)</mo><mi>f</mi></math>，噪声是协方差为<math alttext="WΣWᵀ"><mi>W</mi><mi>Σ</mi><msup><mi>W</mi><mi mathvariant="normal">T</mi></msup></math>的方差；例如，IMCOM最小化的是<math alttext="‖WA − T‖² + κ tr(WΣWᵀ)"><msup><mrow><mo>‖</mo><mi>W</mi><mi>A</mi><mo>−</mo><mi>T</mi><mo>‖</mo></mrow><mn>2</mn></msup><mo>+</mo><mi>κ</mi><mi>tr</mi><mo>(</mo><mi>W</mi><mi>Σ</mi><msup><mi>W</mi><mi mathvariant="normal">T</mi></msup><mo>)</mo></math>。在一维研究中（<a href="../about/publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>），我把PSF表述为来自已知方向的光子落点的概率分布，并说明了重采样和协加改变的是信息的表示方式，却不能增加信息。“无为”在傅里叶空间中计算权重，而不必求解IMCOM那样的大型线性方程组，这正是它速度快的原因。</p>
 </details>
 </section>
 <section>
@@ -111,7 +111,7 @@
 <section>
 <h2>下一步</h2>
 <p><strong>“无为”</strong>是我读博期间自己提出的构想，也是其中第一个开始蓬勃发展的。接下来是它的应用：为罗曼的弱引力透镜巡天生成图像；足够快地生成参考图像，供罗曼的快速警报使用；用罗曼时域巡天的数据合成深度图像；以及与鲁宾天文台的图像联合分析。再往后，是更普遍地理解点扩散函数残差，以及为重建图像中的噪声协方差建模。</p>
-<p>这些工作在我未来五年计划中的位置，见<a href="../about/research.html">研究方向</a>。</p>
+<p>这些工作在我未来几年计划中的位置，见<a href="../about/research.html">研究方向</a>。</p>
 </section>
 <!-- terms:start -->
 <details class="terms-box" id="terms">
@@ -154,7 +154,7 @@
 </main>
 <footer class="site">
   <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.8.6，最后更新于2026年11月1日。</p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.9，最后更新于2026年11月7日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>

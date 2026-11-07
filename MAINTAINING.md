@@ -11,6 +11,8 @@ How to keep the site up to date: the conventions, the Chinese pages, what to cha
   ("star seismology,"), but not inside the site's structured data (JSON); plain words; claims only as
   strong as the papers.
 - Label your role in every paper and project; label AI assistance and illustrations.
+- Mathematics is written in MathML, which browsers render natively with no script, each formula with
+  an `alttext`: `<math alttext="√N"><msqrt><mi>N</mi></msqrt></math>`.
 - New pages: copy the head, the footer and the scripts before `</body>` (`assets/site.js`, and
   `assets/terms.js` where the page links glossary terms) of an existing page at the same depth, then
   fix the title, description, canonical link, `hreflang` links and Open Graph tags; add the Chinese
@@ -40,8 +42,10 @@ Every English page has a Chinese page at the same path under `zh/`; the English 
     and, if it is a highlight, the Highlights cards;
   - the research page it belongs to;
   - the CV (`cv/`, then rebuild with `latexmk`; the PDFs are committed only at milestones, so that
-    their versions do not take much space);
-  - the "Papers per year" chart on `about/publications.html` (its bars, labels and `aria-label`).
+    their versions do not take much space), then check its layout: the short CV stays three pages
+    and the résumé one, and no heading ends a page (`kccv.sty` keeps a heading off a page's last
+    lines, `\bottomtitlespace`);
+  - the "Publications per year" chart on `about/publications.html` (its bars, labels and `aria-label`).
 - **Paper status or label changes** (submitted → accepted → published, or the author label): update
   the publication list, every research page that lists the paper and the CV together; they drift
   apart easily.

@@ -41,16 +41,16 @@
   <h2 id="levels" class="i i-layers">Write it, read it, or know it exists</h2>
   <p>In my study guide, I gave every topic one of three goals:</p>
   <ul>
-    <li><strong>Write:</strong> use it to write code that does what you need, as fluently as possible.</li>
-    <li><strong>Read:</strong> understand how it works, well enough to follow other people's code that uses it.</li>
-    <li><strong>Know it exists:</strong> know that Python can do this, and learn the details when you need them.</li>
+    <li><strong>Write:</strong> Use it to write code that does what you need, as fluently as possible.</li>
+    <li><strong>Read:</strong> Understand how it works, well enough to follow other people's code that uses it.</li>
+    <li><strong>Know it exists:</strong> Know that Python can do this, and learn the details when you need them.</li>
   </ul>
-  <p>Back then, most of the course aimed at writing. Today, AI covers much of the writing and almost all of "know it exists": it remembers every string method and every keyword argument. Reading is the level that remains with the person, and it is what the rest of this page is about. Writing still matters, because reading code well comes from having written it, but I would now shift the balance toward reading.</p>
+  <p>Back then, most of the course aimed at writing. Today, AI covers much of the writing and almost all of "know it exists": It remembers every string method and every keyword argument. Reading is the level that remains with the person, and it is what the rest of this page is about. Writing still matters, because reading code well comes from having written it, but I would now shift the balance toward reading.</p>
 </section>
 <section>
   <h2 id="try" class="i i-play">Try it, unless you can predict it</h2>
   <p>Programming is a practical art. If you want to know whether something works, the best way is usually not to ask someone, but to try it yourself. I asked my students to run every example, and then to change it and see what happens.</p>
-  <p>There was one exception: if you see the input and already know the output, or if you can say what every line of a script does, you do not need to run it. Judging this takes honesty. As Confucius put it, <span lang="zh">知之为知之，不知为不知</span>: to know what you know, and to admit what you do not know. If you are not sure of the result, trying it yourself is the safer way.</p>
+  <p>There was one exception: If you see the input and already know the output, or if you can say what every line of a script does, you do not need to run it. Judging this takes honesty. As Confucius put it, <span lang="zh">知之为知之，不知为不知</span>: to know what you know, and to admit what you do not know. If you are not sure of the result, trying it yourself is the safer way.</p>
   <p>The same test now applies to code an AI writes for you. If you can say what each line does, you have checked it. If you cannot, run it, print what is inside, and find out, before you build anything on top of it.</p>
 </section>
 <section>
@@ -66,14 +66,14 @@
 <section>
   <h2 id="names" class="i i-tag">Names are pronouns</h2>
   <p>Writing a program with a clear head means knowing, at every line, what each name refers to: its type and its content. If you do not know, find out with <code>type</code> and <code>print</code>, especially when you use code written by someone else. Code written by an AI is code written by someone else.</p>
-  <p>The picture I found most helpful is that names in Python work like pronouns. You do not declare them in advance; a name simply refers to whatever was last given to it. The same holds for functions: an argument is like a noun, and a parameter like a pronoun. When you write a function with a parameter <code>arg</code>, the function works on "the thing called <code>arg</code>"; when the program runs, it works on "whatever was handed over as <code>arg</code>."</p>
+  <p>The picture I found most helpful is that names in Python work like pronouns. You do not declare them in advance; a name simply refers to whatever was last given to it. The same holds for functions: An argument is like a noun, and a parameter like a pronoun. When you write a function with a parameter <code>arg</code>, the function works on "the thing called <code>arg</code>"; when the program runs, it works on "whatever was handed over as <code>arg</code>."</p>
 <figure class="fig" id="fig-names-pronouns">
 <div class="fig-names">
   <div class="fig-box fig-orange-k name">a</div><span class="arrow" aria-hidden="true">→</span>
   <div class="fig-box fig-blue-k obj">[1, 2, 3, 4]<span>one list object</span></div>
   <div class="fig-box fig-orange-k name">b</div><span class="arrow" aria-hidden="true">→</span>
 </div>
-<figcaption>Names are pronouns: after <code>b = a</code>, both names refer to the same list, so <code>b.append(4)</code> changes what <code>a</code> refers to as well. <a href="https://pythontutor.com/">Python Tutor</a> shows this step by step and is great for seeing it for yourself. Made with AI assistance (Claude).</figcaption>
+<figcaption>Names are pronouns: After <code>b = a</code>, both names refer to the same list, so <code>b.append(4)</code> changes what <code>a</code> refers to as well. <a href="https://pythontutor.com/">Python Tutor</a> shows this step by step and is great for seeing it for yourself. Made with AI assistance (Claude).</figcaption>
 </figure>
 
   <p>Pronouns explain one of the most common surprises in Python. Here, <code>b</code> is not a copy of the list; it is a second pronoun for the same list:</p>
@@ -82,15 +82,15 @@
 <span class="tk-p">&gt;&gt;&gt;</span> b.append(<span class="tk-n">4</span>)
 <span class="tk-p">&gt;&gt;&gt;</span> a
 [<span class="tk-n">1</span>, <span class="tk-n">2</span>, <span class="tk-n">3</span>, <span class="tk-n">4</span>]</code></pre>
-  <p>So my rule for beginners was: unless you have a reason to, avoid giving one thing two names, or two things one name. Follow it, and you can even skip learning about variable scope.</p>
+  <p>So my rule for beginners was: Unless you have a reason to, avoid giving one thing two names, or two things one name. Follow it, and you can even skip learning about variable scope.</p>
   <h3>Objects you can ask</h3>
-  <p>In Python, everything a name refers to is an object: numbers, lists, dictionaries, even functions. Take a complex number <code>z = 3 + 4j</code>. Its real and imaginary parts, <code>z.real</code> and <code>z.imag</code>, are its attributes: data that belongs to it. Its complex conjugate, <code>z.conjugate()</code>, comes from a method: a function that belongs to it. The procedural way of thinking treats <code>z</code> as a lifeless thing that you drop into a machine, which returns its conjugate. The object-oriented way calls <code>z</code> over and asks it: what is your conjugate? Python offers both, as in <code>sorted(items)</code> and <code>items.sort()</code>.</p>
+  <p>In Python, everything a name refers to is an object: numbers, lists, dictionaries, even functions. Take a complex number <code>z = 3 + 4j</code>. Its real and imaginary parts, <code>z.real</code> and <code>z.imag</code>, are its attributes: data that belongs to it. Its complex conjugate, <code>z.conjugate()</code>, comes from a method: a function that belongs to it. The procedural way of thinking treats <code>z</code> as a lifeless thing that you drop into a machine, which returns its conjugate. The object-oriented way calls <code>z</code> over and asks it: What is your conjugate? Python offers both, as in <code>sorted(items)</code> and <code>items.sort()</code>.</p>
   <p>Most people who use Python never need to design their own classes, but almost everyone uses packages organized as classes, so this picture is worth having. And I find modular, object-oriented thinking a powerful way of organizing ideas, even away from a computer.</p>
 </section>
 <section>
   <h2 id="hand" class="i i-pen">Do it by hand first</h2>
   <p>When a task is new, I first imagine doing it by hand. In one exercise, students listed the derangements of four numbers, the orderings in which no number stays in its place, with pencil and paper: first all 24 orderings, then the 9 that qualify. Only then did they write the program, and then make it work for any number of elements.</p>
-  <p>Another example came from real work: counting how many times each user voted, from a file with one user ID per vote. Before the real data arrived, we simulated some, so the program could be written and tested in advance. Before writing any code, we decided how to store the result: a dictionary from user to count. The first working version is often slow. Imagining the job by hand suggests a better one: you would not scan the whole list once for every user, but go through it once, adding a tally mark for each vote. And then, almost always, someone has already written it:</p>
+  <p>Another example came from real work: counting how many times each user voted, from a file with one user ID per vote. Before the real data arrived, we simulated some, so the program could be written and tested in advance. Before writing any code, we decided how to store the result: a dictionary from user to count. The first working version is often slow. Imagining the job by hand suggests a better one: You would not scan the whole list once for every user, but go through it once, adding a tally mark for each vote. And then, almost always, someone has already written it:</p>
 <pre><code class="language-python"><span class="tk-c"># Slow: one pass through all the votes for each user</span>
 counts = {user: votes.count(user) <span class="tk-k">for</span> user <span class="tk-k">in</span> <span class="tk-b">set</span>(votes)}
 
@@ -107,23 +107,23 @@ counts = Counter(votes)</code></pre>
 <section>
   <h2 id="shape" class="i i-code">The shape of good code</h2>
   <ul>
-    <li><strong>Functions</strong> should be independent of each other (if two functions are entangled, they probably belong together), easy to reuse elsewhere with few or no changes, and of moderate length: merge one that is too short into its caller, and split one that is too long. A program organized into functions reads like an essay with a thesis and supporting paragraphs.</li>
-    <li><strong>Comments</strong> are often neglected by beginners, but they matter. My test: when you ask someone for help with your code, you should not need to explain in other words what it does. Good names reduce the need for comments. For a complicated program, I sometimes write the comments first, as a scaffold, and fill in the code afterward.</li>
-    <li><strong>Repetition</strong> is a signal: three or more lines that look almost the same should usually become a loop. Write nested loops one level at a time.</li>
-    <li><strong>Plain over clever:</strong> recursion shows computational thinking beautifully, but unless it is truly needed, I prefer a loop in practice.</li>
+    <li><strong>Functions</strong> should be independent of each other (if two functions are entangled, they probably belong together), easy to reuse elsewhere with few or no changes, and of moderate length: Merge one that is too short into its caller, and split one that is too long. A program organized into functions reads like an essay with a thesis and supporting paragraphs.</li>
+    <li><strong>Comments</strong> are often neglected by beginners, but they matter. My test: When you ask someone for help with your code, you should not need to explain in other words what it does. Good names reduce the need for comments. For a complicated program, I sometimes write the comments first, as a scaffold, and fill in the code afterward.</li>
+    <li><strong>Repetition</strong> is a signal: Three or more lines that look almost the same should usually become a loop. Write nested loops one level at a time.</li>
+    <li><strong>Plain over clever:</strong> Recursion shows computational thinking beautifully, but unless it is truly needed, I prefer a loop in practice.</li>
     <li><strong>Style:</strong> <a href="https://peps.python.org/pep-0008/">PEP 8</a> is a good guide, but the minimum is consistency within a project. When torn between two ways of writing something, run <code>import this</code> and read the Zen of Python.</li>
   </ul>
-  <p>These are also the qualities to ask of AI-written code, because they are what makes code possible to review. The comment test applies directly: now the "someone" you ask is often an AI, and the reviewer is you.</p>
+  <p>These are also the qualities to ask of AI-written code, because they are what makes code possible to review. The comment test applies directly: Now the "someone" you ask is often an AI, and the reviewer is you.</p>
 </section>
 <section>
   <h2 id="time" class="i i-clock">What is worth your time</h2>
-  <p>I used to tell students that the time a programming task costs has three parts: learning what you need, writing and debugging the code, and running it. Running time can usually be ignored, since it is either short or something you can wait out while doing other work. Code that others have written is usually more systematic and more elegant than your own, but if learning it would take too long, it can be faster to write your own: code is written to get a job done, not to be admired.</p>
-  <p>AI has changed this calculation. Learning a library now costs very little, which tips the balance toward existing tools: when someone has already written what you need, an AI can show you how to use it in minutes. What it does not change is the rest of this page. Whoever wrote the tool, you still need to know what it does to your data.</p>
+  <p>I used to tell students that the time a programming task costs has three parts: learning what you need, writing and debugging the code, and running it. Running time can usually be ignored, since it is either short or something you can wait out while doing other work. Code that others have written is usually more systematic and more elegant than your own, but if learning it would take too long, it can be faster to write your own: Code is written to get a job done, not to be admired.</p>
+  <p>AI has changed this calculation. Learning a library now costs very little, which tips the balance toward existing tools: When someone has already written what you need, an AI can show you how to use it in minutes. What it does not change is the rest of this page. Whoever wrote the tool, you still need to know what it does to your data.</p>
 </section>
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.6, last updated November 1, 2026.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.9, last updated November 7, 2026.</p>
 </footer>
 <script src="../assets/site.js" defer></script>
 </body>

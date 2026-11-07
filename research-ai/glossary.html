@@ -48,11 +48,11 @@
   <dt id="correlated-noise">Correlated noise</dt>
   <dd>Noise that is shared by neighboring pixels instead of varying independently from pixel to pixel; for example, stripes that make a whole row slightly brighter or darker. Unlike white noise, it is not beaten down efficiently by combining neighboring pixels, and if uncorrected it can mimic real patterns. <span class="seen">Used on: <a href="../research-images/image-analysis.html">Image Analysis</a>.</span></dd>
   <dt id="diffraction">Diffraction limit</dt>
-  <dd>The sharpest image a telescope can make, set by the wave nature of light and the size of its mirror: even a perfect telescope spreads a point of light into a small pattern. Space telescopes, free of the blurring by Earth's atmosphere, can reach it. <span class="seen">Used on: <a href="../research-images/image-reconstruction.html">Image Reconstruction</a>.</span></dd>
+  <dd>The sharpest image a telescope can make, set by the wave nature of light and the size of its mirror: Even a perfect telescope spreads a point of light into a small pattern. Space telescopes, free of the blurring by Earth's atmosphere, can reach it. <span class="seen">Used on: <a href="../research-images/image-reconstruction.html">Image Reconstruction</a>.</span></dd>
   <dt id="dithering">Dithering</dt>
   <dd>Shifting the telescope slightly between exposures, often by fractions of a pixel, so that different exposures sample the sky at different positions. Combined, they recover detail that a single undersampled exposure misses. <span class="seen">Used on: <a href="../research-images/image-reconstruction.html">Image Reconstruction</a>.</span></dd>
   <dt id="drizzle">Drizzle</dt>
-  <dd>The traditional method for combining dithered images from space telescopes such as Hubble: each input pixel is shrunk and "dropped" onto a finer output grid. It is simple and robust, but it does not control the output PSF precisely. <span class="seen">Used on: <a href="../research-images/image-reconstruction.html">Image Reconstruction</a>.</span></dd>
+  <dd>The traditional method for combining dithered images from space telescopes such as Hubble: Each input pixel is shrunk and "dropped" onto a finer output grid. It is simple and robust, but it does not control the output PSF precisely. <span class="seen">Used on: <a href="../research-images/image-reconstruction.html">Image Reconstruction</a>.</span></dd>
   <dt id="flux-calibration">Flux calibration</dt>
   <dd>Converting the numbers a detector records into physical brightness (flux: the energy arriving per second per unit area), so that measurements from different exposures and instruments agree. <span class="seen">Used on: <a href="../research-images/image-reconstruction.html">Image Reconstruction</a>.</span></dd>
   <dt id="imcom">IMCOM</dt>
@@ -78,7 +78,7 @@
   <dt id="undersampled">Undersampled, well-sampled</dt>
   <dd>An image is undersampled when its pixels are too coarse to capture its finest details (fewer than two samples across them), and well-sampled when they are fine enough. Roman's single exposures are undersampled; reconstructed images are well-sampled. <span class="seen">Used on: <a href="../research-images/image-reconstruction.html">Image Reconstruction</a>.</span></dd>
   <dt id="white-noise">White noise</dt>
-  <dd>Noise that varies independently from one pixel (or moment) to the next, with equal strength on all scales, by analogy with white light, which mixes all colors equally. Averaging N pixels of white noise reduces it by a factor of √N. <span class="seen">Used on: <a href="../research-images/image-analysis.html">Image Analysis</a>.</span></dd>
+  <dd>Noise that varies independently from one pixel (or moment) to the next, with equal strength on all scales, by analogy with white light, which mixes all colors equally. Averaging <math alttext="N"><mi>N</mi></math> pixels of white noise reduces it by a factor of <math alttext="√N"><msqrt><mi>N</mi></msqrt></math>. <span class="seen">Used on: <a href="../research-images/image-analysis.html">Image Analysis</a>.</span></dd>
 </dl>
 </section>
 <section>
@@ -93,7 +93,7 @@
   <dt id="figure-of-merit">Figure of merit</dt>
   <dd>A single number that summarizes how precisely an experiment pins down a set of parameters; larger means smaller error bars. <span class="seen">Used on: <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a>.</span></dd>
   <dt id="fisher">Fisher forecast</dt>
-  <dd>A fast way to estimate how precisely an experiment will measure some parameters. It looks at how quickly the predicted measurements change when each parameter changes: the faster they change, the better the data can pin that parameter down. It assumes the probability of each parameter value falls off like a bell curve (a Gaussian) around the best value. Named after the statistician Ronald Fisher. <span class="seen">Used on: <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a>.</span></dd>
+  <dd>A fast way to estimate how precisely an experiment will measure some parameters. It looks at how quickly the predicted measurements change when each parameter changes: The faster they change, the better the data can pin that parameter down. It assumes the probability of each parameter value falls off like a bell curve (a Gaussian) around the best value. Named after the statistician Ronald Fisher. <span class="seen">Used on: <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a>.</span></dd>
   <dt id="forecast">Forecast</dt>
   <dd>An estimate, made before the data exist, of how precisely a survey will measure something, used to plan the survey and its analysis. <span class="seen">Used on: <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a>.</span></dd>
   <dt id="galaxy-cluster">Galaxy cluster</dt>
@@ -111,15 +111,15 @@
   <dt id="shear">Shear</dt>
   <dd>The stretching of an image in one direction and squeezing in the perpendicular one, which turns a circle into a slight ellipse. Weak lensing shears the images of distant galaxies by about 1%; cosmic shear is the pattern of this effect across the sky. <span class="seen">Used on: <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a>, <a href="../research-images/image-reconstruction.html">Image Reconstruction</a>.</span></dd>
   <dt id="standard-model">Standard model of cosmology (ΛCDM)</dt>
-  <dd>The current standard picture: the Universe has expanded from a hot, dense early state (the Big Bang); it contains ordinary matter, cold (slow-moving) dark matter, and dark energy (Λ, the cosmological constant); and structure grew by gravity from tiny early ripples. A handful of cosmological parameters describe it. <span class="seen">Used on: <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a>.</span></dd>
+  <dd>The current standard picture: The Universe has expanded from a hot, dense early state (the Big Bang); it contains ordinary matter, cold (slow-moving) dark matter, and dark energy (Λ, the cosmological constant); structure grew by gravity from tiny early ripples. A handful of cosmological parameters describe it. <span class="seen">Used on: <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a>.</span></dd>
   <dt id="symplectic">Symplectic method</dt>
   <dd>A numerical method for following motion under forces such as gravity, built so that each time step respects the geometric (symplectic) structure of motion under such forces. One consequence is that "phase-space volume" (a combined measure of the spread in positions and velocities) is conserved. As a result, errors in conserved quantities such as energy stay small over very long runs instead of growing steadily. ContEvol, my family of numerical methods, is nearly symplectic. <span class="seen">Used on: <a href="../research-cosmology/cosmological-simulations.html">Cosmological Simulations</a>.</span></dd>
   <dt id="two-point">Two-point correlation function</dt>
-  <dd>A statistic that asks how a quantity at one point is related, on average, to the same or another quantity at a point a given distance away. For galaxies: are pairs found more often than by chance, or are their shapes aligned? Three of them are used together for weak lensing: cosmic shear, galaxy–galaxy lensing, and galaxy clustering. Combined, they form a "3×2pt" analysis. <span class="seen">Used on: <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a>.</span></dd>
+  <dd>A statistic that asks how a quantity at one point is related, on average, to the same or another quantity at a point a given distance away. For galaxies: Are pairs found more often than by chance, or are their shapes aligned? Three of them are used together for weak lensing: cosmic shear, galaxy–galaxy lensing, and galaxy clustering. Combined, they form a "3×2pt" analysis. <span class="seen">Used on: <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a>.</span></dd>
   <dt id="weak-lensing">Weak gravitational lensing</dt>
   <dd>The slight bending of light from distant galaxies by the gravity of matter in front of them, which stretches their images by about 1%. Averaged over millions of galaxies, it maps all the matter, including dark matter, and so tests cosmological models. <span class="seen">Used on: <a href="../research-images/image-reconstruction.html">Image Reconstruction</a>, <a href="../research-images/image-analysis.html">Image Analysis</a>, <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a>.</span></dd>
   <dt id="zeldovich">Zel'dovich approximation</dt>
-  <dd>A simple model of how structure forms: each bit of matter keeps moving in a straight line in the direction set by the early ripples, so that matter piles up where paths cross. It captures how the cosmic web begins. <span class="seen">Used on: <a href="../research-cosmology/cosmological-simulations.html">Cosmological Simulations</a>.</span></dd>
+  <dd>A simple model of how structure forms: Each bit of matter keeps moving in a straight line in the direction set by the early ripples, so that matter piles up where paths cross. It captures how the cosmic web begins. <span class="seen">Used on: <a href="../research-cosmology/cosmological-simulations.html">Cosmological Simulations</a>.</span></dd>
   <dt id="sigma-8">σ<sub>8</sub> (sigma-8)</dt>
   <dd>A measure of how clumpy matter is today: the typical relative fluctuation in the density of matter (as predicted by the simplest theory, which treats the fluctuations as small), averaged over spheres about 37 million light-years in radius. Cosmologists write this radius as 8 h<sup>−1</sup> megaparsecs, where a megaparsec is about 3.3 million light-years and h ≈ 0.7 describes the expansion rate. <span class="seen">Used on: <a href="../research-cosmology/cosmological-inference.html">Cosmological Inference</a>.</span></dd>
   <dt id="omega-m">Ω<sub>m</sub> (omega-m)</dt>
@@ -130,9 +130,9 @@
 <h2 id="stars">Stars</h2>
 <dl class="glossary">
   <dt id="cn">[C/N]</dt>
-  <dd>The ratio of carbon to nitrogen at a star's surface, compared with the Sun's, on a logarithmic scale: [C/N] = −0.2 means the ratio is 10<sup>−0.2</sup> ≈ 0.63 times the Sun's. The first dredge-up lowers it, so it measures how deep mixing reached. <span class="seen">Used on: <a href="../research-stars/stellar-modeling.html">Stellar Modeling</a>.</span></dd>
+  <dd>The ratio of carbon to nitrogen at a star's surface, compared with the Sun's, on a logarithmic scale: <math alttext="[C/N] = −0.2"><mo>[</mo><mi mathvariant="normal">C</mi><mo>/</mo><mi mathvariant="normal">N</mi><mo>]</mo><mo>=</mo><mo>−</mo><mn>0.2</mn></math> means the ratio is <math alttext="10^−0.2 ≈ 0.63"><msup><mn>10</mn><mrow><mo>−</mo><mn>0.2</mn></mrow></msup><mo>≈</mo><mn>0.63</mn></math> times the Sun's. The first dredge-up lowers it, so it measures how deep mixing reached. <span class="seen">Used on: <a href="../research-stars/stellar-modeling.html">Stellar Modeling</a>.</span></dd>
   <dt id="convection">Convection</dt>
-  <dd>Energy transport by the motion of gas: hot gas rises and cool gas sinks, as in a pot of water heating on a stove. The outer layers of red giants are convective. <span class="seen">Used on: <a href="../research-stars/stellar-modeling.html">Stellar Modeling</a>.</span></dd>
+  <dd>Energy transport by the motion of gas: Hot gas rises and cool gas sinks, as in a pot of water heating on a stove. The outer layers of red giants are convective. <span class="seen">Used on: <a href="../research-stars/stellar-modeling.html">Stellar Modeling</a>.</span></dd>
   <dt id="dex">dex</dt>
   <dd>A difference of 1 in a base-10 logarithm, that is, a factor of 10. So 0.15 dex is a factor of about 1.4. <span class="seen">Used on: <a href="../research-stars/stellar-modeling.html">Stellar Modeling</a>.</span></dd>
   <dt id="first-dredge-up">First dredge-up</dt>
@@ -164,7 +164,7 @@
   <dt id="stellar-model">Stellar model</dt>
   <dd>A computer solution of the equations of a star's structure (gravity, pressure, energy transport, and nuclear burning) followed over time. Codes such as MESA and YREC compute them. <span class="seen">Used on: <a href="../research-stars/stellar-modeling.html">Stellar Modeling</a>.</span></dd>
   <dt id="surface-gravity">Surface gravity (log g)</dt>
-  <dd>The gravitational acceleration at a star's surface, g = GM/R². Astronomers quote log g, the base-10 logarithm of g in cm/s². The Sun's is 4.44 (about 27,000 cm/s², 28 times Earth's); most observed red giants' are about 1 to 3.5. <span class="seen">Used on: <a href="../research-stars/stellar-modeling.html">Stellar Modeling</a>, <a href="../research-stars/asteroseismology.html">Asteroseismology</a>.</span></dd>
+  <dd>The gravitational acceleration at a star's surface, <math alttext="g = GM/R²"><mi>g</mi><mo>=</mo><mi>G</mi><mi>M</mi><mo>/</mo><msup><mi>R</mi><mn>2</mn></msup></math>. Astronomers quote log g, the base-10 logarithm of g in cm/s². The Sun's is 4.44 (about 27,000 cm/s², 28 times Earth's); most observed red giants' are about 1 to 3.5. <span class="seen">Used on: <a href="../research-stars/stellar-modeling.html">Stellar Modeling</a>, <a href="../research-stars/asteroseismology.html">Asteroseismology</a>.</span></dd>
   <dt id="alpha-rich">α-rich population</dt>
   <dd>Stars with more "α elements" (such as oxygen, magnesium, and silicon, which stars build by adding helium nuclei, or α particles) relative to iron than the Sun has. They formed early in the Milky Way's history, so they are mostly old. <span class="seen">Used on: <a href="../research-stars/asteroseismology.html">Asteroseismology</a>, <a href="../research-stars/stellar-modeling.html">Stellar Modeling</a>.</span></dd>
   <dt id="delta-nu">Δν (large frequency separation)</dt>
@@ -210,7 +210,7 @@
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.8.6, last updated November 1, 2026.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.9, last updated November 7, 2026.</p>
 </footer>
 <script src="../assets/site.js" defer></script>
 </body>

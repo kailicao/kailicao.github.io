@@ -1,6 +1,6 @@
 % Curriculum vitae of Kaili Cao: the full version (Kaili_Cao_CV.tex) and a short one (Kaili_Cao_CV_short.tex)
 % both input this file. Build both with `latexmk` in this folder. \full{...} marks what the short version leaves out.
-% One column, standard headings and a Unicode text layer, so that automatic parsers read it (see kccv.sty).
+% One column, standard headings, and a Unicode text layer, so that automatic parsers read it (see kccv.sty).
 \documentclass[12pt]{article}
 \ifdefined\shortversion
   \newcommand{\full}[1]{}
@@ -29,7 +29,7 @@ GitHub: \href{https://github.com/kailicao}{github.com/kailicao}; LinkedIn: \href
 \cventry{2026 -- 2028}{Schmidt AI in Science Postdoctoral Fellow}{University~of~Michigan}{Ann Arbor}{United States}{}
 \cventry{2024 -- present}{Member}{Asteroseismology Using The Galactic Bulge Time Domain Survey (Roman Space Telescope Wide-Field Science Team)}{Columbus}{United States}{}
 \cventry{2023 -- present}{Member}{\Colorhref{https://roman-hlis-cosmology.caltech.edu/}{Maximizing Cosmological Science with the Roman High Latitude Imaging Survey} (Roman Space Telescope Project Infrastructure Team)}{Pasadena}{United States}{}
-\cventry{2023 -- 2026}{Graduate Research Assistant}{\Colorhref{https://ccapp.osu.edu/}{Center for Cosmology and AstroParticle Physics (CCAPP)}, The~Ohio~State~University}{Columbus}{United States}{}
+\cventry{2023 -- 2026}{Graduate Research Associate}{\Colorhref{https://ccapp.osu.edu/}{Center for Cosmology and AstroParticle Physics (CCAPP)}, The~Ohio~State~University}{Columbus}{United States}{}
 \full{\cventry{2019}{Visiting Undergraduate Student}{Massachusetts Institute of Technology}{Cambridge}{United States}{}}
 
 \section{Education}
@@ -43,18 +43,20 @@ GitHub: \href{https://github.com/kailicao}{github.com/kailicao}; LinkedIn: \href
 \section{Honors and Awards}
 
 \cvitem{2026 -- 2028}{\textbf{Eric and Wendy Schmidt AI in Science Postdoctoral Fellowship}, Michigan Institute for Data and AI in Society, University~of~Michigan.}
-\cvitem{2023 -- 2026}{Research support as a member of NASA's Roman HLIS Cosmology Project Infrastructure Team and the Roman asteroseismology Wide-Field Science Team (as a PhD student).}
+\cvitem{2023 -- 2026}{Research support as a member of NASA's Roman High Latitude Imaging Survey (HLIS) Cosmology Project Infrastructure Team and the Roman asteroseismology Wide-Field Science Team (as a PhD student).}
 
 \section{Research Interests}
 
-\cvitem{Cosmology}{Weak Gravitational Lensing, Cosmic Shear Measurement,\newline Parameter Inference, Fisher Forecasts}
-\cvitem{Stellar~Physics}{Stellar Models, Stellar Evolution Code, Interior Physics, Asteroseismology, Red Giant Branch}
-\cvitem{Methods}{Numerical Simulations, Numerical Methods, Image Processing,\newline Data Analysis, Machine Learning}
+\cvitem{Images}{Image Reconstruction and Coaddition, Point Spread Functions\full{, Noise in Survey Images, Linear Inverse Problems, Extragalactic Astronomy}}
+\cvitem{Cosmology}{Weak Gravitational Lensing, Cosmic Shear\full{, Galaxy Clustering, Summary Statistics, Parameter Inference, Fisher Forecasts}}
+\cvitem{Stellar~Physics}{Stellar Models, Stellar Evolution Codes\full{, Interior Physics, Red Giants, Asteroseismology, Asteroseismic Masses and Ages}}
+\cvitem{AI~in~Science}{AI-Ready Data, Checkable AI\full{, Large Language Models for the Literature (MapHub), Machine Learning for Calibration and Emulation}}
+\cvitem{Methods}{Numerical Simulations, Numerical Methods, Statistical Modeling\full{, Validation against Simulated Truth, Data Analysis, Scientific Software}}
 
 \ifdefined\shortversion
 \section{Selected Publications}
 
-\cvitem{}{The full list (10 first-author and 14 coauthored papers, each with my contribution) is on \href{https://kailicao.github.io/about/publications.html}{kailicao.github.io/about/publications.html}; ORCID: \href{https://orcid.org/0000-0002-1699-6944}{0000-0002-1699-6944}.}
+\cvitem{}{The full list (11 first-author and 15 coauthored publications, each with my contribution) is on \href{https://kailicao.github.io/about/publications.html}{kailicao.github.io/about/publications.html}; ORCID: \href{https://orcid.org/0000-0002-1699-6944}{0000-0002-1699-6944}.}
 
 \subsection{First-Author Publications}
 
@@ -67,11 +69,15 @@ GitHub: \href{https://github.com/kailicao}{github.com/kailicao}; LinkedIn: \href
 
 \subsection{2026}
 
+\full{\cvitem{Nov 2026}{\textbf{Short Metascience Talk: A Legacy Survey of astro-ph: Literature Management in the AI Era (online)}, \textsl{Roman HLIS Cosmology PIT call}. [\Colorhref{https://kailicao.github.io/about/presentations/2026-11-02_hlis-maphub-talk.pdf}{Slides}]}}
+
 \full{\cvitem{Jul 2026}{\textbf{Fisher Forecasts for Cosmological Yields from 3$\times$2pt Analysis of the Roman Space Telescope High Latitude Imaging Survey (poster)}, \textsl{Shifting Landscapes in Astrophysics: New Frontiers to Explore with Roman}, Pasadena, United States. [\Colorhref{https://workshop.ipac.caltech.edu/roman2026/files/KAILI_CAO_roman2026a.pdf}{Poster}, \Colorhref{https://www.youtube.com/watch?v=rXuoYL4ZUhQ\&t=115s}{Lightning talk video}, \Colorhref{https://kailicao.github.io/about/presentations/2026-07-13_roman-2026-lightning-talk.pdf}{Lightning talk slides}]}}
 
 \full{\cvitem{Jul 2026}{\textbf{Effortless: Efficient Optimal Image Reconstruction for Roman and Beyond (poster)}, \textsl{Shifting Landscapes in Astrophysics: New Frontiers to Explore with Roman}, Pasadena, United States. [\Colorhref{https://workshop.ipac.caltech.edu/roman2026/files/KAILI_CAO_roman2026b.pdf}{Poster}, \Colorhref{https://www.youtube.com/watch?v=rXuoYL4ZUhQ\&t=115s}{Lightning talk video}, \Colorhref{https://kailicao.github.io/about/presentations/2026-07-13_roman-2026-lightning-talk.pdf}{Lightning talk slides}]}}
 
 \cvitem{Jun 2026}{\textbf{Renovating Analysis Infrastructure for the Next Generation of Astronomical Surveys (dissertation defense)}, \textsl{The~Ohio~State~University}, Columbus, United States. [\Colorhref{https://kailicao.github.io/about/presentations/2026-06-25_dissertation-defense.pdf}{Slides}]}
+
+\full{\cvitem{Jun 2026}{\textbf{(Our Efforts into) Roman Saturated Star Photometry (contributed talk)}, \textsl{Roman Science Quarterly (Space Telescope Science Institute)}, Baltimore, United States. [\Colorhref{https://kailicao.github.io/about/presentations/2026-06-23_rsq-saturated-star-photometry.pdf}{Slides}]}}
 
 \cvitem{Apr 2026}{\textbf{Weak Gravitational Lensing Cosmology with the Roman Space Telescope High Latitude Imaging Survey (seminar)}, \textsl{Cosmology Group Seminar (University~of~Michigan)}, Ann Arbor, United States. [\Colorhref{https://kailicao.github.io/about/presentations/2026-04-17_um-cosmology-seminar.pdf}{Slides}]}
 
@@ -91,7 +97,7 @@ GitHub: \href{https://github.com/kailicao}{github.com/kailicao}; LinkedIn: \href
 
 \cvitem{Oct 2025}{\textbf{Toward Accurate Asteroseismic Masses for Luminous Giants (invited talk, online)}, \textsl{Galactic Genesis Working Group (SDSS-V Milky Way Mapper)}. [\Colorhref{https://kailicao.github.io/about/presentations/2025-10-07_galactic-genesis.pdf}{Slides}]}
 
-\full{\cvitem{Aug 2025}{\textbf{PyIMCOM Hack Session 2025}, \textsl{Shear and Clustering Measurement Working Group Hack Week (Roman HLIS Cosmology PIT)}, Columbus, United States. [\Colorhref{https://kailicao.github.io/about/presentations/2025-08-04_pyimcom-hack-session.pdf}{Slides}]}}
+\cvitem{Aug 2025}{\textbf{PyIMCOM Hack Session 2025}, \textsl{Shear and Clustering Measurement Working Group Hack Week (Roman HLIS Cosmology PIT)}, Columbus, United States. [\Colorhref{https://kailicao.github.io/about/presentations/2025-08-04_pyimcom-hack-session.pdf}{Slides}]}
 
 \full{\subsection{2024 and Before}}
 
@@ -104,21 +110,21 @@ GitHub: \href{https://github.com/kailicao}{github.com/kailicao}; LinkedIn: \href
 
 \section{Teaching Experience}
 
-\full{\cventry{2025}{Microteaching Lesson, College Teaching (ESEPSY 7404)}{The~Ohio~State~University}{Columbus}{United States}{Planned a lesson by backward design, ``Basic Counting: Permutations and Combinations,'' and taught it to my peers, mostly from outside mathematics. Scored 33/35 by the instructor; median 48/50 from 14 classmates. [\Colorhref{https://kailicao.github.io/about/presentations/2025-04-01_microteaching-basic-counting.pdf}{Slides}]}}
+\cventry{2025}{Microteaching Lesson, College Teaching (ESEPSY 7404)}{The~Ohio~State~University}{Columbus}{United States}{Planned a lesson by backward design, ``Basic Counting: Permutations and Combinations,'' and taught it to my peers, mostly from outside mathematics. Scored 33/35 by the instructor; median 48/50 from 14 classmates. [\Colorhref{https://kailicao.github.io/about/presentations/2025-04-01_microteaching-basic-counting.pdf}{Slides}]}
 \cventry{2022 -- 2023}{Instructor, Online Python Tutorial}{}{}{}{46 students in 4 cohorts\full{, mostly first-time programmers from the humanities and social sciences}; 28 took an active part. Gave lectures, designed exercises,\full{ revised the study guide from students' feedback,} and mentored personal projects.}
-\cventry{2021 -- 2023}{Teaching Associate (Grader), Physics 7501 \& 7502: (Graduate) Quantum Mechanics}{The~Ohio~State~University}{Columbus}{United States}{}
-\full{\cvitem{Miscellany}{Taught or tutored college mathematics (2017, 2018, 2020, 2023), college physics (2023), graduate school application (2022, 2023, 2024), French phonology (2017, 2018), etc.}}
+\full{\cventry{2021 -- 2023}{Teaching Associate (Grader), Physics 7501 \& 7502: (Graduate) Quantum Mechanics}{The~Ohio~State~University}{Columbus}{United States}{}}
+\full{\cvitem{Miscellany}{Taught or tutored college mathematics (2017, 2018, 2020, 2023), college physics (2023), graduate school application (2022, 2023, 2024), French pronunciation (2017, 2018), etc.}}
 
-\section{Service}
+\full{\section{Service}}
 
-\cvitem{2026 -- present}{\textbf{Lead}, MapHub (the MIDAS arXiv Preprint Hub), a carpentry of the Schmidt AI in Science Fellowship, with Kyle Heyblom, Eva Albalghiti and Dimitrios Simatos.}
-\cvitem{2025}{\textbf{Tutorial}, PyIMCOM, at an internal hack week of the Roman HLIS Cosmology Project Infrastructure Team.}
+\full{\cvitem{2026 -- present}{\textbf{Lead}, MapHub (the MIDAS arXiv Preprint Hub), a carpentry of the Schmidt AI in Science Fellowship.}}
+\full{\cvitem{2025}{\textbf{Tutorial}, PyIMCOM, at an internal hack week of the Roman HLIS Cosmology Project Infrastructure Team.}}
 
 \section{Skills}
 
 \cvitem{Programming}{Python (main), C/C++, Fortran, Shell/Perl, Wolfram Mathematica}
 \cvitem{Languages}{Chinese (native), English (working proficiency), French (undergraduate major)}
-\full{\cvitem{Certificates}{Productivity Program (The~Ohio~State~University, 2021), Responsible Conduct of Research (The~Ohio~State~University, 2024), Data Science Boot Camp (The Erd\H{o}s Institute, 2025)}}
+\cvitem{Certificates}{\full{Productivity Program (The~Ohio~State~University, 2021), }Responsible Conduct of Research (The~Ohio~State~University, 2024)\full{, Data Science Boot Camp (The Erd\H{o}s Institute, 2025)}}
 
 \full{\section{References}
 
