@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据、人工智能与社会研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="曹开力（Kaili Cao）">
 <link rel="stylesheet" href="../../assets/style.css">
@@ -39,7 +39,7 @@
 <p>我的大部分研究最终都会落实为代码。我把这些代码公开发布，大多采用开源许可证并附有文档，以便他人核查和复用。</p>
 <section>
   <h2>代码</h2>
-  <p class="status-key">每个代码的状态标在名称之后；没有标注的代码保持随论文发表时的版本，留在GitHub上。如何上手，见<a href="#start">下表</a>。</p>
+  <p class="status-key">每套代码的状态标在名称之后；没有标注的代码保持随论文发表时的版本，留在GitHub上。如何上手，见<a href="#start">下表</a>。</p>
 <figure class="fig" id="fig-software-map">
 <div class="fig-pairs">
   <span class="head">代码</span><span></span><span class="head">研究方向</span>
@@ -54,7 +54,7 @@
 </figure>
 
   <ul class="software">
-    <li><strong><a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">Effortless</a></strong> <span class="status active">积极开发中</span>（Python，MIT许可证）。“无为”（Effortless）是一种线性图像重建算法：它和IMCOM一样能控制输出图像的点扩散函数，但在罗曼巡天的模拟中速度快50到60倍，占用的内存也更少。它的编程接口足够通用，也可以用在弱引力透镜和罗曼空间望远镜以外的场合。这一算法由我设计并编写。论文：<a href="publications.html#arXiv-2607.06674">Cao 2026a</a>、<a href="publications.html#arXiv-2607.09862">Cao 2026b</a>；背景见<a href="publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>。</li>
+    <li><strong><a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">Effortless</a></strong> <span class="status active">积极开发中</span>（Python，MIT许可证）。“无为”（Effortless）是一种线性图像重建算法：它和IMCOM一样能控制输出图像的点扩散函数，但在相同的模拟数据上速度快50到60倍，占用的内存也更少。它的编程接口足够通用，也可以用在弱引力透镜和罗曼空间望远镜以外的场合。这一算法由我设计并编写。论文：<a href="publications.html#arXiv-2607.06674">Cao 2026a</a>、<a href="publications.html#arXiv-2607.09862">Cao 2026b</a>；背景见<a href="publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>。</li>
     <li><strong><a href="https://kailicao.github.io/maphub-public/">MapHub</a></strong> <span class="status active">每日运行</span>（<a href="https://github.com/kailicao/maphub-public">Python</a>）。每天为新发布的arXiv预印本评分，按照公开的<a href="https://github.com/kailicao/maphub-public#scoring-rubric">评分标准</a>衡量它们与每位参与者的相关程度；评分程序和网页浏览界面由我借助AI设计并搭建。详见<a href="../research-ai/maphub.html">MapHub</a>页面；任何人都可以按照<a href="https://github.com/kailicao/maphub-public#run-your-own-maphub">说明</a>搭建自己的MapHub。</li>
     <li><strong><a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">PyIMCOM</a></strong> <span class="status active">由团队维护</span>（Python，MIT许可证）。面向罗曼的图像合并软件，出自罗曼高纬度成像巡天宇宙学项目基础设施团队，配有测试、持续集成和<a href="https://pyimcom.readthedocs.io/">文档</a>。我主导了把IMCOM重构为这个面向对象软件包的工作，计算成本因此降低了约一个数量级；我还添加了配置接口和文档字符串（docstring），让它更易于使用（<a href="publications.html#arXiv-2410.05442">Cao et al. 2025</a>）。<a href="publications.html#arXiv-2501.05632">OpenUniverse2024</a>是供罗曼和鲁宾天文台共用的模拟天空，其中的IMCOM协加图像就是由PyIMCOM生成的。我还通过文档和新用户入门指导（包括一次教程，见<a href="./#service">关于我</a>）为用户提供支持。</li>
     <li><strong><a href="https://github.com/yreclab/yrec">YREC</a></strong> <span class="status active">由YREC团队维护</span>（Fortran）。耶鲁旋转演化代码（Yale Rotating Evolution Code）。我参与了它的维护和现代化改造，是代码的贡献者之一，也是其公开数据发布论文的合作作者（<a href="publications.html#arXiv-2603.25792">Pinsonneault et al. 2026</a>）。它的网页实验室<a href="https://github.com/yreclab/yreclab">YRECLab</a>可以在浏览器中运行YREC（<a href="https://yreclab.github.io/">在线试用</a>）。</li>
@@ -93,7 +93,7 @@
 <details class="terms-box" id="terms" hidden>
 <summary>本页术语（1）</summary>
 <dl class="glossary">
-  <dt id="term-carpentry">木工（carpentry）</dt>
+  <dt id="term-carpentry">手作小项目（carpentry）</dt>
   <dd>施密特“科学中的人工智能”博士后项目中用AI完成的小项目。MapHub就是其中之一。</dd>
 </dl>
 <p><a href="../research-ai/glossary.html">查看完整术语表</a></p>
@@ -101,8 +101,8 @@
 <!-- terms:end -->
 </main>
 <footer class="site">
-  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="colophon.html">本站的制作</a>）。版本0.9，最后更新于2026年11月7日。</p>
+  <p>曹开力 · 密歇根大学数据、人工智能与社会研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="colophon.html">本站的制作</a>）。版本0.9.1，最后更新于2026年11月13日。</p>
 </footer>
 <script src="../../assets/site.js" defer></script>
 <script src="../../assets/terms.js" defer></script>

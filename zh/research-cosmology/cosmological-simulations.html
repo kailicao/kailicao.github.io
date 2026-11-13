@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据、人工智能与社会研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="曹开力（Kaili Cao）">
 <link rel="stylesheet" href="../../assets/style.css">
@@ -38,7 +38,7 @@
 <p class="lead">宇宙结构的模拟，以及驱动这些模拟的数值方法。</p>
 <section id="in-brief">
 <h2>简介</h2>
-<p>宇宙学中的许多问题无法单凭纸笔解答。引力把早期近乎均匀的宇宙中的物质聚拢起来，形成由片状结构、纤维状结构和致密团块组成的网络（见图）；要详细追踪这一过程，就需要<a class="term" href="../research-ai/glossary.html#simulation">计算机模拟</a>（cosmological simulation）。最致密的团块里是<a class="term" href="../research-ai/glossary.html#galaxy-cluster">星系团</a>（galaxy cluster）——靠自身引力束缚在一起的天体中，质量最大的就是它们。</p>
+<p>宇宙学中的许多问题无法单凭纸笔解答。引力把早期近乎均匀的宇宙中的物质聚拢起来，形成由片状结构、纤维状结构和致密团块组成的网络（见图）；要详细追踪这一过程，就需要用计算机进行<a class="term" href="../research-ai/glossary.html#simulation">宇宙学模拟</a>（cosmological simulation）。最致密的团块里是<a class="term" href="../research-ai/glossary.html#galaxy-cluster">星系团</a>（galaxy cluster）——靠自身引力束缚在一起的天体中，质量最大的就是它们。</p>
 <p>模拟连接着理论与观测，但前提是两者要在同等条件下比较。模拟出的星系团必须先像真实的星系团那样“观测”一遍，才能与之比较：例如把它转换成仿真的X射线图像，因为星系团中星系之间的热气体会发出X射线。</p>
 <p>模拟内部的数值方法同样重要。模拟要分成许多小的时间步来推进，每一步都是一种近似。采用某些方法时，能量等本应守恒的量会出现微小的误差，并在数百万步中不断累积；<a class="term" href="../research-ai/glossary.html#symplectic">辛方法</a>（symplectic method）则能让这些误差始终保持在较小的水平。因此，数值方法的选择会影响模拟结果在长时间尺度上有多可信。</p>
 <p>为什么这很重要？像南希·格蕾丝·罗曼空间望远镜这样的巡天将精确测量宇宙结构；而在不同的宇宙学模型下宇宙应该是什么样子，要靠模拟来预测。我的工作涉及这两个方面：我的第一个项目比较了模拟星系团的仿真观测，之后我又发展了新的数值方法（见下文）。</p>
@@ -50,8 +50,8 @@
 </section>
 <section>
 <h2>我的工作</h2>
-<p>我的科研工作是从宇宙学模拟起步的：2019年，我作为访问本科生在麻省理工学院做研究。我们利用Mock-X框架，研究了如何判定星系团处于动力学弛豫状态。我们考察了九种常用的形态学指标，所用的是5.4万幅星系团合成X射线图像，来自<a href="https://www.tng-project.org/">IllustrisTNG</a>、<a href="https://www.astro.ljmu.ac.uk/~igm/BAHAMAS/">BAHAMAS</a>和<a href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.465..213B/abstract">MACSIS</a>模拟。结果发现，由不同指标定义的弛豫子样本彼此吻合得很差，因此挑选“弛豫”星系团会引入显著的选择效应（<a href="../about/publications.html#arXiv-2006.10752">Cao et al. 2021</a>）。</p>
-<p>读博期间，我还发展了ContEvol——一族隐式数值方法，只需求解线性方程，并且近乎<a href="https://en.wikipedia.org/wiki/Symplectic_integrator">保辛</a>。这些方法给出的是连续解，能处理从轨道运动到薛定谔方程的各种问题（<a href="../about/publications.html#arXiv-2405.05188">Cao 2025</a>；<a href="https://github.com/kailicao/ContEvol_formalism">代码</a>）。</p>
+<p>我的科研工作是从宇宙学模拟起步的：2019年，我作为访问本科生在麻省理工学院做研究。我们利用Mock-X框架，研究了如何判定星系团处于动力学弛豫状态。我们考察了九种常用的形态学指标，所用的是5.4万幅星系团仿真X射线图像，来自<a href="https://www.tng-project.org/">IllustrisTNG</a>、<a href="https://www.astro.ljmu.ac.uk/~igm/BAHAMAS/">BAHAMAS</a>和<a href="https://ui.adsabs.harvard.edu/abs/2017MNRAS.465..213B/abstract">MACSIS</a>模拟。结果发现，由不同指标定义的弛豫子样本彼此吻合得很差，因此挑选“弛豫”星系团会引入显著的选择效应（<a href="../about/publications.html#arXiv-2006.10752">Cao et al. 2021</a>）。</p>
+<p>读博期间，我还发展了ContEvol——一族隐式数值方法，只需求解线性方程，并且近乎<a class="term" href="../research-ai/glossary.html#symplectic">保辛</a>。这些方法给出的是连续解，能处理从轨道运动到薛定谔方程的各种问题（<a href="../about/publications.html#arXiv-2405.05188">Cao 2025</a>；<a href="https://github.com/kailicao/ContEvol_formalism">代码</a>）。</p>
 </section>
 <section><h2>论文</h2>
 <h3>第一作者论文</h3>
@@ -84,7 +84,7 @@
   <dt id="term-galaxy-cluster">星系团（galaxy cluster）</dt>
   <dd>由引力束缚在一起的成百上千个星系，其间充满数千万度的气体，这些气体在X射线波段发光。星系团是引力束缚天体中质量最大的。如果一个星系团自上次并合以来已经稳定下来，就称它是弛豫的（relaxed）。</dd>
   <dt id="term-symplectic">辛方法（symplectic method）</dt>
-  <dd>一种数值方法，用来追踪物体在引力等力作用下的运动。它的构造使每个时间步都遵守这类运动的几何结构（辛结构）；由此带来的一个结果是“相空间体积”守恒（相空间体积综合度量了位置和速度的弥散程度）。因此，即使计算很长时间，能量等守恒量的误差也始终很小，不会稳步增长。我提出的一族数值方法ContEvol近乎保辛。</dd>
+  <dd>一种数值方法，用来追踪物体在引力等力作用下的运动。它的构造使每个时间步都遵守这类运动的几何结构（辛结构）；由此带来的一个结果是“相空间体积”守恒（相空间体积综合度量了位置和速度的弥散程度）。因此，即使计算很长时间，能量等守恒量的误差也始终很小，不会稳步增长。我提出的一族数值方法ContEvol近乎具有这种性质，即近乎“保辛”。</dd>
   <dt id="term-zeldovich">泽尔多维奇近似（Zel'dovich approximation）</dt>
   <dd>描述结构形成的一个简单模型：每一小团物质都沿着早期涟漪所决定的方向作直线运动，于是物质在路径交汇处堆积起来。它刻画了宇宙网最初的形成过程。</dd>
 </dl>
@@ -93,8 +93,8 @@
 <!-- terms:end -->
 </main>
 <footer class="site">
-  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.9，最后更新于2026年11月7日。</p>
+  <p>曹开力 · 密歇根大学数据、人工智能与社会研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.1，最后更新于2026年11月13日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>

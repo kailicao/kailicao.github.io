@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据、人工智能与社会研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="曹开力（Kaili Cao）">
 <link rel="stylesheet" href="../../assets/style.css">
@@ -44,11 +44,11 @@
 </section>
 <section id="in-more-depth">
   <h2>深入了解</h2>
-  <p>我的许多工作都属于反问题：从望远镜<a class="term" href="../research-ai/glossary.html#undersampled">欠采样</a>（undersampled）的曝光中重建充分采样的图像就是一例，而且是线性反问题（见<a href="../research-images/image-reconstruction.html#statistics">图像重建</a>）；而我为此开发的算法“无为”在设计上兼顾可扩展性与可解释性。我用模拟数据中的“真实”值来验证这类方法，并衡量每个输出在多大程度上达到了目标。这也正是不确定性量化（uncertainty quantification）对机器学习的要求。</p>
+  <p>我的许多工作都属于反问题：从望远镜<a class="term" href="../research-ai/glossary.html#undersampled">欠采样</a>（undersampled）的曝光中重建充分采样的图像就是一例，而且是线性反问题（见<a href="../research-images/image-reconstruction.html#statistics">图像重建</a>）；而我为此开发的算法“无为”在设计上兼顾可扩展性与可解释性。我用模拟数据中的“真实”值来验证这类方法，并衡量每个输出在多大程度上达到了目标。机器学习中的不确定性量化（uncertainty quantification）要求的也正是这种做法：不仅给出结果，还要知道结果有多可靠。</p>
 </section>
 <section id="done">
   <h2>我的工作</h2>
-  <p>在接替IMCOM的“无为”中（见<a href="../research-images/image-reconstruction.html">图像重建</a>），我让权重变得可以解释：IMCOM的大型矩阵求逆在很大程度上是一个黑箱，而“无为”分步设计输入像素的权重，每一步都可以理解。我的论文中也用到简单、可以核查的机器学习模型，例如用支持向量回归模拟<a class="term" href="../research-ai/glossary.html#apokasc">APOKASC-3</a>的星震修正（<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>），以及用稳健回归、借助注入恒星校准“无为”的测量（<a href="../about/publications.html#arXiv-2607.09862">Cao 2026b</a>）。我在数据科学方面受过的正式训练，包括<a href="https://www.erdosinstitute.org/">Erdős Institute</a>的数据科学训练营。</p>
+  <p>在接替IMCOM的“无为”中（见<a href="../research-images/image-reconstruction.html">图像重建</a>），我让权重变得可以解释：IMCOM的大型矩阵求逆在很大程度上是一个黑箱，而“无为”分步设计输入像素的权重，每一步都可以理解。我的论文中也用到简单、可以核查的机器学习模型，例如用支持向量回归近似复现<a class="term" href="../research-ai/glossary.html#apokasc">APOKASC-3</a>的星震学校正（<a href="../about/publications.html#arXiv-2508.06609">Cao and Pinsonneault 2025</a>），以及用稳健回归、借助注入恒星校准“无为”的测量（<a href="../about/publications.html#arXiv-2607.09862">Cao 2026b</a>）。我在数据科学方面受过的正式训练，包括<a href="https://www.erdosinstitute.org/">Erdős Institute</a>的数据科学训练营。</p>
 </section>
 <section id="papers">
   <h2>论文</h2>
@@ -71,15 +71,15 @@
   <dt id="term-undersampled">欠采样、充分采样（undersampled，well-sampled）</dt>
   <dd>如果像素太粗，无法捕捉图像中最精细的细节（在这些细节的尺度上采样不到两次），图像就是欠采样的；如果像素足够精细，就是充分采样的。罗曼的单次曝光是欠采样的，重建后的图像则是充分采样的。</dd>
   <dt id="term-apokasc">APOKASC-3</dt>
-  <dd>把APOGEE光谱学和开普勒星震学结合起来的星表，收录了一万五千多颗演化恒星，大多是红巨星。“3”表示第三版。</dd>
+  <dd>把APOGEE光谱学和开普勒星震学结合起来的星表，收录了一万五千多颗已离开主序的演化恒星，大多是红巨星。“3”表示第三版。</dd>
 </dl>
 <p><a href="glossary.html">查看完整术语表</a></p>
 </details>
 <!-- terms:end -->
 </main>
 <footer class="site">
-  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.9，最后更新于2026年11月7日。</p>
+  <p>曹开力 · 密歇根大学数据、人工智能与社会研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.1，最后更新于2026年11月13日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>

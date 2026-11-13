@@ -24,7 +24,7 @@ How to keep the site up to date: the conventions, the Chinese pages, what to cha
 ## The Chinese version (`zh/`)
 Every English page has a Chinese page at the same path under `zh/`; the English is the reference.
 - **Changing a page:** make the same change on the Chinese page in the same commit, or note it as
-  pending. Translate in plain written Chinese; keep names, paper and talk titles, event names and code
+  pending. Translate in plain written Chinese, for Chinese readers rather than mechanically (the facts stay in step; what each audience already knows, it is not told); keep names, paper and talk titles, event names and code
   in English; use the same terms as the rest of the Chinese site.
 - **Shared parts:** the menus, the footer and the 中文 / English button appear on every page in both
   languages; a new page needs its Chinese twin, with `hreflang` links both ways, and both in `sitemap.xml`.

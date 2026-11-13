@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据、人工智能与社会研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="曹开力（Kaili Cao）">
 <link rel="stylesheet" href="../../assets/style.css">
@@ -43,7 +43,7 @@
 <p>如今的大型巡天已经测量了数千颗红巨星：从光谱中得到它们的温度和表面化学成分，还测到了它们的振荡（见<a href="asteroseismology.html">星震学</a>）。有了这些数据，我们就能细致地检验这一演化阶段的模型。其中有两个事件尤其能说明问题。</p>
 <ul>
   <li>在<a class="term" href="../research-ai/glossary.html#first-dredge-up">第一型上涌</a>（first dredge-up）中，恒星的外层受<a class="term" href="../research-ai/glossary.html#convection">对流</a>（convection）搅动（热气体上升、冷气体下沉，就像炉子上正在加热的一锅水）。这一外层向内延伸得足够深，把经过核反应加工的物质带到表面。于是表面的化学成分发生变化，例如碳与氮的比值会改变，而光谱可以测出这种变化。</li>
-  <li>之后，氢燃烧壳层向外推移，到达表面对流层当年延伸到的最深处——那里留下了化学成分的突变。壳层在那里突然遇到氢含量更高的燃料，恒星的亮度随之短暂下降，然后再次上升。由于每颗恒星都会三次经过这一亮度（上升、下降、再上升），在这一亮度上看到的恒星也就更多：这就是<a class="term" href="../research-ai/glossary.html#rgb-bump">红巨星分支簸动</a>（red giant branch bump）。</li>
+  <li>之后，氢燃烧壳层向外推移，到达表面对流层当年延伸到的最深处——那里留下了化学成分的突变。壳层在那里突然遇到氢含量更高的燃料，恒星的亮度反而短暂下降，然后再次上升。由于每颗恒星都会三次经过这一亮度（上升、下降、再上升），在这一亮度上看到的恒星也就更多：这就是<a class="term" href="../research-ai/glossary.html#rgb-bump">红巨星分支簸动</a>（red giant branch bump）。</li>
 </ul>
 <p>模型能预测每个事件发生的位置，因此把模型与观测相比较，就能检验恒星深处的物理过程。我的工作就是对数千颗红巨星作这样的比较（见下文）。</p>
 <figure class="fig" id="fig-red-giant-path">
@@ -68,12 +68,12 @@
 </section>
 <section>
 <h2>我的工作</h2>
-<p>我们把用<a href="https://docs.mesastar.org/">MESA</a>计算的恒星模型与<a href="../about/publications.html#arXiv-2410.00102">APOKASC-3</a>作了比较；APOKASC-3是<a href="https://science.nasa.gov/mission/kepler/">开普勒</a>视场中红巨星的光谱与星震学联合星表（<a href="../about/publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>；<a href="https://github.com/kailicao/mesa_apokasc">代码</a>、<a href="https://zenodo.org/records/15863879">MESA inlist文件</a>）。两个特征的观测位置都与模型预测有所偏移，不过<a class="term" href="../research-ai/glossary.html#cn">[C/N]</a>的偏移没有超出丰度测量的系统不确定度。在第一型上涌中，观测到的[C/N]变化比预测小约0.16 <a class="term" href="../research-ai/glossary.html#dex">dex</a>；观测到的簸动所在的<a class="term" href="../research-ai/glossary.html#surface-gravity">表面重力</a>（surface gravity）则比预测高约0.15 dex。为了修正簸动的偏移，有人提出了包层下冲；但这一方案也会让<a class="term" href="../research-ai/glossary.html#metallicity">金属丰度</a>（metallicity）较高的恒星在第一型上涌期间破坏更多的锂，与<a href="https://www.galah-survey.org/">GALAH</a>的观测结果存在矛盾。因此，我们用锂对这一方案提出了质疑，并建议把锂作为检验这两个特征的灵敏手段。</p>
+<p>我们把用<a href="https://docs.mesastar.org/">MESA</a>计算的恒星模型与<a href="../about/publications.html#arXiv-2410.00102">APOKASC-3</a>作了比较；APOKASC-3是<a href="https://science.nasa.gov/mission/kepler/">开普勒</a>视场中红巨星的光谱与星震学联合星表（<a href="../about/publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>；<a href="https://github.com/kailicao/mesa_apokasc">代码</a>、<a href="https://zenodo.org/records/15863879">MESA inlist文件</a>）。两个特征的观测位置都与模型预测有所偏移，不过<a class="term" href="../research-ai/glossary.html#cn">[C/N]</a>的偏移没有超出丰度测量的系统不确定度。在第一型上涌中，观测到的[C/N]变化比预测小约0.16 <a class="term" href="../research-ai/glossary.html#dex">dex</a>；观测到的簸动所在的<a class="term" href="../research-ai/glossary.html#surface-gravity">表面重力</a>（surface gravity）则比预测高约0.15 dex（约1.4倍）。已有研究提出用包层下冲（envelope undershooting，即让表面对流层的混合比标准模型向下延伸得更深）来修正簸动的偏移；但这一方案也会让<a class="term" href="../research-ai/glossary.html#metallicity">金属丰度</a>（metallicity）较高的恒星在第一型上涌期间破坏更多的锂，与<a href="https://www.galah-survey.org/">GALAH</a>光谱巡天的观测结果存在矛盾。因此，我们用锂对这一方案提出了质疑，并建议把锂作为检验这两个特征的灵敏手段。</p>
 <figure class="fig" id="fig-apokasc3-kiel">
 <img src="../../assets/highlights/apokasc3-fig2.png" width="1000" height="364" loading="lazy" alt="两幅子图：在几种金属丰度和质量下，表面[C/N]的预测变化沿红巨星分支随表面重力的变化；图中标出了第一型上涌的结束点和红巨星分支簸动的中心。">
 <figcaption>沿红巨星分支，表面[C/N]的预测变化（左图对应几种金属丰度，右图对应几种质量）：这一变化在第一型上涌结束时（叉号）就已趋于稳定，远早于红巨星分支簸动（加号）。<a href="../about/publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>的图2，<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。</figcaption>
 </figure>
-<p>凭借使用MESA积累的经验，我还参与了<a href="https://github.com/yreclab/yrec">耶鲁旋转演化代码</a>（YREC）的维护和现代化改造，也是其公开数据发布论文的合作作者之一。</p>
+<p>基于使用MESA积累的经验，我还参与了<a href="https://github.com/yreclab/yrec">耶鲁旋转演化代码</a>（YREC）的维护和现代化改造，也是其公开数据发布论文的合作作者之一。</p>
 </section>
 <section><h2>论文</h2>
 <h3>第一作者论文</h3>
@@ -101,13 +101,13 @@
   <dt id="term-stellar-model">恒星模型（stellar model）</dt>
   <dd>用计算机求解恒星结构方程（涉及引力、压强、能量输运和核反应）得到的解，并沿时间推进，追踪恒星的演化。MESA、YREC等程序可以计算恒星模型。</dd>
   <dt id="term-red-giant">红巨星、红巨星分支（red giant，red giant branch）</dt>
-  <dd>核心的氢已经耗尽、体积膨胀到原来许多倍（可达一百倍甚至更多）的恒星，表面温度较低，颜色发红。红巨星分支是这类恒星逐渐变亮时，在赫茨普龙—罗素图上走过的路径。</dd>
+  <dd>核心的氢已经耗尽、半径膨胀到原来许多倍（可达一百倍甚至更多）的恒星，表面温度较低，颜色发红。红巨星分支是这类恒星逐渐变亮时，在赫茨普龙—罗素图上走过的路径。</dd>
   <dt id="term-first-dredge-up">第一型上涌（first dredge-up）</dt>
-  <dd>恒星刚进入红巨星分支不久的一个阶段：这时恒星外部的对流层向内延伸得足够深，把经过核聚变加工的物质带到表面，从而改变了观测到的表面成分。其他文献中常译作“第一次挖掘”。这里称“第一型”，是因为三种上涌并不是每颗恒星都会依次经历的（例如第二型上涌只发生在质量较大的恒星中），“第一”标示的是类型而非次序。</dd>
+  <dd>恒星刚进入红巨星分支不久的一个阶段：这时恒星外部的对流层向内延伸得足够深，把经过核聚变加工的物质带到表面，从而改变了观测到的表面成分。其他文献中常译作“第一次挖掘”。这里称“第一型”，是因为三种上涌并不是每颗恒星都会依次经历的（例如第二型上涌只发生在质量较大的恒星中），“第一”标示的是类型，而不是每颗恒星都要走过的先后次序。</dd>
   <dt id="term-convection">对流（convection）</dt>
   <dd>靠气体的运动输运能量：热的气体上升，冷的气体下沉，就像炉子上正在加热的一锅水。红巨星的外层是对流层。</dd>
   <dt id="term-rgb-bump">红巨星分支簸动（red giant branch bump）</dt>
-  <dd>红巨星在某一亮度上的聚集。表面对流层曾向内延伸到最深处，并在那里留下了化学成分的突变；氢燃烧壳层到达这里时，恒星会短暂变暗，于是每颗恒星都会三次经过这一亮度。簸动的位置可以检验对流混合到底有多深。其他文献中常称“红巨星支鼓包”，也常直接称作RGB bump；“鼓包”描述的是星数分布上的鼓起，“簸动”描述的则是恒星亮度先降后升的演化过程。</dd>
+  <dd>红巨星在某一亮度上的聚集。表面对流层曾向内延伸到最深处，并在那里留下了化学成分的突变；氢燃烧壳层到达这里时，恒星会短暂变暗，然后再次变亮，于是每颗恒星都会三次经过这一亮度（上升、下降、再上升）。簸动的位置可以检验对流混合到底有多深。其他文献中常称“红巨星支鼓包”，也常直接称作RGB bump；“鼓包”描述的是星数分布上的鼓起，“簸动”描述的则是恒星亮度先降后升的演化过程。</dd>
   <dt id="term-hr-diagram">赫茨普龙—罗素图（Hertzsprung–Russell diagram）</dt>
   <dd>简称赫罗图，横轴代表恒星的表面温度，纵轴代表光度，温度较高的恒星在左边。处于不同生命阶段的恒星落在图上不同的区域，所以一颗恒星的演化会在图上描出一条轨迹。</dd>
   <dt id="term-main-sequence">主序（main sequence）</dt>
@@ -126,8 +126,8 @@
 <!-- terms:end -->
 </main>
 <footer class="site">
-  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.9，最后更新于2026年11月7日。</p>
+  <p>曹开力 · 密歇根大学数据、人工智能与社会研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.1，最后更新于2026年11月13日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>

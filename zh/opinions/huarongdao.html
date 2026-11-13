@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据、人工智能与社会研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="曹开力（Kaili Cao）">
 <link rel="stylesheet" href="../../assets/style.css">
@@ -69,7 +69,7 @@ pre.numbered .ln::before { content: counter(ln); display: inline-block; width: 3
 <main id="main">
 <p class="crumb"><a href="./">观点</a> · <a href="learning-python.html">学习Python</a> · 华容道求解器</p>
 <h1>华容道求解器</h1>
-<p class="lead">2022年，我写了一个求解滑块游戏华容道的Python程序，作为线上Python课程的教学演示。选择一个开局，这个程序的移植版就会在你的浏览器中找出最短的解法。</p>
+<p class="lead">2022年，我写了一个求解滑块游戏华容道的Python程序，作为线上Python课程的教学演示。选择一个开局，这个程序的JavaScript移植版就会在你的浏览器中找出最短的解法。</p>
 
 <div class="hrd" id="hrd">
   <p class="hrd-pick"><label for="hrd-puzzle">开局</label>
@@ -93,8 +93,8 @@ pre.numbered .ln::before { content: counter(ln); display: inline-block; width: 3
 
 <section>
   <h2 id="puzzle" class="i i-grid">关于华容道</h2>
-  <p><span lang="zh">华容道</span>是一种滑块游戏，与<a href="https://en.wikipedia.org/wiki/Klotski">Klotski</a>是近亲。它得名于《<a href="https://zh.wikipedia.org/zh-cn/三国演义">三国演义</a>》中的一段情节：<a href="https://zh.wikipedia.org/zh-cn/赤壁之战">赤壁之战</a>兵败后，<a href="https://zh.wikipedia.org/zh-cn/曹操#三国演义">曹操</a>沿华容道逃走，受过他恩惠的<a href="https://zh.wikipedia.org/zh-cn/关羽#三國演義">关羽</a>在此放了他一马。</p>
-  <p>棋盘有四列五行。曹操是最大的正方形方块；将军是占两格的方块，或竖或横；兵卒各占一格；另有两格是空的。目标是把曹操从底部中央的出口移出去。按照惯例，移动一个棋子算一步，即使它滑动了两格，或者是兵卒拐了一个弯。按这种算法，经典开局“<span lang="zh">横刀立马</span>”（关羽横卧在曹操正下方）需要81步。</p>
+  <p><span lang="zh">华容道</span>是一种滑块游戏，源自波兰的<a href="https://en.wikipedia.org/wiki/Klotski">Klotski</a>。它得名于《<a href="https://zh.wikipedia.org/zh-cn/三国演义">三国演义</a>》中的一段情节：<a href="https://zh.wikipedia.org/zh-cn/赤壁之战">赤壁之战</a>兵败后，<a href="https://zh.wikipedia.org/zh-cn/曹操#三国演义">曹操</a>沿华容道逃走，受过他恩惠的<a href="https://zh.wikipedia.org/zh-cn/关羽#三國演義">关羽</a>在此放了他一马。</p>
+  <p>棋盘有四列五行。曹操是最大的正方形方块；将军（关羽、张飞、赵云、马超、黄忠五员大将）是占两格的方块，或竖或横；兵卒各占一格；另有两格是空的。目标是把曹操从底部中央的出口移出去。按照惯例，移动一个棋子算一步，即使它滑动了两格，或者是兵卒拐了一个弯。按这种算法，经典开局“<span lang="zh">横刀立马</span>”（关羽横放在曹操正下方）需要81步。</p>
 </section>
 
 <section>
@@ -110,9 +110,9 @@ pre.numbered .ln::before { content: counter(ln); display: inline-block; width: 3
 
 <section>
   <h2 id="layouts" class="i i-list">列表中的开局</h2>
-  <p>这份列表是借助AI（Claude）挑选的。对于横、竖将军数量的每一种组合，先列出所有可能的布局，再按原程序的移动规则，求出每种布局让曹操脱身所需的最少步数。列表从简单的开局一直排到现有最难的开局，每个步数都经原程序确认。除“<span lang="zh">横刀立马</span>”外，其余名称都是描述性的，并非传统名称。</p>
+  <p>这份列表是借助AI（Claude）挑选的。对于横、竖将军数量的每一种组合，先列出所有可能的布局，再按原程序的移动规则，求出每种布局让曹操脱身所需的最少步数。列表从简单的开局一直排到现有最难的开局，每个步数都经原程序确认。除“<span lang="zh">横刀立马</span>”和“<span lang="zh">峰回路转</span>”外，其余名称都是描述性的，并非传统名称。</p>
   <table class="hrd-table">
-    <thead><tr><th scope="col">将军（横 + 竖）</th><th scope="col">布局数</th><th scope="col">可解布局数</th><th scope="col">最多所需步数</th></tr></thead>
+    <thead><tr><th scope="col">将军数（横放 + 竖放）</th><th scope="col">布局数</th><th scope="col">可解布局数</th><th scope="col">最多所需步数</th></tr></thead>
     <tbody>
       <tr><td>0 + 5</td><td>15,660</td><td>7,462</td><td>19</td></tr>
       <tr><td>1 + 4（经典）</td><td>65,880</td><td>53,954</td><td>93</td></tr>
@@ -929,8 +929,8 @@ pre.numbered .ln::before { content: counter(ln); display: inline-block; width: 3
 <script src="../../opinions/huarongdao/app.js"></script>
 
 <footer class="site">
-  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.9，最后更新于2026年11月7日。</p>
+  <p>曹开力 · 密歇根大学数据、人工智能与社会研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.1，最后更新于2026年11月13日。</p>
 </footer>
 <script src="../../assets/site.js" defer></script>
 </body>

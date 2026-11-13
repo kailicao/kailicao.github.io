@@ -20,11 +20,11 @@
   const LEVELS_ZH = { 'Easy': '简单', 'Medium': '中等', 'Hard': '困难', 'Very hard': '极难' };
   const NAMES_ZH = {
     'Five generals standing': '五将皆竖', 'Open gate': '大开城门', 'Five generals lying': '五将皆横',
-    'Five lying, tangled': '五将皆横（纠缠）', 'Side by side': '并肩而立', 'Three across': '三将横陈',
+    'Five lying, tangled': '五将皆横（交错）', 'Side by side': '并肩而立', 'Three across': '三将横陈',
     '横刀立马 (the classic)': '横刀立马（经典开局）', 'Soldiers at the back': '兵在后方',
-    'Hardest with one horizontal': '一横将中最难', 'Hardest with four horizontals': '四横将中最难',
+    'Hardest with 1 + 4': '1 + 4中最难', 'Hardest with 4 + 1': '4 + 1中最难',
     'Two across, Cao Cao on top': '二将横陈，曹操在上', 'Three across, symmetric': '三将横陈（对称）',
-    'Hardest with three horizontals': '三横将中最难', 'The hardest of all': '所有开局中最难' };
+    'Hardest with 3 + 2': '3 + 2中最难', '峰回路转 (the hardest of all)': '峰回路转（所有开局中最难）' };
   const nameOf = p => ZH ? (NAMES_ZH[p.name] || p.name) : p.name;
   const T = ZH ? {
     option: (p) => `${nameOf(p)}（${p.moves}步）`,

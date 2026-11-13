@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MapHub · 曹开力</title>
-<meta name="description" content="MapHub（MIDAS arXiv预印本中心）：为一个科研群体每天给arXiv新预印本打相关性分数，由曹开力主持。">
+<meta name="description" content="MapHub（MIDAS arXiv预印本中心）：每天给arXiv新预印本打分，衡量它们与一个学术共同体中每位成员的相关程度，由曹开力主持。">
 <link rel="alternate" hreflang="en" href="https://kailicao.github.io/research-ai/maphub.html">
 <link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/research-ai/maphub.html">
 <link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/research-ai/maphub.html">
@@ -13,12 +13,12 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kaili Cao">
 <meta property="og:title" content="MapHub · 曹开力">
-<meta property="og:description" content="MapHub（MIDAS arXiv预印本中心）：为一个科研群体每天给arXiv新预印本打相关性分数，由曹开力主持。">
+<meta property="og:description" content="MapHub（MIDAS arXiv预印本中心）：每天给arXiv新预印本打分，衡量它们与一个学术共同体中每位成员的相关程度，由曹开力主持。">
 <meta property="og:url" content="https://kailicao.github.io/zh/research-ai/maphub.html">
 <meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据、人工智能与社会研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="曹开力（Kaili Cao）">
 <link rel="stylesheet" href="../../assets/style.css">
@@ -36,15 +36,15 @@
 <main id="main">
 <p class="crumb"><a href="./">科学中的人工智能</a> · MapHub</p>
 <h1>MapHub</h1>
-<p class="lead">为一个科研群体每天给arXiv新预印本打相关性分数，公开、可以核查。</p>
+<p class="lead">每天给arXiv新预印本打分，衡量它们与一个学术共同体中每位成员的相关程度，公开、可以核查。</p>
 <section id="in-brief">
   <h2>简介</h2>
   <p class="logo-right"><a href="https://kailicao.github.io/maphub-public/"><img src="../../assets/figures/maphub-logo.svg" width="88" height="88" alt="MapHub标志：由深浅不一的蓝色方块组成的三乘三网格，中心是一个黄色方块，像一张小小的热图。"></a></p>
-  <p>MIDAS的<a class="term" href="../research-ai/glossary.html#arxiv">arXiv</a>预印本中心<a href="https://kailicao.github.io/maphub-public/">MapHub</a>，是我在密歇根大学数据与人工智能研究院（Michigan Institute for Data and AI in Society，<a class="term" href="../research-ai/glossary.html#midas">MIDAS</a>）的<a href="https://midas.umich.edu/training/postdoctoral-programs/schmidt-ai-in-science-postdoctoral-fellowship/">施密特“科学中的人工智能”博士后项目</a>的第一项交付成果。这是该博士后项目中的一个<a class="term" href="../research-ai/glossary.html#carpentry">“木工”</a>（carpentry，用AI完成的小项目），由我负责，队友有Kyle Heyblom、Eva Albalghiti和Dimitrios Simatos；评分程序和网页浏览界面由我借助AI（<a href="https://claude.com/product/claude-code">Claude Code</a>）设计并搭建。每位参与者自己撰写一份简短的研究简介；从2026年10月起，MapHub据此每天为天文物理和AI领域新发布的arXiv预印本评分，衡量它们与每位参与者的相关程度，并以热图展示评分结果：选中自己，就能看到与你最相关的论文；选中一篇论文，就能看到谁最有可能解答关于它的问题。评分由一个大语言模型依照固定的评分标准给出，其余一切都是公开的：<a href="https://github.com/kailicao/maphub-public#scoring-rubric">评分标准</a>、代码和每日表格，而且每个分数都标明由AI生成。模型的推理过程也许不透明，但MapHub交付的成果可以核查。任何人都可以按照<a href="https://github.com/kailicao/maphub-public#run-your-own-maphub">说明</a>，为其他arXiv列表搭建自己的MapHub。</p>
+  <p>MIDAS的<a class="term" href="../research-ai/glossary.html#arxiv">arXiv</a>预印本中心<a href="https://kailicao.github.io/maphub-public/">MapHub</a>，是我在密歇根大学数据、人工智能与社会研究院（Michigan Institute for Data and AI in Society，<a class="term" href="../research-ai/glossary.html#midas">MIDAS</a>）的<a href="https://midas.umich.edu/training/postdoctoral-programs/schmidt-ai-in-science-postdoctoral-fellowship/">施密特“科学中的人工智能”博士后项目</a>的第一项交付成果。这是该博士后项目中的一个<a class="term" href="../research-ai/glossary.html#carpentry">手作小项目</a>（carpentry，用AI完成），由我负责，队友有Kyle Heyblom、Eva Albalghiti和Dimitrios Simatos；评分程序和网页浏览界面由我借助AI（<a href="https://claude.com/product/claude-code">Claude Code</a>）设计并搭建。每位参与者自己撰写一份简短的研究简介；从2026年10月起，MapHub据此每天为天文物理和AI领域新发布的arXiv预印本评分，衡量它们与每位参与者的相关程度，并以热图展示评分结果：选中自己，就能看到与你最相关的论文；选中一篇论文，就能看到谁最有可能解答关于它的问题。评分由一个大语言模型依照固定的评分标准给出；除了这个模型，其余一切都是公开的：<a href="https://github.com/kailicao/maphub-public#scoring-rubric">评分标准</a>、代码和每日表格，而且每个分数都标明由AI生成。模型的推理过程也许不透明，但MapHub交付的成果可以核查。任何人都可以按照<a href="https://github.com/kailicao/maphub-public#run-your-own-maphub">说明</a>，为其他arXiv列表搭建自己的MapHub。</p>
 </section>
 <section id="next">
   <h2>下一步</h2>
-  <p>MapHub仍在开发之中。同样的评分正在向更早的列表回溯，以astro-ph在1992年4月的第一份列表为目标，让参与者可以浏览与自己相关的论文的历史目录。在用MapHub当前的研究简介评分的表格中（2026年5月29日至9月1日以及10月15日至16日的70份列表），每天新的astro-ph论文中，平均约有6%对每一位参与者的得分在30分以上（满分100分）：大约九十篇里有几篇值得读。我们的<a href="https://arxiv.org/abs/2611.07174">研究简报</a>已被Research Notes of the AAS接收，它用作者们的盲评来检验这些评分：按MapHub评分排在前10%的论文，涵盖了评分者自己评出的前5%论文中的约70%（合并计算），而基于文本匹配的基线方法只有约三分之一；我还在一个简短报告中介绍了MapHub（<a href="../../about/presentations/2026-11-02_hlis-maphub-talk.pdf">幻灯片</a>，PDF）。欢迎更多参与者加入；一个系也可以用它的热图，每天跨越各个分支领域讨论新论文：与几位参与者都相关的论文，正好是讨论的话题。实时热图见<a href="https://kailicao.github.io/maphub-public/">MapHub网页</a>，代码、评分标准和数据表格见<a href="https://github.com/kailicao/maphub-public">GitHub</a>。</p>
+  <p>MapHub仍在开发之中。同样的评分正在向更早的列表回溯，以astro-ph在1992年4月的第一份列表为目标，让参与者可以浏览与自己相关的论文的历史目录。在用MapHub当前的研究简介评分的表格中（2026年5月29日至9月1日以及10月15日至16日的70份列表），就单个参与者而言，每天新的astro-ph论文中平均约有6%得分在30分以上（满分100分）：大约九十篇里有几篇值得读。我们的<a href="https://arxiv.org/abs/2611.07174">研究简报</a>已发表于美国天文学会的期刊Research Notes of the American Astronomical Society（<a href="https://doi.org/10.3847/2515-5172/aebf5c">RNAAS 10, 329</a>），它用作者们的盲评来检验这些评分：按MapHub评分排在前10%的论文，涵盖了评分者自己评出的前5%论文中的约70%（所有评分者合并统计），而基于文本匹配的基线方法只有约三分之一；我还在一个简短报告中介绍了MapHub（<a href="../../about/presentations/2026-11-02_hlis-maphub-talk.pdf">幻灯片</a>，PDF）。欢迎更多参与者加入；一个系也可以用它的热图，每天跨越各个分支领域讨论新论文：与几位参与者都相关的论文，正好是讨论的话题。实时热图见<a href="https://kailicao.github.io/maphub-public/">MapHub网页</a>，代码、评分标准和数据表格见<a href="https://github.com/kailicao/maphub-public">GitHub</a>。</p>
 </section>
 <!-- terms:start -->
 <details class="terms-box" id="terms">
@@ -53,8 +53,8 @@
   <dt id="term-arxiv">arXiv</dt>
   <dd>物理学和天文学论文的免费在线预印本库。论文通常在期刊审稿之前或审稿期间就发布在这里；天文论文在astro-ph分类下。</dd>
   <dt id="term-midas">MIDAS</dt>
-  <dd>密歇根大学数据与人工智能研究院（Michigan Institute for Data and AI in Society），密歇根大学的数据科学与人工智能研究机构，也是那里的施密特“科学中的人工智能”博士后研究员所在的单位。</dd>
-  <dt id="term-carpentry">木工（carpentry）</dt>
+  <dd>密歇根大学数据、人工智能与社会研究院（Michigan Institute for Data and AI in Society），密歇根大学的数据科学与人工智能研究机构，也是那里的施密特“科学中的人工智能”博士后研究员所在的单位。</dd>
+  <dt id="term-carpentry">手作小项目（carpentry）</dt>
   <dd>施密特“科学中的人工智能”博士后项目中用AI完成的小项目。MapHub就是其中之一。</dd>
 </dl>
 <p><a href="glossary.html">查看完整术语表</a></p>
@@ -62,8 +62,8 @@
 <!-- terms:end -->
 </main>
 <footer class="site">
-  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.9，最后更新于2026年11月7日。</p>
+  <p>曹开力 · 密歇根大学数据、人工智能与社会研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.1，最后更新于2026年11月13日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>

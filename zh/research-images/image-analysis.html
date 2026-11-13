@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据与人工智能研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
+<meta property="og:image:alt" content="曹开力（Kaili Cao），天文物理学者，密歇根大学数据、人工智能与社会研究院（MIDAS）施密特“科学中的人工智能”博士后研究员">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="曹开力（Kaili Cao）">
 <link rel="stylesheet" href="../../assets/style.css">
@@ -39,7 +39,7 @@
 <section id="in-brief">
 <h2>简介</h2>
 <p>每一张天文图像都混合着信号与缺陷。探测器会引入<a class="term" href="../research-ai/glossary.html#noise">噪声</a>（noise），有些像素工作异常，数据处理也会留下自己的痕迹。要测量极其微小的效应，比如<a class="term" href="../research-ai/glossary.html#weak-lensing">弱引力透镜</a>（weak gravitational lensing）造成的1%的拉伸，首先必须充分理解这些缺陷，才能为它们建模或把它们去除。</p>
-<p>罗曼的红外探测器就是一个例子。它的像素是逐个读出的，因此同一行的像素在很短的时间内相继读出。读出电路中缓慢的漂移会使整行像素一起偏高或偏低，留下微弱的水平条纹。这就是<a class="term" href="../research-ai/glossary.html#correlated-noise">相关噪声</a>（correlated noise）：它不同于随机噪声，即<a class="term" href="../research-ai/glossary.html#white-noise">白噪声</a>（white noise），而是为相邻像素所共有，所以合并像素对它的抑制效果要差得多（见下图）。如果不加校正，这些条纹会使图像带上一个优先方向，从而使测得的星系形状产生偏差。把结果始终推向同一方向的误差称为<a class="term" href="../research-ai/glossary.html#systematics">系统误差</a>（systematics）。增加数据量并不能消除它们，所以必须为它们建模或把它们去除。</p>
+<p>罗曼的红外探测器就是一个例子。它的像素是逐个读出的，因此同一行的像素在很短的时间内相继读出。读出电路中缓慢的漂移会使整行像素一起偏高或偏低，留下微弱的水平条纹。这就是<a class="term" href="../research-ai/glossary.html#correlated-noise">相关噪声</a>（correlated noise）：它不同于随机噪声，即<a class="term" href="../research-ai/glossary.html#white-noise">白噪声</a>（white noise），而是为相邻像素所共有，所以合并像素对它的抑制效果要差得多（见下图）。如果不加校正，这些条纹会让图像在某一个方向上与其他方向不同，从而使测得的星系形状产生偏差。把结果始终推向同一方向的误差称为<a class="term" href="../research-ai/glossary.html#systematics">系统误差</a>（systematics）。增加数据量并不能消除它们，所以必须为它们建模或把它们去除。</p>
 <p>这项工作背后还有一个更深的问题：像素值究竟意味着什么？与其把它看作一小块方形的天空，不如把它看作天空亮度在某一点上的<a class="term" href="../research-ai/glossary.html#sampling">采样</a>（sampling）；而这个亮度已经被望远镜模糊过，又因像素在整个面积上收集光线而再模糊了一次。把图像看作连续亮度分布的离散采样，是我在这个方向上各项构想的出发点。到目前为止，我参与了团队的几项研究，内容涉及罗曼图像中的噪声以及去除噪声的工具（见下文）。</p>
 <figure class="fig" id="fig-correlated-noise">
 <img src="../../assets/figures/correlated-noise.png" width="1440" height="720" loading="lazy" alt="两幅正方形的噪声图像。左：没有规律的颗粒状噪声。右：同样的颗粒，再叠加上整行偏亮或偏暗的微弱水平条带。">
@@ -49,7 +49,7 @@
 </section>
 <section>
 <h2>我的工作</h2>
-<p>目前，我在这个方向上的工作是参与团队的研究，对象是模拟罗曼图像中的噪声和系统误差：噪声如何使弱引力透镜测量产生偏差；如何去除相关噪声条纹——团队开发的<a href="../about/publications.html#arXiv-2512.05949">imDestripe</a>能把条纹在大尺度上的功率降低为原来的十分之一到三十分之一；以及如何实现稳健的<a class="term" href="../research-ai/glossary.html#photometry">测光</a>（photometry），同时利用罗曼和<a href="https://rubinobservatory.org/">鲁宾天文台</a>的图像——在这项研究中，忽略相关噪声会低估测光的不确定度，最多可低估约三倍。我的贡献主要在于PyIMCOM（其中几项研究都以它为工作平台），以及我在<a class="term" href="../research-ai/glossary.html#imcom">IMCOM</a>方面的专长。</p>
+<p>目前，我在这个方向上的工作是参与团队的研究，对象是模拟罗曼图像中的噪声和系统误差：噪声如何使弱引力透镜测量产生偏差；如何去除相关噪声条纹——团队开发的<a href="../about/publications.html#arXiv-2512.05949">imDestripe</a>能把条纹在大尺度上的功率降低为原来的十分之一到三十分之一；以及如何实现稳健的<a class="term" href="../research-ai/glossary.html#photometry">测光</a>（photometry），同时利用罗曼和<a href="https://rubinobservatory.org/">鲁宾天文台</a>的图像——在这项研究中，如果忽略相关噪声，估计出的测光不确定度就会偏小，最严重时只有实际值的约三分之一。我的贡献主要在于PyIMCOM（其中几项研究都以它为工作平台），以及我在<a class="term" href="../research-ai/glossary.html#imcom">IMCOM</a>方面的专长。</p>
 <p>我对图像分析的兴趣，源于我在<a href="image-reconstruction.html">图像重建</a>方面的工作。在开发“无为”（Effortless）的过程中，我开始认真思考天文图像的物理意义，以及离散采样与连续场之间的关系。</p>
 </section>
 <section><h2>论文</h2>
@@ -62,7 +62,7 @@
   <li><span class="title">Robust Photometry for Roman High-Latitude Imaging Survey Cosmology Using Roman and Rubin Imaging</span><br>
     <span class="authors">Chun-Hao To, Tae-Hyeon Shin, Chihway Chang, Christopher Hirata, Brett H. Andrews, Ami Choi, et al.（共21位作者，包括<strong>Kaili Cao</strong>）</span><br>
     <span class="meta">arXiv预印本 · 合作作者（21位作者中第10位）</span> · <a href="https://arxiv.org/abs/2607.09849">arXiv:2607.09849</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2607.09849/abstract">ADS</a><br>
-    <span class="contrib">我贡献了自己在IMCOM方面的专长。</span></li>
+    <span class="contrib">我提供了IMCOM方面的专业知识。</span></li>
   <li><span class="title">Removing correlated noise stripes from the Nancy Grace Roman Space Telescope survey images</span><br>
     <span class="authors">Katherine Laliotis, Christopher M. Hirata, Emily Macbeth, <strong>Kaili Cao</strong></span><br>
     <span class="meta">Publications of the Astronomical Society of Japan 78, 810 (2026) · 合作作者（4位作者中第4位）</span> · <a href="https://doi.org/10.1093/pasj/psag020">DOI</a> · <a href="https://arxiv.org/abs/2512.05949">arXiv:2512.05949</a> · <a href="https://ui.adsabs.harvard.edu/abs/arXiv:2512.05949/abstract">ADS</a> · <a href="https://github.com/Roman-HLIS-Cosmology-PIT/pyimcom">代码</a><br>
@@ -98,7 +98,7 @@
   <dt id="term-sampling">采样（sampling）</dt>
   <dd>在离散的点上记录一个连续的量；相机在每个像素上对天空的亮度采样。另见奈奎斯特—香农采样定理。</dd>
   <dt id="term-photometry">测光（photometry）</dt>
-  <dd>测量天体有多亮，通常要透过几种不同颜色的滤镜。不同滤镜下的亮度反映了天体的颜色，进而反映它的温度或红移。</dd>
+  <dd>测量天体有多亮，通常要透过几种不同颜色的滤光片。不同滤光片下的亮度反映了天体的颜色，进而反映它的温度或红移。</dd>
   <dt id="term-imcom">IMCOM</dt>
   <dd>IMCOM是IMage COMbination（图像合并）的缩写，是一种图像协加方法。它选取各个输入像素的权重，使输出图像的点扩散函数尽可能接近用户指定的目标，同时把噪声控制住。PyIMCOM是它面向罗曼的现代实现，“无为”（Effortless）则是更快的后继方法。</dd>
 </dl>
@@ -107,8 +107,8 @@
 <!-- terms:end -->
 </main>
 <footer class="site">
-  <p>曹开力 · 密歇根大学数据与人工智能研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（<a href="../about/colophon.html">本站的制作</a>）。版本0.9，最后更新于2026年11月7日。</p>
+  <p>曹开力 · 密歇根大学数据、人工智能与社会研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.1，最后更新于2026年11月13日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>
