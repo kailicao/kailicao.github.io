@@ -59,7 +59,7 @@
 <p>因此，我把图像处理软件看作仪器的一部分：它的设计、测试和校准，和望远镜的设计一样，影响着我们能从数据中得到什么。</p>
 <details class="fig-fold" id="statistics">
 <summary>写给统计学者：作为线性反问题的图像重建</summary>
-<p>用统计学的语言说，这是一个<a class="term" href="../research-ai/glossary.html#inverse-problem">线性反问题</a>。设输入像素为<math alttext="x = Af + ε"><mi>x</mi><mo>=</mo><mi>A</mi><mi>f</mi><mo>+</mo><mi>ε</mi></math>，其中<math alttext="f"><mi>f</mi></math>是天空，<math alttext="A"><mi>A</mi></math>包含点扩散函数和采样，<math alttext="ε"><mi>ε</mi></math>是协方差为<math alttext="Σ"><mi>Σ</mi></math>的噪声；那么所有线性方法——Drizzle、IMCOM和“无为”（Effortless）都是如此——给出的都是<math alttext="y = Wx"><mi>y</mi><mo>=</mo><mi>W</mi><mi>x</mi></math>，它应当逼近具有明确PSF的目标<math alttext="Tf"><mi>T</mi><mi>f</mi></math>。权重在<a class="term" href="../research-ai/glossary.html#psf-leakage">泄漏</a>与噪声之间取舍：泄漏是取决于天空的偏差<math alttext="(WA − T)f"><mo>(</mo><mi>W</mi><mi>A</mi><mo>−</mo><mi>T</mi><mo>)</mo><mi>f</mi></math>，噪声是协方差为<math alttext="WΣWᵀ"><mi>W</mi><mi>Σ</mi><msup><mi>W</mi><mi mathvariant="normal">T</mi></msup></math>的方差；例如，IMCOM最小化的是<math alttext="‖WA − T‖² + κ tr(WΣWᵀ)"><msup><mrow><mo>‖</mo><mi>W</mi><mi>A</mi><mo>−</mo><mi>T</mi><mo>‖</mo></mrow><mn>2</mn></msup><mo>+</mo><mi>κ</mi><mi>tr</mi><mo>(</mo><mi>W</mi><mi>Σ</mi><msup><mi>W</mi><mi mathvariant="normal">T</mi></msup><mo>)</mo></math>。在一维研究中（<a href="../about/publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>），我把PSF表述为来自已知方向的光子落点的概率分布，并说明了重投影（regridding）和协加（coaddition）改变的是信息的表示方式，却不能增加信息。“无为”在傅里叶空间中计算权重，而不必求解IMCOM那样的大型线性方程组，这正是它速度快的原因。</p>
+<p>用统计学的语言说，这是一个<a class="term" href="../research-ai/glossary.html#inverse-problem">线性反问题</a>。设输入像素为<math alttext="x = Af + ε"><mi>x</mi><mo>=</mo><mi>A</mi><mi>f</mi><mo>+</mo><mi>ε</mi></math>，其中<math alttext="f"><mi>f</mi></math>是天空，<math alttext="A"><mi>A</mi></math>包含点扩散函数和采样，<math alttext="ε"><mi>ε</mi></math>是协方差为<math alttext="Σ"><mi>Σ</mi></math>的噪声；那么所有线性方法——Drizzle、IMCOM和“无为”（Effortless）都是如此——给出的都是<math alttext="y = Wx"><mi>y</mi><mo>=</mo><mi>W</mi><mi>x</mi></math>，它应当逼近具有明确PSF的目标<math alttext="Tf"><mi>T</mi><mi>f</mi></math>。权重在<a class="term" href="../research-ai/glossary.html#psf-leakage">泄漏</a>与噪声之间取舍：泄漏是源于仪器和方法不完美的偏差<math alttext="(WA − T)f"><mo>(</mo><mi>W</mi><mi>A</mi><mo>−</mo><mi>T</mi><mo>)</mo><mi>f</mi></math>，噪声是协方差为<math alttext="WΣWᵀ"><mi>W</mi><mi>Σ</mi><msup><mi>W</mi><mi mathvariant="normal">T</mi></msup></math>的方差；例如，IMCOM最小化的是<math alttext="‖WA − T‖² + κ tr(WΣWᵀ)"><msup><mrow><mo>‖</mo><mi>W</mi><mi>A</mi><mo>−</mo><mi>T</mi><mo>‖</mo></mrow><mn>2</mn></msup><mo>+</mo><mi>κ</mi><mi>tr</mi><mo>(</mo><mi>W</mi><mi>Σ</mi><msup><mi>W</mi><mi mathvariant="normal">T</mi></msup><mo>)</mo></math>。在一维研究中（<a href="../about/publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>），我把PSF表述为来自已知方向的光子落点的概率分布，并说明了重投影（regridding）和协加（coaddition）改变的是信息的表示方式，却不能增加信息。“无为”在傅里叶空间中计算权重，而不必求解IMCOM那样的大型线性方程组，这正是它速度快的原因。</p>
 </details>
 </section>
 <section>
@@ -69,7 +69,7 @@
 <img src="../../assets/highlights/pyimcom-fig5-top.jpg" width="900" height="631" loading="lazy" alt="六幅图像：模拟的罗曼天空图像（上排）和注入的恒星（下排），分别由PyIMCOM的三种线性代数内核协加而成。">
 <figcaption>模拟的罗曼天空图像（上）和注入的恒星（下），由PyIMCOM的三种线性代数内核协加而成（各列依次为Cholesky、迭代、经验）。<a href="../about/publications.html#arXiv-2410.05442">Cao et al. 2025</a>的图5上半部分，<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。</figcaption>
 </figure>
-<p>即便如此，IMCOM的计算成本仍然很高：在单个CPU核心上，用它重建一张罗曼原始图像（单个探测器的一次曝光）大约需要一天。对于精密宇宙学研究，这样的成本尚可接受，但对其他用途来说，IMCOM就没那么有吸引力了。一项一维研究（<a href="../about/publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>）让我想到了一种新的线性图像重建算法，最初称为Fast IMCOM。由于它并不一定要合并图像，我把它改名为<strong>“无为”</strong>（Effortless，即EFFicient Optimal image ReconsTruction using LESS memory，意为高效、最优、少占内存的图像重建）。与IMCOM一样，“无为”能控制输出图像的点扩散函数；但它避开了IMCOM中最繁重的计算，因此计算时间只有IMCOM的五十到六十分之一（<a href="../about/publications.html#arXiv-2607.06674">Cao 2026a</a>）：在罗曼巡天中层级（Medium Tier）和宽层级（Wide Tier）的模拟图像上，输入和目标PSF都与此前PyIMCOM的测试相同，每个滤光片每平方度天区约需2×10<sup>2</sup>核时，而PyIMCOM需要1.1×10<sup>4</sup>核时；因此重建一张罗曼原始图像只需约半小时，而不是一天。它占用的内存也更少。它的思路是：把输入像素的权重看作某个潜在权重场的采样，直接设计这个权重场。</p>
+<p>即便如此，IMCOM的计算成本仍然很高：在单个CPU核心上，用它重建一张罗曼原始图像（单个探测器的一次曝光）大约需要一天。对于精密宇宙学研究，这样的成本尚可接受，但对其他用途来说，IMCOM就没那么有吸引力了。在一项一维研究（<a href="../about/publications.html#arXiv-2510.16110">Cao and Roman HLIS Cosmology PIT 2026</a>）中，我引入了一种新的线性图像重建算法，最初称为Fast IMCOM。由于它并不一定要合并图像，我把它改名为<strong>“无为”</strong>（Effortless，即EFFicient Optimal image ReconsTruction using LESS memory，意为高效、最优、少占内存的图像重建）。与IMCOM一样，“无为”能控制输出图像的点扩散函数；但它避开了IMCOM中最繁重的计算，因此计算时间只有IMCOM的五十到六十分之一（<a href="../about/publications.html#arXiv-2607.06674">Cao 2026a</a>）：在罗曼巡天中层级（Medium Tier）和宽层级（Wide Tier）的模拟图像上，输入和目标PSF都与此前PyIMCOM的测试相同，每个滤光片每平方度天区约需2×10<sup>2</sup>核时，而PyIMCOM需要1.1×10<sup>4</sup>核时；因此重建一张罗曼原始图像只需约半小时，而不是一天。它占用的内存也更少。它的思路是：把输入像素的权重看作某个潜在权重场的采样，直接设计这个权重场。</p>
 <p>我在两篇姊妹论文中介绍“无为”。其中一篇介绍它的数学形式、软件实现和实际应用中的问题（<a href="../about/publications.html#arXiv-2607.09862">Cao 2026b</a>）。最重要的一点是：奈奎斯特—香农采样定理固然成立，但它的前提条件与巡天数据处理面对的问题有着微妙而重要的差别。有限采样的影响，只需在测量后做一步简单的校准，就能大大降低。数值伪影、输入像素的有限窗口和无法使用的输入像素都会带来缺陷，这些缺陷都已弄清楚，并得到了控制。在软件设计上，我力求采用清晰的面向对象结构、直观的数据模型和友好的界面；它的编程接口也足够通用，能用于弱引力透镜和罗曼以外的场合。代码已<a href="https://github.com/Roman-HLIS-Cosmology-PIT/effortless">在GitHub上公开</a>。</p>
 <p>在另一篇中，我把“无为”应用于模拟的罗曼图像（<a href="../about/publications.html#arXiv-2607.06674">Cao 2026a</a>）。与IMCOM相比，它能更高效地使重建图像中的点扩散函数均匀而规整，并有望更好地控制<a class="term" href="../research-ai/glossary.html#systematics">系统误差</a>（systematics）。对于理想点源，用“无为”重建的单张图像加上上述校准，可以得到与IMCOM协加约六张图像相当甚至更好的测量结果。这种校准能否推广到带噪声的星系（弱引力透镜实际测量的对象），目前尚不清楚。此外，尽管两种算法都是为弱引力透镜设计的，“无为”既能用于研究宇宙的静态特征，也能用于研究它的动态变化：它把不同时间拍摄的图像放到同一个像素网格上、统一到同一个点扩散函数，便于时域天文学的研究者比较这些图像。它的高效和可解释性，也为进一步降低测量误差提供了新的可能。</p>
 <figure class="fig fig-medium" id="fig-effortless-images">
@@ -110,7 +110,7 @@
 </ul></section>
 <section>
 <h2>下一步</h2>
-<p><strong>“无为”</strong>是我读博期间自己提出的构想之一，也是其中第一个开始结出成果的。接下来是它的应用：为罗曼的弱引力透镜巡天生成图像；足够快地生成参考图像，供罗曼的快速警报使用；用罗曼时域巡天的数据合成深度图像；以及与鲁宾天文台的图像联合分析。再往后，是更普遍地理解点扩散函数残差，以及为重建图像中的噪声协方差建模。</p>
+<p><strong>“无为”</strong>是我读博期间自己提出的构想之一，也是其中第一个开始结出成果的。接下来是它的应用：为罗曼的弱引力透镜巡天生成图像；足够快地生成参考图像，供罗曼的快速警报使用；用罗曼时域巡天的数据合成深度图像；以及与鲁宾天文台的图像联合分析。这些方法也可以用于罗曼之外其他图像欠采样的空间巡天，例如中国空间站工程巡天望远镜（CSST）的巡天。再往后，是更普遍地理解点扩散函数残差，以及为重建图像中的噪声协方差建模。</p>
 <p>这些工作在我未来几年计划中的位置，见<a href="../about/research.html">研究方向</a>。</p>
 </section>
 <!-- terms:start -->
@@ -136,7 +136,7 @@
   <dt id="term-inverse-problem">反问题、线性反问题（inverse problem，linear inverse problem）</dt>
   <dd>由观测到的结果推断其成因，例如由模糊、采样并带有噪声的图像推断真实的天空。如果观测量是未知量的加权和再加上噪声，就是线性反问题，图像重建就是一例。</dd>
   <dt id="term-psf-leakage">PSF泄漏（PSF leakage）</dt>
-  <dd>重建图像的PSF偏离目标的程度：它是结果中取决于天空本身的偏差，而不是噪声。</dd>
+  <dd>重建图像的PSF偏离目标的程度：它是结果中的偏差，而不是噪声，来源于仪器和方法的不完美。</dd>
   <dt id="term-imcom">IMCOM</dt>
   <dd>IMCOM是IMage COMbination（图像合并）的缩写，是一种图像协加方法。它选取各个输入像素的权重，使输出图像的点扩散函数尽可能接近用户指定的目标，同时把噪声控制住。PyIMCOM是它面向罗曼的现代实现，“无为”（Effortless）则是更快的后继方法。</dd>
   <dt id="term-coadd">协加图像、协加（coadd，coaddition）</dt>
@@ -154,7 +154,7 @@
 </main>
 <footer class="site">
   <p>曹开力 · 密歇根大学数据、人工智能与社会研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.1，最后更新于2026年11月13日。</p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.2，最后更新于2026年11月14日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>

@@ -58,6 +58,7 @@ figure.fig img { display: block; max-width: 100%; height: auto; border-radius: 6
 .fig-map { display: grid; grid-template-columns: 1.6rem 1fr 1fr; gap: 10px; align-items: stretch; }
 .fig-map .head { color: var(--muted); text-align: center; font-size: .92rem; align-self: end; }
 .fig-map .row { writing-mode: vertical-rl; transform: rotate(180deg); color: var(--muted); font-size: .92rem; text-align: center; }
+html:lang(zh-CN) .fig-map .row { transform: none; }   /* Chinese characters stand upright, read top to bottom */
 .fig-map .wide { grid-column: 2 / 4; }
 .fig-map .fig-box { display: flex; align-items: center; justify-content: center; min-height: 3.2rem; }
 

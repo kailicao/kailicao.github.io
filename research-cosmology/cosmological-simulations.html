@@ -38,7 +38,7 @@
 <p class="lead">Simulations of cosmic structure, and the numerical methods that run them.</p>
 <section id="in-brief">
 <h2>In brief</h2>
-<p>Many questions in cosmology cannot be answered with pen and paper. Gravity draws matter from a nearly smooth early Universe into a web of sheets, filaments, and dense clumps (see the figure), and following that process in detail takes <a class="term" href="../research-ai/glossary.html#simulation">computer simulations</a>. The densest clumps host <a class="term" href="../research-ai/glossary.html#galaxy-cluster">galaxy clusters</a>: the most massive objects held together by their own gravity.</p>
+<p>Many questions in cosmology cannot be answered with pen and paper. Gravity draws matter from a nearly smooth early Universe into a web of sheets, filaments, and dense clumps (see the figure), and following that process in detail takes <a class="term" href="../research-ai/glossary.html#simulation">computer simulations</a>. The densest clumps often host <a class="term" href="../research-ai/glossary.html#galaxy-cluster">galaxy clusters</a>: the most massive objects held together by their own gravity.</p>
 <p>Simulations connect theory with observation, but only if the two are compared like with like. A simulated galaxy cluster has to be "observed" the way a real one is before the two can be compared: for example, turned into a mock X-ray image, since the hot gas between a cluster's galaxies shines in X-rays.</p>
 <p>The numerical methods inside a simulation matter too. A simulation advances in many small time steps, and each step is an approximation. With some methods, tiny errors in quantities that should be conserved, such as energy, pile up over millions of steps; <a class="term" href="../research-ai/glossary.html#symplectic">symplectic methods</a> keep them small. Therefore, the choice of method affects how far the results can be trusted over long times.</p>
 <p>Why it matters: Surveys like Roman's will measure cosmic structure precisely, and simulations are how we predict what different cosmological models should look like. My work touches both sides: My first project compared mock observations of simulated clusters, and I have since developed new numerical methods (below).</p>
@@ -84,7 +84,7 @@
   <dt id="term-galaxy-cluster">Galaxy cluster</dt>
   <dd>A group of hundreds to thousands of galaxies bound by gravity, filled with gas at tens of millions of degrees that shines in X-rays. Clusters are the most massive gravitationally bound objects. A cluster is called relaxed when it has settled down since its last merger.</dd>
   <dt id="term-symplectic">Symplectic method</dt>
-  <dd>A numerical method for following motion under forces such as gravity, built so that each time step respects the geometric (symplectic) structure of motion under such forces. One consequence is that "phase-space volume" (a combined measure of the spread in positions and velocities) is conserved. As a result, errors in conserved quantities such as energy stay small over very long runs instead of growing steadily. ContEvol, my family of numerical methods, is nearly symplectic.</dd>
+  <dd>A numerical method for following motion under forces such as gravity, built so that each time step respects the geometric (symplectic) structure of motion under such forces. One consequence is that "phase-space volume" (a combined measure of the spread in positions and velocities) is conserved. As a result, errors in conserved quantities such as energy stay small over very long runs instead of growing steadily. <a href="../about/publications.html#arXiv-2405.05188">ContEvol</a>, my family of numerical methods, is nearly symplectic.</dd>
   <dt id="term-zeldovich">Zel'dovich approximation</dt>
   <dd>A simple model of how structure forms: Each bit of matter keeps moving in a straight line in the direction set by the early ripples, so that matter piles up where paths cross. It captures how the cosmic web begins.</dd>
 </dl>
@@ -94,7 +94,7 @@
 </main>
 <footer class="site">
   <p>Kaili Cao · Eric and Wendy Schmidt AI in Science Postdoctoral Fellow, Michigan Institute for Data and AI in Society, University of Michigan · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.9.1, last updated November 13, 2026.</p>
+  <p>Text written with AI assistance (Claude) and reviewed by Kaili Cao (<a href="../about/colophon.html">how this site is made</a>). Version 0.9.2, last updated November 14, 2026.</p>
 </footer>
 <script src="../assets/terms.js" defer></script>
 <script src="../assets/site.js" defer></script>

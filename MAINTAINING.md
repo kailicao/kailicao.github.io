@@ -41,7 +41,7 @@ Every English page has a Chinese page at the same path under `zh/`; the English 
   - `about/publications.html`: add the entry with your position and contribution; update the counts line
     and, if it is a highlight, the Highlights cards;
   - the research page it belongs to;
-  - the CV (`cv/`, then rebuild with `latexmk`; the PDFs are committed only at milestones, so that
+  - the CV (`cv/`, then rebuild with `latexmk`; the PDFs are committed only once there is a new first-author paper on arXiv (not a research note), so that
     their versions do not take much space), then check its layout: the short CV stays three pages
     and the résumé one, and no heading ends a page (`kccv.sty` keeps a heading off a page's last
     lines, `\bottomtitlespace`);
@@ -53,6 +53,8 @@ Every English page has a Chinese page at the same path under `zh/`; the English 
 ## At each release (several times a year)
 1. Footer of every page, in both languages: version and "last updated" date (all pages share one
    line; the checker reports versions that disagree, but not dates).
+   The CV's own date, on About in both languages ("updated <date>"), is not the release's: it is
+   the day the CV files were last committed, and changes only when they are (see the CV above).
 2. `sitemap.xml`: add or remove pages; update `<lastmod>` for changed pages. It also lists the
    MapHub viewer (`/maphub-public/`, from another repository; `tools/check_site.py` skips it), and
    Google Search Console reads it: after a release, it can be resubmitted there.

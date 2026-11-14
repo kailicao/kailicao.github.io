@@ -35,7 +35,7 @@
 <main>
 <p class="crumb"><a href="../index.html#research">研究</a> · 术语表</p>
 <h1>术语表</h1>
-<p class="lead">我的研究页面用到了不少术语，这里用浅显的语言逐一解释，供学生和其他领域的读者参考。每条解释都只要求读者具备入门的物理和微积分知识。</p>
+<p class="lead">我的研究页面用到了不少术语，这里用浅显的语言逐一解释，供学生和其他领域的读者参考。每条解释都只要求读者具备入门的物理知识。</p>
 <p>每个条目都给出了英文原词，方便对照阅读英文页面：点页面顶部的“English”可切换到同一页的英文版；英文页面中带下划线的术语，同样链接到英文术语表的对应条目。</p>
 <p>我对天文学的中文术语还不太熟悉，仍在学习之中，如有不妥之处，欢迎<a href="mailto:kailicao@umich.edu">指正</a>。不过，对于我研究中的一些关键概念，我尝试给出了自己觉得更贴切的译法，例如“<a href="#coadd">协加</a>”和“<a href="#first-dredge-up">第一型上涌</a>”；常见的译法也列在相应的条目中。</p>
 <p>跳转至：<a href="#images">图像与望远镜</a> · <a href="#cosmology">宇宙学</a> · <a href="#stars">恒星</a> · <a href="#abbreviations">缩写与学术用语</a></p>
@@ -65,7 +65,7 @@
   <dt id="nyquist">奈奎斯特—香农采样定理（Nyquist–Shannon sampling theorem）</dt>
   <dd>信号处理中的一个结论。任何信号（包括一颗恒星的图像）都可以写成一系列波长不同的波之和（即傅里叶级数）。如果其中最短的波长有一个下限，那么只要在这个最短波长内采样两次以上，就能准确地还原信号。如果采样比这更粗，精细的细节就会丢失，或者伪装成较粗的图样，这种现象称为混叠（aliasing）。<span class="seen">出现于：<a href="../research-images/image-reconstruction.html">图像重建</a>。</span></dd>
   <dt id="psf-leakage">PSF泄漏（PSF leakage）</dt>
-  <dd>重建图像的PSF偏离目标的程度：它是结果中取决于天空本身的偏差，而不是噪声。</dd>
+  <dd>重建图像的PSF偏离目标的程度：它是结果中的偏差，而不是噪声，来源于仪器和方法的不完美。</dd>
   <dt id="undersampled">欠采样、充分采样（undersampled，well-sampled）</dt>
   <dd>如果像素太粗，无法捕捉图像中最精细的细节（在这些细节的尺度上采样不到两次），图像就是欠采样的；如果像素足够精细，就是充分采样的。罗曼的单次曝光是欠采样的，重建后的图像则是充分采样的。<span class="seen">出现于：<a href="../research-images/image-reconstruction.html">图像重建</a>。</span></dd>
   <dt id="astrometry">天体测量（astrometry）</dt>
@@ -91,8 +91,6 @@
   <dd>不发光也不吸收光、但有引力的物质。宇宙中的物质大部分都是暗物质；弱引力透镜通过暗物质的引力直接测量暗物质。<span class="seen">出现于：<a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a>。</span></dd>
   <dt id="fisher">费希尔预测（Fisher forecast）</dt>
   <dd>一种快速的估计方法，用来估计一项实验能把某些参数测得多精确。它考察每个参数变化时，预测的测量值变化得有多快：变化越快，数据就越能把这个参数确定下来。它假定每个参数取值的概率在最佳值周围按钟形曲线（即高斯分布）下降。得名于统计学家Ronald Fisher。<span class="seen">出现于：<a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a>。</span></dd>
-  <dt id="redshift">红移（redshift）</dt>
-  <dd>光在传播途中，宇宙不断膨胀，光的波长因而被拉长，变得更红。星系离我们越远，红移就越高，所以红移既可以衡量距离，也可以衡量宇宙时间。<span class="seen">出现于：<a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a>。</span></dd>
   <dt id="redshift-bins">红移区间（redshift bins）</dt>
   <dd>把红移相近的星系分为一组：每组相当于不同距离上的一个切片，因而也对应宇宙历史上的不同时期。<span class="seen">出现于：<a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a>。</span></dd>
   <dt id="shear">剪切（shear）</dt>
@@ -112,7 +110,7 @@
   <dt id="prior">先验（prior）</dt>
   <dd>在看数据之前对某个参数所作的假定，例如来自其他实验的取值范围。“紧”的先验（tight priors）意味着很强的外部知识。<span class="seen">出现于：<a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a>。</span></dd>
   <dt id="symplectic">辛方法（symplectic method）</dt>
-  <dd>一种数值方法，用来追踪物体在引力等力作用下的运动。它的构造使每个时间步都遵守这类运动的几何结构（辛结构）；由此带来的一个结果是“相空间体积”守恒（相空间体积综合度量了位置和速度的弥散程度）。因此，即使计算很长时间，能量等守恒量的误差也始终很小，不会稳步增长。我提出的一族数值方法ContEvol近乎具有这种性质，即近乎“保辛”。<span class="seen">出现于：<a href="../research-cosmology/cosmological-simulations.html">宇宙学模拟</a>。</span></dd>
+  <dd>一种数值方法，用来追踪物体在引力等力作用下的运动。它的构造使每个时间步都遵守这类运动的几何结构（辛结构）；由此带来的一个结果是“相空间体积”守恒（相空间体积综合度量了位置和速度的弥散程度）。因此，即使计算很长时间，能量等守恒量的误差也始终很小，不会稳步增长。我提出的一族数值方法<a href="../about/publications.html#arXiv-2405.05188">ContEvol</a>近乎具有这种性质，即近乎“保辛”。<span class="seen">出现于：<a href="../research-cosmology/cosmological-simulations.html">宇宙学模拟</a>。</span></dd>
   <dt id="figure-of-merit">性能指标（figure of merit，FoM）</dt>
   <dd>用一个数概括一项实验对一组参数的约束有多精确；数值越大，误差棒越小。<span class="seen">出现于：<a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a>。</span></dd>
   <dt id="galaxy-cluster">星系团（galaxy cluster）</dt>
@@ -123,6 +121,8 @@
   <dd>目前的标准图景：宇宙从早期炽热、致密的状态（大爆炸）膨胀而来；它包含普通物质、冷（运动缓慢的）暗物质和暗能量（Λ，即宇宙学常数）；结构则是在引力作用下，由早期微小的涟漪逐渐长成的。少数几个宇宙学参数就能描述这一模型。<span class="seen">出现于：<a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a>。</span></dd>
   <dt id="cosmological-parameters">宇宙学参数（cosmological parameters）</dt>
   <dd>宇宙学标准模型中的少数几个参数，例如物质的多少和物质的成团程度。巡天力图精确地测量这些参数，并检验模型本身是否成立。<span class="seen">出现于：<a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a>。</span></dd>
+  <dt id="redshift">宇宙学红移（cosmological redshift）</dt>
+  <dd>光在传播途中，宇宙不断膨胀，光的波长因而被拉长，变得更红。星系离我们越远，红移就越高，所以红移既可以衡量距离，也可以衡量宇宙时间。<span class="seen">出现于：<a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a>。</span></dd>
   <dt id="simulation">宇宙学模拟（cosmological simulation）</dt>
   <dd>用计算机从早期宇宙一直算到今天，追踪物质（有时还包括气体和恒星）在引力作用下的运动。N体模拟用大量粒子来代表物质。<span class="seen">出现于：<a href="../research-cosmology/cosmological-simulations.html">宇宙学模拟</a>。</span></dd>
   <dt id="zeldovich">泽尔多维奇近似（Zel'dovich approximation）</dt>
@@ -132,8 +132,8 @@
 <section>
 <h2 id="stars">恒星</h2>
 <dl class="glossary">
-  <dt id="scaling-relations">标度关系（scaling relations）</dt>
-  <dd>一些简单的公式，以太阳为参照，由ν<sub>max</sub>、Δν和恒星的表面温度推算出恒星的质量和半径。它们效果很好，但需要校准和校正。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>。</span></dd>
+  <dt id="alpha-enhancement">α元素增丰（α-enhancement）</dt>
+  <dd>恒星中α元素（如氧、镁、硅）相对于铁的含量高于太阳。这一特征继承自恒星诞生时的气体：在星系历史的早期，气体主要由大质量恒星的爆发增丰，它们产生α元素，而其他超新星还没来得及加入大量的铁，所以α元素增丰的恒星往往比较年老（见<a href="glossary.html#alpha-rich">富α星族</a>）。<span class="seen">出现于：<a href="../about/research.html">研究方向</a>、<a href="../research-stars/stellar-modeling.html">恒星建模</a>。</span></dd>
   <dt id="surface-gravity">表面重力log g（surface gravity）</dt>
   <dd>恒星表面的引力加速度，<math alttext="g = GM/R²"><mi>g</mi><mo>=</mo><mi>G</mi><mi>M</mi><mo>/</mo><msup><mi>R</mi><mn>2</mn></msup></math>。天文学家通常给出log g，即以cm/s²为单位的g取以10为底的对数。太阳的log g为4.44（约27000 cm/s²，是地球的28倍）；观测到的红巨星大多在1到3.5之间。<span class="seen">出现于：<a href="../research-stars/stellar-modeling.html">恒星建模</a>、<a href="../research-stars/asteroseismology.html">星震学</a>。</span></dd>
   <dt id="delta-nu">大频率间隔Δν（large frequency separation）</dt>
@@ -147,7 +147,7 @@
   <dt id="fourier">傅里叶变换（Fourier transform）</dt>
   <dd>一种数学工具，把随时间变化的信号分解为它所包含的各个频率。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>。</span></dd>
   <dt id="alpha-rich">富α星族（α-rich population）</dt>
-  <dd>“α元素”相对于铁的含量比太阳高的恒星。α元素包括氧、镁、硅等，是恒星通过不断添加氦原子核（即α粒子）合成的。这些恒星形成于银河系历史的早期，所以大多比较年老。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>、<a href="../research-stars/stellar-modeling.html">恒星建模</a>。</span></dd>
+  <dd>“α元素”相对于铁的含量比太阳高的恒星。α元素包括氧、镁、硅等，是恒星通过不断添加氦-4原子核（即α粒子）合成的。这些恒星形成于银河系历史的早期，所以大多比较年老。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>、<a href="../research-stars/stellar-modeling.html">恒星建模</a>。</span></dd>
   <dt id="gaia">Gaia</dt>
   <dd>欧洲空间局的一项任务（2013年至2025年），测量了十亿多颗恒星的位置、距离和运动。知道了距离，就能把恒星的视亮度换算成它的光度（真正的发光本领）；再结合光度和温度，就能得到它的半径，而且不依赖于星震学。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>。</span></dd>
   <dt id="light-curve">光变曲线（light curve）</dt>
@@ -163,9 +163,13 @@
   <dt id="metallicity">金属丰度（metallicity）</dt>
   <dd>恒星物质中比氦重的元素所占的比例（在天文学家看来，这些元素都是“金属”），通常以太阳为参照、取对数表示。<span class="seen">出现于：<a href="../research-stars/stellar-modeling.html">恒星建模</a>。</span></dd>
   <dt id="kepler">开普勒空间望远镜（Kepler）</dt>
-  <dd>NASA的一台空间望远镜（2009年至2018年）。在主任务期间（2009年至2013年），它几乎不间断地测量了约15万颗恒星的亮度，前后长达四年，主要目的是寻找行星。它的光变曲线还揭示了数千颗红巨星的振荡。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>、<a href="../research-stars/stellar-modeling.html">恒星建模</a>。</span></dd>
+  <dd>NASA的一台空间望远镜（2009年至2018年）。在主任务期间（2009年至2013年），它几乎不间断地测量了约15万颗恒星的亮度，前后长达四年，主要目的是寻找行星。它的光变曲线还揭示了数以千计的红巨星的振荡。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>、<a href="../research-stars/stellar-modeling.html">恒星建模</a>。</span></dd>
   <dt id="cn">碳氮比[C/N]</dt>
   <dd>恒星表面碳与氮之比相对于太阳的值，取对数表示：<math alttext="[C/N] = −0.2"><mo>[</mo><mi mathvariant="normal">C</mi><mo>/</mo><mi mathvariant="normal">N</mi><mo>]</mo><mo>=</mo><mo>−</mo><mn>0.2</mn></math>意味着这个比值是太阳的<math alttext="10^−0.2 ≈ 0.63"><msup><mn>10</mn><mrow><mo>−</mo><mn>0.2</mn></mrow></msup><mo>≈</mo><mn>0.63</mn></math>倍。第一型上涌会降低这个比值，所以它可以衡量混合作用深入到了什么程度。<span class="seen">出现于：<a href="../research-stars/stellar-modeling.html">恒星建模</a>。</span></dd>
+  <dt id="asteroseismology">星震学（asteroseismology）</dt>
+  <dd>通过恒星振荡的频率研究恒星内部的学科。声波在恒星内部传播，因此振荡频率取决于恒星的内部结构，就像钟的音调取决于它的大小和形状。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>。</span></dd>
+  <dt id="scaling-relations">星震学标度关系（asteroseismic scaling relations）</dt>
+  <dd>一些简单的公式，以太阳为参照，由ν<sub>max</sub>、Δν和恒星的表面温度推算出恒星的质量和半径。它们效果很好，但需要校准和校正。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>。</span></dd>
   <dt id="galactic-archaeology">银河考古学（Galactic archaeology）</dt>
   <dd>根据银河系中恒星的年龄、化学成分和运动，重建银河系的历史。<span class="seen">出现于：<a href="../research-stars/asteroseismology.html">星震学</a>。</span></dd>
   <dt id="power-spectrum">振荡功率谱（power spectrum of oscillations）</dt>
@@ -184,38 +188,38 @@
   <dt id="apogee">APOGEE</dt>
   <dd>阿帕奇点天文台银河系演化实验（Apache Point Observatory Galactic Evolution Experiment），斯隆数字巡天中的一项巡天。它拍摄了数十万颗恒星的红外光谱，测量它们的温度和化学组成。</dd>
   <dt id="apokasc">APOKASC-3</dt>
-  <dd>把APOGEE光谱学和开普勒星震学结合起来的星表，收录了一万五千多颗已离开主序的演化恒星，大多是红巨星。“3”表示第三版。</dd>
+  <dd>把APOGEE光谱学和开普勒星震学结合起来的星表，收录了一万五千多颗已离开主序的演化恒星，大多是红巨星。“3”表示第三版。详见<a href="../research-stars/stellar-modeling.html">恒星建模</a>。</dd>
   <dt id="arxiv">arXiv</dt>
   <dd>物理学和天文学论文的免费在线预印本库。论文通常在期刊审稿之前或审稿期间就发布在这里；天文论文在astro-ph分类下。</dd>
   <dt id="hack">编程实践活动（hack session，hack week）</dt>
   <dd>为期几小时到一周的短期活动，大家一起写代码或处理数据，常常也帮新人上手。</dd>
   <dt id="wfst">大视场科学团队（Wide-Field Science Team）</dt>
-  <dd>NASA遴选的若干团队之一，任务是利用罗曼空间望远镜的大视场巡天，为某一方面的科学研究做准备。</dd>
+  <dd>NASA遴选的若干团队之一，任务是利用罗曼空间望远镜的大视场巡天，为某一方面的科学研究做准备。我所在的团队为罗曼的星震学研究做准备，见<a href="../research-stars/asteroseismology.html">星震学</a>。</dd>
   <dt id="doi">DOI</dt>
   <dd>数字对象标识符（Digital Object Identifier），指向已发表论文的永久链接；即使期刊网站改版，它也依然有效。</dd>
   <dt id="fellowship">独立博士后、项目博士后（postdoctoral fellowship，project postdoc）</dt>
-  <dd>博士后（postdoc）是博士毕业后的临时研究职位，通常为期两到三年。独立博士后（fellowship）通过公开竞争获得，通常自带经费，可以自选研究课题；项目博士后则受雇于某个已获资助的具体项目。这里fellowship不是指给学生的奖学金。</dd>
+  <dd>博士后（postdoc）是博士毕业后的临时研究职位，通常为期两到三年。独立博士后（fellowship）通过公开竞争获得，通常自带经费，可以自选研究课题；项目博士后则受雇于某个已获资助的具体项目。这里fellowship不是指给学生的奖学金。详见<a href="../opinions/career.html">职业发展</a>。</dd>
   <dt id="hlwas">HLWAS、HLIS</dt>
-  <dd>高纬度广域巡天（High-Latitude Wide-Area Survey），罗曼空间望远镜的核心巡天之一，将对远离银盘的大片天区成像并拍摄光谱。其成像部分为高纬度成像巡天（High Latitude Imaging Survey，HLIS），“Roman HLIS Cosmology PIT”等团队名称用的就是这个名字。</dd>
+  <dd>高纬度广域巡天（High-Latitude Wide-Area Survey），罗曼空间望远镜的核心巡天之一，将对远离银盘的大片天区成像并拍摄光谱。其成像部分为高纬度成像巡天（High Latitude Imaging Survey，HLIS），“Roman HLIS Cosmology PIT”等团队名称用的就是这个名字。详见<a href="../research-cosmology/">宇宙学</a>。</dd>
   <dt id="midas">MIDAS</dt>
   <dd>密歇根大学数据、人工智能与社会研究院（Michigan Institute for Data and AI in Society），密歇根大学的数据科学与人工智能研究机构，也是那里的施密特“科学中的人工智能”博士后研究员所在的单位。</dd>
   <dt id="orcid">ORCID</dt>
   <dd>研究者免费、永久的身份编号（我的是0000-0002-1699-6944），用来区分同名的研究者。</dd>
   <dt id="carpentry">手作小项目（carpentry）</dt>
-  <dd>施密特“科学中的人工智能”博士后项目中用AI完成的小项目。MapHub就是其中之一。</dd>
+  <dd>施密特“科学中的人工智能”博士后项目中用AI完成的小项目。<a href="maphub.html">MapHub</a>就是其中之一。</dd>
   <dt id="data-challenge">数据挑战（data challenge）</dt>
-  <dd>一种团队练习：所有人分析同一套模拟数据，以便在真实数据到来之前检验分析管线。</dd>
+  <dd>一种团队练习：所有人分析同一套模拟数据，以便在真实数据到来之前检验分析管线。实例见<a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a>。</dd>
   <dt id="astrophysics">天文物理（astrophysics）</dt>
   <dd>本站把astrophysics译作“天文物理”。通行的译名是“天体物理”；这里换一种说法，是因为宇宙学研究的对象有时不是某个具体的天体。已有通行译名的名称照常使用，如“NASA天体物理数据系统”。</dd>
   <dt id="pit">项目基础设施团队（Project Infrastructure Team，PIT）</dt>
-  <dd>NASA遴选的若干团队之一，任务是在发射前为罗曼空间望远镜的巡天开发软件和分析工具。</dd>
+  <dd>NASA遴选的若干团队之一，任务是在发射前为罗曼空间望远镜的巡天开发软件和分析工具。我所在的团队如何推断宇宙学参数，见<a href="../research-cosmology/cosmological-inference.html">宇宙学推断</a>。</dd>
 </dl>
 </section>
 <p>有术语没收录，或者哪条解释没说清楚？欢迎<a href="mailto:kailicao@umich.edu">告诉我</a>。</p>
 </main>
 <footer class="site">
   <p>曹开力 · 密歇根大学数据、人工智能与社会研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.1，最后更新于2026年11月13日。</p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.2，最后更新于2026年11月14日。</p>
 </footer>
 <script src="../../assets/site.js" defer></script>
 </body>

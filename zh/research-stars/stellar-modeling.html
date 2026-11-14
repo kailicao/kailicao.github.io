@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>恒星建模 · 曹开力</title>
-<meta name="description" content="用APOKASC-3中数千颗红巨星检验恒星演化模型：第一型上涌、红巨星分支簸动与锂。">
+<meta name="description" content="用APOKASC-3中数以千计的红巨星检验恒星演化模型：第一型上涌、红巨星分支簸动与锂。">
 <link rel="alternate" hreflang="en" href="https://kailicao.github.io/research-stars/stellar-modeling.html">
 <link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/research-stars/stellar-modeling.html">
 <link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/research-stars/stellar-modeling.html">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kaili Cao">
 <meta property="og:title" content="恒星建模 · 曹开力">
-<meta property="og:description" content="用APOKASC-3中数千颗红巨星检验恒星演化模型：第一型上涌、红巨星分支簸动与锂。">
+<meta property="og:description" content="用APOKASC-3中数以千计的红巨星检验恒星演化模型：第一型上涌、红巨星分支簸动与锂。">
 <meta property="og:url" content="https://kailicao.github.io/zh/research-stars/stellar-modeling.html">
 <meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
@@ -35,17 +35,17 @@
 </header>
 <main id="main"><p class="crumb"><a href="./">恒星</a> · 恒星建模</p>
 <h1>恒星建模</h1>
-<p class="lead">用数千颗<a href="https://zh.wikipedia.org/zh-cn/紅巨星">红巨星</a>的观测数据检验恒星演化模型。</p>
+<p class="lead">用数以千计的<a href="https://zh.wikipedia.org/zh-cn/紅巨星">红巨星</a>的观测数据检验恒星演化模型。</p>
 <section id="in-brief">
 <h2>简介</h2>
 <p>测量恒星的意义远不止于恒星物理本身：它们的年龄揭示了银河系的过去，它们的质量和大小则为天文学中的许多测量提供校准。但我们既看不到恒星内部，也无法目睹它变老，所以恒星的年龄和质量要靠<a class="term" href="../research-ai/glossary.html#stellar-model">恒星结构与演化模型</a>（stellar model）来推算。这类模型是计算机程序：它们求解描述恒星内部的方程（涉及引力、压强、能量输运和核聚变），追踪恒星随年龄增长而发生的变化。</p>
 <p>太阳在核心将氢聚变为氦，至今已有约46亿年；再过约50亿年，它的核心将耗尽氢。届时核心会收缩，氢会在核心外的壳层中继续聚变，外层则会膨胀：太阳将变成一颗<a class="term" href="../research-ai/glossary.html#red-giant">红巨星</a>（red giant），表面温度更低，光度却高得多（见图）。</p>
-<p>如今的大型巡天已经测量了数千颗红巨星：从光谱中得到它们的温度和表面化学成分，还测到了它们的振荡（见<a href="asteroseismology.html">星震学</a>）。有了这些数据，我们就能细致地检验这一演化阶段的模型。其中有两个事件尤其能说明问题。</p>
+<p>如今的大型巡天已经测量了数以千计的红巨星：从光谱中得到它们的温度和表面化学成分，还测到了它们的振荡（见<a href="asteroseismology.html">星震学</a>）。有了这些数据，我们就能细致地检验这一演化阶段的模型。其中有两个事件尤其能说明问题。</p>
 <ul>
   <li>在<a class="term" href="../research-ai/glossary.html#first-dredge-up">第一型上涌</a>（first dredge-up）中，恒星的外层受<a class="term" href="../research-ai/glossary.html#convection">对流</a>（convection）搅动（热气体上升、冷气体下沉，就像炉子上正在加热的一锅水）。这一外层向内延伸得足够深，把经过核反应加工的物质带到表面。于是表面的化学成分发生变化，例如碳与氮的比值会改变，而光谱可以测出这种变化。</li>
   <li>之后，氢燃烧壳层向外推移，到达表面对流层当年延伸到的最深处——那里留下了化学成分的突变。壳层在那里突然遇到氢含量更高的燃料，恒星的亮度反而短暂下降，然后再次上升。由于每颗恒星都会三次经过这一亮度（上升、下降、再上升），在这一亮度上看到的恒星也就更多：这就是<a class="term" href="../research-ai/glossary.html#rgb-bump">红巨星分支簸动</a>（red giant branch bump）。</li>
 </ul>
-<p>模型能预测每个事件发生的位置，因此把模型与观测相比较，就能检验恒星深处的物理过程。我的工作就是对数千颗红巨星作这样的比较（见下文）。</p>
+<p>模型能预测每个事件发生的位置，因此把模型与观测相比较，就能检验恒星深处的物理过程。我的工作就是对数以千计的红巨星作这样的比较（见下文）。</p>
 <figure class="fig" id="fig-red-giant-path">
 <svg viewBox="0 0 440 260" role="img" aria-label="示意图：光度与表面温度的关系。现在的太阳位于主序上；它未来的路径先向右移向较低的温度，然后沿红巨星分支陡然上升。上升段底部附近标出了第一型上涌，更高处的一小段折线标出了红巨星分支簸动。">
 <line class="axis" x1="50" y1="220" x2="420" y2="220"/><line class="axis" x1="50" y1="220" x2="50" y2="20"/>
@@ -68,12 +68,12 @@
 </section>
 <section>
 <h2>我的工作</h2>
-<p>我们把用<a href="https://docs.mesastar.org/">MESA</a>计算的恒星模型与<a href="../about/publications.html#arXiv-2410.00102">APOKASC-3</a>作了比较；APOKASC-3是<a href="https://science.nasa.gov/mission/kepler/">开普勒</a>视场中红巨星的光谱与星震学联合星表（<a href="../about/publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>；<a href="https://github.com/kailicao/mesa_apokasc">代码</a>、<a href="https://zenodo.org/records/15863879">MESA inlist文件</a>）。两个特征的观测位置都与模型预测有所偏移，不过<a class="term" href="../research-ai/glossary.html#cn">[C/N]</a>的偏移没有超出丰度测量的系统不确定度。在第一型上涌中，观测到的[C/N]变化比预测小约0.16 <a class="term" href="../research-ai/glossary.html#dex">dex</a>；观测到的簸动所在的<a class="term" href="../research-ai/glossary.html#surface-gravity">表面重力</a>（surface gravity）则比预测高约0.15 dex（约1.4倍）。已有研究提出用包层下冲（envelope undershooting，即让表面对流层的混合比标准模型向下延伸得更深）来修正簸动的偏移；但这一方案也会让<a class="term" href="../research-ai/glossary.html#metallicity">金属丰度</a>（metallicity）较高的恒星在第一型上涌期间破坏更多的锂，与<a href="https://www.galah-survey.org/">GALAH</a>光谱巡天的观测结果存在矛盾。因此，我们用锂对这一方案提出了质疑，并建议把锂作为检验这两个特征的灵敏手段。</p>
+<p>我们把用<a href="https://docs.mesastar.org/">MESA</a>计算的恒星模型与<a href="../about/publications.html#arXiv-2410.00102">APOKASC-3</a>作了比较；APOKASC-3是<a href="https://science.nasa.gov/mission/kepler/">开普勒</a>视场中红巨星的光谱与星震学联合星表（<a href="../about/publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>；<a href="https://github.com/kailicao/mesa_apokasc">代码</a>、<a href="https://zenodo.org/records/15863879">MESA inlist文件</a>）。两个特征的观测位置都与模型预测有所偏移，不过<a class="term" href="../research-ai/glossary.html#cn">[C/N]</a>的偏移没有超出丰度测量的系统不确定度。在第一型上涌中，观测到的[C/N]变化比预测小约0.16 <a class="term" href="../research-ai/glossary.html#dex">dex</a>；观测到的簸动所在的<a class="term" href="../research-ai/glossary.html#surface-gravity">表面重力</a>（surface gravity）则比预测高约0.15 dex，即约为预测值的1.4倍。已有研究提出用包层下冲（envelope undershooting，即让表面对流层的混合比标准模型向下延伸得更深）来修正簸动的偏移；但这一方案也会让<a class="term" href="../research-ai/glossary.html#metallicity">金属丰度</a>（metallicity）较高的恒星在第一型上涌期间破坏更多的锂，与<a href="https://www.galah-survey.org/">GALAH</a>光谱巡天的观测结果存在矛盾。因此，我们用锂对这一方案提出了质疑，并建议把锂作为检验这两个特征的灵敏手段。</p>
 <figure class="fig" id="fig-apokasc3-kiel">
 <img src="../../assets/highlights/apokasc3-fig2.png" width="1000" height="364" loading="lazy" alt="两幅子图：在几种金属丰度和质量下，表面[C/N]的预测变化沿红巨星分支随表面重力的变化；图中标出了第一型上涌的结束点和红巨星分支簸动的中心。">
 <figcaption>沿红巨星分支，表面[C/N]的预测变化（左图对应几种金属丰度，右图对应几种质量）：这一变化在第一型上涌结束时（叉号）就已趋于稳定，远早于红巨星分支簸动（加号）。<a href="../about/publications.html#arXiv-2501.14867">Cao and Pinsonneault 2026</a>的图2，<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。</figcaption>
 </figure>
-<p>基于使用MESA积累的经验，我还参与了<a href="https://github.com/yreclab/yrec">耶鲁旋转演化代码</a>（YREC）的维护和现代化改造，也是其公开数据发布论文的合作作者之一。</p>
+<p>基于使用MESA积累的经验，我还参与了<a href="https://github.com/yreclab/yrec">耶鲁旋转演化代码</a>（YREC）的维护和现代化改造，也是其公开数据发布论文的合作作者之一。借助AI，我还在为YREC的代码编写导览，并着手把它翻译成Python：<a href="https://kailicao.github.io/pyrec-map/">pyrec-map</a>，由AI起草，我正在审阅。</p>
 </section>
 <section><h2>论文</h2>
 <h3>第一作者论文</h3>
@@ -91,12 +91,12 @@
 </ul></section>
 <section>
 <h2>下一步</h2>
-<p>接下来有两篇后续论文，分别研究红巨星分支上的质量损失，以及恒星初始化学成分中的α元素增丰；此外还有正在进行的YREC全面改造（见<a href="../about/research.html">研究方向</a>）。</p>
+<p>接下来有两篇后续论文，分别研究红巨星分支上的质量损失，以及恒星初始化学成分中的<a class="term" href="../research-ai/glossary.html#alpha-enhancement">α元素增丰</a>；此外还有正在进行的YREC全面改造（见<a href="../about/research.html">研究方向</a>）。</p>
 <p>这些工作在我未来几年计划中的位置，见<a href="../about/research.html">研究方向</a>。</p>
 </section>
 <!-- terms:start -->
 <details class="terms-box" id="terms">
-<summary>本页术语（11）</summary>
+<summary>本页术语（12）</summary>
 <dl class="glossary">
   <dt id="term-stellar-model">恒星模型（stellar model）</dt>
   <dd>用计算机求解恒星结构方程（涉及引力、压强、能量输运和核反应）得到的解，并沿时间推进，追踪恒星的演化。MESA、YREC等程序可以计算恒星模型。</dd>
@@ -120,6 +120,8 @@
   <dd>恒星表面的引力加速度，<math alttext="g = GM/R²"><mi>g</mi><mo>=</mo><mi>G</mi><mi>M</mi><mo>/</mo><msup><mi>R</mi><mn>2</mn></msup></math>。天文学家通常给出log g，即以cm/s²为单位的g取以10为底的对数。太阳的log g为4.44（约27000 cm/s²，是地球的28倍）；观测到的红巨星大多在1到3.5之间。</dd>
   <dt id="term-metallicity">金属丰度（metallicity）</dt>
   <dd>恒星物质中比氦重的元素所占的比例（在天文学家看来，这些元素都是“金属”），通常以太阳为参照、取对数表示。</dd>
+  <dt id="term-alpha-enhancement">α元素增丰（α-enhancement）</dt>
+  <dd>恒星中α元素（如氧、镁、硅）相对于铁的含量高于太阳。这一特征继承自恒星诞生时的气体：在星系历史的早期，气体主要由大质量恒星的爆发增丰，它们产生α元素，而其他超新星还没来得及加入大量的铁，所以α元素增丰的恒星往往比较年老（见<a href="../research-ai/glossary.html#alpha-rich">富α星族</a>）。</dd>
 </dl>
 <p><a href="../research-ai/glossary.html">查看完整术语表</a></p>
 </details>
@@ -127,7 +129,7 @@
 </main>
 <footer class="site">
   <p>曹开力 · 密歇根大学数据、人工智能与社会研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.1，最后更新于2026年11月13日。</p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.2，最后更新于2026年11月14日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>

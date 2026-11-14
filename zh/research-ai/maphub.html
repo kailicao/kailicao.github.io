@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MapHub · 曹开力</title>
-<meta name="description" content="MapHub（MIDAS arXiv预印本中心）：每天给arXiv新预印本打分，衡量它们与一个学术共同体中每位成员的相关程度，由曹开力主持。">
+<meta name="description" content="MapHub（MIDAS arXiv预印本中心）：每天评估arXiv新预印本与一个学术社群中每位成员的相关程度，由曹开力主持。">
 <link rel="alternate" hreflang="en" href="https://kailicao.github.io/research-ai/maphub.html">
 <link rel="alternate" hreflang="zh-CN" href="https://kailicao.github.io/zh/research-ai/maphub.html">
 <link rel="alternate" hreflang="x-default" href="https://kailicao.github.io/research-ai/maphub.html">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kaili Cao">
 <meta property="og:title" content="MapHub · 曹开力">
-<meta property="og:description" content="MapHub（MIDAS arXiv预印本中心）：每天给arXiv新预印本打分，衡量它们与一个学术共同体中每位成员的相关程度，由曹开力主持。">
+<meta property="og:description" content="MapHub（MIDAS arXiv预印本中心）：每天评估arXiv新预印本与一个学术社群中每位成员的相关程度，由曹开力主持。">
 <meta property="og:url" content="https://kailicao.github.io/zh/research-ai/maphub.html">
 <meta property="og:image" content="https://kailicao.github.io/assets/og-card.png">
 <meta property="og:image:width" content="1200">
@@ -36,11 +36,11 @@
 <main id="main">
 <p class="crumb"><a href="./">科学中的人工智能</a> · MapHub</p>
 <h1>MapHub</h1>
-<p class="lead">每天给arXiv新预印本打分，衡量它们与一个学术共同体中每位成员的相关程度，公开、可以核查。</p>
+<p class="lead">每天评估arXiv新预印本与一个学术社群中每位成员的相关程度，公开、可以核查。</p>
 <section id="in-brief">
   <h2>简介</h2>
   <p class="logo-right"><a href="https://kailicao.github.io/maphub-public/"><img src="../../assets/figures/maphub-logo.svg" width="88" height="88" alt="MapHub标志：由深浅不一的蓝色方块组成的三乘三网格，中心是一个黄色方块，像一张小小的热图。"></a></p>
-  <p>MIDAS的<a class="term" href="../research-ai/glossary.html#arxiv">arXiv</a>预印本中心<a href="https://kailicao.github.io/maphub-public/">MapHub</a>，是我在密歇根大学数据、人工智能与社会研究院（Michigan Institute for Data and AI in Society，<a class="term" href="../research-ai/glossary.html#midas">MIDAS</a>）的<a href="https://midas.umich.edu/training/postdoctoral-programs/schmidt-ai-in-science-postdoctoral-fellowship/">施密特“科学中的人工智能”博士后项目</a>的第一项交付成果。这是该博士后项目中的一个<a class="term" href="../research-ai/glossary.html#carpentry">手作小项目</a>（carpentry，用AI完成），由我负责，队友有Kyle Heyblom、Eva Albalghiti和Dimitrios Simatos；评分程序和网页浏览界面由我借助AI（<a href="https://claude.com/product/claude-code">Claude Code</a>）设计并搭建。每位参与者自己撰写一份简短的研究简介；从2026年10月起，MapHub据此每天为天文物理和AI领域新发布的arXiv预印本评分，衡量它们与每位参与者的相关程度，并以热图展示评分结果：选中自己，就能看到与你最相关的论文；选中一篇论文，就能看到谁最有可能解答关于它的问题。评分由一个大语言模型依照固定的评分标准给出；除了这个模型，其余一切都是公开的：<a href="https://github.com/kailicao/maphub-public#scoring-rubric">评分标准</a>、代码和每日表格，而且每个分数都标明由AI生成。模型的推理过程也许不透明，但MapHub交付的成果可以核查。任何人都可以按照<a href="https://github.com/kailicao/maphub-public#run-your-own-maphub">说明</a>，为其他arXiv列表搭建自己的MapHub。</p>
+  <p>MIDAS的<a class="term" href="../research-ai/glossary.html#arxiv">arXiv</a>预印本中心<a href="https://kailicao.github.io/maphub-public/">MapHub</a>，是我在密歇根大学数据、人工智能与社会研究院（Michigan Institute for Data and AI in Society，<a class="term" href="../research-ai/glossary.html#midas">MIDAS</a>）的<a href="https://midas.umich.edu/training/postdoctoral-programs/schmidt-ai-in-science-postdoctoral-fellowship/">施密特“科学中的人工智能”博士后项目</a>的第一项交付成果。这是该博士后项目中的一个<a class="term" href="../research-ai/glossary.html#carpentry">手作小项目</a>（carpentry，用AI完成），由我负责，队友有Kyle Heyblom、Eva Albalghiti和Dimitrios Simatos；评分程序和网页浏览界面由我借助AI（<a href="https://claude.com/product/claude-code">Claude Code</a>）设计并搭建。每位参与者自己撰写一份简短的研究简介；从2026年10月起，MapHub据此每天评估天文物理和AI领域新发布的arXiv预印本与每位参与者的相关程度，并以热图展示评分结果：选中自己，就能看到与你最相关的论文；选中一篇论文，就能看到谁最有可能解答关于它的问题。评分由一个大语言模型依照固定的评分标准给出；除了这个模型，其余一切都是公开的：<a href="https://github.com/kailicao/maphub-public#scoring-rubric">评分标准</a>、代码和每日表格，而且每个分数都标明由AI生成。模型的推理过程也许不透明，但MapHub交付的成果可以核查。任何人都可以按照<a href="https://github.com/kailicao/maphub-public#run-your-own-maphub">说明</a>，为其他arXiv列表搭建自己的MapHub。</p>
 </section>
 <section id="next">
   <h2>下一步</h2>
@@ -55,7 +55,7 @@
   <dt id="term-midas">MIDAS</dt>
   <dd>密歇根大学数据、人工智能与社会研究院（Michigan Institute for Data and AI in Society），密歇根大学的数据科学与人工智能研究机构，也是那里的施密特“科学中的人工智能”博士后研究员所在的单位。</dd>
   <dt id="term-carpentry">手作小项目（carpentry）</dt>
-  <dd>施密特“科学中的人工智能”博士后项目中用AI完成的小项目。MapHub就是其中之一。</dd>
+  <dd>施密特“科学中的人工智能”博士后项目中用AI完成的小项目。<a href="maphub.html">MapHub</a>就是其中之一。</dd>
 </dl>
 <p><a href="glossary.html">查看完整术语表</a></p>
 </details>
@@ -63,7 +63,7 @@
 </main>
 <footer class="site">
   <p>曹开力 · 密歇根大学数据、人工智能与社会研究院（MIDAS） 埃里克与温迪·施密特“科学中的人工智能”博士后研究员 · <a href="mailto:kailicao@umich.edu">kailicao@umich.edu</a> · ORCID <a href="https://orcid.org/0000-0002-1699-6944">0000-0002-1699-6944</a></p>
-  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.1，最后更新于2026年11月13日。</p>
+  <p>文字借助AI（Claude）撰写和翻译，由曹开力审阅（见<a href="../about/colophon.html">本站的制作</a>）。版本0.9.2，最后更新于2026年11月14日。</p>
 </footer>
 <script src="../../assets/terms.js" defer></script>
 <script src="../../assets/site.js" defer></script>
